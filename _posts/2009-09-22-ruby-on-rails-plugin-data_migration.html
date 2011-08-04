@@ -5,16 +5,15 @@ categories:
 - Ruby
 - Ruby on Rails
 ---
+<p>data_migration allows you to separate data you need to load from your normal database migrations in a minimal way. While developing the new version of our flagship site, <a href="http://www.knetwit.com">Knetwit</a>, we decided we needed to separate our data migrations (initial settings and the like) from our structural migrations. We decided the easiest way to do this was to modify the existing Rails migration to allow for a new data migration. So we did.</p>
 
-data_migration allows you to separate data you need to load from your normal database migrations in a minimal way. While developing the new version of our flagship site, <a href="http://www.knetwit.com">Knetwit</a>, we decided we needed to separate our data migrations (initial settings and the like) from our structural migrations. We decided the easiest way to do this was to modify the existing Rails migration to allow for a new data migration. So we did.
-<!-- -**-END-**- -->
-Install Plugin
+<h3>Install Plugin</h3>
 
 {% highlight ruby %} 
   script/plugin install git://github.com/handerson/data_migration.git
 {% endhighlight %}
 
-Generate Migration
+<h3>Generate Migration</h3>
 
 {% highlight ruby %} 
   script/generate data_migration BlockedDomains 
@@ -25,7 +24,7 @@ Generate Migration
   create  db/data/20090915161242_settings.rb[/sourcecode]
 {% endhighlight %}
 
-db/data/20090915161242_settings.rb:
+<p>db/data/20090915161242_settings.rb:</p>
 
 {% highlight ruby %} 
   class BlockedDomains &lt; ActiveRecord::Migration
@@ -34,7 +33,7 @@ db/data/20090915161242_settings.rb:
   end
 {% endhighlight %}
 
-Add your data:
+<p>Add your data:</p>
 
 {% highlight ruby %} 
   def self.up
@@ -44,7 +43,7 @@ Add your data:
   end
 {% endhighlight %}
 
-Run Migration
+<h3>Run Migration</h3>
 
 {% highlight ruby %}
   rake db:data:migrate
@@ -55,7 +54,7 @@ Run Migration
   ==  BlockedDomains: migrated (0.0020s) ==================================================
 {% endhighlight %}
 
-db:data:migrate adds the data migration version number to the 'schema_migrations' table so it will not be ran again.
+<p>db:data:migrate adds the data migration version number to the 'schema_migrations' table so it will not be ran again.</p>
 
-Code at Github:
-<a href="http://github.com/handerson/data_migration">http://github.com/handerson/data_migration</a>
+<p>Code at Github:<br/>
+<a href="http://github.com/handerson/data_migration">http://github.com/handerson/data_migration</a></p>

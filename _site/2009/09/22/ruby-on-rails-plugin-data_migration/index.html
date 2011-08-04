@@ -2,10 +2,6 @@
 <html lang="en" class="no-js">
 <head>
 	<meta charset="UTF-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-	
-	<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
 
 <title>Ruby on Rails Plugin: data_migration</title>
 
@@ -50,35 +46,38 @@
 		</ul>
   </div>
 </div> <!-- end #page_menu -->
-
-
-<!-- Facebook Badge START --><a href="https://www.facebook.com/heathanderson" target="_TOP" title="Heath Anderson" class="fbBadge"><img src="https://badge.facebook.com/badge/156802635.1.1116055767.png" style="border: 0px;" /></a><!-- Facebook Badge END -->
-
-<div id="rssTop" class="small">
-  Subsribe to the <a href="/atom.xml">RSS feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a>        </div>
 		</header>
 
 		<div id="main" role="main">
       <h1>Ruby on Rails Plugin: data_migration</h1> 
 <div class="small">Tuesday, September 22, 2009</div>
 
-<p>data_migration allows you to separate data you need to load from your normal database migrations in a minimal way. While developing the new version of our flagship site, <a href="http://www.knetwit.com">Knetwit</a>, we decided we needed to separate our data migrations (initial settings and the like) from our structural migrations. We decided the easiest way to do this was to modify the existing Rails migration to allow for a new data migration. So we did.<br />
-<!-- -**-END-**- --><br />
-Install Plugin</p>
+<p>data_migration allows you to separate data you need to load from your normal database migrations in a minimal way. While developing the new version of our flagship site, <a href="http://www.knetwit.com">Knetwit</a>, we decided we needed to separate our data migrations (initial settings and the like) from our structural migrations. We decided the easiest way to do this was to modify the existing Rails migration to allow for a new data migration. So we did.</p>
+
+<h3>Install Plugin</h3>
+
 <div class="highlight"><pre><code class="ruby"> 
   <span class="n">script</span><span class="o">/</span><span class="n">plugin</span> <span class="n">install</span> <span class="n">git</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">handerson</span><span class="o">/</span><span class="n">data_migration</span><span class="o">.</span><span class="n">git</span>
 </code></pre>
 </div>
-<p>Generate Migration</p>
+
+
+<h3>Generate Migration</h3>
+
 <div class="highlight"><pre><code class="ruby"> 
   <span class="n">script</span><span class="o">/</span><span class="n">generate</span> <span class="n">data_migration</span> <span class="no">BlockedDomains</span> 
 </code></pre>
 </div>
+
+
 <div class="highlight"><pre><code class="ruby">  <span class="n">exists</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span>
   <span class="n">create</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="mi">20090915161242</span><span class="n">_settings</span><span class="o">.</span><span class="n">rb</span><span class="o">[/</span><span class="n">sourcecode</span><span class="o">]</span>
 </code></pre>
 </div>
+
+
 <p>db/data/20090915161242_settings.rb:</p>
+
 <div class="highlight"><pre><code class="ruby"> 
   <span class="k">class</span> <span class="nc">BlockedDomains</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
     <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">up</span>
@@ -86,7 +85,10 @@ Install Plugin</p>
   <span class="k">end</span>
 </code></pre>
 </div>
+
+
 <p>Add your data:</p>
+
 <div class="highlight"><pre><code class="ruby"> 
   <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">up</span>
     <span class="no">BlockedEmailDomain</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s2">&quot;mailinator.com&quot;</span><span class="p">)</span>
@@ -95,17 +97,25 @@ Install Plugin</p>
   <span class="k">end</span>
 </code></pre>
 </div>
-<p>Run Migration</p>
+
+
+<h3>Run Migration</h3>
+
 <div class="highlight"><pre><code class="ruby">  <span class="n">rake</span> <span class="n">db</span><span class="ss">:data:migrate</span>
 </code></pre>
 </div>
+
+
 <div class="highlight"><pre><code class="ruby"> 
   <span class="o">==</span>  <span class="no">BlockedDomains</span><span class="p">:</span> <span class="n">migrating</span> <span class="o">===========================================================</span>
   <span class="o">==</span>  <span class="no">BlockedDomains</span><span class="p">:</span> <span class="n">migrated</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mo">0020</span><span class="n">s</span><span class="p">)</span> <span class="o">==================================================</span>
 </code></pre>
 </div>
-<p>db:data:migrate adds the data migration version number to the &#8216;schema_migrations&#8217; table so it will not be ran again.</p>
-<p>Code at Github:<br />
+
+
+<p>db:data:migrate adds the data migration version number to the 'schema_migrations' table so it will not be ran again.</p>
+
+<p>Code at Github:<br/>
 <a href="http://github.com/handerson/data_migration">http://github.com/handerson/data_migration</a></p>
 
 		
@@ -117,12 +127,11 @@ Install Plugin</p>
 		<footer>
       <div id="footer" class="small">
   Subscribe to the <a href="/atom.xml">RSS feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a><br/>
-  Copyright &copy Heath Anderson. 
+  Copyright &copy; Heath Anderson. 
 
 
-  <p>
-    <script type="text/javascript">function ss(form) {var q = window.encodeURIComponent(form["q"].value);clkb("wss", q);var url = "http://www.google.com/search?q=site:heathanderson.net ";url = url + q;window.location = url;return false;}</script><form onsubmit="return ss(this)" method="get"><input type="text" size="40" name="q" id="goog-wm-qt" placeholder="Search this site..."><input type="submit" value="Search" id="goog-wm-sb"></form>
-  </p>
+<script type="text/javascript">function ss(form) {var q = window.encodeURIComponent(form["q"].value);clkb("wss", q);var url = "http://www.google.com/search?q=site:heathanderson.net ";url = url + q;window.location = url;return false;}</script><form onsubmit="return ss(this)" method="get"><input type="text" size="40" name="q" id="goog-wm-qt" placeholder="Search this site..."><input type="submit" value="Search" id="goog-wm-sb"></form>
+
 </div>
 <script type="text/javascript">
 

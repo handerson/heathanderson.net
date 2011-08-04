@@ -1,5 +1,8 @@
 #container {  margin:0 auto;  width:600px;   }
-
+#main{
+  clear: both;
+  padding-top: 10px;
+}
 #logo {
   float:left;
 }
