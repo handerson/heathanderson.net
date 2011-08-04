@@ -1,0 +1,37 @@
+---
+layout: plain
+title: Heath's Blog of Stuff
+---
+
+{% for post in paginator.posts %}      
+  {% if !current_date or current_date != post.date%}
+    {% assign current_date = post.date %}
+    <h2>{{current_date  | date: "%A, %B %d, %Y" }}</h2>
+  {% endif %}        
+   
+   <div class="post">
+     <h3><a href="{{ post.url }}" rel="bookmark" title="{{post.title}}">{{ post.title }}</a></h3>
+     
+     {{post.content}}
+   </div>
+   
+{% endfor %}
+		
+<div id="pagination"> 
+	{% if paginator.page == 1 %}
+  <span class="disabled_pagination">Prev</span>
+	{% elsif {{paginator.previous_page}} == 1%}
+	<a href="/">Prev</a>
+	{% else %}			
+	<a href="/page{{paginator.previous_page}}">Prev</a>
+	{% endif %}
+	
+	{% if paginator.page == paginator.total_pages %}
+	<span class="disabled_pagination">Next</span>
+	{% else %}
+	<a href="/page{{paginator.next_page}}">Next</a>
+	{% endif %}
+</div>
+		
+
+

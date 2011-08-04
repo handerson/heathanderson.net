@@ -1,0 +1,19 @@
+---
+layout: plain
+---
+<DIV class="grid_11">
+	<DIV class="relative">
+		<div class="post  post_single"> 
+			<div class="post_padding">
+<h1> Tag: {{ page.category }} </h1>
+<ul>
+{% for post in site.categories[page.category] %}
+  <li> 
+    <a href="{{post.url}}">{{ post.title }}</a>
+  </li>
+{% endfor %}
+</ul>
+</div>
+</div>
+</div>
+</div>
