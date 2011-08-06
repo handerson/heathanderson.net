@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+
+<title>Another Blog Redesign</title>
+
+<meta name="description" content="">
+<meta name="author" content="">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+<link rel="stylesheet" href="/css/reset.css" type="text/css" media="screen, projection">
+  <link rel="stylesheet" href="/css/superfish.css" type="text/css" media="screen, projection">
+<link rel="stylesheet" href="/css/typography.css" type="text/css" media="screen, projection">
+
+<link rel="stylesheet" type="text/css" media="all" href="/css/syntax.css">
+<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+
+<link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
+<link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
+
+<link rel="openid2.local_id" href="http://www.flickr.com/photos/heathanderson" />
+<link rel="openid.delegate"  href="http://www.flickr.com/photos/heathanderson" />
+
+<link rel="alternate" type="application/rss+xml" title="Heath's Blog of Stuff Feed" href="http://www.heathanderson.net/atom.xml">
+
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
+	
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+</head>
+<body>
+	<div id="container">
+		<header>
+      <div id="header">
+  <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
+  <div id="categories_menu">
+    <ul class="sf-menu sf-js-enabled">
+      <li class="cat-item"><a href="/about.html">About</a></li>
+			<li class="cat-item"><a href="http://www.twitter.com/heathanderson">Twitter</a></li>
+			<li class="cat-item"><a href="http://www.facebook.com/heathanderson">Facebook</a></li>
+		</ul>
+  </div>
+</div> <!-- end #page_menu -->
+		</header>
+
+		<div id="main" role="main">
+      <h1>Another Blog Redesign</h1> 
+<div class="small">Friday, August 05, 2011</div>
+
+<p><img src="/images/posts/HTML5_sticker.png" />I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now <a href="http://www.w3.org/html/logo/">HTML5</a>--no more XHTML.</p>
+
+<p>I am still using <a href="http://jekyllrb.com/">Jekyll</a> to generate the HTML files of the site. I love the simplicity of it. I'm hosting the site on <a href="http://aws.amazon.com/s3/">Amazon S3</a>. It is fast, cheap and maintenance free. </p>
+
+<p>I hope this new, streamlined version of my site will encourage me to post more. I guess we'll see.</p>
+
+		
+
+
+
+		</div>
+
+		<footer>
+      <div id="footer" class="small">
+  Subscribe to the <a href="/atom.xml">RSS feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a><br/>
+  Copyright &copy; Heath Anderson. 
+
+
+<script type="text/javascript">
+function ss(form) {
+  var q = window.encodeURIComponent(form["q"].value);
+  var url = "http://www.google.com/search?q=site:www.heathanderson.net ";
+  url = url + q;window.location = url;
+  return false;
+}
+</script>
+
+<form onsubmit="return ss(this)" method="get">
+  <input type="text" size="40" name="q" id="goog-wm-qt" placeholder="Search this site...">
+  <input type="submit" value="Search" id="goog-wm-sb">
+</form>
+
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setaccount', 'Ua-18390372-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+		</footer>
+	</div>
+</body>
+</html>
