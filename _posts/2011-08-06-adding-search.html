@@ -7,7 +7,7 @@ published: true
 
 <p>I often come across interesting ideas and tools that I have no current use for but seem like they may be useful someday, so I bookmark them and hope I will recall them when needed. That process is what led to the current implementation of site search located at the bottom of each page on this blog.</p>
 
-<p>At some point I came across an <a hreff="http://googlewebmastercentral.blogspot.com/2008/08/make-your-404-pages-more-useful.html">article</a> on the the Google Webmaster Central Blog about <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=136085">enhancing</a> a site's 404 page. I thought it was a pretty cool idea, and I'm using it on this site. The required code is very short:</p>
+<p>At some point I came across an <a hreff="http://googlewebmastercentral.blogspot.com/2008/08/make-your-404-pages-more-useful.html">article</a> on the the Google Webmaster Central Blog about <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=136085">enhancing</a> a site's 404 page. I thought it was a pretty cool idea, and I'm <a href="/404.html">using</a> it on this site. The required code is very short:</p>
 
 {% highlight html %}
  <script type="text/javascript">
@@ -19,7 +19,7 @@ published: true
  </script>
 {% endhighlight %}
 
-<p>The most interesting thing about it is that it adds a search form. It doesn't actually submit a form. It simply changes the current pages location to "http://www.google.com/search?q=site:www.heathanderson.net" (with the text from the text box appended) using JavaScript. This limits the Google search to (in this case) pages from my site. It is a really simple concept that I would like to think I would of eventually thought of (but probably wouldn't have). </p>
+<p>The most interesting thing about it is that it adds a search form. It doesn't actually submit a form. It simply changes the current page's location to "http://www.google.com/search?q=site:www.heathanderson.net" (with the text from the text box appended) using JavaScript. This limits the Google search to (in this case) pages from my site. It is a really simple concept that I would like to think I would of eventually thought of (but probably wouldn't have). </p>
 
 <p>When I needed a search for this site I decided to try this technique. So here it is, a simple search script:
 

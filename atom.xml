@@ -5,8 +5,8 @@ layout: nil
 <feed xmlns="http://www.w3.org/2005/Atom">
  
  <title>Heath's Blog of Stuff</title>
- <link href="http://heathanderson.net/atom.xml" rel="self"/>
- <link href="http://heathanderson.net"/>
+ <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
+ <link href="http://www.heathanderson.net"/>
  <updated>{{ site.time | date_to_xmlschema }}</updated>
  <id>http://heathanderson.net</id>
  <author>
@@ -16,7 +16,7 @@ layout: nil
  {% for post in site.posts %}
  <entry>
    <title>{{ post.title | xml_escape}}</title>
-   <link href="http://tom.preston-werner.com{{ post.url }}"/>
+   <link href="http://www.heathanderson.net{{ post.url }}"/>
    <updated>{{ post.date | date_to_xmlschema }}</updated>
    <id>http://heathanderson.net{{ post.id }}</id>
    <content type="html">{{ post.content | xml_escape }}</content>
