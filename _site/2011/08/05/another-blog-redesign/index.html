@@ -69,20 +69,24 @@
   Subscribe to the <a href="/atom.xml">RSS feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a><br/>
   Copyright &copy; Heath Anderson. 
 
+  <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
+    <input type="text" size="40" name="q" placeholder="Search this site...">
+    <input type="submit" value="Search">
+  </form>
+  <noscript>
+  	You can search this site using <a href="http://www.google.com/search?q=site:www.heathanderson.net">Google</a>.
+  </noscript>
 
 <script type="text/javascript">
-function ss(form) {
+function simpleSearch(form) {
   var q = window.encodeURIComponent(form["q"].value);
   var url = "http://www.google.com/search?q=site:www.heathanderson.net ";
   url = url + q;window.location = url;
   return false;
 }
-</script>
 
-<form onsubmit="return ss(this)" method="get">
-  <input type="text" size="40" name="q" id="goog-wm-qt" placeholder="Search this site...">
-  <input type="submit" value="Search" id="goog-wm-sb">
-</form>
+document.getElementById('searchForm').style.display = "block";
+</script>
 
 </div>
 <script type="text/javascript">
@@ -98,6 +102,7 @@ function ss(form) {
   })();
 
 </script>
+
 		</footer>
 	</div>
 </body>

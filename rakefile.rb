@@ -9,12 +9,6 @@ task :deploy do
   sh "s3cmd sync _site/* s3://www.heathanderson.net"
 end
 
-task :name, [:first_name, :last_name] do |t, args|
- args.with_defaults(:first_name => "John", :last_name => "Dough")
- puts "First name is #{args.first_name}"
- puts "Last  name is #{args.last_name}"
-end
-
 
 #https://github.com/imathis/octopress/blob/master/Rakefile   
 # usage rake rake new_post['My New Post'] or rake new_post (defaults to "new-post")
