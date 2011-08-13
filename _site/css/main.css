@@ -115,7 +115,16 @@ font-weight:normal;
 color:#D6D6D6;
 }
 
-p { padding:0 0  0.8125em 0; color:#D6D6D6; font-weight:300; }
+p { padding:0 0  0.8125em 0; color:#D6D6D6; font-weight:100;
+  font-family: Corbel,
+               "Lucida Grande",
+               "Lucida Sans Unicode",
+               "Lucida Sans",
+               "DejaVu Sans",
+               "Bitstream Vera Sans",
+               "Liberation Sans",
+               Verdana,
+               sans-serif; }
 
 p + p { text-indent:0;}
 
@@ -146,8 +155,8 @@ dl { margin: 0 0 1.625em 0; }
 dl dt { font-weight: bold; }
 dl dd { margin-left: 1.625em; }
 
-a { color:#6D9CBE; text-decoration:none; }
-a:hover { text-decoration: underline; }
+a { color:#A9ADB1; text-decoration:underline; }
+a:hover { text-decoration: none; }
 
 
 table { margin-bottom:1.625em; border-collapse: collapse; }
@@ -237,6 +246,15 @@ ul.sf-menu li li li.sfHover ul {
 
 
 /*Site Style Sheet*/
+
+h2 {
+  color: #333;
+}
+h3{
+  font-size: 1.4em;
+  margin-top: 25px;
+  color: #353637;
+}
 
 #container {  margin:0 auto;  width:600px;   }
 #main{

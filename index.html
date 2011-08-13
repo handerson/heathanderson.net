@@ -4,13 +4,13 @@ title: Heath's Blog of Stuff
 ---
 
 {% for post in paginator.posts %}      
-  {% if !current_date or current_date != post.date%}
+  {% if current_date != post.date%}
     {% assign current_date = post.date %}
     <h2>{{current_date  | date: "%A, %B %d, %Y" }}</h2>
   {% endif %}        
    
    <div class="post">
-     <h3><a href="{{ post.url }}" rel="bookmark" title="{{post.title}}">{{ post.title }}</a></h3>
+     <h3>&#x270d; <a href="{{ post.url }}" rel="bookmark" title="{{post.title}}">{{ post.title }}</a></h3>
      
      {{post.content}}
    </div>
