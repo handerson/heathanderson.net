@@ -4,12 +4,59 @@
  <title>Heath's Blog of Stuff</title>
  <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
  <link href="http://www.heathanderson.net"/>
- <updated>2011-08-11T07:50:01-04:00</updated>
- <id>http://heathanderson.net</id>
+ <updated>2011-08-13T17:56:30-04:00</updated>
+ <id>http://www.heathanderson.net</id>
  <author>
    <name>Heath Anderson</name>
  </author>
 
+ 
+ <entry>
+   <title>Using Amazon S3 for Hosting</title>
+   <link href="http://www.heathanderson.net/2011/08/13/using-amazon-s3-for-hosting"/>
+   <updated>2011-08-13T16:28:00-04:00</updated>
+   <id>http://heathanderson.net/2011/08/13/using-amazon-s3-for-hosting</id>
+   <content type="html">&lt;p&gt;Earlier this year Amazon S3 was &lt;a href=&quot;https://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/&quot;&gt;updated&lt;/a&gt; to more easily support hosting static websites. The full &lt;a href=&quot;http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html&quot;&gt;documentation&lt;/a&gt; is online, but I'll give a quick overview of how it works here.&lt;/p&gt;
+
+&lt;img src=&quot;/images/posts/create_bucket.png&quot; alt=&quot;Create a bucket&quot;/&gt;
+
+&lt;p&gt;The first step was to create a bucket. The only way I could get the DNS CNAME record (more on that in a minute) for my domain to actually point to the correct bucket was to name the bucket the same as the domain. I didn't see this mentioned anywhere in the documentation so perhaps I was doing something incorrectly.&lt;/p&gt;
+
+&lt;img src=&quot;/images/posts/website_tab.png&quot; alt=&quot;Website Tab&quot;/&gt;
+
+&lt;p&gt;The new 'Website' tab what makes hosting a site possible. All that needs to be done here is click the 'Enable' checkbox and tell S3 what the site's index document (usually index.html) and error document (usually 404.html) are. Also note the endpoint url--it is needed when setting up the DNS.&lt;/p&gt;
+
+&lt;img src=&quot;/images/posts/edit_policy.png&quot; alt=&quot;Edit Edit&quot;/&gt;
+
+&lt;p&gt;Another thing that needed to be done is setting the policy so that others can actually view the site. This is found on the properties menu in the S3 management console for your website's bucket and go to the permissions tab. The 'Edit buck policy' button brings up a text area where I pasted the following (found in the &lt;a href=&quot;http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html&quot;&gt;documentation&lt;/a&gt;):&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;js&quot;&gt;  &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;Version&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;2008-10-17&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;Id&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+    &lt;span class=&quot;s2&quot;&gt;&amp;quot;Statement&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&amp;quot;Sid&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;PublicReadGetObject&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&amp;quot;Effect&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;Allow&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&amp;quot;Principal&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;s2&quot;&gt;&amp;quot;AWS&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;*&amp;quot;&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;},&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&amp;quot;Action&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;s3:GetObject&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt;
+        &lt;span class=&quot;s2&quot;&gt;&amp;quot;Resource&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;:&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;arn:aws:s3:::www.heathanderson.net/*&amp;quot;&lt;/span&gt;
+      &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;]&lt;/span&gt;
+  &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;After copying my site to the buck and testing the endpoint URL in my browser, I was ready to set up my domain to point to my new host.&lt;/p&gt;
+
+&lt;img src=&quot;/images/posts/dns.png&quot; alt=&quot;Edit DNS&quot;/&gt;
+
+&lt;p&gt;Setting up the DNS was easy. All it takes is setting the root domain to forward to the www subdomain, and setting up a CNAME alias for the www subdomain to the endpoint from the 'Website' tab of the Amazon S3 management console.&lt;/p&gt;
+
+&lt;p&gt;The only problem that I had was when I initially named my bucket 'blogofheath'. I followed all the steps listed above, but when trying to visit the site from &lt;a href=&quot;http://www.heathanderson.net&quot;&gt;www.heathanderson.net&lt;/a&gt; I kept getting an error. Apparently Amazon was to to serve a bucket named 'www.heathanderson.net' and since that bucket didn't exist things were not working. So I created a new bucket (renaming buckets isn't allowed), named it the same as my domain, and went through the same steps. Then it worked. Any ideas?&lt;/p&gt;</content>
+ </entry>
  
  <entry>
    <title>Simple Search</title>
@@ -66,7 +113,7 @@
    <link href="http://www.heathanderson.net/2011/08/05/another-blog-redesign"/>
    <updated>2011-08-05T22:09:00-04:00</updated>
    <id>http://heathanderson.net/2011/08/05/another-blog-redesign</id>
-   <content type="html">&lt;p&gt;&lt;img src=&quot;/images/posts/HTML5_sticker.png&quot; /&gt;I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now &lt;a href=&quot;http://www.w3.org/html/logo/&quot;&gt;HTML5&lt;/a&gt;--no more XHTML.&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;img src=&quot;http://www.heathanderson.net/images/posts/HTML5_sticker.png&quot; /&gt;I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now &lt;a href=&quot;http://www.w3.org/html/logo/&quot;&gt;HTML5&lt;/a&gt;--no more XHTML.&lt;/p&gt;
 
 &lt;p&gt;I am still using &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; to generate the HTML files of the site. I love the simplicity of it. I'm hosting the site on &lt;a href=&quot;http://aws.amazon.com/s3/&quot;&gt;Amazon S3&lt;/a&gt;. It is fast, cheap and maintenance free. &lt;/p&gt;
 

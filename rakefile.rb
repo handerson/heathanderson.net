@@ -10,8 +10,8 @@ task :deploy do
 end
 
 
-#https://github.com/imathis/octopress/blob/master/Rakefile   
-# usage rake rake new_post['My New Post'] or rake new_post (defaults to "new-post")
+# adapted from https://github.com/imathis/octopress/blob/master/Rakefile   
+# usage rake new_post['My New Post'] or rake new_post (defaults to "My New Post")
 desc "Start a new post"
 task :new_post, :title do |t, args|
  args.with_defaults(:title => 'My New Post')
