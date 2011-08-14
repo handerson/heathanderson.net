@@ -49,7 +49,7 @@
       <h1>Another Blog Redesign</h1> 
 <div class="small">Friday, August 05, 2011</div>
 
-<p><img src="http://www.heathanderson.net/images/posts/HTML5_sticker.png" />I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now <a href="http://www.w3.org/html/logo/">HTML5</a>--no more XHTML.</p>
+<p><img alt="HTML5 banner" src="http://www.heathanderson.net/images/posts/HTML5_sticker.png" />I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now <a href="http://www.w3.org/html/logo/">HTML5</a>--no more XHTML.</p>
 
 <p>I am still using <a href="http://jekyllrb.com/">Jekyll</a> to generate the HTML files of the site. I love the simplicity of it. I'm hosting the site on <a href="http://aws.amazon.com/s3/">Amazon S3</a>. It is fast, cheap and maintenance free. </p>
 
@@ -63,11 +63,8 @@
 
 		<footer>
       <div id="footer" class="small">
-  Subscribe to the <a href="/atom.xml">RSS feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a><br/>
-  Copyright &copy; Heath Anderson. 
-
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
-    <input type="search" name="q" placeholder="Search this site..." results="5" autosave="blog_of_stuff_search"> 
+    <input type="search" name="q" placeholder="Search this site..." results="5"> 
     <!--[if IE ]>
     <input type="submit" value="Search">
     <![endif]-->
@@ -86,6 +83,12 @@ function simpleSearch(form) {
 
 document.getElementById('searchForm').style.display = "block";
 </script>
+
+Subscribe to the <a href="/atom.xml">RSS feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a><br/>
+
+Copyright &copy; Heath Anderson.<br/>
+
+<img src="/images/html5-badge.png" alt="HTML5 Badge" class="badge"/>
 
 </div>
 <script type="text/javascript">

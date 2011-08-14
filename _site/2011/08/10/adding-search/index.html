@@ -51,7 +51,7 @@
 
 <p>I often come across interesting ideas and tools that I have no current use for but seem like they may be useful someday, so I bookmark them and hope I will recall them when needed. That process is what led to the current implementation of site search located at the bottom of each page on this blog.</p>
 
-<p>At some point I came across an <a hreff="http://googlewebmastercentral.blogspot.com/2008/08/make-your-404-pages-more-useful.html">article</a> on the the Google Webmaster Central Blog about <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=136085">enhancing</a> a site's 404 page. I thought it was a pretty cool idea, and I'm <a href="/404.html">using</a> it on this site. The required code is very short:</p>
+<p>At some point I came across an <a href="http://googlewebmastercentral.blogspot.com/2008/08/make-your-404-pages-more-useful.html">article</a> on the the Google Webmaster Central Blog about <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=136085">enhancing</a> a site's 404 page. I thought it was a pretty cool idea, and I'm <a href="/404.html">using</a> it on this site. The required code is very short:</p>
 
 <div class="highlight"><pre><code class="html"> <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
 	<span class="kd">var</span> <span class="nx">GOOG_FIXURL_LANG</span> <span class="o">=</span> <span class="s1">&#39;en&#39;</span><span class="p">;</span>
@@ -101,11 +101,8 @@
 
 		<footer>
       <div id="footer" class="small">
-  Subscribe to the <a href="/atom.xml">RSS feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a><br/>
-  Copyright &copy; Heath Anderson. 
-
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
-    <input type="search" name="q" placeholder="Search this site..." results="5" autosave="blog_of_stuff_search"> 
+    <input type="search" name="q" placeholder="Search this site..." results="5"> 
     <!--[if IE ]>
     <input type="submit" value="Search">
     <![endif]-->
@@ -124,6 +121,12 @@ function simpleSearch(form) {
 
 document.getElementById('searchForm').style.display = "block";
 </script>
+
+Subscribe to the <a href="/atom.xml">RSS feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a><br/>
+
+Copyright &copy; Heath Anderson.<br/>
+
+<img src="/images/html5-badge.png" alt="HTML5 Badge" class="badge"/>
 
 </div>
 <script type="text/javascript">

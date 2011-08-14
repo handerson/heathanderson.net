@@ -4,7 +4,7 @@
  <title>Heath's Blog of Stuff</title>
  <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
  <link href="http://www.heathanderson.net"/>
- <updated>2011-08-13T21:22:38-04:00</updated>
+ <updated>2011-08-13T21:40:03-04:00</updated>
  <id>http://www.heathanderson.net</id>
  <author>
    <name>Heath Anderson</name>
@@ -78,7 +78,7 @@
    <id>http://heathanderson.net/2011/08/10/adding-search</id>
    <content type="html">&lt;p&gt;I often come across interesting ideas and tools that I have no current use for but seem like they may be useful someday, so I bookmark them and hope I will recall them when needed. That process is what led to the current implementation of site search located at the bottom of each page on this blog.&lt;/p&gt;
 
-&lt;p&gt;At some point I came across an &lt;a hreff=&quot;http://googlewebmastercentral.blogspot.com/2008/08/make-your-404-pages-more-useful.html&quot;&gt;article&lt;/a&gt; on the the Google Webmaster Central Blog about &lt;a href=&quot;http://www.google.com/support/webmasters/bin/answer.py?answer=136085&quot;&gt;enhancing&lt;/a&gt; a site's 404 page. I thought it was a pretty cool idea, and I'm &lt;a href=&quot;/404.html&quot;&gt;using&lt;/a&gt; it on this site. The required code is very short:&lt;/p&gt;
+&lt;p&gt;At some point I came across an &lt;a href=&quot;http://googlewebmastercentral.blogspot.com/2008/08/make-your-404-pages-more-useful.html&quot;&gt;article&lt;/a&gt; on the the Google Webmaster Central Blog about &lt;a href=&quot;http://www.google.com/support/webmasters/bin/answer.py?answer=136085&quot;&gt;enhancing&lt;/a&gt; a site's 404 page. I thought it was a pretty cool idea, and I'm &lt;a href=&quot;/404.html&quot;&gt;using&lt;/a&gt; it on this site. The required code is very short:&lt;/p&gt;
 
 &lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;html&quot;&gt; &lt;span class=&quot;nt&quot;&gt;&amp;lt;script &lt;/span&gt;&lt;span class=&quot;na&quot;&gt;type=&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;text/javascript&amp;quot;&lt;/span&gt;&lt;span class=&quot;nt&quot;&gt;&amp;gt;&lt;/span&gt;
 	&lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;GOOG_FIXURL_LANG&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;en&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
@@ -126,7 +126,7 @@
    <link href="http://www.heathanderson.net/2011/08/05/another-blog-redesign"/>
    <updated>2011-08-05T00:00:00-04:00</updated>
    <id>http://heathanderson.net/2011/08/05/another-blog-redesign</id>
-   <content type="html">&lt;p&gt;&lt;img src=&quot;http://www.heathanderson.net/images/posts/HTML5_sticker.png&quot; /&gt;I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now &lt;a href=&quot;http://www.w3.org/html/logo/&quot;&gt;HTML5&lt;/a&gt;--no more XHTML.&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;img alt=&quot;HTML5 banner&quot; src=&quot;http://www.heathanderson.net/images/posts/HTML5_sticker.png&quot; /&gt;I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now &lt;a href=&quot;http://www.w3.org/html/logo/&quot;&gt;HTML5&lt;/a&gt;--no more XHTML.&lt;/p&gt;
 
 &lt;p&gt;I am still using &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; to generate the HTML files of the site. I love the simplicity of it. I'm hosting the site on &lt;a href=&quot;http://aws.amazon.com/s3/&quot;&gt;Amazon S3&lt;/a&gt;. It is fast, cheap and maintenance free. &lt;/p&gt;
 
