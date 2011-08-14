@@ -1,0 +1,138 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+
+<title>Automating New Post Creation in Jekyll</title>
+
+<link rel="image_src" href="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
+<meta property="og:image" content="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+<meta name="author" content="Heath Anderson">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+
+<link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
+<link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
+
+<link rel="openid2.local_id" href="http://www.flickr.com/photos/heathanderson" />
+<link rel="openid.delegate"  href="http://www.flickr.com/photos/heathanderson" />
+
+<link rel="alternate" type="application/rss+xml" title="Heath's Blog of Stuff Feed" href="http://www.heathanderson.net/atom.xml">
+
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
+
+
+</head>
+<body>
+	<div id="container">
+		<header>
+      <div id="header">
+  <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
+  <div id="categories_menu">
+    <ul class="sf-menu sf-js-enabled">
+      <li class="cat-item"><a href="/about.html">About</a></li>
+			<li class="cat-item"><a href="http://www.twitter.com/heathanderson">Twitter</a></li>
+			<li class="cat-item"><a href="http://www.facebook.com/heathanderson">Facebook</a></li>
+		</ul>
+  </div>
+</div> <!-- end #page_menu -->
+		</header>
+
+		<div id="main" role="main">
+      <h1>Automating New Post Creation in Jekyll</h1> 
+<div class="small">Sunday, August 14, 2011</div>
+
+<p>After automating deployment, my next goal was to automate creating a new post. After looking around a bit I decided to slightly modify the rake task used by <a href="https://github.com/imathis/octopress">Octopress</a>, a Jekyll based blogging framework. </p>
+
+<div class="highlight"><pre><code class="ruby">  <span class="c1"># adapted from https://github.com/imathis/octopress/blob/master/Rakefile   </span>
+  <span class="c1"># usage rake new_post[&#39;My New Post&#39;] or rake new_post (defaults to &quot;My New Post&quot;)</span>
+  <span class="n">desc</span> <span class="s2">&quot;Start a new post&quot;</span>
+  <span class="n">task</span> <span class="ss">:new_post</span><span class="p">,</span> <span class="ss">:title</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">|</span>
+   <span class="n">args</span><span class="o">.</span><span class="n">with_defaults</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s1">&#39;My New Post&#39;</span><span class="p">)</span>
+   <span class="n">title</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">title</span>
+   <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;_posts/</span><span class="si">#{</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-%d&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">-</span><span class="si">#{</span><span class="n">title</span><span class="o">.</span><span class="n">downcase</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/&amp;/</span><span class="p">,</span><span class="s1">&#39;and&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[,&#39;&quot;:\?!\(\)\[\]]/</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[\W\.]/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/-+$/</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">.html&quot;</span>
+   <span class="nb">puts</span> <span class="s2">&quot;Creating new post: </span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+   <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">post</span><span class="o">|</span>
+     <span class="nb">system</span> <span class="s2">&quot;mkdir -p _posts&quot;</span><span class="p">;</span>
+     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;---&quot;</span>
+     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;layout: post&quot;</span>
+     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;title: </span><span class="se">\&quot;</span><span class="si">#{</span><span class="n">title</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/&amp;/</span><span class="p">,</span><span class="s1">&#39;&amp;amp;&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;date: </span><span class="si">#{</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-%d %H:%M&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;published: false&quot;</span>
+     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;---&quot;</span>
+   <span class="k">end</span>
+  <span class="k">end</span>
+</code></pre>
+</div>
+
+
+<p>Now that the above is in my <a href="https://github.com/handerson/heathanderson.net/blob/master/rakefile.rb">rakefile</a>, I'm just a <code>rake new_post['This is Awesome']</code> away from starting a new post.
+
+		
+
+
+
+		</div>
+
+		<footer>
+      <div id="footer" class="small">
+  <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
+    <input type="search" name="q" placeholder="Search this site..." results="5"> 
+    <!--[if IE ]>
+    <input type="submit" value="Search">
+    <![endif]-->
+  </form>
+  <noscript>
+  	You can search this site using <a href="http://www.google.com/search?q=site:www.heathanderson.net">Google</a>.
+  </noscript>
+
+<script type="text/javascript">
+function simpleSearch(form) {
+  var q = window.encodeURIComponent(form["q"].value);
+  var url = "http://www.google.com/search?q=site:www.heathanderson.net ";
+  url = url + q;window.location = url;
+  return false;
+}
+
+document.getElementById('searchForm').style.display = "block";
+</script>
+
+Subscribe to the <a href="/atom.xml">RSS feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a><br/>
+
+Copyright &copy; Heath Anderson.<br/>
+
+<a href="http://www.w3.org/html/logo/"><img src="/images/html5-badge.png" alt="HTML5 Badge" class="badge"/></a>
+
+</div>
+<script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setaccount', 'Ua-18390372-1']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+
+<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+		</footer>
+	</div>
+</body>
+</html>

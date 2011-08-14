@@ -49,6 +49,78 @@
             
   
     
+    <h2>Sunday, August 14, 2011</h2>
+          
+   
+   <div class="post">
+     <h3>&#x270d; <a href="/2011/08/14/1-automating-new-post-creation-in-jekyll" rel="bookmark" title="Automating New Post Creation in Jekyll">Automating New Post Creation in Jekyll</a></h3>
+     
+     <p>After automating deployment, my next goal was to automate creating a new post. After looking around a bit I decided to slightly modify the rake task used by <a href="https://github.com/imathis/octopress">Octopress</a>, a Jekyll based blogging framework. </p>
+
+<div class="highlight"><pre><code class="ruby">  <span class="c1"># adapted from https://github.com/imathis/octopress/blob/master/Rakefile   </span>
+  <span class="c1"># usage rake new_post[&#39;My New Post&#39;] or rake new_post (defaults to &quot;My New Post&quot;)</span>
+  <span class="n">desc</span> <span class="s2">&quot;Start a new post&quot;</span>
+  <span class="n">task</span> <span class="ss">:new_post</span><span class="p">,</span> <span class="ss">:title</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">|</span>
+   <span class="n">args</span><span class="o">.</span><span class="n">with_defaults</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s1">&#39;My New Post&#39;</span><span class="p">)</span>
+   <span class="n">title</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">title</span>
+   <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;_posts/</span><span class="si">#{</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-%d&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">-</span><span class="si">#{</span><span class="n">title</span><span class="o">.</span><span class="n">downcase</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/&amp;/</span><span class="p">,</span><span class="s1">&#39;and&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[,&#39;&quot;:\?!\(\)\[\]]/</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[\W\.]/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/-+$/</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">.html&quot;</span>
+   <span class="nb">puts</span> <span class="s2">&quot;Creating new post: </span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
+   <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">post</span><span class="o">|</span>
+     <span class="nb">system</span> <span class="s2">&quot;mkdir -p _posts&quot;</span><span class="p">;</span>
+     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;---&quot;</span>
+     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;layout: post&quot;</span>
+     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;title: </span><span class="se">\&quot;</span><span class="si">#{</span><span class="n">title</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/&amp;/</span><span class="p">,</span><span class="s1">&#39;&amp;amp;&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
+     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;date: </span><span class="si">#{</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-%d %H:%M&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;published: false&quot;</span>
+     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;---&quot;</span>
+   <span class="k">end</span>
+  <span class="k">end</span>
+</code></pre>
+</div>
+
+
+<p>Now that the above is in my <a href="https://github.com/handerson/heathanderson.net/blob/master/rakefile.rb">rakefile</a>, I'm just a <code>rake new_post['This is Awesome']</code> away from starting a new post.
+   </div>
+   
+      
+          
+   
+   <div class="post">
+     <h3>&#x270d; <a href="/2011/08/14/0-deploying-jekyll" rel="bookmark" title="Deploying a Jekyll Site to Amazon S3">Deploying a Jekyll Site to Amazon S3</a></h3>
+     
+     <p>Before moving my blog to Amazon S3 I wanted to make sure that I could deploy updates easily. I came across several ways to do it. The easiest method I found was in a <a href="http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/">blog post</a> by <a href="http://blog.hendrikvolkmer.de/about/">Hendrik Volkmer</a>. It uses a command line tool called <code>s3cmd</code> run through a rake task. <a href="http://s3tools.org/s3cmd">s3cmd</a> can be installed using <a href="http://mxcl.github.com/homebrew/">Homebrew</a> on Mac OS X. </p>
+  
+<div class="highlight"><pre><code class="bash"> brew install s3cmd
+</code></pre>
+</div>
+
+
+<p>I updated the rake task to use S3's reduced <a href="https://aws.amazon.com/about-aws/whats-new/2010/05/19/announcing-amazon-s3-reduced-redundancy-storage/">redundancy storage</a> and set an <a href="https://developer.yahoo.com/performance/rules.html#expires">Expires header</a> for my images by using s3cmd's <code>--reduced-redundancy</code>, <code>--exclude</code>, and <code>--add-header</code> options. You can find out about other <code>s3smd</code> options on the <a href="http://s3tools.org/s3cmd-sync">s3tools website</a>.</p>
+
+<div class="highlight"><pre><code class="ruby">  <span class="c1"># based on http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/</span>
+  <span class="n">task</span> <span class="ss">:default</span> <span class="o">=&gt;</span> <span class="ss">:deploy</span>
+
+  <span class="n">desc</span> <span class="s2">&quot;Deploy to S3&quot;</span>
+  <span class="n">task</span> <span class="ss">:deploy</span> <span class="k">do</span>
+    <span class="n">sh</span> <span class="s2">&quot;jekyll&quot;</span>
+    <span class="n">sh</span> <span class="s2">&quot;s3cmd sync --reduced-redundancy --exclude &#39;images/*&#39; _site/* s3://www.heathanderson.net&quot;</span>
+    <span class="n">sh</span> <span class="s2">&quot;s3cmd sync --reduced-redundancy --add-header &#39;Expires: Thu, 6 Feb 2020 00:00:00 GMT&#39; _site/images/* s3://www.heathanderson.net/images/&quot;</span>
+  <span class="k">end</span>
+</code></pre>
+</div>
+
+
+<p>After placing the above in a <a href="https://github.com/handerson/heathanderson.net/blob/master/rakefile.rb">rakefile</a> all I have to do is run the following to publish a new post or deploy any other changes:</p>
+
+<div class="highlight"><pre><code class="bash"> rake deploy
+</code></pre>
+</div>
+
+   </div>
+   
+      
+  
+    
     <h2>Saturday, August 13, 2011</h2>
           
    
@@ -323,149 +395,6 @@ from ruby_string_encryption.rb:37@</p>
 <p>If you are looking for what size an initialization vector should be check out my post on <a href="http://www.heathanderson.net/2009/09/25/ruby-string-encryption/">encrypting a string with Ruby</a>.</p>
    </div>
    
-      
-  
-    
-    <h2>Friday, September 25, 2009</h2>
-          
-   
-   <div class="post">
-     <h3>&#x270d; <a href="/2009/09/25/ruby-string-encryption" rel="bookmark" title="Ruby String Encryption">Ruby String Encryption</a></h3>
-     
-     <p>Encrypting a string is fairly easy in Ruby. All you need to do is @require 'openssl'@. For this example I am using the 'des-ede3-cbc' (<a href="http://en.wikipedia.org/wiki/Triple_des">Triple DES</a> using <a href="http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation">Cipher Block Chaining</a>) cipher. Most--if not all--of the ciphers listed on <a href="http://www.openssl.org/docs/apps/enc.html">OpenSSL.org</a> as supported ciphers should work as well. </p>
-
-<p>Triple DES requires a 24-byte key, with Ruby this means a string with 24 characters. We are also required to provide an <a href="http://en.wikipedia.org/wiki/Initialization_vector">initialization vector</a> (IV). The IV is usually the same size as the block size of the cipher you are using (so says Wikipedia, so say we all). In our case this means an IV of 64-bits, or 8-bytes, or an 8 character Ruby String. If we randomize our IV and include it with our encrypted string then we can ensure that our encrypted data never looks the same even when we encrypt the same string multiple times.</p>
-
-<div class="highlight"><pre><code class="ruby">  <span class="nb">require</span> <span class="s1">&#39;openssl&#39;</span>
-
-  <span class="no">KEY</span> <span class="o">=</span> <span class="s1">&#39;0123456789abcdef01234567890&#39;</span> <span class="c1"># 24 characters</span>
-
-  <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;encrypt this&quot;</span>
-
-  <span class="n">des</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Cipher</span><span class="o">::</span><span class="no">Cipher</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;des-ede3-cbc&quot;</span><span class="p">)</span>
-  <span class="n">des</span><span class="o">.</span><span class="n">encrypt</span> <span class="c1"># this tells OpenSSL what mode to operate in, here we want to encrypt data</span>
-  <span class="n">des</span><span class="o">.</span><span class="n">iv</span> <span class="o">=</span> <span class="n">iv</span> <span class="o">=</span> <span class="s1">&#39;01234567&#39;</span> <span class="c1"># 8 characters, hard-coded for now</span>
-
-  <span class="n">data</span> <span class="o">=</span> <span class="n">des</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">+</span> <span class="n">des</span><span class="o">.</span><span class="n">final</span>  
-  <span class="n">data</span> <span class="o">=</span> <span class="n">iv</span> <span class="o">+</span> <span class="n">data</span> <span class="c1"># this way when we randomize our IV it will be available when we need to decrypt the data</span>
-
-  <span class="nb">puts</span> <span class="n">data</span>
-</code></pre>
-</div>
-
-
-<p>This should output some crazy string. This isn't the friendliest way to send data, so lets do something about that. The easiest thing to do is Base 64 encode the data, and maybe <a href="http://snippets.dzone.com/posts/show/1260">URI escape</a> it for good measure.</p>
-
-<div class="highlight"><pre><code class="ruby">  <span class="c1"># be sure to put the following at the top of your code:</span>
-  <span class="c1"># require &quot;base64&quot;</span>
-  <span class="c1"># require &#39;uri&#39;</span>
-  <span class="c1"># after &#39;the puts data&#39; in the snippet above do the following:</span>
-
-  <span class="n">data</span> <span class="o">=</span> <span class="no">Base64</span><span class="o">.</span><span class="n">encode64</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-  <span class="n">data</span> <span class="o">=</span> <span class="no">URI</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;[^</span><span class="si">#{</span><span class="no">URI</span><span class="o">::</span><span class="no">PATTERN</span><span class="o">::</span><span class="no">UNRESERVED</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">))</span>
-
-  <span class="nb">puts</span> <span class="n">data</span>
-</code></pre>
-</div>
-
-
-<p>This should give you the much nicer @MDEyMzQ1Njd6jzSlS73fKSAdqYgRiJie%0A@.</p>
-
-<p>Decryption is similarly easy.</p>
-
-<div class="highlight"><pre><code class="ruby">  <span class="n">des</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Cipher</span><span class="o">::</span><span class="no">Cipher</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;des-ede3-cbc&quot;</span><span class="p">)</span>
-  <span class="n">des</span><span class="o">.</span><span class="n">decrypt</span>
-  <span class="n">des</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="no">KEY</span>
-  <span class="n">encrypted_data</span> <span class="o">=</span> <span class="no">URI</span><span class="o">.</span><span class="n">unescape</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-  <span class="n">encrypted_data</span> <span class="o">=</span> <span class="no">Base64</span><span class="o">.</span><span class="n">decode64</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-  <span class="n">des</span><span class="o">.</span><span class="n">iv</span> <span class="o">=</span>  <span class="n">encrypted_data</span><span class="o">.</span><span class="n">slice!</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="c1">#This gives us our iv back and removes it from the encrypted data</span>
-  
-  <span class="n">decrypted</span> <span class="o">=</span> <span class="n">des</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">encrypted_data</span><span class="p">)</span> <span class="o">+</span> <span class="n">des</span><span class="o">.</span><span class="n">final</span>  
-    
-  <span class="nb">puts</span> <span class="n">decrypted</span>
-</code></pre>
-</div>
-
-
-<p>If you are using Rails or have access to ActiveSupport <a href="http://api.rubyonrails.org/classes/ActiveSupport/SecureRandom.html">ActiveSupport::SecureRandom</a> is a great way to generate your key and IV. Also be sure to check out <a href="http://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html">ActiveSupport::MessageEncryptor</a> and my <a href="http://github.com/handerson/string_encryption">string_encryption</a> plugin. I'll probably do a writeup on the string_encryption plugin sometime next week.</p>
-   </div>
-   
-      
-  
-    
-    <h2>Tuesday, September 22, 2009</h2>
-          
-   
-   <div class="post">
-     <h3>&#x270d; <a href="/2009/09/22/ruby-on-rails-plugin-data_migration" rel="bookmark" title="Ruby on Rails Plugin: data_migration">Ruby on Rails Plugin: data_migration</a></h3>
-     
-     <p>data_migration allows you to separate data you need to load from your normal database migrations in a minimal way. While developing the new version of our flagship site, <a href="http://www.knetwit.com">Knetwit</a>, we decided we needed to separate our data migrations (initial settings and the like) from our structural migrations. We decided the easiest way to do this was to modify the existing Rails migration to allow for a new data migration. So we did.</p>
-
-<h3>Install Plugin</h3>
-
-<div class="highlight"><pre><code class="ruby"> 
-  <span class="n">script</span><span class="o">/</span><span class="n">plugin</span> <span class="n">install</span> <span class="n">git</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">handerson</span><span class="o">/</span><span class="n">data_migration</span><span class="o">.</span><span class="n">git</span>
-</code></pre>
-</div>
-
-
-<h3>Generate Migration</h3>
-
-<div class="highlight"><pre><code class="ruby"> 
-  <span class="n">script</span><span class="o">/</span><span class="n">generate</span> <span class="n">data_migration</span> <span class="no">BlockedDomains</span> 
-</code></pre>
-</div>
-
-
-<div class="highlight"><pre><code class="ruby">  <span class="n">exists</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span>
-  <span class="n">create</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="mi">20090915161242</span><span class="n">_settings</span><span class="o">.</span><span class="n">rb</span><span class="o">[/</span><span class="n">sourcecode</span><span class="o">]</span>
-</code></pre>
-</div>
-
-
-<p>db/data/20090915161242_settings.rb:</p>
-
-<div class="highlight"><pre><code class="ruby"> 
-  <span class="k">class</span> <span class="nc">BlockedDomains</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
-    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">up</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-</code></pre>
-</div>
-
-
-<p>Add your data:</p>
-
-<div class="highlight"><pre><code class="ruby"> 
-  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">up</span>
-    <span class="no">BlockedEmailDomain</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s2">&quot;mailinator.com&quot;</span><span class="p">)</span>
-    <span class="no">BlockedEmailDomain</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s2">&quot;spamherelots.com&quot;</span><span class="p">)</span>
-    <span class="no">BlockedEmailDomain</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s2">&quot;disposeamail.com&quot;</span><span class="p">)</span>
-  <span class="k">end</span>
-</code></pre>
-</div>
-
-
-<h3>Run Migration</h3>
-
-<div class="highlight"><pre><code class="ruby">  <span class="n">rake</span> <span class="n">db</span><span class="ss">:data:migrate</span>
-</code></pre>
-</div>
-
-
-<div class="highlight"><pre><code class="ruby"> 
-  <span class="o">==</span>  <span class="no">BlockedDomains</span><span class="p">:</span> <span class="n">migrating</span> <span class="o">===========================================================</span>
-  <span class="o">==</span>  <span class="no">BlockedDomains</span><span class="p">:</span> <span class="n">migrated</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mo">0020</span><span class="n">s</span><span class="p">)</span> <span class="o">==================================================</span>
-</code></pre>
-</div>
-
-
-<p>db:data:migrate adds the data migration version number to the 'schema_migrations' table so it will not be ran again.</p>
-
-<p>Code at Github:<br/>
-<a href="http://github.com/handerson/data_migration">http://github.com/handerson/data_migration</a></p>
-   </div>
-   
 
 		
 <div id="pagination"> 
@@ -474,7 +403,7 @@ from ruby_string_encryption.rb:37@</p>
 	
 	
 	
-	<span class="disabled_pagination">Next</span>
+	<a href="/page2">Next</a>
 	
 </div>
 		
