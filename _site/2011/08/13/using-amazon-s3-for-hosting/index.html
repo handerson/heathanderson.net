@@ -8,6 +8,8 @@
 <link rel="image_src" href="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
 <meta property="og:image" content="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
 
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
 <meta name="author" content="Heath Anderson">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -100,8 +102,10 @@
   Copyright &copy; Heath Anderson. 
 
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
-    <input type="text" size="40" name="q" placeholder="Search this site...">
+    <input type="search" name="q" placeholder="Search this site..." results="5" autosave="blog_of_stuff_search"> 
+    <!--[if IE ]>
     <input type="submit" value="Search">
+    <![endif]-->
   </form>
   <noscript>
   	You can search this site using <a href="http://www.google.com/search?q=site:www.heathanderson.net">Google</a>.
@@ -132,6 +136,13 @@ document.getElementById('searchForm').style.display = "block";
   })();
 
 </script>
+
+<!-- Prompt IE 6 users to install Chrome Frame. Remove this if you want to support IE 6.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
 
 		</footer>
 	</div>

@@ -3,8 +3,10 @@
   Copyright &copy; Heath Anderson. 
 
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
-    <input type="text" size="40" name="q" placeholder="Search this site...">
+    <input type="search" name="q" placeholder="Search this site..." results="5" autosave="blog_of_stuff_search"> 
+    <!--[if IE ]>
     <input type="submit" value="Search">
+    <![endif]-->
   </form>
   <noscript>
   	You can search this site using <a href="http://www.google.com/search?q=site:www.heathanderson.net">Google</a>.
