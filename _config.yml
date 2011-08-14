@@ -9,6 +9,8 @@ plugins:     ./_plugins
 
 paginate: 10
 
+domain: www.heathanderson.net
+
 exclude: rakefile.rb
 future:      true
 lsi:         false

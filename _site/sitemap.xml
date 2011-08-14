@@ -3,7 +3,7 @@
 
   <!--  Homepage -->
   <url>
-    <loc>http:///</loc>
+    <loc>http://www.heathanderson.net/</loc>
     <lastmod>2011-08-14</lastmod>
     <changefreq>daily</changefreq>
 		<priority>1.0</priority>
@@ -11,84 +11,84 @@
 
   
   <url>
-    <loc>http:///2011/08/14/1-automating-new-post-creation-in-jekyll</loc>
+    <loc>http://www.heathanderson.net/2011/08/14/1-automating-new-post-creation-in-jekyll</loc>
     
     <lastmod>2011-08-14</lastmod>
     
   </url>
   
   <url>
-    <loc>http:///2011/08/14/0-deploying-jekyll</loc>
+    <loc>http://www.heathanderson.net/2011/08/14/0-deploying-jekyll</loc>
     
     <lastmod>2011-08-14</lastmod>
     
   </url>
   
   <url>
-    <loc>http:///2011/08/13/why-amazon-s3</loc>
+    <loc>http://www.heathanderson.net/2011/08/13/why-amazon-s3</loc>
     
     <lastmod>2011-08-13</lastmod>
     
   </url>
   
   <url>
-    <loc>http:///2011/08/13/using-amazon-s3-for-hosting</loc>
+    <loc>http://www.heathanderson.net/2011/08/13/using-amazon-s3-for-hosting</loc>
     
     <lastmod>2011-08-13</lastmod>
     
   </url>
   
   <url>
-    <loc>http:///2011/08/10/adding-search</loc>
+    <loc>http://www.heathanderson.net/2011/08/10/adding-search</loc>
     
     <lastmod>2011-08-10</lastmod>
     
   </url>
   
   <url>
-    <loc>http:///2011/08/05/another-blog-redesign</loc>
+    <loc>http://www.heathanderson.net/2011/08/05/another-blog-redesign</loc>
     
     <lastmod>2011-08-05</lastmod>
     
   </url>
   
   <url>
-    <loc>http:///2010/09/07/programming-fonts</loc>
+    <loc>http://www.heathanderson.net/2010/09/07/programming-fonts</loc>
     
     <lastmod>2010-09-07</lastmod>
     
   </url>
   
   <url>
-    <loc>http:///2010/09/06/welcome-to-the-new-blog</loc>
+    <loc>http://www.heathanderson.net/2010/09/06/welcome-to-the-new-blog</loc>
     
     <lastmod>2010-09-06</lastmod>
     
   </url>
   
   <url>
-    <loc>http:///2009/11/23/ruby-on-rails-plugin-string_encryption</loc>
+    <loc>http://www.heathanderson.net/2009/11/23/ruby-on-rails-plugin-string_encryption</loc>
     
     <lastmod>2009-11-23</lastmod>
     
   </url>
   
   <url>
-    <loc>http:///2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby</loc>
+    <loc>http://www.heathanderson.net/2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby</loc>
     
     <lastmod>2009-09-27</lastmod>
     
   </url>
   
   <url>
-    <loc>http:///2009/09/25/ruby-string-encryption</loc>
+    <loc>http://www.heathanderson.net/2009/09/25/ruby-string-encryption</loc>
     
     <lastmod>2009-09-25</lastmod>
     
   </url>
   
   <url>
-    <loc>http:///2009/09/22/ruby-on-rails-plugin-data_migration</loc>
+    <loc>http://www.heathanderson.net/2009/09/22/ruby-on-rails-plugin-data_migration</loc>
     
     <lastmod>2009-09-22</lastmod>
     
@@ -97,7 +97,7 @@
 
   
   <url>
-    <loc>http:///404.html</loc>
+    <loc>http://www.heathanderson.net/404.html</loc>
     
     <lastmod>2011-08-14</lastmod>
     
@@ -106,7 +106,7 @@
   </url>
   
   <url>
-    <loc>http:///about.html</loc>
+    <loc>http://www.heathanderson.net/about.html</loc>
     
     <lastmod>2011-08-14</lastmod>
     
@@ -115,7 +115,7 @@
   </url>
   
   <url>
-    <loc>http:///index.html</loc>
+    <loc>http://www.heathanderson.net/index.html</loc>
     
     <lastmod>2011-08-14</lastmod>
     
@@ -124,7 +124,7 @@
   </url>
   
   <url>
-    <loc>http:///page2/index.html</loc>
+    <loc>http://www.heathanderson.net/page2/index.html</loc>
     
     <lastmod>2011-08-14</lastmod>
     
