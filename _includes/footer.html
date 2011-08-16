@@ -1,6 +1,6 @@
 <div id="footer" class="small">
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
-    <input type="search" name="q" placeholder="Search this site..." results="5"> 
+    <input type="search" name="q" placeholder="Search this site..." > 
     <!--[if IE ]>
     <input type="submit" value="Search">
     <![endif]-->
@@ -13,7 +13,8 @@
 function simpleSearch(form) {
   var q = window.encodeURIComponent(form["q"].value);
   var url = "http://www.google.com/search?q=site:www.heathanderson.net ";
-  url = url + q;window.location = url;
+  url = url + q;
+  window.location = url;
   return false;
 }
 
