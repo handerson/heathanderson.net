@@ -31,19 +31,22 @@
 
 </head>
 <body>
-	<div id="container">
-		<header>
-      <div id="header">
-  <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
-  <div id="categories_menu">
-    <ul class="sf-menu sf-js-enabled">
-      <li class="cat-item"><a href="/about.html">About</a></li>
-			<li class="cat-item"><a href="http://www.twitter.com/heathanderson">Twitter</a></li>
-			<li class="cat-item"><a href="http://www.facebook.com/heathanderson">Facebook</a></li>
-		</ul>
+  <header>
+    <div class="headerWrapper">
+  <div id="header">
+    <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
+    <div id="categories_menu">
+      <ul class="sf-menu sf-js-enabled">
+        <li class="cat-item"><a href="/about.html">About</a></li>
+  			<li class="cat-item"><a href="http://www.twitter.com/heathanderson">Twitter</a></li>
+  			<li class="cat-item"><a href="http://www.facebook.com/heathanderson">Facebook</a></li>
+  		</ul>
+    </div>
   </div>
-</div> <!-- end #page_menu -->
-		</header>
+</div>
+	</header>
+	<div id="container">
+
 
 		<div id="main" role="main">
       <h1>Privacy</h1>
@@ -69,7 +72,7 @@
 		<footer>
       <div id="footer" class="small">
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
-    <input type="search" name="q" placeholder="Search this site..." results="5"> 
+    <input type="search" name="q" placeholder="Search this site..." > 
     <!--[if IE ]>
     <input type="submit" value="Search">
     <![endif]-->
@@ -82,7 +85,8 @@
 function simpleSearch(form) {
   var q = window.encodeURIComponent(form["q"].value);
   var url = "http://www.google.com/search?q=site:www.heathanderson.net ";
-  url = url + q;window.location = url;
+  url = url + q;
+  window.location = url;
   return false;
 }
 

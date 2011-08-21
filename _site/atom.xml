@@ -4,7 +4,7 @@
  <title>Heath's Blog of Stuff</title>
  <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
  <link href="http://www.heathanderson.net"/>
- <updated>2011-08-15T09:36:22-04:00</updated>
+ <updated>2011-08-20T22:10:12-04:00</updated>
  <id>http://www.heathanderson.net</id>
  <author>
    <name>Heath Anderson</name>
@@ -104,7 +104,7 @@
 
 &lt;img src=&quot;/images/posts/website_tab.png&quot; alt=&quot;Website Tab&quot;/&gt;
 
-&lt;p&gt;The new 'Website' tab what makes hosting a site possible. All that needs to be done here is click the 'Enable' checkbox and tell S3 what the site's index document (usually index.html) and error document (usually 404.html) are. Also note the endpoint url--it is needed when setting up the DNS.&lt;/p&gt;
+&lt;p&gt;The new 'Website' tab what makes hosting a site possibility. All that needs to be done here is click the 'Enable' checkbox and tell S3 what the site's index document (usually index.html) and error document (usually 404.html) are. Also note the endpoint url--it is needed when setting up the DNS.&lt;/p&gt;
 
 &lt;img src=&quot;/images/posts/edit_policy.png&quot; alt=&quot;Edit Edit&quot;/&gt;
 

@@ -31,11 +31,11 @@ a img { border: none; }
 
 body {
   
-  margin: 10px;
+/*  margin: 10px;*/
 }
 
 /* Syntax Css from https://gist.github.com/1125708 */
-.highlight  { background: rgba(0,0,0,.50); overflow-x:auto;margin-bottom: 10px;}
+.highlight  { background: #4E5052; background: rgba(0,0,0,.50); overflow-x:auto;margin-bottom: 10px;}
 .hll { background-color: #ffffcc }
 .c { color: #586E75 } /* Comment */
 .err { color: #93A1A1 } /* Error */
@@ -116,16 +116,16 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-body { font:1em/1.625em "lucida grande","lucida sans unicode", sans-serif; background-color:#676A6D;  
-background-image: url('/images/linen.jpg');
+body { font:1em/1.625em "lucida grande","lucida sans unicode", sans-serif; background-color:#A8A49E;  
+background-image: url('/images/lightbg.jpg');
 font-size-adjust:none;
 font-style:normal;
 font-variant:normal;
 font-weight:normal;
-color:#D6D6D6;
+color:#000;
 }
 
-p { padding:0 0  0.8125em 0; color:#D6D6D6; font-weight:100;
+p { padding:0 0  0.8125em 0; color:#000; font-weight:100;
   font-family: Corbel,
                "Lucida Grande",
                "Lucida Sans Unicode",
@@ -165,7 +165,7 @@ dl { margin: 0 0 1.625em 0; }
 dl dt { font-weight: bold; }
 dl dd { margin-left: 1.625em; }
 
-a { color:#A9ADB1; text-decoration:underline; }
+a { color:#213447; text-decoration:underline; }
 a:hover { text-decoration: none; }
 
 
@@ -371,4 +371,20 @@ h3{
 .badge{
   height: 32px;
   margin: 10px 0;
+}
+
+.headerWrapper {
+  background-color:#676A6D;  
+  background-image: url('/images/linen.jpg');
+  width: 100%;
+  float: left;
+  border-bottom: 1px solid #4E5052;
+/*  -moz-box-shadow: 1px 5px 5px #676A6D;
+    -webkit-box-shadow: 1px 5px 5px #676A6D;*/
+    box-shadow: 1px 3px 10px #4E5052;
+}
+
+#header
+{
+   margin:0 auto;  width:600px;
 }

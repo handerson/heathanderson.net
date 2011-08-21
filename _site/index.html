@@ -31,19 +31,22 @@
 
 </head>
 <body>
-	<div id="container">
-		<header>
-      <div id="header">
-  <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
-  <div id="categories_menu">
-    <ul class="sf-menu sf-js-enabled">
-      <li class="cat-item"><a href="/about.html">About</a></li>
-			<li class="cat-item"><a href="http://www.twitter.com/heathanderson">Twitter</a></li>
-			<li class="cat-item"><a href="http://www.facebook.com/heathanderson">Facebook</a></li>
-		</ul>
+  <header>
+    <div class="headerWrapper">
+  <div id="header">
+    <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
+    <div id="categories_menu">
+      <ul class="sf-menu sf-js-enabled">
+        <li class="cat-item"><a href="/about.html">About</a></li>
+  			<li class="cat-item"><a href="http://www.twitter.com/heathanderson">Twitter</a></li>
+  			<li class="cat-item"><a href="http://www.facebook.com/heathanderson">Facebook</a></li>
+  		</ul>
+    </div>
   </div>
-</div> <!-- end #page_menu -->
-		</header>
+</div>
+	</header>
+	<div id="container">
+
 
 		<div id="main" role="main">
             
@@ -149,7 +152,7 @@
 
 <img src="/images/posts/website_tab.png" alt="Website Tab"/>
 
-<p>The new 'Website' tab what makes hosting a site possible. All that needs to be done here is click the 'Enable' checkbox and tell S3 what the site's index document (usually index.html) and error document (usually 404.html) are. Also note the endpoint url--it is needed when setting up the DNS.</p>
+<p>The new 'Website' tab what makes hosting a site possibility. All that needs to be done here is click the 'Enable' checkbox and tell S3 what the site's index document (usually index.html) and error document (usually 404.html) are. Also note the endpoint url--it is needed when setting up the DNS.</p>
 
 <img src="/images/posts/edit_policy.png" alt="Edit Edit"/>
 
@@ -415,7 +418,7 @@ from ruby_string_encryption.rb:37@</p>
 		<footer>
       <div id="footer" class="small">
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
-    <input type="search" name="q" placeholder="Search this site..." results="5"> 
+    <input type="search" name="q" placeholder="Search this site..." > 
     <!--[if IE ]>
     <input type="submit" value="Search">
     <![endif]-->
@@ -428,7 +431,8 @@ from ruby_string_encryption.rb:37@</p>
 function simpleSearch(form) {
   var q = window.encodeURIComponent(form["q"].value);
   var url = "http://www.google.com/search?q=site:www.heathanderson.net ";
-  url = url + q;window.location = url;
+  url = url + q;
+  window.location = url;
   return false;
 }
 
