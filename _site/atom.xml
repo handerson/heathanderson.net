@@ -4,7 +4,7 @@
  <title>Heath's Blog of Stuff</title>
  <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
  <link href="http://www.heathanderson.net"/>
- <updated>2011-08-21T20:24:50-04:00</updated>
+ <updated>2011-08-21T20:33:54-04:00</updated>
  <id>http://www.heathanderson.net</id>
  <author>
    <name>Heath Anderson</name>
@@ -16,9 +16,9 @@
    <link href="http://www.heathanderson.net/2011/08/21/bastion"/>
    <updated>2011-08-21T00:00:00-04:00</updated>
    <id>http://heathanderson.net/2011/08/21/bastion</id>
-   <content type="html">&lt;p&gt;&lt;img src=&quot;/images/posts/bastion/bastion_1.jpg&quot; alt=&quot;Bastion Screenshot&quot;/&gt;I've been playing &lt;a href=&quot;http://supergiantgames.com/&quot;&gt;Bastion&lt;/a&gt; for the Xbox 360. I love this game. The art is great, the dynamic narration is unlike anything I've ever seen in a game before, and the music is amazing. The game narrates the main character's actions while you play--a feature that would certainly be annoying if poorly executed. Luckily here it is wonderfully done. The narrator simultaneously injects both humor and a sense of weight to the story. The music is great and evocative. I even &lt;a href=&quot;http://supergiantgames.bandcamp.com/&quot;&gt;bought&lt;/a&gt; the soundtrack.&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;img class=&quot;shadow&quot; src=&quot;/images/posts/bastion/bastion_1.jpg&quot; alt=&quot;Bastion Screenshot&quot;/&gt;I've been playing &lt;a href=&quot;http://supergiantgames.com/&quot;&gt;Bastion&lt;/a&gt; for the Xbox 360. I love this game. The art is great, the dynamic narration is unlike anything I've ever seen in a game before, and the music is amazing. The game narrates the main character's actions while you play--a feature that would certainly be annoying if poorly executed. Luckily here it is wonderfully done. The narrator simultaneously injects both humor and a sense of weight to the story. The music is great and evocative. I even &lt;a href=&quot;http://supergiantgames.bandcamp.com/&quot;&gt;bought&lt;/a&gt; the soundtrack.&lt;/p&gt;
 
-&lt;img src=&quot;/images/posts/bastion/bastion_2.jpg&quot; alt=&quot;Bastion Screenshot&quot;/&gt;
+&lt;img class=&quot;shadow&quot; src=&quot;/images/posts/bastion/bastion_2.jpg&quot; alt=&quot;Bastion Screenshot&quot;/&gt;
 
 &lt;p&gt;And on top of all that the game is really fun. Every weapon featured in the game is fun, looks cool and is useful. I'm starting my second play through and I'm looking forward to experimenting with some of the weapons that I only briefly used on my first try.&lt;/p&gt;
 
@@ -100,7 +100,7 @@
    <id>http://heathanderson.net/2011/08/13/why-amazon-s3</id>
    <content type="html">&lt;p&gt;The main reason for switching to S3 as a host for this site was cost. This blog gets almost no traffic so I anticipate my monthly S3 bill to be less than $1 USD. That is pretty cheap. I was previously using a VPS from &lt;a href=&quot;http://www.linode.com&quot;&gt;Linode&lt;/a&gt;. It was $19.99 a month. I love Linode, and next time I need a VPS I will go with them. But it was overkill for this blog. I was simply serving static HTML from Apache.&lt;/p&gt;
 
-&lt;img src=&quot;/images/posts/s3calc.png&quot; alt=&quot;Simple Monthly Calculator&quot;/&gt;
+&lt;img class=&quot;shadow&quot; src=&quot;/images/posts/s3calc.png&quot; alt=&quot;Simple Monthly Calculator&quot;/&gt;
 &lt;p&gt;Using Amazon's &lt;a href=&quot;http://calculator.s3.amazonaws.com/calc5.html&quot;&gt;Simple Monthly Calculator&lt;/a&gt; I estimate that even if this site gets a couple orders of magnitude more popular, I'll still be paying less than $4.00 a month.&lt;/p&gt;
 
 &lt;p&gt;I also no longer have to worry about server security and server uptime. Those are two pretty big pluses.&lt;/p&gt;</content>
@@ -113,15 +113,15 @@
    <id>http://heathanderson.net/2011/08/13/using-amazon-s3-for-hosting</id>
    <content type="html">&lt;p&gt;Earlier this year Amazon S3 was &lt;a href=&quot;https://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/&quot;&gt;updated&lt;/a&gt; to more easily support hosting static websites. The full &lt;a href=&quot;http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html&quot;&gt;documentation&lt;/a&gt; is online, but I'll give a quick overview of how it works here.&lt;/p&gt;
 
-&lt;img src=&quot;/images/posts/create_bucket.png&quot; alt=&quot;Create a bucket&quot;/&gt;
+&lt;img class=&quot;shadow&quot; src=&quot;/images/posts/create_bucket.png&quot; alt=&quot;Create a bucket&quot;/&gt;
 
 &lt;p&gt;The first step was to create a bucket. The only way I could get the DNS CNAME record (more on that in a minute) for my domain to actually point to the correct bucket was to name the bucket the same as the domain. I didn't see this mentioned anywhere in the documentation so perhaps I was doing something incorrectly.&lt;/p&gt;
 
-&lt;img src=&quot;/images/posts/website_tab.png&quot; alt=&quot;Website Tab&quot;/&gt;
+&lt;img class=&quot;shadow&quot; src=&quot;/images/posts/website_tab.png&quot; alt=&quot;Website Tab&quot;/&gt;
 
 &lt;p&gt;The new 'Website' tab what makes hosting a site possibility. All that needs to be done here is click the 'Enable' checkbox and tell S3 what the site's index document (usually index.html) and error document (usually 404.html) are. Also note the endpoint url--it is needed when setting up the DNS.&lt;/p&gt;
 
-&lt;img src=&quot;/images/posts/edit_policy.png&quot; alt=&quot;Edit Edit&quot;/&gt;
+&lt;img class=&quot;shadow&quot; src=&quot;/images/posts/edit_policy.png&quot; alt=&quot;Edit Edit&quot;/&gt;
 
 &lt;p&gt;Another thing that needed to be done is setting the policy so that others can actually view the site. This is found on the properties menu in the S3 management console for your website's bucket and go to the permissions tab. The 'Edit buck policy' button brings up a text area where I pasted the following (found in the &lt;a href=&quot;http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html&quot;&gt;documentation&lt;/a&gt;):&lt;/p&gt;
 
@@ -146,7 +146,7 @@
 
 &lt;p&gt;After copying my site to the buck and testing the endpoint URL in my browser, I was ready to set up my domain to point to my new host.&lt;/p&gt;
 
-&lt;img src=&quot;/images/posts/dns.png&quot; alt=&quot;Edit DNS&quot;/&gt;
+&lt;img class=&quot;shadow&quot; src=&quot;/images/posts/dns.png&quot; alt=&quot;Edit DNS&quot;/&gt;
 
 &lt;p&gt;Setting up the DNS was easy. All it takes is setting the root domain to forward to the www subdomain, and setting up a CNAME alias for the www subdomain to the endpoint from the 'Website' tab of the Amazon S3 management console.&lt;/p&gt;
 
@@ -208,7 +208,7 @@
    <link href="http://www.heathanderson.net/2011/08/05/another-blog-redesign"/>
    <updated>2011-08-05T00:00:00-04:00</updated>
    <id>http://heathanderson.net/2011/08/05/another-blog-redesign</id>
-   <content type="html">&lt;p&gt;&lt;img alt=&quot;HTML5 banner&quot; src=&quot;http://www.heathanderson.net/images/posts/HTML5_sticker.png&quot; /&gt;I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now &lt;a href=&quot;http://www.w3.org/html/logo/&quot;&gt;HTML5&lt;/a&gt;--no more XHTML.&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;img class=&quot;shadow&quot; alt=&quot;HTML5 banner&quot; src=&quot;http://www.heathanderson.net/images/posts/HTML5_sticker.png&quot; /&gt;I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now &lt;a href=&quot;http://www.w3.org/html/logo/&quot;&gt;HTML5&lt;/a&gt;--no more XHTML.&lt;/p&gt;
 
 &lt;p&gt;I am still using &lt;a href=&quot;http://jekyllrb.com/&quot;&gt;Jekyll&lt;/a&gt; to generate the HTML files of the site. I love the simplicity of it. I'm hosting the site on &lt;a href=&quot;http://aws.amazon.com/s3/&quot;&gt;Amazon S3&lt;/a&gt;. It is fast, cheap and maintenance free. &lt;/p&gt;
 
@@ -224,7 +224,7 @@
 
 &lt;p&gt;Apparently I was using Monaco 12pt.&lt;/p&gt;
 
-&lt;img src=&quot;/images/posts/monaco12pt.png&quot; alt=&quot;monaco example&quot;/&gt;
+&lt;img class=&quot;shadow&quot; src=&quot;/images/posts/monaco12pt.png&quot; alt=&quot;monaco example&quot;/&gt;
 
 &lt;p&gt;As you can see it is a little largish, but it never really bothered me. I began to search for other fonts to try. The first resource I found was Jeff Atwood's &lt;a href=&quot;http://www.codinghorror.com/blog/2004/12/progamming-fonts.html&quot;&gt;Programming Fonts&lt;/a&gt; post. I saw nothing that made me want to switch even temporarily. Next I looked at &lt;a href=&quot;http://hivelogic.com/articles/top-10-programming-fonts&quot;&gt;Top 10 Programming Fonts&lt;/a&gt;. I decided I might as well try out a couple of these fonts, even if just for a few minutes. I downloaded &lt;a href=&quot;http://www.dafont.com/monofur.font&quot;&gt;Monofur&lt;/a&gt;, &lt;a href=&quot;http://www.levien.com/type/myfonts/inconsolata.html&quot;&gt;Inconsolata&lt;/a&gt;, and &lt;a href=&quot;http://damieng.com/blog/2008/05/26/envy-code-r-preview-7-coding-font-released&quot;&gt;Envy Code R&lt;/a&gt;. Envy Code R wasn't mentioned in the list, but it was brought up in the comments and in the Hacker News thread above. &lt;/p&gt;
 
@@ -232,7 +232,7 @@
 
 &lt;p&gt;Here is what my screen looks like now:&lt;/p&gt;
 
-&lt;img src=&quot;/images/posts/inconsolata12pt.png&quot; alt=&quot;inconsolata example&quot;/&gt;
+&lt;img class=&quot;shadow&quot; src=&quot;/images/posts/inconsolata12pt.png&quot; alt=&quot;inconsolata example&quot;/&gt;
 
 &lt;p&gt;One final note on anti aliasing: It seems that I like it (at least with Inconsolata and Monaco), some people do not. As with font choice I suggest trying it out and seeing for yourself.&lt;/p&gt;</content>
  </entry>

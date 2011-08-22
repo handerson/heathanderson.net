@@ -388,3 +388,9 @@ h3{
 {
    margin:0 auto;  width:600px;
 }
+
+img.shadow{
+  -moz-box-shadow: 5px 5px 5px #4E5052;
+  -webkit-box-shadow: 5px 5px 5px #4E5052;
+  box-shadow: 5px 5px 5px #4E5052;
+}

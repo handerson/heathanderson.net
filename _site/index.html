@@ -58,9 +58,9 @@
    <div class="post">
      <h3>&#x270d; <a href="/2011/08/21/bastion" rel="bookmark" title="Bastion">Bastion</a></h3>
      
-     <p><img src="/images/posts/bastion/bastion_1.jpg" alt="Bastion Screenshot"/>I've been playing <a href="http://supergiantgames.com/">Bastion</a> for the Xbox 360. I love this game. The art is great, the dynamic narration is unlike anything I've ever seen in a game before, and the music is amazing. The game narrates the main character's actions while you play--a feature that would certainly be annoying if poorly executed. Luckily here it is wonderfully done. The narrator simultaneously injects both humor and a sense of weight to the story. The music is great and evocative. I even <a href="http://supergiantgames.bandcamp.com/">bought</a> the soundtrack.</p>
+     <p><img class="shadow" src="/images/posts/bastion/bastion_1.jpg" alt="Bastion Screenshot"/>I've been playing <a href="http://supergiantgames.com/">Bastion</a> for the Xbox 360. I love this game. The art is great, the dynamic narration is unlike anything I've ever seen in a game before, and the music is amazing. The game narrates the main character's actions while you play--a feature that would certainly be annoying if poorly executed. Luckily here it is wonderfully done. The narrator simultaneously injects both humor and a sense of weight to the story. The music is great and evocative. I even <a href="http://supergiantgames.bandcamp.com/">bought</a> the soundtrack.</p>
 
-<img src="/images/posts/bastion/bastion_2.jpg" alt="Bastion Screenshot"/>
+<img class="shadow" src="/images/posts/bastion/bastion_2.jpg" alt="Bastion Screenshot"/>
 
 <p>And on top of all that the game is really fun. Every weapon featured in the game is fun, looks cool and is useful. I'm starting my second play through and I'm looking forward to experimenting with some of the weapons that I only briefly used on my first try.</p>
 
@@ -151,7 +151,7 @@
      
      <p>The main reason for switching to S3 as a host for this site was cost. This blog gets almost no traffic so I anticipate my monthly S3 bill to be less than $1 USD. That is pretty cheap. I was previously using a VPS from <a href="http://www.linode.com">Linode</a>. It was $19.99 a month. I love Linode, and next time I need a VPS I will go with them. But it was overkill for this blog. I was simply serving static HTML from Apache.</p>
 
-<img src="/images/posts/s3calc.png" alt="Simple Monthly Calculator"/>
+<img class="shadow" src="/images/posts/s3calc.png" alt="Simple Monthly Calculator"/>
 <p>Using Amazon's <a href="http://calculator.s3.amazonaws.com/calc5.html">Simple Monthly Calculator</a> I estimate that even if this site gets a couple orders of magnitude more popular, I'll still be paying less than $4.00 a month.</p>
 
 <p>I also no longer have to worry about server security and server uptime. Those are two pretty big pluses.</p>
@@ -165,15 +165,15 @@
      
      <p>Earlier this year Amazon S3 was <a href="https://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/">updated</a> to more easily support hosting static websites. The full <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a> is online, but I'll give a quick overview of how it works here.</p>
 
-<img src="/images/posts/create_bucket.png" alt="Create a bucket"/>
+<img class="shadow" src="/images/posts/create_bucket.png" alt="Create a bucket"/>
 
 <p>The first step was to create a bucket. The only way I could get the DNS CNAME record (more on that in a minute) for my domain to actually point to the correct bucket was to name the bucket the same as the domain. I didn't see this mentioned anywhere in the documentation so perhaps I was doing something incorrectly.</p>
 
-<img src="/images/posts/website_tab.png" alt="Website Tab"/>
+<img class="shadow" src="/images/posts/website_tab.png" alt="Website Tab"/>
 
 <p>The new 'Website' tab what makes hosting a site possibility. All that needs to be done here is click the 'Enable' checkbox and tell S3 what the site's index document (usually index.html) and error document (usually 404.html) are. Also note the endpoint url--it is needed when setting up the DNS.</p>
 
-<img src="/images/posts/edit_policy.png" alt="Edit Edit"/>
+<img class="shadow" src="/images/posts/edit_policy.png" alt="Edit Edit"/>
 
 <p>Another thing that needed to be done is setting the policy so that others can actually view the site. This is found on the properties menu in the S3 management console for your website's bucket and go to the permissions tab. The 'Edit buck policy' button brings up a text area where I pasted the following (found in the <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a>):</p>
 
@@ -198,7 +198,7 @@
 
 <p>After copying my site to the buck and testing the endpoint URL in my browser, I was ready to set up my domain to point to my new host.</p>
 
-<img src="/images/posts/dns.png" alt="Edit DNS"/>
+<img class="shadow" src="/images/posts/dns.png" alt="Edit DNS"/>
 
 <p>Setting up the DNS was easy. All it takes is setting the root domain to forward to the www subdomain, and setting up a CNAME alias for the www subdomain to the endpoint from the 'Website' tab of the Amazon S3 management console.</p>
 
@@ -268,7 +268,7 @@
    <div class="post">
      <h3>&#x270d; <a href="/2011/08/05/another-blog-redesign" rel="bookmark" title="Another Blog Redesign">Another Blog Redesign</a></h3>
      
-     <p><img alt="HTML5 banner" src="http://www.heathanderson.net/images/posts/HTML5_sticker.png" />I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now <a href="http://www.w3.org/html/logo/">HTML5</a>--no more XHTML.</p>
+     <p><img class="shadow" alt="HTML5 banner" src="http://www.heathanderson.net/images/posts/HTML5_sticker.png" />I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now <a href="http://www.w3.org/html/logo/">HTML5</a>--no more XHTML.</p>
 
 <p>I am still using <a href="http://jekyllrb.com/">Jekyll</a> to generate the HTML files of the site. I love the simplicity of it. I'm hosting the site on <a href="http://aws.amazon.com/s3/">Amazon S3</a>. It is fast, cheap and maintenance free. </p>
 
@@ -288,7 +288,7 @@
 
 <p>Apparently I was using Monaco 12pt.</p>
 
-<img src="/images/posts/monaco12pt.png" alt="monaco example"/>
+<img class="shadow" src="/images/posts/monaco12pt.png" alt="monaco example"/>
 
 <p>As you can see it is a little largish, but it never really bothered me. I began to search for other fonts to try. The first resource I found was Jeff Atwood's <a href="http://www.codinghorror.com/blog/2004/12/progamming-fonts.html">Programming Fonts</a> post. I saw nothing that made me want to switch even temporarily. Next I looked at <a href="http://hivelogic.com/articles/top-10-programming-fonts">Top 10 Programming Fonts</a>. I decided I might as well try out a couple of these fonts, even if just for a few minutes. I downloaded <a href="http://www.dafont.com/monofur.font">Monofur</a>, <a href="http://www.levien.com/type/myfonts/inconsolata.html">Inconsolata</a>, and <a href="http://damieng.com/blog/2008/05/26/envy-code-r-preview-7-coding-font-released">Envy Code R</a>. Envy Code R wasn't mentioned in the list, but it was brought up in the comments and in the Hacker News thread above. </p>
 
@@ -296,7 +296,7 @@
 
 <p>Here is what my screen looks like now:</p>
 
-<img src="/images/posts/inconsolata12pt.png" alt="inconsolata example"/>
+<img class="shadow" src="/images/posts/inconsolata12pt.png" alt="inconsolata example"/>
 
 <p>One final note on anti aliasing: It seems that I like it (at least with Inconsolata and Monaco), some people do not. As with font choice I suggest trying it out and seeing for yourself.</p>
    </div>

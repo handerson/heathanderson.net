@@ -7,15 +7,15 @@ published: true
 
 <p>Earlier this year Amazon S3 was <a href="https://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/">updated</a> to more easily support hosting static websites. The full <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a> is online, but I'll give a quick overview of how it works here.</p>
 
-<img src="/images/posts/create_bucket.png" alt="Create a bucket"/>
+<img class="shadow" src="/images/posts/create_bucket.png" alt="Create a bucket"/>
 
 <p>The first step was to create a bucket. The only way I could get the DNS CNAME record (more on that in a minute) for my domain to actually point to the correct bucket was to name the bucket the same as the domain. I didn't see this mentioned anywhere in the documentation so perhaps I was doing something incorrectly.</p>
 
-<img src="/images/posts/website_tab.png" alt="Website Tab"/>
+<img class="shadow" src="/images/posts/website_tab.png" alt="Website Tab"/>
 
 <p>The new 'Website' tab what makes hosting a site possibility. All that needs to be done here is click the 'Enable' checkbox and tell S3 what the site's index document (usually index.html) and error document (usually 404.html) are. Also note the endpoint url--it is needed when setting up the DNS.</p>
 
-<img src="/images/posts/edit_policy.png" alt="Edit Edit"/>
+<img class="shadow" src="/images/posts/edit_policy.png" alt="Edit Edit"/>
 
 <p>Another thing that needed to be done is setting the policy so that others can actually view the site. This is found on the properties menu in the S3 management console for your website's bucket and go to the permissions tab. The 'Edit buck policy' button brings up a text area where I pasted the following (found in the <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a>):</p>
 
@@ -39,7 +39,7 @@ published: true
 
 <p>After copying my site to the buck and testing the endpoint URL in my browser, I was ready to set up my domain to point to my new host.</p>
 
-<img src="/images/posts/dns.png" alt="Edit DNS"/>
+<img class="shadow" src="/images/posts/dns.png" alt="Edit DNS"/>
 
 <p>Setting up the DNS was easy. All it takes is setting the root domain to forward to the www subdomain, and setting up a CNAME alias for the www subdomain to the endpoint from the 'Website' tab of the Amazon S3 management console.</p>
 
