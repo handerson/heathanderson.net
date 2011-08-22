@@ -52,6 +52,44 @@
             
   
     
+    <h2>Sunday, September 27, 2009</h2>
+          
+   
+   <div class="post">
+     <h3>&#x270d; <a href="/2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby" rel="bookmark" title="Initialization Vector Length in MRI Ruby versus JRuby">Initialization Vector Length in MRI Ruby versus JRuby</a></h3>
+     
+     <p>When using OpenSSL encryption in standard Ruby, the length of an initialization vector (IV) can apparently be as large as you want it to be as long as it is at least the minimum size. This is odd. This can also cause trouble when switching over to JRuby. JRuby appear to be much pickier about IV length.</p>
+
+<p>This works in MRI but not in JRuby:</p>
+
+<div class="highlight"><pre><code class="ruby">  <span class="n">unencrypted_data</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
+
+  <span class="n">des</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Cipher</span><span class="o">::</span><span class="no">Cipher</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;des-ede3-cbc&quot;</span><span class="p">)</span>
+  <span class="n">des</span><span class="o">.</span><span class="n">encrypt</span>
+  <span class="n">des</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;0123456789abcdef01234567890&#39;</span>
+
+  <span class="n">des</span><span class="o">.</span><span class="n">iv</span> <span class="o">=</span> <span class="s2">&quot;ed87acdcca419954edccb736f7dc77a74f5ac8dfe3861c3d5f77248e21592131a5423d63ff91f07956ce1aa386f8359931b5&quot;</span> <span class="c1"># 100 characters</span>
+  <span class="n">encrypted_data</span> <span class="o">=</span> <span class="n">des</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">unencrypted_data</span><span class="p">)</span> <span class="o">+</span> <span class="n">des</span><span class="o">.</span><span class="n">final</span>
+
+  <span class="nb">puts</span> <span class="n">encrypted_data</span>
+</code></pre>
+</div>
+
+
+<p>JRuby gives you this very helpful message:<br/>
+@ruby_string_encryption.rb:27:in `encrypt': No message available (OpenSSL::Cipher::CipherError)<br/>
+from ruby_string_encryption.rb:37@</p>
+
+<p>Change the IV to 8 characters and everything works fine.</p>
+
+<p><em>Update 10/14/2009</em> The code that I originally posted was incorrect. I have updated it. Also I opened a <a href="http://jira.codehaus.org/browse/JRUBY-4012">ticket </a>for this issue. </p>
+
+<p>If you are looking for what size an initialization vector should be check out my post on <a href="http://www.heathanderson.net/2009/09/25/ruby-string-encryption/">encrypting a string with Ruby</a>.</p>
+   </div>
+   
+      
+  
+    
     <h2>Friday, September 25, 2009</h2>
           
    

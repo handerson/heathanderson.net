@@ -4,12 +4,27 @@
  <title>Heath's Blog of Stuff</title>
  <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
  <link href="http://www.heathanderson.net"/>
- <updated>2011-08-20T22:10:12-04:00</updated>
+ <updated>2011-08-21T20:24:50-04:00</updated>
  <id>http://www.heathanderson.net</id>
  <author>
    <name>Heath Anderson</name>
  </author>
 
+ 
+ <entry>
+   <title>Bastion</title>
+   <link href="http://www.heathanderson.net/2011/08/21/bastion"/>
+   <updated>2011-08-21T00:00:00-04:00</updated>
+   <id>http://heathanderson.net/2011/08/21/bastion</id>
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/images/posts/bastion/bastion_1.jpg&quot; alt=&quot;Bastion Screenshot&quot;/&gt;I've been playing &lt;a href=&quot;http://supergiantgames.com/&quot;&gt;Bastion&lt;/a&gt; for the Xbox 360. I love this game. The art is great, the dynamic narration is unlike anything I've ever seen in a game before, and the music is amazing. The game narrates the main character's actions while you play--a feature that would certainly be annoying if poorly executed. Luckily here it is wonderfully done. The narrator simultaneously injects both humor and a sense of weight to the story. The music is great and evocative. I even &lt;a href=&quot;http://supergiantgames.bandcamp.com/&quot;&gt;bought&lt;/a&gt; the soundtrack.&lt;/p&gt;
+
+&lt;img src=&quot;/images/posts/bastion/bastion_2.jpg&quot; alt=&quot;Bastion Screenshot&quot;/&gt;
+
+&lt;p&gt;And on top of all that the game is really fun. Every weapon featured in the game is fun, looks cool and is useful. I'm starting my second play through and I'm looking forward to experimenting with some of the weapons that I only briefly used on my first try.&lt;/p&gt;
+
+&lt;p&gt;Bastion is one of the best games I've played this year. If you have a 360 &lt;a href=&quot;http://marketplace.xbox.com/en-US/Product/Bastion/66acd000-77fe-1000-9115-d80258410b66&quot;&gt;download&lt;/a&gt; the Bastion demo and give it a try. &lt;/p&gt;
+&lt;object style=&quot;height: 366px; width: 640px&quot;&gt;&lt;param name=&quot;movie&quot; value=&quot;http://www.youtube.com/v/TptJHeWngJs?version=3&quot;&gt;&lt;param name=&quot;allowFullScreen&quot; value=&quot;true&quot;&gt;&lt;param name=&quot;allowScriptAccess&quot; value=&quot;always&quot;&gt;&lt;embed src=&quot;http://www.youtube.com/v/TptJHeWngJs?version=3&quot; type=&quot;application/x-shockwave-flash&quot; allowfullscreen=&quot;true&quot; allowScriptAccess=&quot;always&quot; width=&quot;600&quot; height=&quot;366&quot;&gt;&lt;/object&gt;</content>
+ </entry>
  
  <entry>
    <title>Automating New Post Creation in Jekyll</title>

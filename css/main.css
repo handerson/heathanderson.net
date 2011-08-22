@@ -379,9 +379,9 @@ h3{
   width: 100%;
   float: left;
   border-bottom: 1px solid #4E5052;
-/*  -moz-box-shadow: 1px 5px 5px #676A6D;
-    -webkit-box-shadow: 1px 5px 5px #676A6D;*/
-    box-shadow: 1px 3px 10px #4E5052;
+  -moz-box-shadow: 1px 3px 10px #4E5052;
+  -webkit-box-shadow: 1px 3px 10px #4E5052;
+  box-shadow: 1px 3px 10px #4E5052;
 }
 
 #header
