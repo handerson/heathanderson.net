@@ -52,6 +52,55 @@
             
   
     
+    <h2>Monday, November 23, 2009</h2>
+          
+   
+   <div class="post">
+     <h3>&#x270d; <a href="/2009/11/23/ruby-on-rails-plugin-string_encryption" rel="bookmark" title="Ruby on Rails Plugin: string_encryption">Ruby on Rails Plugin: string_encryption</a></h3>
+     
+     <p>This is a very simple Ruby on Rails plugin that allows easy encryption of strings. For the sake of simplicity there no customization. The only cipher used is 'des-ede3-cbc' (Triple DES using Cipher Block Chaining) . See my <a href="http://blogofheath.com/2009/09/25/ruby-string-encryption/">post </a> on encrypting/decrypting a string with Ruby for more information. First install the plugin:</p>
+
+
+
+<p>Next we need to add an encryption key as the constant @ENV['STRING_ENCRYPTION_KEY']@. To do this just run</p>
+
+<div class="highlight"><pre><code class="ruby">  <span class="n">script</span><span class="o">/</span><span class="n">generate</span> <span class="n">encryption_key</span>
+</code></pre>
+</div>
+
+
+<p>or you could set </p>
+
+<div class="highlight"><pre><code class="ruby">  <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;STRING_ENCRYPTION_KEY&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;somekey&quot;</span>
+</code></pre>
+</div>
+
+
+<p>where "somekey" is your key in environment.rb.</p>
+  
+<p>Now encryption/decryption is easy.</p>
+
+<h3>Encryption:</h3>
+
+<div class="highlight"><pre><code class="ruby">  <span class="s2">&quot;Test&quot;</span><span class="o">.</span><span class="n">encrypt</span>  <span class="c1">#=&gt; &quot;NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A&quot;</span>
+</code></pre>
+</div>
+
+
+<h3>Decryption:</h3>
+
+<div class="highlight"><pre><code class="ruby">  <span class="s2">&quot;NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A&quot;</span><span class="o">.</span><span class="n">decrypt</span>  <span class="c1">#=&gt; &quot;Test&quot;</span>
+</code></pre>
+</div>
+
+
+<p>Code at Github:<br/>
+<a href="http://github.com/handerson/string_encryption">http://github.com/handerson/string_encryption</a></p>
+   </div>
+   
+      
+  
+    
     <h2>Sunday, September 27, 2009</h2>
           
    
