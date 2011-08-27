@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+
+<title>Some Simple jQuery Plugins</title>
+
+<link rel="image_src" href="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
+<meta property="og:image" content="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+<meta name="author" content="Heath Anderson">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+
+<link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
+<link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
+
+<link rel="openid2.local_id" href="http://www.flickr.com/photos/heathanderson" />
+<link rel="openid.delegate"  href="http://www.flickr.com/photos/heathanderson" />
+
+<link rel="alternate" type="application/rss+xml" title="Heath's Blog of Stuff Feed" href="http://www.heathanderson.net/atom.xml">
+
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
+
+
+</head>
+<body>
+  <header>
+    <div class="headerWrapper">
+  <div id="header">
+    <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
+    <div id="categories_menu">
+      <ul class="sf-menu sf-js-enabled">
+        <li class="cat-item"><a href="/about.html">About</a></li>
+  			<li class="cat-item"><a href="http://www.twitter.com/heathanderson">Twitter</a></li>
+  			<li class="cat-item"><a href="http://www.facebook.com/heathanderson">Facebook</a></li>
+  		</ul>
+    </div>
+  </div>
+</div>
+	</header>
+	<div id="container">
+
+
+		<div id="main" role="main">
+      <h1>Some Simple jQuery Plugins</h1> 
+<div class="small">Saturday, August 27, 2011</div>
+
+<p>Below are some really simple jQuery plugins that I've thrown together over the past couple of years that I've found useful.</p>
+  
+<p>Need to scroll to element with animation? Here you go:</p>
+
+<div class="highlight"><pre><code class="javascript">  <span class="c1">// scroll to animation</span>
+  <span class="c1">// example usage: $(&#39;.scroll_to_here&#39;).scrollTo();</span>
+
+  <span class="nx">jQuery</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">scrollTo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">speed</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">speed</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="p">){</span>
+      <span class="nx">speed</span> <span class="o">=</span> <span class="s1">&#39;slow&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;html,body&#39;</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span><span class="nx">scrollTop</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">offset</span><span class="p">().</span><span class="nx">top</span><span class="p">},</span><span class="nx">speed</span><span class="p">);</span>
+  <span class="p">};</span>
+</code></pre>
+</div>
+
+
+<p>Ajax polling is pretty easy with jQuery, but it is nice to have reusable function so you don't repeat yourself. The plugin below is based on another <a href="http://www.nickriggs.com/posts/simple-ajax-polling-plugin-for-jquery/">simple ajax polling plugin</a> that scales the amount of time between requests. This plugin uses a simple interval with a maximum number of attempts. </p>
+
+<div class="highlight"><pre><code class="javascript">  <span class="c1">//Simple AJAX Polling jQuery Plugin</span>
+  <span class="c1">// example usage:</span>
+  <span class="cm">/* $.ajaxPoll({</span>
+<span class="cm">          url: &quot;/path&quot;,</span>
+<span class="cm">          type: &quot;GET&quot;,</span>
+<span class="cm">          interval: 250,</span>
+<span class="cm">          maxAttempts: 25,</span>
+<span class="cm">          successCondition: function(result) {</span>
+<span class="cm">              return result != &quot;processing&quot;; </span>
+<span class="cm">          },</span>
+<span class="cm">          success: function(data) {</span>
+<span class="cm">              $(&#39;#container&#39;).replaceWith(data);</span>
+<span class="cm">          }</span>
+<span class="cm">      });</span>
+<span class="cm">  */</span>
+
+  <span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajaxPoll</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">user_options</span><span class="p">){</span>
+
+    <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">interval</span><span class="o">:</span> <span class="mi">30000</span><span class="p">,</span>
+      <span class="nx">maxAttempts</span><span class="o">:</span> <span class="mi">15</span>
+    <span class="p">}</span>
+  
+    <span class="nx">jQuery</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">user_options</span><span class="p">);</span>
+  
+    <span class="kd">var</span> <span class="nx">attempts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nx">options</span><span class="p">.</span><span class="nx">success</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">successCondition</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">successCallback</span><span class="p">){</span>
+            <span class="nx">options</span><span class="p">.</span><span class="nx">successCallback</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">);</span>
+          <span class="p">}</span>          
+          <span class="k">return</span><span class="p">;</span>
+      <span class="p">}</span>
+    
+      <span class="nx">attempts</span><span class="o">++</span><span class="p">;</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="nx">attempts</span> <span class="o">&gt;</span> <span class="nx">options</span><span class="p">.</span><span class="nx">maxAttempts</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span><span class="p">;</span>
+      <span class="p">}</span>
+    
+      <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">},</span> <span class="nx">options</span><span class="p">.</span><span class="nx">interval</span><span class="p">);</span>
+    <span class="p">};</span>
+
+    <span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre>
+</div>
+
+
+<p>The HTML5 placeholder attribute is awesome, but some browsers (IE and ... maybe just IE?) do not support it. Here is a jQuery plugin that solves that problem by clearing and restoring a field's placeholder value in browsers that don't handle that silliness for you.</p>
+
+<div class="highlight"><pre><code class="javascript">  <span class="c1">// clears and restores a field&#39;s default value</span>
+  <span class="c1">// example usage (js): $(&#39;input.has_default&#39;).hasDefaultValue();</span>
+  <span class="c1">// example usage (html): &lt;input class=&quot;has_default&quot; placeholder=&quot;This is displayed by default&quot; type=&quot;text&quot;/&gt;</span>
+
+  <span class="nx">jQuery</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">hasDefaultValue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">supports_input_placeholder</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">);</span>
+      <span class="k">return</span> <span class="s1">&#39;placeholder&#39;</span> <span class="k">in</span> <span class="nx">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">supports_input_placeholder</span><span class="p">()){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="p">){</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;placeholder&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">focus</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;placeholder&quot;</span><span class="p">)){</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">blur</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;placeholder&quot;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="p">){</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;placeholder&quot;</span><span class="p">);</span>
+        <span class="p">}</span> 
+      <span class="p">})</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+</code></pre>
+</div>
+
+
+
+		
+
+
+
+		</div>
+
+		<footer>
+      <div id="footer" class="small">
+  <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
+    <input type="search" name="q" placeholder="Search this site..." > 
+    <!--[if IE ]>
+    <input type="submit" value="Search">
+    <![endif]-->
+  </form>
+  <noscript>
+  	You can search this site using <a href="http://www.google.com/search?q=site:www.heathanderson.net">Google</a>.<br/>
+  </noscript>
+
+<script type="text/javascript">
+function simpleSearch(form) {
+  var q = window.encodeURIComponent(form["q"].value);
+  var url = "http://www.google.com/search?q=site:www.heathanderson.net ";
+  url = url + q;
+  window.location = url;
+  return false;
+}
+
+document.getElementById('searchForm').style.display = "block";
+</script>
+
+Subscribe to the <a href="/atom.xml">RSS feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a><br/>
+
+Copyright &copy; Heath Anderson | <a href="/privacy.html">Privacy Policy</a><br/>
+
+<a href="http://www.w3.org/html/logo/"><img src="/images/html5-badge.png" alt="HTML5 Badge" class="badge"/></a><br/>
+
+<a title="Real Time Analytics" href="http://getclicky.com/66465306"><img alt="Real Time Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+
+<script type="text/javascript">
+var clicky_custom = {};
+clicky_custom.cookies_disable = 1;
+
+var clicky_site_ids = clicky_site_ids || [];
+clicky_site_ids.push(66465306);
+(function() {
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//static.getclicky.com/js';
+  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+})();
+</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66465306ns.gif" /></p></noscript>
+
+</div>
+
+
+
+<!-- Prompt IE 6 users to install Chrome Frame. Idea from http://html5boilerplate.com.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+		</footer>
+	</div>
+</body>
+</html>
