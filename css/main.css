@@ -378,6 +378,7 @@ h3{
   background-image: url('/images/linen.jpg');
   width: 100%;
   float: left;
+  height: 90px;
   border-bottom: 1px solid #4E5052;
   -moz-box-shadow: 1px 3px 10px #4E5052;
   -webkit-box-shadow: 1px 3px 10px #4E5052;
@@ -393,4 +394,20 @@ img.shadow{
   -moz-box-shadow: 5px 5px 5px #4E5052;
   -webkit-box-shadow: 5px 5px 5px #4E5052;
   box-shadow: 5px 5px 5px #4E5052;
+}
+
+img {
+  max-width: 600px;
+}
+
+.post p img {
+  max-width: 300px;
+}
+
+.post{
+  clear: both;
+}
+
+h2 {
+  clear: both;
 }
