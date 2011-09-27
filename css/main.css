@@ -411,3 +411,8 @@ img {
 h2 {
   clear: both;
 }
+
+h5, h6 {
+font-size: 1.05em;
+margin-bottom: 0.1em;
+}
