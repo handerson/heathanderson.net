@@ -4,7 +4,7 @@
  <title>Heath's Blog of Stuff</title>
  <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
  <link href="http://www.heathanderson.net"/>
- <updated>2012-03-08T21:49:16-05:00</updated>
+ <updated>2012-03-09T12:32:10-05:00</updated>
  <id>http://www.heathanderson.net</id>
  <author>
    <name>Heath Anderson</name>
@@ -90,7 +90,7 @@ After finding those helpful posts my next question was:
    <link href="http://www.heathanderson.net/2011/10/01/using-will_paginate-with-sql-server"/>
    <updated>2011-10-01T00:00:00-04:00</updated>
    <id>http://heathanderson.net/2011/10/01/using-will_paginate-with-sql-server</id>
-   <content type="html">&lt;p&gt;Having Rails and Microsoft SQL Server communicate is much easier than it once was thanks to projects like &lt;a href=&quot;https://github.com/rails-sqlserver/tiny_tds&quot;&gt;TinyTDS&lt;/a&gt;, but sometimes things still don't work exactly right. We ran into an issue where pagination simply would not work. Below is what we came up with after some research.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Having Rails and Microsoft SQL Server communicate is much easier than it once was thanks to projects like &lt;a href=&quot;https://github.com/rails-sqlserver/tiny_tds&quot;&gt;TinyTDS&lt;/a&gt;, but sometimes things still don't work exactly right. &lt;a href=&quot;http://blacksnowmedia.com/&quot;&gt;We&lt;/a&gt; ran into an issue where pagination simply would not work. Below is what we came up with after some research.&lt;/p&gt;
 
 &lt;p&gt;This solution was based on the following:&lt;/p&gt;
 &lt;ul&gt;
@@ -221,7 +221,7 @@ lib/monkey_patch_sql2005_limit.rb
 
 &lt;p&gt;I received this candy from &lt;a href=&quot;http://www.candyjapan.com/&quot;&gt;CandyJapan.com&lt;/a&gt;--a neat little service that will send you some weird Japanese candy twice a month for $24. I don't know how long I'll keep my subscription, but I think I'll get at least a few months of entertainment out it&lt;/p&gt; 
 
-&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/m0BF4cNGLA0&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
+&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/m0BF4cNGLA0?wmode=opaque&quot; frameborder=&quot;0&quot; allowfullscreen&gt;&lt;/iframe&gt;
 
 </content>
  </entry>
@@ -377,7 +377,7 @@ lib/monkey_patch_sql2005_limit.rb
 &lt;p&gt;And on top of all that the game is really fun. Every weapon featured in the game is fun, looks cool and is useful. I'm starting my second play through and I'm looking forward to experimenting with some of the weapons that I only briefly used on my first try.&lt;/p&gt;
 
 &lt;p&gt;Bastion is one of the best games I've played this year. If you have a 360 &lt;a href=&quot;http://marketplace.xbox.com/en-US/Product/Bastion/66acd000-77fe-1000-9115-d80258410b66&quot;&gt;download&lt;/a&gt; the Bastion demo and give it a try. &lt;/p&gt;
-&lt;object style=&quot;height: 366px; width: 640px&quot;&gt;&lt;param name=&quot;movie&quot; value=&quot;http://www.youtube.com/v/TptJHeWngJs?version=3&quot;&gt;&lt;param name=&quot;allowFullScreen&quot; value=&quot;true&quot;&gt;&lt;param name=&quot;allowScriptAccess&quot; value=&quot;always&quot;&gt;&lt;embed src=&quot;http://www.youtube.com/v/TptJHeWngJs?version=3&quot; type=&quot;application/x-shockwave-flash&quot; allowfullscreen=&quot;true&quot; allowScriptAccess=&quot;always&quot; width=&quot;600&quot; height=&quot;366&quot;&gt;&lt;/object&gt;</content>
+&lt;object style=&quot;height: 366px; width: 640px&quot;&gt;&lt;param name=&quot;movie&quot; value=&quot;http://www.youtube.com/v/TptJHeWngJs?version=3&quot;&gt;&lt;param name=&quot;allowFullScreen&quot; value=&quot;true&quot;&gt;&lt;param name=&quot;allowScriptAccess&quot; value=&quot;always&quot;&gt;&lt;embed src=&quot;http://www.youtube.com/v/TptJHeWngJs?version=3&quot; type=&quot;application/x-shockwave-flash&quot; allowfullscreen=&quot;true&quot; wmode=&quot;opaque&quot;  allowScriptAccess=&quot;always&quot; width=&quot;600&quot; height=&quot;366&quot;&gt;&lt;/object&gt;</content>
  </entry>
  
  <entry>

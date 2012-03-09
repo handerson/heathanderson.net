@@ -29,11 +29,6 @@ blockquote, q { quotes: "" ""; }
 a img { border: none; }
 
 
-body {
-  
-/*  margin: 10px;*/
-}
-
 /* Syntax Css from https://gist.github.com/1125708 */
 .highlight  { background: #4E5052; background: rgba(0,0,0,.50); overflow-x:auto;margin-bottom: 10px;}
 .hll { background-color: #ffffcc }
@@ -116,8 +111,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
-body { font:1em/1.625em "lucida grande","lucida sans unicode", sans-serif; background-color:#A8A49E;  
-background-image: url('/images/lightbg.jpg');
+body { font:1em/1.625em "lucida grande","lucida sans unicode", sans-serif; background-color:#8e8b86;  
 font-size-adjust:none;
 font-style:normal;
 font-variant:normal;
@@ -259,6 +253,15 @@ ul.sf-menu li li li.sfHover ul {
 
 h2 {
   color: #333;
+  color: #333;
+  text-align: right;
+  font-size: 14px;
+  border-top: solid;
+  padding: 10px 0;
+  margin-top: 25px;
+}
+h2:first-child{
+  border: none;
 }
 h3{
   font-size: 1.4em;
@@ -269,17 +272,15 @@ h3{
 #container {  margin:0 auto;  width:600px;   }
 #main{
   clear: both;
-  padding-top: 10px;
+  margin-top: 80px;
 }
 #logo {
   float:left;
 }
 
 #categories_menu {
-	position:relative;
-	z-index:15;
-	top:55px;
-	float: left;
+	float: right;
+  margin-top: 15px;
 }
 #categories_menu ul li {
 	margin-right:15px;
@@ -375,14 +376,18 @@ h3{
 
 .headerWrapper {
   background-color:#676A6D;  
-  background-image: url('/images/linen.jpg');
-  width: 100%;
-  float: left;
-  height: 90px;
+  background-image: url('/images/linen_sm.jpg');
+  height: 55px;
   border-bottom: 1px solid #4E5052;
   -moz-box-shadow: 1px 3px 10px #4E5052;
   -webkit-box-shadow: 1px 3px 10px #4E5052;
   box-shadow: 1px 3px 10px #4E5052;
+  z-index: 1030;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 18px;
 }
 
 #header
