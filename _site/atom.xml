@@ -4,12 +4,86 @@
  <title>Heath's Blog of Stuff</title>
  <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
  <link href="http://www.heathanderson.net"/>
- <updated>2011-09-26T22:49:04-04:00</updated>
+ <updated>2012-03-08T21:12:40-05:00</updated>
  <id>http://www.heathanderson.net</id>
  <author>
    <name>Heath Anderson</name>
  </author>
 
+ 
+ <entry>
+   <title>Adding a Splash Screen For An Android PhoneGap App</title>
+   <link href="http://www.heathanderson.net/2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app"/>
+   <updated>2012-03-08T00:00:00-05:00</updated>
+   <id>http://heathanderson.net/2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app</id>
+   <content type="html">&lt;p&gt;The fact that you can add a splash screen to your PhoneGap app on the Android platform is surprisingly hard to come accross. After some searching I did find some answers. &lt;/p&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;http://html5help.wordpress.com/2011/10/18/creating-splash-screen-start-up-screen-for-android-app-using-phonegap-jqtouch/&quot;&gt;Adding the splash screen&lt;/a&gt; - &lt;a href=&quot;http://html5help.wordpress.com/&quot;&gt;HTML5 Help&lt;/a&gt; Blog
+  &lt;li&gt;&lt;a href=&quot;https://groups.google.com/d/msg/phonegap/lu3p_QO3Nqg/xentHyA8Pz8J&quot;&gt;Adding a delay so in case you want force your users to wait before they use your app&lt;/a&gt; - Google Groups
+&lt;/ul&gt;
+
+After finding those helpful posts my next question was:
+
+&lt;h3&gt;What is this property thing I'm setting?&lt;/h3&gt;
+
+&lt;p&gt;Starting on line 100 of the &lt;a href=&quot;https://github.com/cordova/cordova-android/blob/bf693627090ee136556a4e82ed7cb0a584ff278e/framework/src/org/apache/cordova/DroidGap.java&quot;&gt;DroidGap.java&lt;/a&gt; file there are some helpful comments:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;   &lt;span class=&quot;cm&quot;&gt;/* Properties: The application can be configured using the following properties:&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   * &lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    // Display a native loading dialog.  Format for value = &amp;quot;Title,Message&amp;quot;.  &lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    // (String - default=null)&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    super.setStringProperty(&amp;quot;loadingDialog&amp;quot;, &amp;quot;Wait,Loading Demo...&amp;quot;);&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   * &lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    // Hide loadingDialog when page loaded instead of when deviceready event&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    // occurs. (Boolean - default=false)&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    super.setBooleanProperty(&amp;quot;hideLoadingDialogOnPage&amp;quot;, true);&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   * &lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    // Cause all links on web page to be loaded into existing web view, &lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    // instead of being loaded into new browser. (Boolean - default=false)&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    super.setBooleanProperty(&amp;quot;loadInWebView&amp;quot;, true);&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   * &lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    // Load a splash screen image from the resource drawable directory.&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    // (Integer - default=0)&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    super.setIntegerProperty(&amp;quot;splashscreen&amp;quot;, R.drawable.splash);&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   * &lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    // Time in msec to wait before triggering a timeout error when loading&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    // with super.loadUrl().  (Integer - default=20000)&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    super.setIntegerProperty(&amp;quot;loadUrlTimeoutValue&amp;quot;, 60000);&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   * &lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    // URL to load if there&amp;#39;s an error loading specified URL with loadUrl().  &lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    // Should be a local URL starting with file://. (String - default=null)&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    super.setStringProperty(&amp;quot;errorUrl&amp;quot;, &amp;quot;file:///android_asset/www/error.html&amp;quot;);&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   * &lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    // Enable app to keep running in background. (Boolean - default=true)&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   *    super.setBooleanProperty(&amp;quot;keepRunning&amp;quot;, false);&lt;/span&gt;
+&lt;span class=&quot;cm&quot;&gt;   */&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+&lt;p&gt;These properties can be set in your appname.java file:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;java&quot;&gt;  &lt;span class=&quot;kn&quot;&gt;package&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;com&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;example&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;appname&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.app.Activity&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;android.os.Bundle&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+  &lt;span class=&quot;kn&quot;&gt;import&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;com.phonegap.*&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
+
+  &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;appname&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;extends&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;DroidGap&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+      &lt;span class=&quot;nd&quot;&gt;@Override&lt;/span&gt;
+      &lt;span class=&quot;kd&quot;&gt;public&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;void&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;Bundle&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;{&lt;/span&gt;
+          &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;onCreate&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;savedInstanceState&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+          &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;setIntegerProperty&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;splashscreen&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;drawable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;splash&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+          &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;loadUrl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;file:///android_asset/www/index.html&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
+      &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+  &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</content>
+ </entry>
  
  <entry>
    <title>My Favorite Mac OS X Apps For Web Development</title>

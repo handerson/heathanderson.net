@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+
+<title>Adding a Splash Screen For An Android PhoneGap App</title>
+
+<link rel="image_src" href="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
+<meta property="og:image" content="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+<meta name="author" content="Heath Anderson">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+
+<link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
+<link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
+
+<link rel="openid2.local_id" href="http://www.flickr.com/photos/heathanderson" />
+<link rel="openid.delegate"  href="http://www.flickr.com/photos/heathanderson" />
+
+<link rel="alternate" type="application/rss+xml" title="Heath's Blog of Stuff Feed" href="http://www.heathanderson.net/atom.xml">
+
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
+
+
+</head>
+<body>
+  <header>
+    <div class="headerWrapper">
+  <div id="header">
+    <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
+    <div id="categories_menu">
+      <ul class="sf-menu sf-js-enabled">
+        <li class="cat-item"><a href="/about.html">About</a></li>
+  			<li class="cat-item"><a href="http://www.twitter.com/heathanderson">Twitter</a></li>
+  			<li class="cat-item"><a href="http://www.facebook.com/heathanderson">Facebook</a></li>
+  		</ul>
+    </div>
+  </div>
+</div>
+	</header>
+	<div id="container">
+
+
+		<div id="main" role="main">
+      <h1>Adding a Splash Screen For An Android PhoneGap App</h1> 
+<div class="small">Thursday, March 08, 2012</div>
+
+<p>The fact that you can add a splash screen to your PhoneGap app on the Android platform is surprisingly hard to come accross. After some searching I did find some answers. </p>
+
+<ul>
+  <li><a href="http://html5help.wordpress.com/2011/10/18/creating-splash-screen-start-up-screen-for-android-app-using-phonegap-jqtouch/">Adding the splash screen</a> - <a href="http://html5help.wordpress.com/">HTML5 Help</a> Blog
+  <li><a href="https://groups.google.com/d/msg/phonegap/lu3p_QO3Nqg/xentHyA8Pz8J">Adding a delay so in case you want force your users to wait before they use your app</a> - Google Groups
+</ul>
+
+After finding those helpful posts my next question was:
+
+<h3>What is this property thing I'm setting?</h3>
+
+<p>Starting on line 100 of the <a href="https://github.com/cordova/cordova-android/blob/bf693627090ee136556a4e82ed7cb0a584ff278e/framework/src/org/apache/cordova/DroidGap.java">DroidGap.java</a> file there are some helpful comments:</p>
+
+<div class="highlight"><pre><code class="javascript">   <span class="cm">/* Properties: The application can be configured using the following properties:</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // Display a native loading dialog.  Format for value = &quot;Title,Message&quot;.  </span>
+<span class="cm">   *    // (String - default=null)</span>
+<span class="cm">   *    super.setStringProperty(&quot;loadingDialog&quot;, &quot;Wait,Loading Demo...&quot;);</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // Hide loadingDialog when page loaded instead of when deviceready event</span>
+<span class="cm">   *    // occurs. (Boolean - default=false)</span>
+<span class="cm">   *    super.setBooleanProperty(&quot;hideLoadingDialogOnPage&quot;, true);</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // Cause all links on web page to be loaded into existing web view, </span>
+<span class="cm">   *    // instead of being loaded into new browser. (Boolean - default=false)</span>
+<span class="cm">   *    super.setBooleanProperty(&quot;loadInWebView&quot;, true);</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // Load a splash screen image from the resource drawable directory.</span>
+<span class="cm">   *    // (Integer - default=0)</span>
+<span class="cm">   *    super.setIntegerProperty(&quot;splashscreen&quot;, R.drawable.splash);</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // Time in msec to wait before triggering a timeout error when loading</span>
+<span class="cm">   *    // with super.loadUrl().  (Integer - default=20000)</span>
+<span class="cm">   *    super.setIntegerProperty(&quot;loadUrlTimeoutValue&quot;, 60000);</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // URL to load if there&#39;s an error loading specified URL with loadUrl().  </span>
+<span class="cm">   *    // Should be a local URL starting with file://. (String - default=null)</span>
+<span class="cm">   *    super.setStringProperty(&quot;errorUrl&quot;, &quot;file:///android_asset/www/error.html&quot;);</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // Enable app to keep running in background. (Boolean - default=true)</span>
+<span class="cm">   *    super.setBooleanProperty(&quot;keepRunning&quot;, false);</span>
+<span class="cm">   */</span>
+</code></pre>
+</div>
+
+
+<p>These properties can be set in your appname.java file:</p>
+
+<div class="highlight"><pre><code class="java">  <span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">example</span><span class="o">.</span><span class="na">appname</span><span class="o">;</span>
+
+  <span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+  <span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+  <span class="kn">import</span> <span class="nn">com.phonegap.*</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">appname</span> <span class="kd">extends</span> <span class="n">DroidGap</span>
+  <span class="o">{</span>
+      <span class="nd">@Override</span>
+      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span>
+      <span class="o">{</span>
+          <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+          <span class="kd">super</span><span class="o">.</span><span class="na">setIntegerProperty</span><span class="o">(</span><span class="s">&quot;splashscreen&quot;</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">splash</span><span class="o">);</span>
+          <span class="kd">super</span><span class="o">.</span><span class="na">loadUrl</span><span class="o">(</span><span class="s">&quot;file:///android_asset/www/index.html&quot;</span><span class="o">,</span> <span class="mi">3000</span><span class="o">);</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre>
+</div>
+
+
+		
+
+
+
+		</div>
+
+		<footer>
+      <div id="footer" class="small">
+  <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
+    <input type="search" name="q" placeholder="Search this site..." > 
+    <!--[if IE ]>
+    <input type="submit" value="Search">
+    <![endif]-->
+  </form>
+  <noscript>
+  	You can search this site using <a href="http://www.google.com/search?q=site:www.heathanderson.net">Google</a>.<br/>
+  </noscript>
+
+<script type="text/javascript">
+function simpleSearch(form) {
+  var q = window.encodeURIComponent(form["q"].value);
+  var url = "http://www.google.com/search?q=site:www.heathanderson.net ";
+  url = url + q;
+  window.location = url;
+  return false;
+}
+
+document.getElementById('searchForm').style.display = "block";
+</script>
+
+Subscribe to the <a href="/atom.xml">RSS feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a><br/>
+
+Copyright &copy; Heath Anderson | <a href="/privacy.html">Privacy Policy</a><br/>
+
+<a href="http://www.w3.org/html/logo/"><img src="/images/html5-badge.png" alt="HTML5 Badge" class="badge"/></a><br/>
+
+<a title="Real Time Analytics" href="http://getclicky.com/66465306"><img alt="Real Time Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a>
+
+<script type="text/javascript">
+var clicky_custom = {};
+clicky_custom.cookies_disable = 1;
+
+var clicky_site_ids = clicky_site_ids || [];
+clicky_site_ids.push(66465306);
+(function() {
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//static.getclicky.com/js';
+  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+})();
+</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66465306ns.gif" /></p></noscript>
+
+</div>
+
+
+
+<!-- Prompt IE 6 users to install Chrome Frame. Idea from http://html5boilerplate.com.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+		</footer>
+	</div>
+</body>
+</html>

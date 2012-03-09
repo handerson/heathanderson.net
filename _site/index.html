@@ -52,6 +52,84 @@
             
   
     
+    <h2>Thursday, March 08, 2012</h2>
+          
+   
+   <div class="post">
+     <h3>&#x270d; <a href="/2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app" rel="bookmark" title="Adding a Splash Screen For An Android PhoneGap App">Adding a Splash Screen For An Android PhoneGap App</a></h3>
+     
+     <p>The fact that you can add a splash screen to your PhoneGap app on the Android platform is surprisingly hard to come accross. After some searching I did find some answers. </p>
+
+<ul>
+  <li><a href="http://html5help.wordpress.com/2011/10/18/creating-splash-screen-start-up-screen-for-android-app-using-phonegap-jqtouch/">Adding the splash screen</a> - <a href="http://html5help.wordpress.com/">HTML5 Help</a> Blog
+  <li><a href="https://groups.google.com/d/msg/phonegap/lu3p_QO3Nqg/xentHyA8Pz8J">Adding a delay so in case you want force your users to wait before they use your app</a> - Google Groups
+</ul>
+
+After finding those helpful posts my next question was:
+
+<h3>What is this property thing I'm setting?</h3>
+
+<p>Starting on line 100 of the <a href="https://github.com/cordova/cordova-android/blob/bf693627090ee136556a4e82ed7cb0a584ff278e/framework/src/org/apache/cordova/DroidGap.java">DroidGap.java</a> file there are some helpful comments:</p>
+
+<div class="highlight"><pre><code class="javascript">   <span class="cm">/* Properties: The application can be configured using the following properties:</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // Display a native loading dialog.  Format for value = &quot;Title,Message&quot;.  </span>
+<span class="cm">   *    // (String - default=null)</span>
+<span class="cm">   *    super.setStringProperty(&quot;loadingDialog&quot;, &quot;Wait,Loading Demo...&quot;);</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // Hide loadingDialog when page loaded instead of when deviceready event</span>
+<span class="cm">   *    // occurs. (Boolean - default=false)</span>
+<span class="cm">   *    super.setBooleanProperty(&quot;hideLoadingDialogOnPage&quot;, true);</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // Cause all links on web page to be loaded into existing web view, </span>
+<span class="cm">   *    // instead of being loaded into new browser. (Boolean - default=false)</span>
+<span class="cm">   *    super.setBooleanProperty(&quot;loadInWebView&quot;, true);</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // Load a splash screen image from the resource drawable directory.</span>
+<span class="cm">   *    // (Integer - default=0)</span>
+<span class="cm">   *    super.setIntegerProperty(&quot;splashscreen&quot;, R.drawable.splash);</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // Time in msec to wait before triggering a timeout error when loading</span>
+<span class="cm">   *    // with super.loadUrl().  (Integer - default=20000)</span>
+<span class="cm">   *    super.setIntegerProperty(&quot;loadUrlTimeoutValue&quot;, 60000);</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // URL to load if there&#39;s an error loading specified URL with loadUrl().  </span>
+<span class="cm">   *    // Should be a local URL starting with file://. (String - default=null)</span>
+<span class="cm">   *    super.setStringProperty(&quot;errorUrl&quot;, &quot;file:///android_asset/www/error.html&quot;);</span>
+<span class="cm">   * </span>
+<span class="cm">   *    // Enable app to keep running in background. (Boolean - default=true)</span>
+<span class="cm">   *    super.setBooleanProperty(&quot;keepRunning&quot;, false);</span>
+<span class="cm">   */</span>
+</code></pre>
+</div>
+
+
+<p>These properties can be set in your appname.java file:</p>
+
+<div class="highlight"><pre><code class="java">  <span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">example</span><span class="o">.</span><span class="na">appname</span><span class="o">;</span>
+
+  <span class="kn">import</span> <span class="nn">android.app.Activity</span><span class="o">;</span>
+  <span class="kn">import</span> <span class="nn">android.os.Bundle</span><span class="o">;</span>
+  <span class="kn">import</span> <span class="nn">com.phonegap.*</span><span class="o">;</span>
+
+  <span class="kd">public</span> <span class="kd">class</span> <span class="nc">appname</span> <span class="kd">extends</span> <span class="n">DroidGap</span>
+  <span class="o">{</span>
+      <span class="nd">@Override</span>
+      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">onCreate</span><span class="o">(</span><span class="n">Bundle</span> <span class="n">savedInstanceState</span><span class="o">)</span>
+      <span class="o">{</span>
+          <span class="kd">super</span><span class="o">.</span><span class="na">onCreate</span><span class="o">(</span><span class="n">savedInstanceState</span><span class="o">);</span>
+          <span class="kd">super</span><span class="o">.</span><span class="na">setIntegerProperty</span><span class="o">(</span><span class="s">&quot;splashscreen&quot;</span><span class="o">,</span> <span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">splash</span><span class="o">);</span>
+          <span class="kd">super</span><span class="o">.</span><span class="na">loadUrl</span><span class="o">(</span><span class="s">&quot;file:///android_asset/www/index.html&quot;</span><span class="o">,</span> <span class="mi">3000</span><span class="o">);</span>
+      <span class="o">}</span>
+  <span class="o">}</span>
+</code></pre>
+</div>
+
+   </div>
+   
+      
+  
+    
     <h2>Monday, September 26, 2011</h2>
           
    
@@ -377,54 +455,6 @@
 <p>Using Amazon's <a href="http://calculator.s3.amazonaws.com/calc5.html">Simple Monthly Calculator</a> I estimate that even if this site gets a couple orders of magnitude more popular, I'll still be paying less than $4.00 a month.</p>
 
 <p>I also no longer have to worry about server security and server uptime. Those are two pretty big pluses.</p>
-   </div>
-   
-      
-          
-   
-   <div class="post">
-     <h3>&#x270d; <a href="/2011/08/13/using-amazon-s3-for-hosting" rel="bookmark" title="Using Amazon S3 for Hosting">Using Amazon S3 for Hosting</a></h3>
-     
-     <p>Earlier this year Amazon S3 was <a href="https://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/">updated</a> to more easily support hosting static websites. The full <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a> is online, but I'll give a quick overview of how it works here.</p>
-
-<img class="shadow" src="/images/posts/create_bucket.png" alt="Create a bucket"/>
-
-<p>The first step was to create a bucket. The only way I could get the DNS CNAME record (more on that in a minute) for my domain to actually point to the correct bucket was to name the bucket the same as the domain. I didn't see this mentioned anywhere in the documentation so perhaps I was doing something incorrectly.</p>
-
-<img class="shadow" src="/images/posts/website_tab.png" alt="Website Tab"/>
-
-<p>The new 'Website' tab what makes hosting a site possibility. All that needs to be done here is click the 'Enable' checkbox and tell S3 what the site's index document (usually index.html) and error document (usually 404.html) are. Also note the endpoint url--it is needed when setting up the DNS.</p>
-
-<img class="shadow" src="/images/posts/edit_policy.png" alt="Edit Edit"/>
-
-<p>Another thing that needed to be done is setting the policy so that others can actually view the site. This is found on the properties menu in the S3 management console for your website's bucket and go to the permissions tab. The 'Edit buck policy' button brings up a text area where I pasted the following (found in the <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a>):</p>
-
-<div class="highlight"><pre><code class="js">  <span class="p">{</span>
-    <span class="s2">&quot;Version&quot;</span><span class="o">:</span> <span class="s2">&quot;2008-10-17&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Id&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
-    <span class="s2">&quot;Statement&quot;</span><span class="o">:</span> <span class="p">[</span>
-      <span class="p">{</span>
-        <span class="s2">&quot;Sid&quot;</span><span class="o">:</span> <span class="s2">&quot;PublicReadGetObject&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Effect&quot;</span><span class="o">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Principal&quot;</span><span class="o">:</span> <span class="p">{</span>
-          <span class="s2">&quot;AWS&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span>
-        <span class="p">},</span>
-        <span class="s2">&quot;Action&quot;</span><span class="o">:</span> <span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
-        <span class="s2">&quot;Resource&quot;</span><span class="o">:</span> <span class="s2">&quot;arn:aws:s3:::www.heathanderson.net/*&quot;</span>
-      <span class="p">}</span>
-    <span class="p">]</span>
-  <span class="p">}</span>
-</code></pre>
-</div>
-
-
-<p>After copying my site to the buck and testing the endpoint URL in my browser, I was ready to set up my domain to point to my new host.</p>
-
-<img class="shadow" src="/images/posts/dns.png" alt="Edit DNS"/>
-
-<p>Setting up the DNS was easy. All it takes is setting the root domain to forward to the www subdomain, and setting up a CNAME alias for the www subdomain to the endpoint from the 'Website' tab of the Amazon S3 management console.</p>
-
-<p>The only problem that I had was when I initially named my bucket 'blogofheath'. I followed all the steps listed above, but when trying to visit the site from <a href="http://www.heathanderson.net">www.heathanderson.net</a> I kept getting an error. Apparently Amazon was to to serve a bucket named 'www.heathanderson.net' and since that bucket didn't exist things were not working. So I created a new bucket (renaming buckets isn't allowed), named it the same as my domain, and went through the same steps. Then it worked. Any ideas?</p>
    </div>
    
 
