@@ -4,7 +4,7 @@
  <title>Heath's Blog of Stuff</title>
  <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
  <link href="http://www.heathanderson.net"/>
- <updated>2012-03-08T21:12:40-05:00</updated>
+ <updated>2012-03-08T21:49:16-05:00</updated>
  <id>http://www.heathanderson.net</id>
  <author>
    <name>Heath Anderson</name>
@@ -80,6 +80,81 @@ After finding those helpful posts my next question was:
           &lt;span class=&quot;kd&quot;&gt;super&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;loadUrl&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s&quot;&gt;&amp;quot;file:///android_asset/www/index.html&amp;quot;&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;3000&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;);&lt;/span&gt;
       &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
   &lt;span class=&quot;o&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+</content>
+ </entry>
+ 
+ <entry>
+   <title>Using will_paginate and activerecord-sqlserver-adapter with SQL Server</title>
+   <link href="http://www.heathanderson.net/2011/10/01/using-will_paginate-with-sql-server"/>
+   <updated>2011-10-01T00:00:00-04:00</updated>
+   <id>http://heathanderson.net/2011/10/01/using-will_paginate-with-sql-server</id>
+   <content type="html">&lt;p&gt;Having Rails and Microsoft SQL Server communicate is much easier than it once was thanks to projects like &lt;a href=&quot;https://github.com/rails-sqlserver/tiny_tds&quot;&gt;TinyTDS&lt;/a&gt;, but sometimes things still don't work exactly right. We ran into an issue where pagination simply would not work. Below is what we came up with after some research.&lt;/p&gt;
+
+&lt;p&gt;This solution was based on the following:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;&quot;&gt;http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005&lt;/a&gt;
+  &lt;li&gt;&lt;a href=&quot;http://www.sqlservercentral.com/articles/T-SQL/66030/&quot;&gt;http://www.sqlservercentral.com/articles/T-SQL/66030/&lt;/a&gt;
+  &lt;li&gt;&lt;a href=&quot;http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591&quot;&gt;http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591&lt;/a&gt;
+  &lt;li&gt;&lt;a href=&quot;https://gist.github.com/335683&quot;&gt;https://gist.github.com/335683&lt;/a&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;This patch was tested on an app using Rails 2.3.x and SQL Server Adapter 2.3.15.&lt;/p&gt;
+
+config/environment.rb
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;  &lt;span class=&quot;nb&quot;&gt;require&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;no&quot;&gt;RAILS_ROOT&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;/lib/monkey_patch_sql2005_limit.rb&amp;quot;&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+
+lib/monkey_patch_sql2005_limit.rb
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;ruby&quot;&gt;  &lt;span class=&quot;c1&quot;&gt;# monkey-patching SQLServerAdapter to support SQL Server 2005-style pagination&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# based on http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# - http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# - http://www.sqlservercentral.com/articles/T-SQL/66030/&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# - http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# - https://gist.github.com/335683&lt;/span&gt;
+
+  &lt;span class=&quot;c1&quot;&gt;# produces paginated sql ( if set to 2 results per page) that looks like this:&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#&lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# WITH cols AS ( &lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#   SELECT ROW_NUMBER() OVER(ORDER BY training_types.id) as seq, &lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;#     * FROM [training_types] &lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# ) &lt;/span&gt;
+  &lt;span class=&quot;c1&quot;&gt;# SELECT * FROM cols WHERE seq BETWEEN 1 AND 2 ORDER BY seq;&lt;/span&gt;
+
+  &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ActiveRecord&lt;/span&gt;
+
+    &lt;span class=&quot;k&quot;&gt;module&lt;/span&gt; &lt;span class=&quot;nn&quot;&gt;ConnectionAdapters&lt;/span&gt;
+      &lt;span class=&quot;k&quot;&gt;class&lt;/span&gt; &lt;span class=&quot;nc&quot;&gt;SQLServerAdapter&lt;/span&gt;  &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;no&quot;&gt;AbstractAdapter&lt;/span&gt;
+        &lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;add_limit_offset!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:limit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;].&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;blank?&lt;/span&gt;
+          
+            &lt;span class=&quot;k&quot;&gt;super&lt;/span&gt;
+          
+          &lt;span class=&quot;k&quot;&gt;else&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:offset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;
+          
+            &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:limit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;1000&lt;/span&gt;
+
+            &lt;span class=&quot;n&quot;&gt;table&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;match&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/FROM\s+\[(\w+)/i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;
+            &lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;||=&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;table&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;.id&amp;quot;&lt;/span&gt;
+            
+            &lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sub!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/ORDER BY.*$/i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s1&quot;&gt;&amp;#39;&amp;#39;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+          
+            &lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;sub!&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;sr&quot;&gt;/SELECT/i&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;WITH cols AS ( SELECT ROW_NUMBER() OVER(ORDER BY &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:order&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;) as seq, &amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+         
+            &lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&amp;quot;) SELECT * FROM cols WHERE seq BETWEEN &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:offset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]+&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;1&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; AND &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:offset&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]+&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;options&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;ss&quot;&gt;:limit&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt; ORDER BY seq&amp;quot;&lt;/span&gt;
+      
+            &lt;span class=&quot;n&quot;&gt;sql&lt;/span&gt;
+          &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+       
+        &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+        
+      &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
 </content>

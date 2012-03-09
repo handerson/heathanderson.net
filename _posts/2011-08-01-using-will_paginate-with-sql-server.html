@@ -1,0 +1,72 @@
+---
+layout: post
+title: "Using will_paginate and activerecord-sqlserver-adapter with SQL Server"
+date: 2011-10-01
+published: true
+---
+<p>Having Rails and Microsoft SQL Server communicate is much easier than it once was thanks to projects like <a href="https://github.com/rails-sqlserver/tiny_tds">TinyTDS</a>, but sometimes things still don't work exactly right. <a href="http://blacksnowmedia.com/">We</a> ran into an issue where pagination simply would not work. Below is what we came up with after some research.</p>
+
+<p>This solution was based on the following:</p>
+<ul>
+  <li><a href="">http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005</a>
+  <li><a href="http://www.sqlservercentral.com/articles/T-SQL/66030/">http://www.sqlservercentral.com/articles/T-SQL/66030/</a>
+  <li><a href="http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591">http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591</a>
+  <li><a href="https://gist.github.com/335683">https://gist.github.com/335683</a>
+</ul>
+
+<p>This patch was tested on an app using Rails 2.3.x and SQL Server Adapter 2.3.15.</p>
+
+config/environment.rb
+{% highlight ruby %}
+  require "#{RAILS_ROOT}/lib/monkey_patch_sql2005_limit.rb"
+{% endhighlight %}
+
+lib/monkey_patch_sql2005_limit.rb
+{% highlight ruby %}
+  # monkey-patching SQLServerAdapter to support SQL Server 2005-style pagination
+  # based on http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005
+  # - http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005
+  # - http://www.sqlservercentral.com/articles/T-SQL/66030/
+  # - http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591
+  # - https://gist.github.com/335683
+
+  # produces paginated sql ( if set to 2 results per page) that looks like this:
+  #
+  # WITH cols AS ( 
+  #   SELECT ROW_NUMBER() OVER(ORDER BY training_types.id) as seq, 
+  #     * FROM [training_types] 
+  # ) 
+  # SELECT * FROM cols WHERE seq BETWEEN 1 AND 2 ORDER BY seq;
+
+  module ActiveRecord
+
+    module ConnectionAdapters
+      class SQLServerAdapter  < AbstractAdapter
+        def add_limit_offset!(sql, options)
+          if options[:limit].blank?
+          
+            super
+          
+          else
+            options[:offset] ||= 0
+          
+            options[:limit] ||= 1000
+
+            table = sql.match(/FROM\s+\[(\w+)/i)[1]
+            options[:order] ||= "#{table}.id"
+            
+            sql.sub!(/ORDER BY.*$/i, '')
+          
+            sql.sub!(/SELECT/i, "WITH cols AS ( SELECT ROW_NUMBER() OVER(ORDER BY #{options[:order]}) as seq, ")
+         
+            sql << ") SELECT * FROM cols WHERE seq BETWEEN #{options[:offset]+1} AND #{options[:offset]+options[:limit]} ORDER BY seq"
+      
+            sql
+          end
+       
+        end
+        
+      end
+    end
+  end
+{% endhighlight %}

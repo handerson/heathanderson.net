@@ -130,6 +130,85 @@ After finding those helpful posts my next question was:
       
   
     
+    <h2>Saturday, October 01, 2011</h2>
+          
+   
+   <div class="post">
+     <h3>&#x270d; <a href="/2011/10/01/using-will_paginate-with-sql-server" rel="bookmark" title="Using will_paginate and activerecord-sqlserver-adapter with SQL Server">Using will_paginate and activerecord-sqlserver-adapter with SQL Server</a></h3>
+     
+     <p>Having Rails and Microsoft SQL Server communicate is much easier than it once was thanks to projects like <a href="https://github.com/rails-sqlserver/tiny_tds">TinyTDS</a>, but sometimes things still don't work exactly right. We ran into an issue where pagination simply would not work. Below is what we came up with after some research.</p>
+
+<p>This solution was based on the following:</p>
+<ul>
+  <li><a href="">http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005</a>
+  <li><a href="http://www.sqlservercentral.com/articles/T-SQL/66030/">http://www.sqlservercentral.com/articles/T-SQL/66030/</a>
+  <li><a href="http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591">http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591</a>
+  <li><a href="https://gist.github.com/335683">https://gist.github.com/335683</a>
+</ul>
+
+<p>This patch was tested on an app using Rails 2.3.x and SQL Server Adapter 2.3.15.</p>
+
+config/environment.rb
+<div class="highlight"><pre><code class="ruby">  <span class="nb">require</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="no">RAILS_ROOT</span><span class="si">}</span><span class="s2">/lib/monkey_patch_sql2005_limit.rb&quot;</span>
+</code></pre>
+</div>
+
+
+lib/monkey_patch_sql2005_limit.rb
+<div class="highlight"><pre><code class="ruby">  <span class="c1"># monkey-patching SQLServerAdapter to support SQL Server 2005-style pagination</span>
+  <span class="c1"># based on http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005</span>
+  <span class="c1"># - http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005</span>
+  <span class="c1"># - http://www.sqlservercentral.com/articles/T-SQL/66030/</span>
+  <span class="c1"># - http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591</span>
+  <span class="c1"># - https://gist.github.com/335683</span>
+
+  <span class="c1"># produces paginated sql ( if set to 2 results per page) that looks like this:</span>
+  <span class="c1">#</span>
+  <span class="c1"># WITH cols AS ( </span>
+  <span class="c1">#   SELECT ROW_NUMBER() OVER(ORDER BY training_types.id) as seq, </span>
+  <span class="c1">#     * FROM [training_types] </span>
+  <span class="c1"># ) </span>
+  <span class="c1"># SELECT * FROM cols WHERE seq BETWEEN 1 AND 2 ORDER BY seq;</span>
+
+  <span class="k">module</span> <span class="nn">ActiveRecord</span>
+
+    <span class="k">module</span> <span class="nn">ConnectionAdapters</span>
+      <span class="k">class</span> <span class="nc">SQLServerAdapter</span>  <span class="o">&lt;</span> <span class="no">AbstractAdapter</span>
+        <span class="k">def</span> <span class="nf">add_limit_offset!</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+          <span class="k">if</span> <span class="n">options</span><span class="o">[</span><span class="ss">:limit</span><span class="o">].</span><span class="n">blank?</span>
+          
+            <span class="k">super</span>
+          
+          <span class="k">else</span>
+            <span class="n">options</span><span class="o">[</span><span class="ss">:offset</span><span class="o">]</span> <span class="o">||=</span> <span class="mi">0</span>
+          
+            <span class="n">options</span><span class="o">[</span><span class="ss">:limit</span><span class="o">]</span> <span class="o">||=</span> <span class="mi">1000</span>
+
+            <span class="n">table</span> <span class="o">=</span> <span class="n">sql</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/FROM\s+\[(\w+)/i</span><span class="p">)</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+            <span class="n">options</span><span class="o">[</span><span class="ss">:order</span><span class="o">]</span> <span class="o">||=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">table</span><span class="si">}</span><span class="s2">.id&quot;</span>
+            
+            <span class="n">sql</span><span class="o">.</span><span class="n">sub!</span><span class="p">(</span><span class="sr">/ORDER BY.*$/i</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+          
+            <span class="n">sql</span><span class="o">.</span><span class="n">sub!</span><span class="p">(</span><span class="sr">/SELECT/i</span><span class="p">,</span> <span class="s2">&quot;WITH cols AS ( SELECT ROW_NUMBER() OVER(ORDER BY </span><span class="si">#{</span><span class="n">options</span><span class="o">[</span><span class="ss">:order</span><span class="o">]</span><span class="si">}</span><span class="s2">) as seq, &quot;</span><span class="p">)</span>
+         
+            <span class="n">sql</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;) SELECT * FROM cols WHERE seq BETWEEN </span><span class="si">#{</span><span class="n">options</span><span class="o">[</span><span class="ss">:offset</span><span class="o">]+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> AND </span><span class="si">#{</span><span class="n">options</span><span class="o">[</span><span class="ss">:offset</span><span class="o">]+</span><span class="n">options</span><span class="o">[</span><span class="ss">:limit</span><span class="o">]</span><span class="si">}</span><span class="s2"> ORDER BY seq&quot;</span>
+      
+            <span class="n">sql</span>
+          <span class="k">end</span>
+       
+        <span class="k">end</span>
+        
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+</code></pre>
+</div>
+
+   </div>
+   
+      
+  
+    
     <h2>Monday, September 26, 2011</h2>
           
    
@@ -438,23 +517,6 @@ After finding those helpful posts my next question was:
 </code></pre>
 </div>
 
-   </div>
-   
-      
-  
-    
-    <h2>Saturday, August 13, 2011</h2>
-          
-   
-   <div class="post">
-     <h3>&#x270d; <a href="/2011/08/13/why-amazon-s3" rel="bookmark" title="Why Amazon S3?">Why Amazon S3?</a></h3>
-     
-     <p>The main reason for switching to S3 as a host for this site was cost. This blog gets almost no traffic so I anticipate my monthly S3 bill to be less than $1 USD. That is pretty cheap. I was previously using a VPS from <a href="http://www.linode.com">Linode</a>. It was $19.99 a month. I love Linode, and next time I need a VPS I will go with them. But it was overkill for this blog. I was simply serving static HTML from Apache.</p>
-
-<img class="shadow" src="/images/posts/s3calc.png" alt="Simple Monthly Calculator"/>
-<p>Using Amazon's <a href="http://calculator.s3.amazonaws.com/calc5.html">Simple Monthly Calculator</a> I estimate that even if this site gets a couple orders of magnitude more popular, I'll still be paying less than $4.00 a month.</p>
-
-<p>I also no longer have to worry about server security and server uptime. Those are two pretty big pluses.</p>
    </div>
    
 
