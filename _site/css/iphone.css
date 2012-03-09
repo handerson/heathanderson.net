@@ -1,18 +1,9 @@
-#container {  margin:0 auto;  width:310px;   }
-
-#logo {
-  float:none;
-}
-
-#categories_menu {
-	position:static;
-	float: none;
-	margin-bottom: 3em;
-}
+#container, #header {  margin:0 auto;  width:310px;   }
 
 .fbBadge{
   display: none;
 }
+
 
 #rssTop{
   display:none;
@@ -29,4 +20,13 @@ img {
 
 #main{
   overflow-x:hidden;
+  margin-top: 40px;
+}
+
+#categories_menu ul li{
+  display: none;
+}
+
+#categories_menu ul li:first-child{
+  display: block;
 }
