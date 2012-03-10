@@ -4,7 +4,7 @@
  <title>Heath's Blog of Stuff</title>
  <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
  <link href="http://www.heathanderson.net"/>
- <updated>2012-03-09T13:25:20-05:00</updated>
+ <updated>2012-03-09T19:01:18-05:00</updated>
  <id>http://www.heathanderson.net</id>
  <author>
    <name>Heath Anderson</name>
@@ -25,7 +25,7 @@
 
 After finding those helpful posts my next question was:
 
-&lt;h3&gt;What is this property thing I'm setting?&lt;/h3&gt;
+&lt;h4&gt;What is this property thing I'm setting?&lt;/h4&gt;
 
 &lt;p&gt;Starting on line 100 of the &lt;a href=&quot;https://github.com/cordova/cordova-android/blob/bf693627090ee136556a4e82ed7cb0a584ff278e/framework/src/org/apache/cordova/DroidGap.java&quot;&gt;DroidGap.java&lt;/a&gt; file there are some helpful comments:&lt;/p&gt;
 
