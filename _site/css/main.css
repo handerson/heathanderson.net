@@ -285,7 +285,7 @@ h4{
 
 #categories_menu {
 	float: right;
-  margin-top: 15px;
+  margin-top: 17px;
 }
 #categories_menu ul li {
 	margin-right:15px;
@@ -306,6 +306,9 @@ h4{
 #categories_menu ul.children li a {
 	font-size:20px;
 	color:#B2B5B8;
+}
+#categories_menu ul li img{
+  margin-top: -5px;
 }
 
 #pagination {
@@ -432,4 +435,8 @@ h2 {
 h5, h6 {
 font-size: 1.05em;
 margin-bottom: 0.1em;
+}
+
+.aboutIcon img{
+  height: 32px;
 }

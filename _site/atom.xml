@@ -4,7 +4,7 @@
  <title>Heath's Blog of Stuff</title>
  <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
  <link href="http://www.heathanderson.net"/>
- <updated>2012-03-09T19:01:18-05:00</updated>
+ <updated>2012-03-10T14:25:17-05:00</updated>
  <id>http://www.heathanderson.net</id>
  <author>
    <name>Heath Anderson</name>
@@ -16,7 +16,7 @@
    <link href="http://www.heathanderson.net/2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app"/>
    <updated>2012-03-08T00:00:00-05:00</updated>
    <id>http://heathanderson.net/2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app</id>
-   <content type="html">&lt;p&gt;The fact that you can add a splash screen to your PhoneGap app on the Android platform is surprisingly hard to come accross. After some searching I did find some answers. &lt;/p&gt;
+   <content type="html">&lt;p&gt;The fact that you can add a splash screen to your PhoneGap app on the Android platform is surprisingly hard to come across. After some searching I did find some answers. &lt;/p&gt;
 
 &lt;ul&gt;
   &lt;li&gt;&lt;a href=&quot;http://html5help.wordpress.com/2011/10/18/creating-splash-screen-start-up-screen-for-android-app-using-phonegap-jqtouch/&quot;&gt;Adding the splash screen&lt;/a&gt; - &lt;a href=&quot;http://html5help.wordpress.com/&quot;&gt;HTML5 Help&lt;/a&gt; Blog
