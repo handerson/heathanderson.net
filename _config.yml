@@ -7,7 +7,7 @@ source:      .
 destination: ./_site
 plugins:     ./_plugins
 
-paginate: 10
+paginate: 5
 
 domain: www.heathanderson.net
 

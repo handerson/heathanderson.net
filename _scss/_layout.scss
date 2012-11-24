@@ -15,10 +15,10 @@ header, footer{
   
   @include single-box-shadow($default-box-shadow-color, $default-box-shadow-h-offset, $default-box-shadow-v-offset, $default-box-shadow-blur, $default-box-shadow-spread, true);
 
-  color: $light-accent;
+  color: $page-background;
 
   a {
-    color: $light-accent;
+    color: $page-background;
     text-decoration: underline;
   }
 }
@@ -39,7 +39,7 @@ header {
 }
 
 footer{
-  margin-top: 10px;
+  margin-top: 50px;
   text-align: center;
 
   #footer{
@@ -69,3 +69,9 @@ img {
 
 /* Remove annoying border on linked images. */
 a img { border: none; }
+
+.post-divide{
+  text-align: center;
+  margin: 50px 0px;
+  color: $light-accent;
+}

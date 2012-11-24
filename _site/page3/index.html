@@ -1,0 +1,320 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+
+<title>Heath Anderson's Blog - From Chattanooga, TN</title>
+
+<link rel="image_src" href="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
+<meta property="og:image" content="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
+
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+
+<meta name="author" content="Heath Anderson">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="shortcut icon" href="/favicon.ico">
+
+<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/main.css">
+
+<link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
+<link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
+
+<link rel="openid2.local_id" href="http://www.flickr.com/photos/heathanderson" />
+<link rel="openid.delegate"  href="http://www.flickr.com/photos/heathanderson" />
+
+<link rel="alternate" type="application/rss+xml" title="Heath's Blog of Stuff Feed" href="http://www.heathanderson.net/atom.xml">
+
+<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
+
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <div id="header">
+  <div class="branding">
+    <a title="My name is Heath Anderson" href="/">My name is Heath Anderson.</a>
+    <a title="This is my blog" href="/">This is my blog.</a>
+  </div>
+
+  <div id="categories_menu">
+    <ul>
+      <li><a href="/about.html" class="aboutIcon" title="About Heath Anderson"><img title="About Heath Anderson (That's me)" alt="About Heath Anderson (That's me)" src="/images/heathanderson.png" /></a>
+      <li class="cat-item"><a href="/about.html"><img title="About this site" alt="About this site" src="/images/icon/button-blue-info.png" /></a></li>
+			<li class="cat-item"><a href="http://www.twitter.com/heathanderson"><img title="Heath Anderson's Twitter Profile" alt="Heath Anderson's Twitter Profile" src="/images/icon/twitter.png" /></a></li>
+			<li class="cat-item"><a href="http://www.facebook.com/heathanderson"><img title="Heath Anderson's Facebook Profile" alt="Heath Anderson's Facebook Profile" src="/images/icon/facebook.png" /></a></li>
+      <li class="cat-item"><a href="http://www.linkedin.com/in/hbanderson"><img title="Heath Anderson's LinkedIn Profile" alt="Heath Anderson's LinkedIn Profile" src="/images/icon/linkedin.png" /></a></li>
+      <li class="cat-item"><a href="https://github.com/handerson"><img title="Heath Anderson's GitHub Profile" alt="Heath Anderson's GitHub Profile" src="/images/icon/github.png" /></a></li>
+		</ul>
+  </div>
+</div>
+
+    </div>
+	</header>
+
+  <div class="container main">
+                
+  
+  <div class="date">
+    <span class="day">13</span> 
+    <span class="month">Aug</span> 
+    <span class="year">2011</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2011/08/13/why-amazon-s3" rel="bookmark" title="Why Amazon S3?">Why Amazon S3?</a></h3>
+     
+     <p>The main reason for switching to S3 as a host for this site was cost. This blog gets almost no traffic so I anticipate my monthly S3 bill to be less than $1 USD. That is pretty cheap. I was previously using a VPS from <a href="http://www.linode.com">Linode</a>. It was $19.99 a month. I love Linode, and next time I need a VPS I will go with them. But it was overkill for this blog. I was simply serving static HTML from Apache.</p>
+
+<img class="shadow" src="/images/posts/s3calc.png" alt="Simple Monthly Calculator"/>
+<p>Using Amazon's <a href="http://calculator.s3.amazonaws.com/calc5.html">Simple Monthly Calculator</a> I estimate that even if this site gets a couple orders of magnitude more popular, I'll still be paying less than $4.00 a month.</p>
+
+<p>I also no longer have to worry about server security and server uptime. Those are two pretty big pluses.</p>
+   </div>
+   
+   <div class="post-divide">&diams; &diams; &diams;</div>
+            
+  
+  <div class="date">
+    <span class="day">13</span> 
+    <span class="month">Aug</span> 
+    <span class="year">2011</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2011/08/13/using-amazon-s3-for-hosting" rel="bookmark" title="Using Amazon S3 for Hosting">Using Amazon S3 for Hosting</a></h3>
+     
+     <p>Earlier this year Amazon S3 was <a href="https://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/">updated</a> to more easily support hosting static websites. The full <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a> is online, but I'll give a quick overview of how it works here.</p>
+
+<img class="shadow" src="/images/posts/create_bucket.png" alt="Create a bucket"/>
+
+<p>The first step was to create a bucket. The only way I could get the DNS CNAME record (more on that in a minute) for my domain to actually point to the correct bucket was to name the bucket the same as the domain. I didn't see this mentioned anywhere in the documentation so perhaps I was doing something incorrectly.</p>
+
+<img class="shadow" src="/images/posts/website_tab.png" alt="Website Tab"/>
+
+<p>The new 'Website' tab what makes hosting a site possibility. All that needs to be done here is click the 'Enable' checkbox and tell S3 what the site's index document (usually index.html) and error document (usually 404.html) are. Also note the endpoint url--it is needed when setting up the DNS.</p>
+
+<img class="shadow" src="/images/posts/edit_policy.png" alt="Edit Edit"/>
+
+<p>Another thing that needed to be done is setting the policy so that others can actually view the site. This is found on the properties menu in the S3 management console for your website's bucket and go to the permissions tab. The 'Edit buck policy' button brings up a text area where I pasted the following (found in the <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a>):</p>
+
+<div class="highlight"><pre><code class="js">  <span class="p">{</span>
+    <span class="s2">&quot;Version&quot;</span><span class="o">:</span> <span class="s2">&quot;2008-10-17&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Id&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Statement&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;Sid&quot;</span><span class="o">:</span> <span class="s2">&quot;PublicReadGetObject&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Effect&quot;</span><span class="o">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Principal&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;AWS&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;Action&quot;</span><span class="o">:</span> <span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Resource&quot;</span><span class="o">:</span> <span class="s2">&quot;arn:aws:s3:::www.heathanderson.net/*&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+</code></pre>
+</div>
+
+
+<p>After copying my site to the buck and testing the endpoint URL in my browser, I was ready to set up my domain to point to my new host.</p>
+
+<img class="shadow" src="/images/posts/dns.png" alt="Edit DNS"/>
+
+<p>Setting up the DNS was easy. All it takes is setting the root domain to forward to the www subdomain, and setting up a CNAME alias for the www subdomain to the endpoint from the 'Website' tab of the Amazon S3 management console.</p>
+
+<p>The only problem that I had was when I initially named my bucket 'blogofheath'. I followed all the steps listed above, but when trying to visit the site from <a href="http://www.heathanderson.net">www.heathanderson.net</a> I kept getting an error. Apparently Amazon was to to serve a bucket named 'www.heathanderson.net' and since that bucket didn't exist things were not working. So I created a new bucket (renaming buckets isn't allowed), named it the same as my domain, and went through the same steps. Then it worked. Any ideas?</p>
+   </div>
+   
+   <div class="post-divide">&diams; &diams; &diams;</div>
+            
+  
+  <div class="date">
+    <span class="day">10</span> 
+    <span class="month">Aug</span> 
+    <span class="year">2011</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2011/08/10/adding-search" rel="bookmark" title="Simple Search">Simple Search</a></h3>
+     
+     <p>I often come across interesting ideas and tools that I have no current use for but seem like they may be useful someday, so I bookmark them and hope I will recall them when needed. That process is what led to the current implementation of site search located at the bottom of each page on this blog.</p>
+
+<p>At some point I came across an <a href="http://googlewebmastercentral.blogspot.com/2008/08/make-your-404-pages-more-useful.html">article</a> on the the Google Webmaster Central Blog about <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=136085">enhancing</a> a site's 404 page. I thought it was a pretty cool idea, and I'm <a href="/404.html">using</a> it on this site. The required code is very short:</p>
+
+<div class="highlight"><pre><code class="html"> <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+	<span class="kd">var</span> <span class="nx">GOOG_FIXURL_LANG</span> <span class="o">=</span> <span class="s1">&#39;en&#39;</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">GOOG_FIXURL_SITE</span> <span class="o">=</span> <span class="s1">&#39;http://www.example.com&#39;</span>
+ <span class="nt">&lt;/script&gt;</span>
+ <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span>
+	<span class="na">src=</span><span class="s">&quot;http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js&quot;</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;/script&gt;</span>
+</code></pre>
+</div>
+
+
+<p>The most interesting thing about it is that it adds a search form. It doesn't actually submit a form. It simply changes the current page's location to "http://www.google.com/search?q=site:www.heathanderson.net" (with the text from the text box appended) using JavaScript. This limits the Google search to (in this case) pages from my site. It is a really simple concept that I would like to think I would of eventually thought of (but probably wouldn't have). </p>
+
+<p>When I needed a search for this site I decided to try this technique. So here it is, a simple search script:
+
+<div class="highlight"><pre><code class="html"> <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+	<span class="kd">function</span> <span class="nx">simpleSearch</span><span class="p">(</span><span class="nx">form</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">q</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">form</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">].</span><span class="nx">value</span><span class="p">);</span>
+		<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.google.com/search?q=site:www.heathanderson.net &quot;</span><span class="p">;</span>
+		<span class="nx">url</span> <span class="o">=</span> <span class="nx">url</span> <span class="o">+</span> <span class="nx">q</span><span class="p">;</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
+
+ <span class="nt">&lt;/script&gt;</span>
+ 
+ <span class="nt">&lt;noscript&gt;</span>
+  You can search this site using <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.google.com/search?q=site:www.heathanderson.net&quot;</span><span class="nt">&gt;</span>Google<span class="nt">&lt;/a&gt;</span>.
+ <span class="nt">&lt;/noscript&gt;</span>
+ 
+ <span class="nt">&lt;form</span> <span class="na">onsubmit=</span><span class="s">&quot;return simpleSearch(this)&quot;</span> <span class="na">method=</span><span class="s">&quot;get&quot;</span> <span class="na">id=</span><span class="s">&quot;searchForm&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">size=</span><span class="s">&quot;40&quot;</span> <span class="na">name=</span><span class="s">&quot;q&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Search this site...&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Search&quot;</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
+
+
+<p>I could have created the form element in JavaScript and appended it to the page, but that seemed more complicated than necessary. I also could have used an event handler instead of the inline onsubmit attribute, but again I point to the complexity. This way avoids most cross-browser pitfalls, and has the advantage of simplicity. I also added a link to Google inside a noscript tag for people that have JavaScript disabled.</p>
+
+   </div>
+   
+   <div class="post-divide">&diams; &diams; &diams;</div>
+            
+  
+  <div class="date">
+    <span class="day">05</span> 
+    <span class="month">Aug</span> 
+    <span class="year">2011</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2011/08/05/another-blog-redesign" rel="bookmark" title="Another Blog Redesign">Another Blog Redesign</a></h3>
+     
+     <p><img class="shadow" alt="HTML5 banner" src="http://www.heathanderson.net/images/posts/HTML5_sticker.png" />I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now <a href="http://www.w3.org/html/logo/">HTML5</a>--no more XHTML.</p>
+
+<p>I am still using <a href="http://jekyllrb.com/">Jekyll</a> to generate the HTML files of the site. I love the simplicity of it. I'm hosting the site on <a href="http://aws.amazon.com/s3/">Amazon S3</a>. It is fast, cheap and maintenance free. </p>
+
+<p>I hope this new, streamlined version of my site will encourage me to post more. I guess we'll see.</p>
+   </div>
+   
+   <div class="post-divide">&diams; &diams; &diams;</div>
+            
+  
+  <div class="date">
+    <span class="day">07</span> 
+    <span class="month">Sep</span> 
+    <span class="year">2010</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2010/09/07/programming-fonts" rel="bookmark" title="Programming Fonts">Programming Fonts</a></h3>
+     
+     <p>I recently read a <a href="http://news.ycombinator.com/item?id=1648994">thread</a> on <a href="http://news.ycombinator.com/">Hacker News</a> that got me thinking about the font I use when programming. I spend about eight hours a day looking at text in Textmate, but I've never really thought about the font. I didn't even know what font I was using. So I decided to do some research.</p>
+
+<p>Apparently I was using Monaco 12pt.</p>
+
+<img class="shadow" src="/images/posts/monaco12pt.png" alt="monaco example"/>
+
+<p>As you can see it is a little largish, but it never really bothered me. I began to search for other fonts to try. The first resource I found was Jeff Atwood's <a href="http://www.codinghorror.com/blog/2004/12/progamming-fonts.html">Programming Fonts</a> post. I saw nothing that made me want to switch even temporarily. Next I looked at <a href="http://hivelogic.com/articles/top-10-programming-fonts">Top 10 Programming Fonts</a>. I decided I might as well try out a couple of these fonts, even if just for a few minutes. I downloaded <a href="http://www.dafont.com/monofur.font">Monofur</a>, <a href="http://www.levien.com/type/myfonts/inconsolata.html">Inconsolata</a>, and <a href="http://damieng.com/blog/2008/05/26/envy-code-r-preview-7-coding-font-released">Envy Code R</a>. Envy Code R wasn't mentioned in the list, but it was brought up in the comments and in the Hacker News thread above. </p>
+
+<p>There seems to be no 'best' font. Font preference seems to vary immensely from person to person. I had a hard time deciding if I actually have a preference. After a couple of days of font switching I finally decided on Inconsolata 12pt. I really don't know why. That makes it impossible for me to actually suggest a font to someone else, but I do recommend trying out some different fonts and seeing if one of them makes your time staring at text a little more pleasant. </p>
+
+<p>Here is what my screen looks like now:</p>
+
+<img class="shadow" src="/images/posts/inconsolata12pt.png" alt="inconsolata example"/>
+
+<p>One final note on anti aliasing: It seems that I like it (at least with Inconsolata and Monaco), some people do not. As with font choice I suggest trying it out and seeing for yourself.</p>
+   </div>
+   
+   <div class="post-divide">&diams; &diams; &diams;</div>
+
+		
+<div id="pagination"> 
+				
+	<a href="/page2">Prev</a>
+	
+	
+	
+	<a href="/page4">Next</a>
+	
+</div>
+		
+
+
+
+  </div>
+
+	<footer>
+    <div class="container">
+      <div id="footer" class="small">
+  <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
+    <input type="search" name="q" placeholder="Search this site..." > 
+    <!--[if IE ]>
+    <input type="submit" value="Search">
+    <![endif]-->
+  </form>
+  <noscript>
+    <div>
+  	You can search this site using <a href="http://www.google.com/search?q=site:www.heathanderson.net">Google</a>.
+  </div>
+  </noscript>
+
+<script type="text/javascript">
+function simpleSearch(form) {
+  var q = window.encodeURIComponent(form["q"].value);
+  var url = "http://www.google.com/search?q=site:www.heathanderson.net ";
+  url = url + q;
+  window.location = url;
+  return false;
+}
+
+document.getElementById('searchForm').style.display = "block";
+</script>
+
+<div>Subscribe to the <a href="/atom.xml">Atom feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a></div>
+
+<div>Copyright &copy; <a href="http://www.heathanderson.net/about.html">Heath Anderson</a> | <a href="/privacy.html">Privacy Policy</a></div>
+
+<div><a href="http://www.w3.org/html/logo/"><img src="/images/html5-badge.png" alt="HTML5 Badge" class="badge"/></a></div>
+
+<div><a title="Real Time Analytics" href="http://getclicky.com/66465306"><img alt="Real Time Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a></div>
+
+<script type="text/javascript">
+var clicky_custom = {};
+clicky_custom.cookies_disable = 1;
+
+var clicky_site_ids = clicky_site_ids || [];
+clicky_site_ids.push(66465306);
+(function() {
+  var s = document.createElement('script');
+  s.type = 'text/javascript';
+  s.async = true;
+  s.src = '//static.getclicky.com/js';
+  ( document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0] ).appendChild( s );
+})();
+</script>
+<noscript><p><img alt="Clicky" width="1" height="1" src="//in.getclicky.com/66465306ns.gif" /></p></noscript>
+
+</div>
+
+
+
+<!-- Prompt IE 6 users to install Chrome Frame. Idea from http://html5boilerplate.com.
+       chromium.org/developers/how-tos/chrome-frame-getting-started -->
+  <!--[if lt IE 7 ]>
+    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
+    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
+  <![endif]-->
+
+    </div>
+	</footer>
+
+</body>
+</html>
