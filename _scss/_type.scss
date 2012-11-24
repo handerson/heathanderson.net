@@ -1,5 +1,4 @@
-// Fonts
-@include font-face("inconsolatamedium", font-files("/fonts/inconsolata-webfont.eot", "/fonts/inconsolata-webfont.woff", "/fonts/inconsolata-webfont.ttf", "/fonts/inconsolata-webfont.svg"));
+@import "base";
 
 h1, h2, h3, h4, h5{
   font-family: Verdana, Geneva, sans-serif;
@@ -8,22 +7,20 @@ h1, h2, h3, h4, h5{
   color: $dark-accent; 
 
   a{
+    @include single-text-shadow(none);
     color: $bold-accent;
   }
 }
 
 h1, h2, h3 {
   a{
-    @include text-shadow(none);
     @include letterpress($bold-accent);
   }
 }
 
 h4, h5 {
   @include text-shadow(none);
-  a{
-    @include single-text-shadow(none);
-  }
+
 }
 
 p {

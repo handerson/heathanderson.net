@@ -33,30 +33,34 @@
 
   <header>
     <div class="container">
-      <div class="headerWrapper">
-  <div id="header">
-    <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
-    <div id="categories_menu">
-      <ul class="sf-menu sf-js-enabled">
-        <li><a href="/about.html" class="aboutIcon" title="About Heath Anderson"><img title="About Heath Anderson (That's me)" alt="About Heath Anderson (That's me)" src="/images/heathanderson.png" /></a>
-        <li class="cat-item"><a href="/about.html"><img title="About this site" alt="About this site" src="/images/icon/button-blue-info.png" /></a></li>
-  			<li class="cat-item"><a href="http://www.twitter.com/heathanderson"><img title="Heath Anderson's Twitter Profile" alt="Heath Anderson's Twitter Profile" src="/images/icon/twitter.png" /></a></li>
-  			<li class="cat-item"><a href="http://www.facebook.com/heathanderson"><img title="Heath Anderson's Facebook Profile" alt="Heath Anderson's Facebook Profile" src="/images/icon/facebook.png" /></a></li>
-        <li class="cat-item"><a href="http://www.linkedin.com/in/hbanderson"><img title="Heath Anderson's LinkedIn Profile" alt="Heath Anderson's LinkedIn Profile" src="/images/icon/linkedin.png" /></a></li>
-        <li class="cat-item"><a href="https://github.com/handerson"><img title="Heath Anderson's GitHub Profile" alt="Heath Anderson's GitHub Profile" src="/images/icon/github.png" /></a></li>
-  		</ul>
-    </div>
+      
+<div id="header">
+  <div class="branding">
+    <a title="My name is Heath Anderson" href="/">My name is Heath Anderson.</a>
+    <a title="This is my blog" href="/">This is my blog.</a>
+  </div>
+
+  <div id="categories_menu">
+    <ul>
+      <li><a href="/about.html" class="aboutIcon" title="About Heath Anderson"><img title="About Heath Anderson (That's me)" alt="About Heath Anderson (That's me)" src="/images/heathanderson.png" /></a>
+      <li class="cat-item"><a href="/about.html"><img title="About this site" alt="About this site" src="/images/icon/button-blue-info.png" /></a></li>
+			<li class="cat-item"><a href="http://www.twitter.com/heathanderson"><img title="Heath Anderson's Twitter Profile" alt="Heath Anderson's Twitter Profile" src="/images/icon/twitter.png" /></a></li>
+			<li class="cat-item"><a href="http://www.facebook.com/heathanderson"><img title="Heath Anderson's Facebook Profile" alt="Heath Anderson's Facebook Profile" src="/images/icon/facebook.png" /></a></li>
+      <li class="cat-item"><a href="http://www.linkedin.com/in/hbanderson"><img title="Heath Anderson's LinkedIn Profile" alt="Heath Anderson's LinkedIn Profile" src="/images/icon/linkedin.png" /></a></li>
+      <li class="cat-item"><a href="https://github.com/handerson"><img title="Heath Anderson's GitHub Profile" alt="Heath Anderson's GitHub Profile" src="/images/icon/github.png" /></a></li>
+		</ul>
   </div>
 </div>
+
     </div>
 	</header>
 
   <div class="container main">
     <div class="post">
-<div class="small date">Sunday, August 14, 2011</div>
-<h1 title="Deploying a Jekyll Site to Amazon S3">Deploying a Jekyll Site to Amazon S3</h1> 
+  <div class="small date">Sunday, August 14, 2011</div>
+  <h1 title="Deploying a Jekyll Site to Amazon S3">Deploying a Jekyll Site to Amazon S3</h1> 
 
-<p>Before moving my blog to Amazon S3 I wanted to make sure that I could deploy updates easily. I came across several ways to do it. The easiest method I found was in a <a href="http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/">blog post</a> by <a href="http://blog.hendrikvolkmer.de/about/">Hendrik Volkmer</a>. It uses a command line tool called <code>s3cmd</code> run through a rake task. <a href="http://s3tools.org/s3cmd">s3cmd</a> can be installed using <a href="http://mxcl.github.com/homebrew/">Homebrew</a> on Mac OS X. </p>
+  <p>Before moving my blog to Amazon S3 I wanted to make sure that I could deploy updates easily. I came across several ways to do it. The easiest method I found was in a <a href="http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/">blog post</a> by <a href="http://blog.hendrikvolkmer.de/about/">Hendrik Volkmer</a>. It uses a command line tool called <code>s3cmd</code> run through a rake task. <a href="http://s3tools.org/s3cmd">s3cmd</a> can be installed using <a href="http://mxcl.github.com/homebrew/">Homebrew</a> on Mac OS X. </p>
   
 <div class="highlight"><pre><code class="bash"> brew install s3cmd
 </code></pre>
@@ -83,6 +87,7 @@
 <div class="highlight"><pre><code class="bash"> rake deploy
 </code></pre>
 </div>
+
 
 </div>
 

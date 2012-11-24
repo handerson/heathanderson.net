@@ -33,30 +33,34 @@
 
   <header>
     <div class="container">
-      <div class="headerWrapper">
-  <div id="header">
-    <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
-    <div id="categories_menu">
-      <ul class="sf-menu sf-js-enabled">
-        <li><a href="/about.html" class="aboutIcon" title="About Heath Anderson"><img title="About Heath Anderson (That's me)" alt="About Heath Anderson (That's me)" src="/images/heathanderson.png" /></a>
-        <li class="cat-item"><a href="/about.html"><img title="About this site" alt="About this site" src="/images/icon/button-blue-info.png" /></a></li>
-  			<li class="cat-item"><a href="http://www.twitter.com/heathanderson"><img title="Heath Anderson's Twitter Profile" alt="Heath Anderson's Twitter Profile" src="/images/icon/twitter.png" /></a></li>
-  			<li class="cat-item"><a href="http://www.facebook.com/heathanderson"><img title="Heath Anderson's Facebook Profile" alt="Heath Anderson's Facebook Profile" src="/images/icon/facebook.png" /></a></li>
-        <li class="cat-item"><a href="http://www.linkedin.com/in/hbanderson"><img title="Heath Anderson's LinkedIn Profile" alt="Heath Anderson's LinkedIn Profile" src="/images/icon/linkedin.png" /></a></li>
-        <li class="cat-item"><a href="https://github.com/handerson"><img title="Heath Anderson's GitHub Profile" alt="Heath Anderson's GitHub Profile" src="/images/icon/github.png" /></a></li>
-  		</ul>
-    </div>
+      
+<div id="header">
+  <div class="branding">
+    <a title="My name is Heath Anderson" href="/">My name is Heath Anderson.</a>
+    <a title="This is my blog" href="/">This is my blog.</a>
+  </div>
+
+  <div id="categories_menu">
+    <ul>
+      <li><a href="/about.html" class="aboutIcon" title="About Heath Anderson"><img title="About Heath Anderson (That's me)" alt="About Heath Anderson (That's me)" src="/images/heathanderson.png" /></a>
+      <li class="cat-item"><a href="/about.html"><img title="About this site" alt="About this site" src="/images/icon/button-blue-info.png" /></a></li>
+			<li class="cat-item"><a href="http://www.twitter.com/heathanderson"><img title="Heath Anderson's Twitter Profile" alt="Heath Anderson's Twitter Profile" src="/images/icon/twitter.png" /></a></li>
+			<li class="cat-item"><a href="http://www.facebook.com/heathanderson"><img title="Heath Anderson's Facebook Profile" alt="Heath Anderson's Facebook Profile" src="/images/icon/facebook.png" /></a></li>
+      <li class="cat-item"><a href="http://www.linkedin.com/in/hbanderson"><img title="Heath Anderson's LinkedIn Profile" alt="Heath Anderson's LinkedIn Profile" src="/images/icon/linkedin.png" /></a></li>
+      <li class="cat-item"><a href="https://github.com/handerson"><img title="Heath Anderson's GitHub Profile" alt="Heath Anderson's GitHub Profile" src="/images/icon/github.png" /></a></li>
+		</ul>
   </div>
 </div>
+
     </div>
 	</header>
 
   <div class="container main">
     <div class="post">
-<div class="small date">Saturday, August 13, 2011</div>
-<h1 title="Using Amazon S3 for Hosting">Using Amazon S3 for Hosting</h1> 
+  <div class="small date">Saturday, August 13, 2011</div>
+  <h1 title="Using Amazon S3 for Hosting">Using Amazon S3 for Hosting</h1> 
 
-<p>Earlier this year Amazon S3 was <a href="https://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/">updated</a> to more easily support hosting static websites. The full <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a> is online, but I'll give a quick overview of how it works here.</p>
+  <p>Earlier this year Amazon S3 was <a href="https://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/">updated</a> to more easily support hosting static websites. The full <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a> is online, but I'll give a quick overview of how it works here.</p>
 
 <img class="shadow" src="/images/posts/create_bucket.png" alt="Create a bucket"/>
 
@@ -96,6 +100,7 @@
 <p>Setting up the DNS was easy. All it takes is setting the root domain to forward to the www subdomain, and setting up a CNAME alias for the www subdomain to the endpoint from the 'Website' tab of the Amazon S3 management console.</p>
 
 <p>The only problem that I had was when I initially named my bucket 'blogofheath'. I followed all the steps listed above, but when trying to visit the site from <a href="http://www.heathanderson.net">www.heathanderson.net</a> I kept getting an error. Apparently Amazon was to to serve a bucket named 'www.heathanderson.net' and since that bucket didn't exist things were not working. So I created a new bucket (renaming buckets isn't allowed), named it the same as my domain, and went through the same steps. Then it worked. Any ideas?</p>
+
 </div>
 
 		

@@ -33,30 +33,34 @@
 
   <header>
     <div class="container">
-      <div class="headerWrapper">
-  <div id="header">
-    <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
-    <div id="categories_menu">
-      <ul class="sf-menu sf-js-enabled">
-        <li><a href="/about.html" class="aboutIcon" title="About Heath Anderson"><img title="About Heath Anderson (That's me)" alt="About Heath Anderson (That's me)" src="/images/heathanderson.png" /></a>
-        <li class="cat-item"><a href="/about.html"><img title="About this site" alt="About this site" src="/images/icon/button-blue-info.png" /></a></li>
-  			<li class="cat-item"><a href="http://www.twitter.com/heathanderson"><img title="Heath Anderson's Twitter Profile" alt="Heath Anderson's Twitter Profile" src="/images/icon/twitter.png" /></a></li>
-  			<li class="cat-item"><a href="http://www.facebook.com/heathanderson"><img title="Heath Anderson's Facebook Profile" alt="Heath Anderson's Facebook Profile" src="/images/icon/facebook.png" /></a></li>
-        <li class="cat-item"><a href="http://www.linkedin.com/in/hbanderson"><img title="Heath Anderson's LinkedIn Profile" alt="Heath Anderson's LinkedIn Profile" src="/images/icon/linkedin.png" /></a></li>
-        <li class="cat-item"><a href="https://github.com/handerson"><img title="Heath Anderson's GitHub Profile" alt="Heath Anderson's GitHub Profile" src="/images/icon/github.png" /></a></li>
-  		</ul>
-    </div>
+      
+<div id="header">
+  <div class="branding">
+    <a title="My name is Heath Anderson" href="/">My name is Heath Anderson.</a>
+    <a title="This is my blog" href="/">This is my blog.</a>
+  </div>
+
+  <div id="categories_menu">
+    <ul>
+      <li><a href="/about.html" class="aboutIcon" title="About Heath Anderson"><img title="About Heath Anderson (That's me)" alt="About Heath Anderson (That's me)" src="/images/heathanderson.png" /></a>
+      <li class="cat-item"><a href="/about.html"><img title="About this site" alt="About this site" src="/images/icon/button-blue-info.png" /></a></li>
+			<li class="cat-item"><a href="http://www.twitter.com/heathanderson"><img title="Heath Anderson's Twitter Profile" alt="Heath Anderson's Twitter Profile" src="/images/icon/twitter.png" /></a></li>
+			<li class="cat-item"><a href="http://www.facebook.com/heathanderson"><img title="Heath Anderson's Facebook Profile" alt="Heath Anderson's Facebook Profile" src="/images/icon/facebook.png" /></a></li>
+      <li class="cat-item"><a href="http://www.linkedin.com/in/hbanderson"><img title="Heath Anderson's LinkedIn Profile" alt="Heath Anderson's LinkedIn Profile" src="/images/icon/linkedin.png" /></a></li>
+      <li class="cat-item"><a href="https://github.com/handerson"><img title="Heath Anderson's GitHub Profile" alt="Heath Anderson's GitHub Profile" src="/images/icon/github.png" /></a></li>
+		</ul>
   </div>
 </div>
+
     </div>
 	</header>
 
   <div class="container main">
     <div class="post">
-<div class="small date">Sunday, September 27, 2009</div>
-<h1 title="Initialization Vector Length in MRI Ruby versus JRuby">Initialization Vector Length in MRI Ruby versus JRuby</h1> 
+  <div class="small date">Sunday, September 27, 2009</div>
+  <h1 title="Initialization Vector Length in MRI Ruby versus JRuby">Initialization Vector Length in MRI Ruby versus JRuby</h1> 
 
-<p>When using OpenSSL encryption in standard Ruby, the length of an initialization vector (IV) can apparently be as large as you want it to be as long as it is at least the minimum size. This is odd. This can also cause trouble when switching over to JRuby. JRuby appear to be much pickier about IV length.</p>
+  <p>When using OpenSSL encryption in standard Ruby, the length of an initialization vector (IV) can apparently be as large as you want it to be as long as it is at least the minimum size. This is odd. This can also cause trouble when switching over to JRuby. JRuby appear to be much pickier about IV length.</p>
 
 <p>This works in MRI but not in JRuby:</p>
 
@@ -83,6 +87,7 @@ from ruby_string_encryption.rb:37@</p>
 <p><em>Update 10/14/2009</em> The code that I originally posted was incorrect. I have updated it. Also I opened a <a href="http://jira.codehaus.org/browse/JRUBY-4012">ticket </a>for this issue. </p>
 
 <p>If you are looking for what size an initialization vector should be check out my post on <a href="http://www.heathanderson.net/2009/09/25/ruby-string-encryption/">encrypting a string with Ruby</a>.</p>
+
 </div>
 
 		

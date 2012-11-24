@@ -2,6 +2,7 @@
   clear: both;
 
   h1 {
+    @include text-shadow(none);
     @include letterpress($bold-accent);
   }
 

@@ -33,30 +33,34 @@
 
   <header>
     <div class="container">
-      <div class="headerWrapper">
-  <div id="header">
-    <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
-    <div id="categories_menu">
-      <ul class="sf-menu sf-js-enabled">
-        <li><a href="/about.html" class="aboutIcon" title="About Heath Anderson"><img title="About Heath Anderson (That's me)" alt="About Heath Anderson (That's me)" src="/images/heathanderson.png" /></a>
-        <li class="cat-item"><a href="/about.html"><img title="About this site" alt="About this site" src="/images/icon/button-blue-info.png" /></a></li>
-  			<li class="cat-item"><a href="http://www.twitter.com/heathanderson"><img title="Heath Anderson's Twitter Profile" alt="Heath Anderson's Twitter Profile" src="/images/icon/twitter.png" /></a></li>
-  			<li class="cat-item"><a href="http://www.facebook.com/heathanderson"><img title="Heath Anderson's Facebook Profile" alt="Heath Anderson's Facebook Profile" src="/images/icon/facebook.png" /></a></li>
-        <li class="cat-item"><a href="http://www.linkedin.com/in/hbanderson"><img title="Heath Anderson's LinkedIn Profile" alt="Heath Anderson's LinkedIn Profile" src="/images/icon/linkedin.png" /></a></li>
-        <li class="cat-item"><a href="https://github.com/handerson"><img title="Heath Anderson's GitHub Profile" alt="Heath Anderson's GitHub Profile" src="/images/icon/github.png" /></a></li>
-  		</ul>
-    </div>
+      
+<div id="header">
+  <div class="branding">
+    <a title="My name is Heath Anderson" href="/">My name is Heath Anderson.</a>
+    <a title="This is my blog" href="/">This is my blog.</a>
+  </div>
+
+  <div id="categories_menu">
+    <ul>
+      <li><a href="/about.html" class="aboutIcon" title="About Heath Anderson"><img title="About Heath Anderson (That's me)" alt="About Heath Anderson (That's me)" src="/images/heathanderson.png" /></a>
+      <li class="cat-item"><a href="/about.html"><img title="About this site" alt="About this site" src="/images/icon/button-blue-info.png" /></a></li>
+			<li class="cat-item"><a href="http://www.twitter.com/heathanderson"><img title="Heath Anderson's Twitter Profile" alt="Heath Anderson's Twitter Profile" src="/images/icon/twitter.png" /></a></li>
+			<li class="cat-item"><a href="http://www.facebook.com/heathanderson"><img title="Heath Anderson's Facebook Profile" alt="Heath Anderson's Facebook Profile" src="/images/icon/facebook.png" /></a></li>
+      <li class="cat-item"><a href="http://www.linkedin.com/in/hbanderson"><img title="Heath Anderson's LinkedIn Profile" alt="Heath Anderson's LinkedIn Profile" src="/images/icon/linkedin.png" /></a></li>
+      <li class="cat-item"><a href="https://github.com/handerson"><img title="Heath Anderson's GitHub Profile" alt="Heath Anderson's GitHub Profile" src="/images/icon/github.png" /></a></li>
+		</ul>
   </div>
 </div>
+
     </div>
 	</header>
 
   <div class="container main">
     <div class="post">
-<div class="small date">Wednesday, August 10, 2011</div>
-<h1 title="Simple Search">Simple Search</h1> 
+  <div class="small date">Wednesday, August 10, 2011</div>
+  <h1 title="Simple Search">Simple Search</h1> 
 
-<p>I often come across interesting ideas and tools that I have no current use for but seem like they may be useful someday, so I bookmark them and hope I will recall them when needed. That process is what led to the current implementation of site search located at the bottom of each page on this blog.</p>
+  <p>I often come across interesting ideas and tools that I have no current use for but seem like they may be useful someday, so I bookmark them and hope I will recall them when needed. That process is what led to the current implementation of site search located at the bottom of each page on this blog.</p>
 
 <p>At some point I came across an <a href="http://googlewebmastercentral.blogspot.com/2008/08/make-your-404-pages-more-useful.html">article</a> on the the Google Webmaster Central Blog about <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=136085">enhancing</a> a site's 404 page. I thought it was a pretty cool idea, and I'm <a href="/404.html">using</a> it on this site. The required code is very short:</p>
 
@@ -98,6 +102,7 @@
 
 
 <p>I could have created the form element in JavaScript and appended it to the page, but that seemed more complicated than necessary. I also could have used an event handler instead of the inline onsubmit attribute, but again I point to the complexity. This way avoids most cross-browser pitfalls, and has the advantage of simplicity. I also added a link to Google inside a noscript tag for people that have JavaScript disabled.</p>
+
 
 </div>
 

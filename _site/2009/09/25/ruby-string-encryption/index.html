@@ -33,30 +33,34 @@
 
   <header>
     <div class="container">
-      <div class="headerWrapper">
-  <div id="header">
-    <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
-    <div id="categories_menu">
-      <ul class="sf-menu sf-js-enabled">
-        <li><a href="/about.html" class="aboutIcon" title="About Heath Anderson"><img title="About Heath Anderson (That's me)" alt="About Heath Anderson (That's me)" src="/images/heathanderson.png" /></a>
-        <li class="cat-item"><a href="/about.html"><img title="About this site" alt="About this site" src="/images/icon/button-blue-info.png" /></a></li>
-  			<li class="cat-item"><a href="http://www.twitter.com/heathanderson"><img title="Heath Anderson's Twitter Profile" alt="Heath Anderson's Twitter Profile" src="/images/icon/twitter.png" /></a></li>
-  			<li class="cat-item"><a href="http://www.facebook.com/heathanderson"><img title="Heath Anderson's Facebook Profile" alt="Heath Anderson's Facebook Profile" src="/images/icon/facebook.png" /></a></li>
-        <li class="cat-item"><a href="http://www.linkedin.com/in/hbanderson"><img title="Heath Anderson's LinkedIn Profile" alt="Heath Anderson's LinkedIn Profile" src="/images/icon/linkedin.png" /></a></li>
-        <li class="cat-item"><a href="https://github.com/handerson"><img title="Heath Anderson's GitHub Profile" alt="Heath Anderson's GitHub Profile" src="/images/icon/github.png" /></a></li>
-  		</ul>
-    </div>
+      
+<div id="header">
+  <div class="branding">
+    <a title="My name is Heath Anderson" href="/">My name is Heath Anderson.</a>
+    <a title="This is my blog" href="/">This is my blog.</a>
+  </div>
+
+  <div id="categories_menu">
+    <ul>
+      <li><a href="/about.html" class="aboutIcon" title="About Heath Anderson"><img title="About Heath Anderson (That's me)" alt="About Heath Anderson (That's me)" src="/images/heathanderson.png" /></a>
+      <li class="cat-item"><a href="/about.html"><img title="About this site" alt="About this site" src="/images/icon/button-blue-info.png" /></a></li>
+			<li class="cat-item"><a href="http://www.twitter.com/heathanderson"><img title="Heath Anderson's Twitter Profile" alt="Heath Anderson's Twitter Profile" src="/images/icon/twitter.png" /></a></li>
+			<li class="cat-item"><a href="http://www.facebook.com/heathanderson"><img title="Heath Anderson's Facebook Profile" alt="Heath Anderson's Facebook Profile" src="/images/icon/facebook.png" /></a></li>
+      <li class="cat-item"><a href="http://www.linkedin.com/in/hbanderson"><img title="Heath Anderson's LinkedIn Profile" alt="Heath Anderson's LinkedIn Profile" src="/images/icon/linkedin.png" /></a></li>
+      <li class="cat-item"><a href="https://github.com/handerson"><img title="Heath Anderson's GitHub Profile" alt="Heath Anderson's GitHub Profile" src="/images/icon/github.png" /></a></li>
+		</ul>
   </div>
 </div>
+
     </div>
 	</header>
 
   <div class="container main">
     <div class="post">
-<div class="small date">Friday, September 25, 2009</div>
-<h1 title="Ruby String Encryption">Ruby String Encryption</h1> 
+  <div class="small date">Friday, September 25, 2009</div>
+  <h1 title="Ruby String Encryption">Ruby String Encryption</h1> 
 
-<p>Encrypting a string is fairly easy in Ruby. All you need to do is @require 'openssl'@. For this example I am using the 'des-ede3-cbc' (<a href="http://en.wikipedia.org/wiki/Triple_des">Triple DES</a> using <a href="http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation">Cipher Block Chaining</a>) cipher. Most--if not all--of the ciphers listed on <a href="http://www.openssl.org/docs/apps/enc.html">OpenSSL.org</a> as supported ciphers should work as well. </p>
+  <p>Encrypting a string is fairly easy in Ruby. All you need to do is @require 'openssl'@. For this example I am using the 'des-ede3-cbc' (<a href="http://en.wikipedia.org/wiki/Triple_des">Triple DES</a> using <a href="http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation">Cipher Block Chaining</a>) cipher. Most--if not all--of the ciphers listed on <a href="http://www.openssl.org/docs/apps/enc.html">OpenSSL.org</a> as supported ciphers should work as well. </p>
 
 <p>Triple DES requires a 24-byte key, with Ruby this means a string with 24 characters. We are also required to provide an <a href="http://en.wikipedia.org/wiki/Initialization_vector">initialization vector</a> (IV). The IV is usually the same size as the block size of the cipher you are using (so says Wikipedia, so say we all). In our case this means an IV of 64-bits, or 8-bytes, or an 8 character Ruby String. If we randomize our IV and include it with our encrypted string then we can ensure that our encrypted data never looks the same even when we encrypt the same string multiple times.</p>
 
@@ -112,6 +116,7 @@
 
 
 <p>If you are using Rails or have access to ActiveSupport <a href="http://api.rubyonrails.org/classes/ActiveSupport/SecureRandom.html">ActiveSupport::SecureRandom</a> is a great way to generate your key and IV. Also be sure to check out <a href="http://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html">ActiveSupport::MessageEncryptor</a> and my <a href="http://github.com/handerson/string_encryption">string_encryption</a> plugin. I'll probably do a writeup on the string_encryption plugin sometime next week.</p>
+
 </div>
 
 		
