@@ -15,6 +15,7 @@
 
 #categories_menu ul{
   @include horizontal-list-container;
+  float: right;
 }
 
 #categories_menu ul li{

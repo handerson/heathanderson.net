@@ -24,9 +24,18 @@ header, footer{
 }
 
 header {
-  // height: 15px;
+  height: 23px;
   overflow: hidden;
   margin-bottom: 10px;
+
+  @include transition-property(height);
+  @include transition-duration(0.2s);
+  @include transition-timing-function(ease);
+  @include transition-delay(0.1s);
+
+  &:hover{
+    height: 50px;
+  }
 }
 
 footer{

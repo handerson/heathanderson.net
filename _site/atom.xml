@@ -4,7 +4,7 @@
  <title>Heath's Blog of Stuff</title>
  <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
  <link href="http://www.heathanderson.net"/>
- <updated>2012-11-24T12:58:19-05:00</updated>
+ <updated>2012-11-24T17:22:54-05:00</updated>
  <id>http://www.heathanderson.net</id>
  <author>
    <name>Heath Anderson</name>
@@ -341,11 +341,11 @@ lib/monkey_patch_sql2005_limit.rb
    <link href="http://www.heathanderson.net/2011/08/27/roku-2"/>
    <updated>2011-08-27T00:00:00-04:00</updated>
    <id>http://heathanderson.net/2011/08/27/roku-2</id>
-   <content type="html">&lt;p&gt;&lt;img src=&quot;https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-snc6/267388_642443302879_156802635_33181145_940406_n.jpg&quot; alt=&quot;Roku 2 Box&quot; class=&quot;shadow&quot; /&gt;One month ago I got a &lt;a href=&quot;http://www.roku.com/&quot;&gt;Roku 2&lt;/a&gt;. This was my fourth Roku. I bought a first generation Roku in June 2009 and I loved it. I eventually bought one for every TV in my house. My third box was the second generation Roku 1. It was much smaller than the first gen, had a better remote, and also had a cool little fabric tag on it. The Roku 2 follows in the second gen Roku 1's footsteps by being even smaller, having an even better remote, and still having the little purple tag.&lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/images/posts/roku_box.jpg&quot; alt=&quot;Roku 2 Box&quot; class=&quot;shadow&quot; /&gt;One month ago I got a &lt;a href=&quot;http://www.roku.com/&quot;&gt;Roku 2&lt;/a&gt;. This was my fourth Roku. I bought a first generation Roku in June 2009 and I loved it. I eventually bought one for every TV in my house. My third box was the second generation Roku 1. It was much smaller than the first gen, had a better remote, and also had a cool little fabric tag on it. The Roku 2 follows in the second gen Roku 1's footsteps by being even smaller, having an even better remote, and still having the little purple tag.&lt;/p&gt;
 
 &lt;p&gt;A new feature of the Roku 2 is the ability to play games. The only game that I've tried is the included Angry Birds. It's a good version of the game, and the motion controls are surprisingly good. But, for me, gaming on the Roku is just a nice secondary feature. I think I'll stick to either my Xbox, Playstation or Wii for the majority of game playing.&lt;/p&gt;
 
-&lt;img src=&quot;https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-snc6/s960x960/216789_642443327829_156802635_33181146_2007203_n.jpg&quot; alt=&quot;The Roku 2 is small&quot; class=&quot;shadow&quot; /&gt;
+&lt;img src=&quot;/images/posts/roku_in_box.jpg&quot; alt=&quot;The Roku 2 is small&quot; class=&quot;shadow&quot; /&gt;
 
 &lt;p&gt;The best thing about the Roku is the number of 'channels' available.  There is one for &lt;a href=&quot;http://www.netflix.com&quot;&gt;Netflix&lt;/a&gt;, &lt;a href=&quot;http://www.amazon.com/Instant-Video/b/ref=sa_menu_aiv_vid0?ie=UTF8&amp;node=2858778011&quot;&gt;Amazon Instant Video&lt;/a&gt;, &lt;a href=&quot;http://www.hulu.com&quot;&gt;Hulu&lt;/a&gt;, and &lt;a href=&quot;http://www.roku.com/roku-channel-store&quot;&gt;many more&lt;/a&gt;. The first generation boxes seem to have some trouble with channels like Hulu that sport a flashy interface. The Roku 2 doesn't have this problem. This is definitely the best Roku yet.&lt;/p&gt;
 
@@ -358,9 +358,9 @@ lib/monkey_patch_sql2005_limit.rb
    <link href="http://www.heathanderson.net/2011/08/22/minimalist-business-card"/>
    <updated>2011-08-22T00:00:00-04:00</updated>
    <id>http://heathanderson.net/2011/08/22/minimalist-business-card</id>
-   <content type="html">&lt;p&gt;&lt;img class=&quot;shadow&quot; src=&quot;/images/borismus_business_card.png&quot; alt=&quot;Boris Smus' Business Card&quot; /&gt; I came across the &lt;a href=&quot;http://smus.com/minimal-business-card-design&quot;&gt;business card&lt;/a&gt; to the left via &lt;a href=&quot;http://boingboing.net/2011/08/22/ultraminimalist-business-card.html&quot;&gt;Boing Boing&lt;/a&gt;. Even though the original post is over one year old, it inspired me to try to design a simple business card (although I suppose it is more of a calling card). Graphic design is one of my weaker skills so I like to practice when I can. My take on the concept is below: &lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;img class=&quot;shadow&quot; src=&quot;/images/posts/borismus_business_card.png&quot; alt=&quot;Boris Smus' Business Card&quot; /&gt; I came across the &lt;a href=&quot;http://smus.com/minimal-business-card-design&quot;&gt;business card&lt;/a&gt; to the left via &lt;a href=&quot;http://boingboing.net/2011/08/22/ultraminimalist-business-card.html&quot;&gt;Boing Boing&lt;/a&gt;. Even though the original post is over one year old, it inspired me to try to design a simple business card (although I suppose it is more of a calling card). Graphic design is one of my weaker skills so I like to practice when I can. My take on the concept is below: &lt;/p&gt;
 
-&lt;img src=&quot;/images/card.png&quot; class=&quot;shadow&quot; alt=&quot;My Business Card&quot; /&gt;
+&lt;img src=&quot;/images/posts/card.png&quot; class=&quot;shadow&quot; alt=&quot;My Business Card&quot; /&gt;
 
 &lt;p&gt;I kind of like it. I ordered twenty from &lt;a href=&quot;http://www.zazzle.com/&quot;&gt;Zazzle&lt;/a&gt; for $7 just to see what they look like printed on actual paper.&lt;/p&gt;</content>
  </entry>
