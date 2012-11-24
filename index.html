@@ -3,11 +3,13 @@ layout: plain
 title: Heath Anderson's Blog - From Chattanooga, TN
 ---
 
-{% for post in paginator.posts %}      
-  {% if current_date != post.date%}
-    {% assign current_date = post.date %}
-    <h2>{{current_date  | date: "%A, %B %d, %Y" }}</h2>
-  {% endif %}        
+{% for post in paginator.posts %}            
+  {% assign current_date = post.date %}
+  <div class="date">
+    <span class="day">{{current_date  | date: "%d" }}</span> 
+    <span class="month">{{current_date  | date: "%b" }}</span> 
+    <span class="year">{{current_date  | date: "%Y" }}</span>
+  </div>
    
    <div class="post">
      <h3><a href="{{ post.url }}" rel="bookmark" title="{{post.title}}">{{ post.title }}</a></h3>

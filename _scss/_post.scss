@@ -6,11 +6,6 @@
     @include letterpress($bold-accent);
   }
 
-  .date {
-    color: $dark-accent;
-    font-family: Verdana, Geneva, sans-serif;
-  }
-
   p img {
     max-width: 300px;
   }

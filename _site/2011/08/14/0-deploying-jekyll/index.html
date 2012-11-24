@@ -57,7 +57,13 @@
 
   <div class="container main">
     <div class="post">
-  <div class="small date">Sunday, August 14, 2011</div>
+  
+  <div class="date">
+    <span class="day">14</span> 
+    <span class="month">Aug</span> 
+    <span class="year">2011</span>
+  </div>
+
   <h1 title="Deploying a Jekyll Site to Amazon S3">Deploying a Jekyll Site to Amazon S3</h1> 
 
   <p>Before moving my blog to Amazon S3 I wanted to make sure that I could deploy updates easily. I came across several ways to do it. The easiest method I found was in a <a href="http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/">blog post</a> by <a href="http://blog.hendrikvolkmer.de/about/">Hendrik Volkmer</a>. It uses a command line tool called <code>s3cmd</code> run through a rake task. <a href="http://s3tools.org/s3cmd">s3cmd</a> can be installed using <a href="http://mxcl.github.com/homebrew/">Homebrew</a> on Mac OS X. </p>
@@ -107,7 +113,9 @@
     <![endif]-->
   </form>
   <noscript>
-  	You can search this site using <a href="http://www.google.com/search?q=site:www.heathanderson.net">Google</a>.<br/>
+    <div>
+  	You can search this site using <a href="http://www.google.com/search?q=site:www.heathanderson.net">Google</a>.
+  </div>
   </noscript>
 
 <script type="text/javascript">
@@ -122,13 +130,13 @@ function simpleSearch(form) {
 document.getElementById('searchForm').style.display = "block";
 </script>
 
-Subscribe to the <a href="/atom.xml">Atom feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a><br/>
+<div>Subscribe to the <a href="/atom.xml">Atom feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a></div>
 
-Copyright &copy; <a href="http://www.heathanderson.net/about.html">Heath Anderson</a> | <a href="/privacy.html">Privacy Policy</a><br/>
+<div>Copyright &copy; <a href="http://www.heathanderson.net/about.html">Heath Anderson</a> | <a href="/privacy.html">Privacy Policy</a></div>
 
-<a href="http://www.w3.org/html/logo/"><img src="/images/html5-badge.png" alt="HTML5 Badge" class="badge"/></a><br/>
+<div><a href="http://www.w3.org/html/logo/"><img src="/images/html5-badge.png" alt="HTML5 Badge" class="badge"/></a></div>
 
-<a title="Real Time Analytics" href="http://getclicky.com/66465306"><img alt="Real Time Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a><br/>
+<div><a title="Real Time Analytics" href="http://getclicky.com/66465306"><img alt="Real Time Analytics" src="//static.getclicky.com/media/links/badge.gif" border="0" /></a></div>
 
 <script type="text/javascript">
 var clicky_custom = {};
