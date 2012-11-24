@@ -16,7 +16,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico">
 
-<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/main.css">
 
 <link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
 <link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
@@ -28,11 +28,12 @@
 
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
 
-
 </head>
 <body>
+
   <header>
-    <div class="headerWrapper">
+    <div class="container">
+      <div class="headerWrapper">
   <div id="header">
     <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
     <div id="categories_menu">
@@ -47,12 +48,12 @@
     </div>
   </div>
 </div>
+    </div>
 	</header>
-	<div id="container">
 
-
-		<div id="main" role="main">
-      <div class="small date">Sunday, September 27, 2009</div>
+  <div class="container main">
+    <div class="post">
+<div class="small date">Sunday, September 27, 2009</div>
 <h1>Initialization Vector Length in MRI Ruby versus JRuby</h1> 
 
 <p>When using OpenSSL encryption in standard Ruby, the length of an initialization vector (IV) can apparently be as large as you want it to be as long as it is at least the minimum size. This is odd. This can also cause trouble when switching over to JRuby. JRuby appear to be much pickier about IV length.</p>
@@ -82,14 +83,16 @@ from ruby_string_encryption.rb:37@</p>
 <p><em>Update 10/14/2009</em> The code that I originally posted was incorrect. I have updated it. Also I opened a <a href="http://jira.codehaus.org/browse/JRUBY-4012">ticket </a>for this issue. </p>
 
 <p>If you are looking for what size an initialization vector should be check out my post on <a href="http://www.heathanderson.net/2009/09/25/ruby-string-encryption/">encrypting a string with Ruby</a>.</p>
+</div>
 
 		
 
 
 
-		</div>
+  </div>
 
-		<footer>
+	<footer>
+    <div class="container">
       <div id="footer" class="small">
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
     <input type="search" name="q" placeholder="Search this site..." > 
@@ -148,7 +151,8 @@ clicky_site_ids.push(66465306);
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
-		</footer>
-	</div>
+    </div>
+	</footer>
+
 </body>
 </html>

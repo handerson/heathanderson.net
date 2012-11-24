@@ -16,7 +16,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico">
 
-<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/main.css">
 
 <link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
 <link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
@@ -28,11 +28,12 @@
 
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
 
-
 </head>
 <body>
+
   <header>
-    <div class="headerWrapper">
+    <div class="container">
+      <div class="headerWrapper">
   <div id="header">
     <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
     <div id="categories_menu">
@@ -47,12 +48,12 @@
     </div>
   </div>
 </div>
+    </div>
 	</header>
-	<div id="container">
 
-
-		<div id="main" role="main">
-      <div class="small date">Saturday, October 01, 2011</div>
+  <div class="container main">
+    <div class="post">
+<div class="small date">Saturday, October 01, 2011</div>
 <h1>Using will_paginate and activerecord-sqlserver-adapter with SQL Server</h1> 
 
 <p>Having Rails and Microsoft SQL Server communicate is much easier than it once was thanks to projects like <a href="https://github.com/rails-sqlserver/tiny_tds">TinyTDS</a>, but sometimes things still don't work exactly right. <a href="http://blacksnowmedia.com/">We</a> ran into an issue where pagination simply would not work. Below is what we came up with after some research.</p>
@@ -123,14 +124,16 @@ lib/monkey_patch_sql2005_limit.rb
 </code></pre>
 </div>
 
+</div>
 
 		
 
 
 
-		</div>
+  </div>
 
-		<footer>
+	<footer>
+    <div class="container">
       <div id="footer" class="small">
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
     <input type="search" name="q" placeholder="Search this site..." > 
@@ -189,7 +192,8 @@ clicky_site_ids.push(66465306);
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
-		</footer>
-	</div>
+    </div>
+	</footer>
+
 </body>
 </html>

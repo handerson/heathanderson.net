@@ -1,0 +1,39 @@
+// Colors
+$bold-accent: #1fbae5; 
+$comp-accent: #e4491f;
+$light-accent: #ffffff;
+$dark-accent: #093744;
+
+// $bold-accent: #433c56; 
+// $comp-accent: 4e553c;
+// $light-accent: #ef7aff;
+// $dark-accent: #262035;
+
+// Layout
+$total-columns  : 12;             // a 12-column grid
+$column-width   : 3em;            // each column is 4em wide
+$gutter-width   : 1em;            // 1em gutters between columns
+$grid-padding   : $gutter-width;  // grid-padding equal to gutters
+
+// CSS3 Border Radius 
+$default-border-radius: 7px;
+
+// CSS3 Box Shadow
+$default-box-shadow-color   : #333333; // The default color for box shadows
+$default-box-shadow-h-offset: 0px; // The default horizontal offset. Positive is to the right.
+$default-box-shadow-v-offset: 0px; // The default vertical offset. Positive is down.
+$default-box-shadow-blur    : 5px; // The default blur length.
+$default-box-shadow-spread  : false; // The default spread length.
+$default-box-shadow-inset   : false;
+
+// CSS3 Text Shadow
+$default-text-shadow-color: $dark-accent;
+$default-text-shadow-h-offset: 1px;
+$default-text-shadow-v-offset: 0px;
+$default-text-shadow-blur: 1px;
+$default-text-shadow-spread: false;
+
+// Vertical Rhythm
+$base-font-size: 18px;
+$base-line-height: 24px;
+

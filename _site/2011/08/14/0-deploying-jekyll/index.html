@@ -16,7 +16,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico">
 
-<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/main.css">
 
 <link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
 <link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
@@ -28,11 +28,12 @@
 
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
 
-
 </head>
 <body>
+
   <header>
-    <div class="headerWrapper">
+    <div class="container">
+      <div class="headerWrapper">
   <div id="header">
     <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
     <div id="categories_menu">
@@ -47,12 +48,12 @@
     </div>
   </div>
 </div>
+    </div>
 	</header>
-	<div id="container">
 
-
-		<div id="main" role="main">
-      <div class="small date">Sunday, August 14, 2011</div>
+  <div class="container main">
+    <div class="post">
+<div class="small date">Sunday, August 14, 2011</div>
 <h1>Deploying a Jekyll Site to Amazon S3</h1> 
 
 <p>Before moving my blog to Amazon S3 I wanted to make sure that I could deploy updates easily. I came across several ways to do it. The easiest method I found was in a <a href="http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/">blog post</a> by <a href="http://blog.hendrikvolkmer.de/about/">Hendrik Volkmer</a>. It uses a command line tool called <code>s3cmd</code> run through a rake task. <a href="http://s3tools.org/s3cmd">s3cmd</a> can be installed using <a href="http://mxcl.github.com/homebrew/">Homebrew</a> on Mac OS X. </p>
@@ -83,14 +84,16 @@
 </code></pre>
 </div>
 
+</div>
 
 		
 
 
 
-		</div>
+  </div>
 
-		<footer>
+	<footer>
+    <div class="container">
       <div id="footer" class="small">
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
     <input type="search" name="q" placeholder="Search this site..." > 
@@ -149,7 +152,8 @@ clicky_site_ids.push(66465306);
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
-		</footer>
-	</div>
+    </div>
+	</footer>
+
 </body>
 </html>

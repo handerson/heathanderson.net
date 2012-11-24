@@ -16,7 +16,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico">
 
-<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/main.css">
 
 <link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
 <link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
@@ -28,11 +28,12 @@
 
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
 
-
 </head>
 <body>
+
   <header>
-    <div class="headerWrapper">
+    <div class="container">
+      <div class="headerWrapper">
   <div id="header">
     <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
     <div id="categories_menu">
@@ -47,12 +48,12 @@
     </div>
   </div>
 </div>
+    </div>
 	</header>
-	<div id="container">
 
-
-		<div id="main" role="main">
-      <div class="small date">Friday, August 05, 2011</div>
+  <div class="container main">
+    <div class="post">
+<div class="small date">Friday, August 05, 2011</div>
 <h1>Another Blog Redesign</h1> 
 
 <p><img class="shadow" alt="HTML5 banner" src="http://www.heathanderson.net/images/posts/HTML5_sticker.png" />I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now <a href="http://www.w3.org/html/logo/">HTML5</a>--no more XHTML.</p>
@@ -60,14 +61,16 @@
 <p>I am still using <a href="http://jekyllrb.com/">Jekyll</a> to generate the HTML files of the site. I love the simplicity of it. I'm hosting the site on <a href="http://aws.amazon.com/s3/">Amazon S3</a>. It is fast, cheap and maintenance free. </p>
 
 <p>I hope this new, streamlined version of my site will encourage me to post more. I guess we'll see.</p>
+</div>
 
 		
 
 
 
-		</div>
+  </div>
 
-		<footer>
+	<footer>
+    <div class="container">
       <div id="footer" class="small">
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
     <input type="search" name="q" placeholder="Search this site..." > 
@@ -126,7 +129,8 @@ clicky_site_ids.push(66465306);
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
-		</footer>
-	</div>
+    </div>
+	</footer>
+
 </body>
 </html>

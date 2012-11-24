@@ -16,7 +16,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico">
 
-<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/main.css">
 
 <link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
 <link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
@@ -28,11 +28,12 @@
 
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
 
-
 </head>
 <body>
+
   <header>
-    <div class="headerWrapper">
+    <div class="container">
+      <div class="headerWrapper">
   <div id="header">
     <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
     <div id="categories_menu">
@@ -47,12 +48,12 @@
     </div>
   </div>
 </div>
+    </div>
 	</header>
-	<div id="container">
 
-
-		<div id="main" role="main">
-      <div class="small date">Saturday, August 27, 2011</div>
+  <div class="container main">
+    <div class="post">
+<div class="small date">Saturday, August 27, 2011</div>
 <h1>Roku 2</h1> 
 
 <p><img src="https://fbcdn-sphotos-a.akamaihd.net/hphotos-ak-snc6/267388_642443302879_156802635_33181145_940406_n.jpg" alt="Roku 2 Box" class="shadow" />One month ago I got a <a href="http://www.roku.com/">Roku 2</a>. This was my fourth Roku. I bought a first generation Roku in June 2009 and I loved it. I eventually bought one for every TV in my house. My third box was the second generation Roku 1. It was much smaller than the first gen, had a better remote, and also had a cool little fabric tag on it. The Roku 2 follows in the second gen Roku 1's footsteps by being even smaller, having an even better remote, and still having the little purple tag.</p>
@@ -65,14 +66,16 @@
 
 
 
+</div>
 
 		
 
 
 
-		</div>
+  </div>
 
-		<footer>
+	<footer>
+    <div class="container">
       <div id="footer" class="small">
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
     <input type="search" name="q" placeholder="Search this site..." > 
@@ -131,7 +134,8 @@ clicky_site_ids.push(66465306);
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
-		</footer>
-	</div>
+    </div>
+	</footer>
+
 </body>
 </html>

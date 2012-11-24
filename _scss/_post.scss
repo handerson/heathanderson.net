@@ -1,0 +1,21 @@
+.post {
+  clear: both;
+
+  h1 {
+    color: $bold-accent;
+
+    @include single-text-shadow;
+  }
+
+  .date {
+    color: $dark-accent;
+    font-family: Verdana, Geneva, sans-serif;
+  }
+
+  p img {
+    max-width: 300px;
+  }
+
+  p img       { float: left; margin: 0.5em 0.8125em 0.8125em 0; padding: 0; }
+  p img.right { float: right; margin: 0.5em  0 0.8125em 0.8125em }
+}

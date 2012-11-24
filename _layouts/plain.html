@@ -2,22 +2,24 @@
 <html lang="en" class="no-js">
 <head>
 	{% include common_head.html%}
-
 </head>
 <body>
+
   <header>
-    {% include header.html %}
+    <div class="container">
+      {% include header.html %}
+    </div>
 	</header>
-	<div id="container">
 
+  <div class="container main">
+    {{ content }}
+  </div>
 
-		<div id="main" role="main">
-      {{ content }}
-		</div>
-
-		<footer>
+	<footer>
+    <div class="container">
       {% include footer.html %}
-		</footer>
-	</div>
+    </div>
+	</footer>
+
 </body>
 </html>

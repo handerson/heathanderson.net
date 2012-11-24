@@ -16,7 +16,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico">
 
-<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/main.css">
 
 <link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
 <link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
@@ -28,11 +28,12 @@
 
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
 
-
 </head>
 <body>
+
   <header>
-    <div class="headerWrapper">
+    <div class="container">
+      <div class="headerWrapper">
   <div id="header">
     <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
     <div id="categories_menu">
@@ -47,12 +48,12 @@
     </div>
   </div>
 </div>
+    </div>
 	</header>
-	<div id="container">
 
-
-		<div id="main" role="main">
-      <div class="small date">Tuesday, September 22, 2009</div>
+  <div class="container main">
+    <div class="post">
+<div class="small date">Tuesday, September 22, 2009</div>
 <h1>Ruby on Rails Plugin: data_migration</h1> 
 
 <p>data_migration allows you to separate data you need to load from your normal database migrations in a minimal way. While developing the new version of our flagship site, <a href="http://www.knetwit.com">Knetwit</a>, we decided we needed to separate our data migrations (initial settings and the like) from our structural migrations. We decided the easiest way to do this was to modify the existing Rails migration to allow for a new data migration. So we did.</p>
@@ -74,7 +75,7 @@
 
 
 <div class="highlight"><pre><code class="ruby">  <span class="n">exists</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span>
-  <span class="n">create</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="mi">20090915161242</span><span class="n">_settings</span><span class="o">.</span><span class="n">rb</span><span class="o">[/</span><span class="n">sourcecode</span><span class="o">]</span>
+  <span class="n">create</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="mi">20090915161242</span><span class="n">_settings</span><span class="o">.</span><span class="n">rb</span><span class="o">[</span><span class="sr">/sourcecode]</span>
 </code></pre>
 </div>
 
@@ -120,14 +121,16 @@
 
 <p>Code at Github:<br/>
 <a href="http://github.com/handerson/data_migration">http://github.com/handerson/data_migration</a></p>
+</div>
 
 		
 
 
 
-		</div>
+  </div>
 
-		<footer>
+	<footer>
+    <div class="container">
       <div id="footer" class="small">
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
     <input type="search" name="q" placeholder="Search this site..." > 
@@ -186,7 +189,8 @@ clicky_site_ids.push(66465306);
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
-		</footer>
-	</div>
+    </div>
+	</footer>
+
 </body>
 </html>

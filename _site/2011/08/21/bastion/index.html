@@ -16,7 +16,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico">
 
-<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/main.css">
 
 <link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
 <link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
@@ -28,11 +28,12 @@
 
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
 
-
 </head>
 <body>
+
   <header>
-    <div class="headerWrapper">
+    <div class="container">
+      <div class="headerWrapper">
   <div id="header">
     <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
     <div id="categories_menu">
@@ -47,12 +48,12 @@
     </div>
   </div>
 </div>
+    </div>
 	</header>
-	<div id="container">
 
-
-		<div id="main" role="main">
-      <div class="small date">Sunday, August 21, 2011</div>
+  <div class="container main">
+    <div class="post">
+<div class="small date">Sunday, August 21, 2011</div>
 <h1>Bastion</h1> 
 
 <p><img class="shadow" src="/images/posts/bastion/bastion_1.jpg" alt="Bastion Screenshot"/>I've been playing <a href="http://supergiantgames.com/">Bastion</a> for the Xbox 360. I love this game. The art is great, the dynamic narration is unlike anything I've ever seen in a game before, and the music is amazing. The game narrates the main character's actions while you play--a feature that would certainly be annoying if poorly executed. Luckily here it is wonderfully done. The narrator simultaneously injects both humor and a sense of weight to the story. The music is great and evocative. I even <a href="http://supergiantgames.bandcamp.com/">bought</a> the soundtrack.</p>
@@ -63,14 +64,16 @@
 
 <p>Bastion is one of the best games I've played this year. If you have a 360 <a href="http://marketplace.xbox.com/en-US/Product/Bastion/66acd000-77fe-1000-9115-d80258410b66">download</a> the Bastion demo and give it a try. </p>
 <object style="height: 366px; width: 640px"><param name="movie" value="http://www.youtube.com/v/TptJHeWngJs?version=3"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="http://www.youtube.com/v/TptJHeWngJs?version=3" type="application/x-shockwave-flash" allowfullscreen="true" wmode="opaque"  allowScriptAccess="always" width="600" height="366"></object>
+</div>
 
 		
 
 
 
-		</div>
+  </div>
 
-		<footer>
+	<footer>
+    <div class="container">
       <div id="footer" class="small">
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
     <input type="search" name="q" placeholder="Search this site..." > 
@@ -129,7 +132,8 @@ clicky_site_ids.push(66465306);
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
-		</footer>
-	</div>
+    </div>
+	</footer>
+
 </body>
 </html>

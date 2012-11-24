@@ -1,0 +1,53 @@
+@import "base";
+@import "compass";
+@import "susy";
+
+.container {
+  // container acts as a container for our grid.
+  @include container;
+}
+
+header, footer{
+  background-color: $bold-accent;
+  margin: -10px;
+  
+  @include single-box-shadow($default-box-shadow-color, $default-box-shadow-h-offset, $default-box-shadow-v-offset, $default-box-shadow-blur, $default-box-shadow-spread, true);
+
+  color: $light-accent;
+
+  a {
+    color: $light-accent;
+    text-decoration: underline;
+  }
+}
+
+header {
+  height: 15px;
+  overflow: hidden;
+  margin-bottom: 10px;
+}
+
+footer{
+  margin-top: 10px;
+  text-align: center;
+
+  #footer{
+    padding:10px;
+  }
+}
+
+.main {
+  margin-top: 0.6em;
+}
+
+#logo img{
+  height: 50px;
+}
+
+img.shadow{
+  @include single-box-shadow
+}
+
+img {
+  max-width: 600px;
+}

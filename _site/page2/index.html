@@ -16,7 +16,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico">
 
-<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/main.css">
 
 <link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
 <link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
@@ -28,11 +28,12 @@
 
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
 
-
 </head>
 <body>
+
   <header>
-    <div class="headerWrapper">
+    <div class="container">
+      <div class="headerWrapper">
   <div id="header">
     <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
     <div id="categories_menu">
@@ -47,12 +48,11 @@
     </div>
   </div>
 </div>
+    </div>
 	</header>
-	<div id="container">
 
-
-		<div id="main" role="main">
-            
+  <div class="container main">
+          
   
     
     <h2>Saturday, August 13, 2011</h2>
@@ -253,6 +253,9 @@
      
      <p>This is a very simple Ruby on Rails plugin that allows easy encryption of strings. For the sake of simplicity there no customization. The only cipher used is 'des-ede3-cbc' (Triple DES using Cipher Block Chaining) . See my <a href="http://blogofheath.com/2009/09/25/ruby-string-encryption/">post </a> on encrypting/decrypting a string with Ruby for more information. First install the plugin:</p>
 
+<div class="highlight"><pre><code class="ruby"> <span class="n">script</span><span class="o">/</span><span class="n">plugin</span> <span class="n">install</span> <span class="n">git</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">handerson</span><span class="o">/</span><span class="n">string_encryption</span><span class="o">.</span><span class="n">git</span>
+</code></pre>
+</div>
 
 
 <p>Next we need to add an encryption key as the constant @ENV['STRING_ENCRYPTION_KEY']@. To do this just run</p>
@@ -424,7 +427,7 @@ from ruby_string_encryption.rb:37@</p>
 
 
 <div class="highlight"><pre><code class="ruby">  <span class="n">exists</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span>
-  <span class="n">create</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="mi">20090915161242</span><span class="n">_settings</span><span class="o">.</span><span class="n">rb</span><span class="o">[/</span><span class="n">sourcecode</span><span class="o">]</span>
+  <span class="n">create</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="mi">20090915161242</span><span class="n">_settings</span><span class="o">.</span><span class="n">rb</span><span class="o">[</span><span class="sr">/sourcecode]</span>
 </code></pre>
 </div>
 
@@ -487,9 +490,10 @@ from ruby_string_encryption.rb:37@</p>
 
 
 
-		</div>
+  </div>
 
-		<footer>
+	<footer>
+    <div class="container">
       <div id="footer" class="small">
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
     <input type="search" name="q" placeholder="Search this site..." > 
@@ -548,7 +552,8 @@ clicky_site_ids.push(66465306);
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
-		</footer>
-	</div>
+    </div>
+	</footer>
+
 </body>
 </html>

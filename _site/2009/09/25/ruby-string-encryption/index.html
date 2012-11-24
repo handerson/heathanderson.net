@@ -16,7 +16,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico">
 
-<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/main.css">
 
 <link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
 <link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
@@ -28,11 +28,12 @@
 
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
 
-
 </head>
 <body>
+
   <header>
-    <div class="headerWrapper">
+    <div class="container">
+      <div class="headerWrapper">
   <div id="header">
     <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
     <div id="categories_menu">
@@ -47,12 +48,12 @@
     </div>
   </div>
 </div>
+    </div>
 	</header>
-	<div id="container">
 
-
-		<div id="main" role="main">
-      <div class="small date">Friday, September 25, 2009</div>
+  <div class="container main">
+    <div class="post">
+<div class="small date">Friday, September 25, 2009</div>
 <h1>Ruby String Encryption</h1> 
 
 <p>Encrypting a string is fairly easy in Ruby. All you need to do is @require 'openssl'@. For this example I am using the 'des-ede3-cbc' (<a href="http://en.wikipedia.org/wiki/Triple_des">Triple DES</a> using <a href="http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation">Cipher Block Chaining</a>) cipher. Most--if not all--of the ciphers listed on <a href="http://www.openssl.org/docs/apps/enc.html">OpenSSL.org</a> as supported ciphers should work as well. </p>
@@ -111,14 +112,16 @@
 
 
 <p>If you are using Rails or have access to ActiveSupport <a href="http://api.rubyonrails.org/classes/ActiveSupport/SecureRandom.html">ActiveSupport::SecureRandom</a> is a great way to generate your key and IV. Also be sure to check out <a href="http://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html">ActiveSupport::MessageEncryptor</a> and my <a href="http://github.com/handerson/string_encryption">string_encryption</a> plugin. I'll probably do a writeup on the string_encryption plugin sometime next week.</p>
+</div>
 
 		
 
 
 
-		</div>
+  </div>
 
-		<footer>
+	<footer>
+    <div class="container">
       <div id="footer" class="small">
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
     <input type="search" name="q" placeholder="Search this site..." > 
@@ -177,7 +180,8 @@ clicky_site_ids.push(66465306);
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
-		</footer>
-	</div>
+    </div>
+	</footer>
+
 </body>
 </html>

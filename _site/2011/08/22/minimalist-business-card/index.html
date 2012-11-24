@@ -16,7 +16,7 @@
 
 <link rel="shortcut icon" href="/favicon.ico">
 
-<link rel="stylesheet" type="text/css" media="all" href="/css/main.css">
+<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/main.css">
 
 <link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
 <link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
@@ -28,11 +28,12 @@
 
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
 
-
 </head>
 <body>
+
   <header>
-    <div class="headerWrapper">
+    <div class="container">
+      <div class="headerWrapper">
   <div id="header">
     <a id="logo" title="Heath's Blog of Stuff" href="/"><img alt="Heath's Blog of Stuff" src="/images/logo.png"></a>
     <div id="categories_menu">
@@ -47,12 +48,12 @@
     </div>
   </div>
 </div>
+    </div>
 	</header>
-	<div id="container">
 
-
-		<div id="main" role="main">
-      <div class="small date">Monday, August 22, 2011</div>
+  <div class="container main">
+    <div class="post">
+<div class="small date">Monday, August 22, 2011</div>
 <h1>Minimalist Business Card</h1> 
 
 <p><img class="shadow" src="/images/borismus_business_card.png" alt="Boris Smus' Business Card" /> I came across the <a href="http://smus.com/minimal-business-card-design">business card</a> to the left via <a href="http://boingboing.net/2011/08/22/ultraminimalist-business-card.html">Boing Boing</a>. Even though the original post is over one year old, it inspired me to try to design a simple business card (although I suppose it is more of a calling card). Graphic design is one of my weaker skills so I like to practice when I can. My take on the concept is below: </p>
@@ -60,14 +61,16 @@
 <img src="/images/card.png" class="shadow" alt="My Business Card" />
 
 <p>I kind of like it. I ordered twenty from <a href="http://www.zazzle.com/">Zazzle</a> for $7 just to see what they look like printed on actual paper.</p>
+</div>
 
 		
 
 
 
-		</div>
+  </div>
 
-		<footer>
+	<footer>
+    <div class="container">
       <div id="footer" class="small">
   <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
     <input type="search" name="q" placeholder="Search this site..." > 
@@ -126,7 +129,8 @@ clicky_site_ids.push(66465306);
     <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
   <![endif]-->
 
-		</footer>
-	</div>
+    </div>
+	</footer>
+
 </body>
 </html>
