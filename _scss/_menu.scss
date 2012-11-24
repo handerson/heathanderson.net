@@ -1,0 +1,83 @@
+#categories_menu {
+float: right;
+margin-top: 17px;
+}
+#categories_menu ul li {
+  margin-right:15px;
+}
+#categories_menu ul li a {
+  color:#B2B5B8;
+  font-size:22px;
+  text-decoration:none;
+  padding:0 5px;
+}
+#categories_menu ul li.current-cat a, #categories_menu ul li.current-cat-parent a, #categories_menu ul.children li.current-cat a {
+  color:#243649;
+}
+
+#categories_menu ul.children li {
+  background-color:#ffffff;
+}
+#categories_menu ul.children li a {
+  font-size:20px;
+  color:#B2B5B8;
+}
+#categories_menu ul li img{
+  margin-top: -5px;
+}
+
+.aboutIcon img{
+  height: 32px;
+}
+
+/* SUPERFISH STYLESHEET ---------------------------------- */
+.sf-menu, .sf-menu * { margin:0; padding:0; list-style:none }
+/*.sf-menu { line-height:1.0 }*/
+.sf-menu ul { position:absolute; top:-999em; width:12em }
+.sf-menu ul li { width:100% }
+
+/* fixes IE7 'sticky bug' */
+.sf-menu li:hover { visibility:inherit }
+
+.sf-menu li { float:left; position:relative }
+.sf-menu a { display:block; position:relative }
+
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul { left:0; top:2.4em; /* match top ul list item height */ z-index:99 }
+
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul { top:-999em }
+
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul { left:12em; top:-0.1em }
+
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul { top:-999em }
+
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul { left:12em; top:-0.1em }
+
+.sf-menu li:hover ul,
+.sf-menu li.sfHover ul {
+  left:     0;
+  top:      2.5em; /* match top ul list item height */
+  z-index:    99;
+}
+ul.sf-menu li:hover li ul,
+ul.sf-menu li.sfHover li ul {
+  top:      -999em;
+}
+ul.sf-menu li li:hover ul,
+ul.sf-menu li li.sfHover ul {
+  left:     10em; /* match ul width */
+  top:      0;
+}
+ul.sf-menu li li:hover li ul,
+ul.sf-menu li li.sfHover li ul {
+  top:      -999em;
+}
+ul.sf-menu li li li:hover ul,
+ul.sf-menu li li li.sfHover ul {
+  left:     10em; /* match ul width */
+  top:      0;
+}

@@ -22,9 +22,13 @@ header, footer{
 }
 
 header {
-  height: 15px;
+  // height: 15px;
   overflow: hidden;
   margin-bottom: 10px;
+
+  #header{
+    padding: 10px 0;
+  }
 }
 
 footer{
@@ -51,3 +55,6 @@ img.shadow{
 img {
   max-width: 600px;
 }
+
+/* Remove annoying border on linked images. */
+a img { border: none; }
