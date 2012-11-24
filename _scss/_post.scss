@@ -2,9 +2,7 @@
   clear: both;
 
   h1 {
-    color: $bold-accent;
-
-    @include single-text-shadow;
+    @include letterpress($bold-accent);
   }
 
   .date {

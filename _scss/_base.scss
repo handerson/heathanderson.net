@@ -1,13 +1,13 @@
 // Colors
-// $bold-accent: #1fbae5; 
-// $comp-accent: #e4491f;
-// $light-accent: #ffffff;
-// $dark-accent: #093744;
+$bold-accent: #1fbae5; 
+$comp-accent: #e4491f;
+$light-accent: #ffffff;
+$dark-accent: #093744;
 
-$bold-accent: #a755b2; 
-$comp-accent: #5fb155;
-$light-accent: #d3abd9;
-$dark-accent: #433c56;
+// $bold-accent: #a755b2; 
+// $comp-accent: #5fb155;
+// $light-accent: #d3abd9;
+// $dark-accent: #433c56;
 
 // Layout
 $total-columns  : 8;             // a 12-column grid
@@ -37,3 +37,19 @@ $default-text-shadow-spread: false;
 $base-font-size: 18px;
 $base-line-height: 24px;
 
+// based on http://dabblet.com/gist/1609945
+@mixin letterpress($pressed-color){
+    display: block;
+    color: $pressed-color;
+    position: relative;
+
+    &:before, &:after {
+      content: attr(title);
+
+      color: rgba(255,255,255,0.1);
+      position: absolute;
+    }
+
+    &:before { top: 1px; left: 1px; }
+    &:after  { top: 2px; left: 2px; }
+}
