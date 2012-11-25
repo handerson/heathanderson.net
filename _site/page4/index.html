@@ -58,6 +58,25 @@
                 
   
   <div class="date">
+    <span class="day">05</span> 
+    <span class="month">Aug</span> 
+    <span class="year">2011</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2011/08/05/another-blog-redesign" rel="bookmark" title="Another Blog Redesign">Another Blog Redesign</a></h3>
+     
+     <p><img class="shadow" alt="HTML5 banner" src="http://www.heathanderson.net/images/posts/HTML5_sticker.png" />I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now <a href="http://www.w3.org/html/logo/">HTML5</a>--no more XHTML.</p>
+
+<p>I am still using <a href="http://jekyllrb.com/">Jekyll</a> to generate the HTML files of the site. I love the simplicity of it. I'm hosting the site on <a href="http://aws.amazon.com/s3/">Amazon S3</a>. It is fast, cheap and maintenance free. </p>
+
+<p>I hope this new, streamlined version of my site will encourage me to post more. I guess we'll see.</p>
+   </div>
+   
+   <div class="post-divide">&diams; &diams; &diams;</div>
+            
+  
+  <div class="date">
     <span class="day">07</span> 
     <span class="month">Sep</span> 
     <span class="year">2010</span>
@@ -209,76 +228,6 @@ from ruby_string_encryption.rb:37@</p>
 <p><em>Update 10/14/2009</em> The code that I originally posted was incorrect. I have updated it. Also I opened a <a href="http://jira.codehaus.org/browse/JRUBY-4012">ticket </a>for this issue. </p>
 
 <p>If you are looking for what size an initialization vector should be check out my post on <a href="http://www.heathanderson.net/2009/09/25/ruby-string-encryption/">encrypting a string with Ruby</a>.</p>
-   </div>
-   
-   <div class="post-divide">&diams; &diams; &diams;</div>
-            
-  
-  <div class="date">
-    <span class="day">25</span> 
-    <span class="month">Sep</span> 
-    <span class="year">2009</span>
-  </div>
-   
-   <div class="post">
-     <h3><a href="/2009/09/25/ruby-string-encryption" rel="bookmark" title="Ruby String Encryption">Ruby String Encryption</a></h3>
-     
-     <p>Encrypting a string is fairly easy in Ruby. All you need to do is @require 'openssl'@. For this example I am using the 'des-ede3-cbc' (<a href="http://en.wikipedia.org/wiki/Triple_des">Triple DES</a> using <a href="http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation">Cipher Block Chaining</a>) cipher. Most--if not all--of the ciphers listed on <a href="http://www.openssl.org/docs/apps/enc.html">OpenSSL.org</a> as supported ciphers should work as well. </p>
-
-<p>Triple DES requires a 24-byte key, with Ruby this means a string with 24 characters. We are also required to provide an <a href="http://en.wikipedia.org/wiki/Initialization_vector">initialization vector</a> (IV). The IV is usually the same size as the block size of the cipher you are using (so says Wikipedia, so say we all). In our case this means an IV of 64-bits, or 8-bytes, or an 8 character Ruby String. If we randomize our IV and include it with our encrypted string then we can ensure that our encrypted data never looks the same even when we encrypt the same string multiple times.</p>
-
-<div class="highlight"><pre><code class="ruby">  <span class="nb">require</span> <span class="s1">&#39;openssl&#39;</span>
-
-  <span class="no">KEY</span> <span class="o">=</span> <span class="s1">&#39;0123456789abcdef01234567890&#39;</span> <span class="c1"># 24 characters</span>
-
-  <span class="n">string</span> <span class="o">=</span> <span class="s2">&quot;encrypt this&quot;</span>
-
-  <span class="n">des</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Cipher</span><span class="o">::</span><span class="no">Cipher</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;des-ede3-cbc&quot;</span><span class="p">)</span>
-  <span class="n">des</span><span class="o">.</span><span class="n">encrypt</span> <span class="c1"># this tells OpenSSL what mode to operate in, here we want to encrypt data</span>
-  <span class="n">des</span><span class="o">.</span><span class="n">iv</span> <span class="o">=</span> <span class="n">iv</span> <span class="o">=</span> <span class="s1">&#39;01234567&#39;</span> <span class="c1"># 8 characters, hard-coded for now</span>
-
-  <span class="n">data</span> <span class="o">=</span> <span class="n">des</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">+</span> <span class="n">des</span><span class="o">.</span><span class="n">final</span>  
-  <span class="n">data</span> <span class="o">=</span> <span class="n">iv</span> <span class="o">+</span> <span class="n">data</span> <span class="c1"># this way when we randomize our IV it will be available when we need to decrypt the data</span>
-
-  <span class="nb">puts</span> <span class="n">data</span>
-</code></pre>
-</div>
-
-
-<p>This should output some crazy string. This isn't the friendliest way to send data, so lets do something about that. The easiest thing to do is Base 64 encode the data, and maybe <a href="http://snippets.dzone.com/posts/show/1260">URI escape</a> it for good measure.</p>
-
-<div class="highlight"><pre><code class="ruby">  <span class="c1"># be sure to put the following at the top of your code:</span>
-  <span class="c1"># require &quot;base64&quot;</span>
-  <span class="c1"># require &#39;uri&#39;</span>
-  <span class="c1"># after &#39;the puts data&#39; in the snippet above do the following:</span>
-
-  <span class="n">data</span> <span class="o">=</span> <span class="no">Base64</span><span class="o">.</span><span class="n">encode64</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-  <span class="n">data</span> <span class="o">=</span> <span class="no">URI</span><span class="o">.</span><span class="n">escape</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="no">Regexp</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;[^</span><span class="si">#{</span><span class="no">URI</span><span class="o">::</span><span class="no">PATTERN</span><span class="o">::</span><span class="no">UNRESERVED</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">))</span>
-
-  <span class="nb">puts</span> <span class="n">data</span>
-</code></pre>
-</div>
-
-
-<p>This should give you the much nicer @MDEyMzQ1Njd6jzSlS73fKSAdqYgRiJie%0A@.</p>
-
-<p>Decryption is similarly easy.</p>
-
-<div class="highlight"><pre><code class="ruby">  <span class="n">des</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Cipher</span><span class="o">::</span><span class="no">Cipher</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;des-ede3-cbc&quot;</span><span class="p">)</span>
-  <span class="n">des</span><span class="o">.</span><span class="n">decrypt</span>
-  <span class="n">des</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="no">KEY</span>
-  <span class="n">encrypted_data</span> <span class="o">=</span> <span class="no">URI</span><span class="o">.</span><span class="n">unescape</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-  <span class="n">encrypted_data</span> <span class="o">=</span> <span class="no">Base64</span><span class="o">.</span><span class="n">decode64</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-  <span class="n">des</span><span class="o">.</span><span class="n">iv</span> <span class="o">=</span>  <span class="n">encrypted_data</span><span class="o">.</span><span class="n">slice!</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">8</span><span class="p">)</span> <span class="c1">#This gives us our iv back and removes it from the encrypted data</span>
-  
-  <span class="n">decrypted</span> <span class="o">=</span> <span class="n">des</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">encrypted_data</span><span class="p">)</span> <span class="o">+</span> <span class="n">des</span><span class="o">.</span><span class="n">final</span>  
-    
-  <span class="nb">puts</span> <span class="n">decrypted</span>
-</code></pre>
-</div>
-
-
-<p>If you are using Rails or have access to ActiveSupport <a href="http://api.rubyonrails.org/classes/ActiveSupport/SecureRandom.html">ActiveSupport::SecureRandom</a> is a great way to generate your key and IV. Also be sure to check out <a href="http://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html">ActiveSupport::MessageEncryptor</a> and my <a href="http://github.com/handerson/string_encryption">string_encryption</a> plugin. I'll probably do a writeup on the string_encryption plugin sometime next week.</p>
    </div>
    
    <div class="post-divide">&diams; &diams; &diams;</div>

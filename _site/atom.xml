@@ -4,7 +4,7 @@
  <title>Heath's Blog of Stuff</title>
  <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
  <link href="http://www.heathanderson.net"/>
- <updated>2012-11-25T11:26:54-05:00</updated>
+ <updated>2012-11-25T12:52:50-05:00</updated>
  <id>http://www.heathanderson.net</id>
  <author>
    <name>Heath Anderson</name>
@@ -16,7 +16,7 @@
    <link href="http://www.heathanderson.net/2012/11/25/the-elevation-dock-lightning-adapter"/>
    <updated>2012-11-25T00:00:00-05:00</updated>
    <id>http://heathanderson.net/2012/11/25/the-elevation-dock-lightning-adapter</id>
-   <content type="html">&lt;p&gt;&lt;img src=&quot;/images/posts/lightning-adapter.jpg&quot; alt=&quot;Elevation Dock Lightning Adapter&quot; class=&quot;shadow&quot; /&gt;Earlier this year I received my &lt;a href=&quot;http://www.elevationlab.com/products/elevationdock-for-iphone4&quot;&gt;Elevation Dock&lt;/a&gt; after funding the Kickstarter. I loved it. It was the absolutely the best docking solution available. Due to its low friction connector and heft it was even easier to use than just a cable. I could drop in to charge, then grab and go. No hassles. &lt;/p&gt;
+   <content type="html">&lt;p&gt;&lt;img src=&quot;/images/posts/lightning-adapter.jpg&quot; alt=&quot;Elevation Dock Lightning Adapter&quot; class=&quot;shadow&quot; /&gt;Earlier this year I received my &lt;a href=&quot;http://www.elevationlab.com/products/elevationdock-for-iphone4&quot;&gt;Elevation Dock&lt;/a&gt; after funding the Kickstarter. I loved it. It was the absolutely the best docking solution available. Due to its low friction connector and heft it was even easier to use than just a cable. I could drop in my phone to charge, then grab it and go. No hassles. &lt;/p&gt;
 
 &lt;p&gt;Getting the iPhone 5 kind of ruined that arrangement for me. I've been stuck charging with a plain cable (awful, I know). At least with the Lightning cable I could plug it in without having to study it to make sure I'm inserting it correctly.&lt;/p&gt;
 
@@ -37,6 +37,40 @@ According to Elevation Lab:
 
 &lt;p&gt;The Elevation Dock is still the best dock you can buy for the iPhone.&lt;/p&gt;
 
+
+</content>
+ </entry>
+ 
+ <entry>
+   <title>A New Look</title>
+   <link href="http://www.heathanderson.net/2012/11/25/a-new-look"/>
+   <updated>2012-11-25T00:00:00-05:00</updated>
+   <id>http://heathanderson.net/2012/11/25/a-new-look</id>
+   <content type="html">&lt;p&gt;I've finally updated my blog again. This time throwing away most of the old look. I decided I needed a new look. Apparently a year ago I was a bit obsessed with &lt;a href=&quot;http://daringfireball.net/&quot;&gt;low contrast&lt;/a&gt; and &lt;a href=&quot;http://webdesignandsuch.com/apple-linen-texture-effect-web-design-trend-download-tutorial/&quot;&gt;textures&lt;/a&gt;. These design concepts can work wonderfully. On my site they did not. I needed a new inspiration. One was not forthcoming.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;/images/posts/site-design.png&quot; alt=&quot;Blog Design Closeup&quot; class=&quot;shadow right&quot; /&gt;About a month ago I started watching &lt;a href=&quot;http://www.usanetwork.com/series/whitecollar/&quot;&gt;White Collar&lt;/a&gt;. I really liked the &lt;a href=&quot;http://fr.wikipedia.org/wiki/Fichier:White_Collar_2009_logo.svg&quot;&gt;logo&lt;/a&gt;. It stuck with me. Last Friday I had a day off, so I decided to see if I was indeed &quot;inspired&quot;. I supposed I was close enough. I am much happier with the current site design than the old one&lt;/p&gt;
+
+&lt;p&gt;The rest of this paragraph may sound pretentious, and I apologize for that; however, I hope it gives some insight into the new design. The basic design language is that of a blue background overlain with a white sheet of material. The header and footer are on peeking out of the background. The blue headings and the date boxes are carved out of the white foreground to reveal the blue underneath. The white lettering in the header, footer, and date boxes are meant to be leftovers from white foreground material. The black text and images in the body of the page are sitting on top of the white foreground. &lt;/p&gt; 
+
+&lt;p&gt;I also can't help but try out some new (to me) technologies, especially if they might be useful in my day job. I've used a bit of &lt;a href=&quot;http://sass-lang.com/&quot;&gt;Sass&lt;/a&gt; in the context of &lt;a href=&quot;http://www.rubyinside.com/rails-3-1-adopts-coffeescript-jquery-sass-and-controversy-4669.html&quot;&gt;Rails&lt;/a&gt; before, but I was interested in learning more about it. And this &lt;a href=&quot;http://compass-style.org/&quot;&gt;Compass&lt;/a&gt; thing I kept hearing about sounded really useful.&lt;/p&gt;
+
+&lt;p&gt;It turns out that I really like Sass and Compass. Together they give a front-end developer many wondrous tools. It would be hard to go back to not using variables and mixins. I also found &lt;a href=&quot;http://susy.oddbird.net/&quot;&gt;Susy&lt;/a&gt;, a responsive grid framework, to be very useful. &lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Integrating Jekyll and Sass was not as easy as I had hoped. I at first tried the &lt;a href=&quot;https://github.com/noct/jekyll-sass&quot;&gt;jeklyy-sass&lt;/a&gt; gem. I could not get it work after about half an hour of futzing with it. I assume this failing was on my part, not that of the gem. I think decided to do something a bit more simple. I followed the &lt;a href=&quot;http://martinciu.com/2011/06/blogging-like-a-hacker-using-jekyll-compass-and-foreman.html&quot;&gt;advice&lt;/a&gt; of another blog and just used the Jekyll and Compass command separately with &lt;a href=&quot;http://ddollar.github.com/foreman/&quot;&gt;foreman&lt;/a&gt; gluing them together.&lt;/p&gt;
+
+&lt;p&gt;I also took the opportunity to research fonts/typefaces to use. All really knew was that I wanted a strong sans serif font for the headings and a nice readable serif font for the body text. I did find two fonts that I really liked:
+  &lt;ul&gt;
+    &lt;li&gt;&lt;a href=&quot;http://fontdeck.com/font/groteskurw/regular&quot;&gt;Grotesk URW&lt;/a&gt;&lt;/li&gt;
+    &lt;li&gt;&lt;a href=&quot;http://fontdeck.com/font/skolar/regular&quot;&gt;Skolar&lt;/a&gt;&lt;/li&gt;
+  &lt;/ul&gt;
+Eventually I decided that it really didn't make sense to pay for fonts on a blog that no one actually reads. So I decided to look up what fonts are &lt;a href=&quot;http://www.ampsoft.net/webdesign-l/WindowsMacFonts.html&quot;&gt;installed by default&lt;/a&gt; and pick the my favorites (as it were). I landed on Verdana for the headings and Georgia for the body. 
+&lt;/p&gt;
+
+&lt;p&gt;I did wind up using one custom font: &lt;a href=&quot;http://levien.com/type/myfonts/inconsolata.html&quot;&gt;Inconsolata&lt;/a&gt;. I use this font in my text editor, so I decided to make the code snippets on my site use it. I found Font Squirrel's &lt;a href=&quot;http://www.fontsquirrel.com/fontface/generator&quot;&gt;@font-face generator&lt;/a&gt; very useful&lt;/p&gt;
+
+&lt;p&gt; I couldn't figure out how to display each post's date until I stumbled across this post about &lt;a href=&quot;http://snook.ca/archives/html_and_css/css-text-rotation&quot;&gt;CSS text rotation&lt;/a&gt;. I also had to &lt;a href=&quot;http://www.alistapart.com/articles/understanding-css3-transitions/&quot;&gt;brush up on CSS3 transitions&lt;/a&gt; to create the header. Making text look indented (or a letterpress effect) with CSS is surprisingly difficult. I found this &lt;a href=&quot;https://gist.github.com/1609945&quot;&gt;gist&lt;/a&gt; incredibly useful.&lt;/p&gt;
+
+&lt;p&gt;I'm still not done. There are still some bugs especially on mobile devices. I will continue to refine and fix. Hopefully this version lasts longer than a year.&lt;/p&gt;
 
 </content>
  </entry>

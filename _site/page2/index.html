@@ -58,6 +58,27 @@
                 
   
   <div class="date">
+    <span class="day">12</span> 
+    <span class="month">Sep</span> 
+    <span class="year">2011</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2011/09/12/candy-japan" rel="bookmark" title="Candy Japan">Candy Japan</a></h3>
+     
+     <p>I just ate some weird Japanese candy called takoyaki-ya san. It is supposed to mimic the look of "octopus balls" (a Japanese dish that is decidedly not candy like). The candy, unlike the food on which it is based, is peach/strawberry flavored. Takoyaki-ya san embodies two concepts that seem a bit odd to me: candy that looks like real (non-candy) food and candy that you have to assemble yourself. Overall it was pretty ok. The texture was strange, but the flavor was fine.</p>
+
+<p>I received this candy from <a href="http://www.candyjapan.com/">CandyJapan.com</a>--a neat little service that will send you some weird Japanese candy twice a month for $24. I don't know how long I'll keep my subscription, but I think I'll get at least a few months of entertainment out it</p> 
+
+<iframe width="560" height="315" src="http://www.youtube.com/embed/m0BF4cNGLA0?wmode=opaque" frameborder="0" allowfullscreen></iframe>
+
+
+   </div>
+   
+   <div class="post-divide">&diams; &diams; &diams;</div>
+            
+  
+  <div class="date">
     <span class="day">27</span> 
     <span class="month">Aug</span> 
     <span class="year">2011</span>
@@ -234,45 +255,6 @@
 
 <p>Bastion is one of the best games I've played this year. If you have a 360 <a href="http://marketplace.xbox.com/en-US/Product/Bastion/66acd000-77fe-1000-9115-d80258410b66">download</a> the Bastion demo and give it a try. </p>
 <object style="height: 366px; width: 640px"><param name="movie" value="http://www.youtube.com/v/TptJHeWngJs?version=3"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="http://www.youtube.com/v/TptJHeWngJs?version=3" type="application/x-shockwave-flash" allowfullscreen="true" wmode="opaque"  allowScriptAccess="always" width="600" height="366"></object>
-   </div>
-   
-   <div class="post-divide">&diams; &diams; &diams;</div>
-            
-  
-  <div class="date">
-    <span class="day">14</span> 
-    <span class="month">Aug</span> 
-    <span class="year">2011</span>
-  </div>
-   
-   <div class="post">
-     <h3><a href="/2011/08/14/1-automating-new-post-creation-in-jekyll" rel="bookmark" title="Automating New Post Creation in Jekyll">Automating New Post Creation in Jekyll</a></h3>
-     
-     <p>After automating deployment, my next goal was to automate creating a new post. After looking around a bit I decided to slightly modify the rake task used by <a href="https://github.com/imathis/octopress">Octopress</a>, a Jekyll based blogging framework. </p>
-
-<div class="highlight"><pre><code class="ruby">  <span class="c1"># adapted from https://github.com/imathis/octopress/blob/master/Rakefile   </span>
-  <span class="c1"># usage rake new_post[&#39;My New Post&#39;] or rake new_post (defaults to &quot;My New Post&quot;)</span>
-  <span class="n">desc</span> <span class="s2">&quot;Start a new post&quot;</span>
-  <span class="n">task</span> <span class="ss">:new_post</span><span class="p">,</span> <span class="ss">:title</span> <span class="k">do</span> <span class="o">|</span><span class="n">t</span><span class="p">,</span> <span class="n">args</span><span class="o">|</span>
-   <span class="n">args</span><span class="o">.</span><span class="n">with_defaults</span><span class="p">(</span><span class="ss">:title</span> <span class="o">=&gt;</span> <span class="s1">&#39;My New Post&#39;</span><span class="p">)</span>
-   <span class="n">title</span> <span class="o">=</span> <span class="n">args</span><span class="o">.</span><span class="n">title</span>
-   <span class="n">filename</span> <span class="o">=</span> <span class="s2">&quot;_posts/</span><span class="si">#{</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-%d&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">-</span><span class="si">#{</span><span class="n">title</span><span class="o">.</span><span class="n">downcase</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/&amp;/</span><span class="p">,</span><span class="s1">&#39;and&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[,&#39;&quot;:\?!\(\)\[\]]/</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/[\W\.]/</span><span class="p">,</span> <span class="s1">&#39;-&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/-+$/</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">.html&quot;</span>
-   <span class="nb">puts</span> <span class="s2">&quot;Creating new post: </span><span class="si">#{</span><span class="n">filename</span><span class="si">}</span><span class="s2">&quot;</span>
-   <span class="nb">open</span><span class="p">(</span><span class="n">filename</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">post</span><span class="o">|</span>
-     <span class="nb">system</span> <span class="s2">&quot;mkdir -p _posts&quot;</span><span class="p">;</span>
-     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;---&quot;</span>
-     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;layout: post&quot;</span>
-     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;title: </span><span class="se">\&quot;</span><span class="si">#{</span><span class="n">title</span><span class="o">.</span><span class="n">gsub</span><span class="p">(</span><span class="sr">/&amp;/</span><span class="p">,</span><span class="s1">&#39;&amp;amp;&#39;</span><span class="p">)</span><span class="si">}</span><span class="se">\&quot;</span><span class="s2">&quot;</span>
-     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;date: </span><span class="si">#{</span><span class="no">Time</span><span class="o">.</span><span class="n">now</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s1">&#39;%Y-%m-%d %H:%M&#39;</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
-     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;published: false&quot;</span>
-     <span class="n">post</span><span class="o">.</span><span class="n">puts</span> <span class="s2">&quot;---&quot;</span>
-   <span class="k">end</span>
-  <span class="k">end</span>
-</code></pre>
-</div>
-
-
-<p>Now that the above is in my <a href="https://github.com/handerson/heathanderson.net/blob/master/rakefile.rb">rakefile</a>, I'm just a <code>rake new_post['This is Awesome']</code> away from starting a new post.
    </div>
    
    <div class="post-divide">&diams; &diams; &diams;</div>
