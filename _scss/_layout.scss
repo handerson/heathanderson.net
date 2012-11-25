@@ -60,7 +60,7 @@ footer{
 }
 
 img.shadow{
-  @include single-box-shadow
+  @include single-box-shadow;
 }
 
 img {
@@ -82,4 +82,8 @@ blockquote{
   margin-left: 35px;
   padding-left: 20px;
   border-left: 3px solid $bold-accent;
+}
+
+#footer form input{
+  color: $bold-accent;
 }
