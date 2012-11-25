@@ -75,3 +75,11 @@ a img { border: none; }
   margin: 50px 0px;
   color: $light-accent;
 }
+
+blockquote{
+   margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 35px;
+  padding-left: 20px;
+  border-left: 3px solid $bold-accent;
+}

@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 
-<title>Heath Anderson's Blog - From Chattanooga, TN</title>
+<title>Heath Anderson's Blog - Posting Stuff From Chattanooga, TN</title>
 
 <link rel="image_src" href="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
 <meta property="og:image" content="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
@@ -56,6 +56,48 @@
 
   <div class="container main">
                 
+  
+  <div class="date">
+    <span class="day">14</span> 
+    <span class="month">Aug</span> 
+    <span class="year">2011</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2011/08/14/0-deploying-jekyll" rel="bookmark" title="Deploying a Jekyll Site to Amazon S3">Deploying a Jekyll Site to Amazon S3</a></h3>
+     
+     <p>Before moving my blog to Amazon S3 I wanted to make sure that I could deploy updates easily. I came across several ways to do it. The easiest method I found was in a <a href="http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/">blog post</a> by <a href="http://blog.hendrikvolkmer.de/about/">Hendrik Volkmer</a>. It uses a command line tool called <code>s3cmd</code> run through a rake task. <a href="http://s3tools.org/s3cmd">s3cmd</a> can be installed using <a href="http://mxcl.github.com/homebrew/">Homebrew</a> on Mac OS X. </p>
+  
+<div class="highlight"><pre><code class="bash"> brew install s3cmd
+</code></pre>
+</div>
+
+
+<p>I updated the rake task to use S3's reduced <a href="https://aws.amazon.com/about-aws/whats-new/2010/05/19/announcing-amazon-s3-reduced-redundancy-storage/">redundancy storage</a> and set an <a href="https://developer.yahoo.com/performance/rules.html#expires">Expires header</a> for my images by using s3cmd's <code>--reduced-redundancy</code>, <code>--exclude</code>, and <code>--add-header</code> options. You can find out about other <code>s3smd</code> options on the <a href="http://s3tools.org/s3cmd-sync">s3tools website</a>.</p>
+
+<div class="highlight"><pre><code class="ruby">  <span class="c1"># based on http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/</span>
+  <span class="n">task</span> <span class="ss">:default</span> <span class="o">=&gt;</span> <span class="ss">:deploy</span>
+
+  <span class="n">desc</span> <span class="s2">&quot;Deploy to S3&quot;</span>
+  <span class="n">task</span> <span class="ss">:deploy</span> <span class="k">do</span>
+    <span class="n">sh</span> <span class="s2">&quot;jekyll&quot;</span>
+    <span class="n">sh</span> <span class="s2">&quot;s3cmd sync --reduced-redundancy --exclude &#39;images/*&#39; _site/* s3://www.heathanderson.net&quot;</span>
+    <span class="n">sh</span> <span class="s2">&quot;s3cmd sync --reduced-redundancy --add-header &#39;Expires: Thu, 6 Feb 2020 00:00:00 GMT&#39; _site/images/* s3://www.heathanderson.net/images/&quot;</span>
+  <span class="k">end</span>
+</code></pre>
+</div>
+
+
+<p>After placing the above in a <a href="https://github.com/handerson/heathanderson.net/blob/master/rakefile.rb">rakefile</a> all I have to do is run the following to publish a new post or deploy any other changes:</p>
+
+<div class="highlight"><pre><code class="bash"> rake deploy
+</code></pre>
+</div>
+
+   </div>
+   
+   <div class="post-divide">&diams; &diams; &diams;</div>
+            
   
   <div class="date">
     <span class="day">13</span> 
@@ -202,35 +244,6 @@
 <p>I am still using <a href="http://jekyllrb.com/">Jekyll</a> to generate the HTML files of the site. I love the simplicity of it. I'm hosting the site on <a href="http://aws.amazon.com/s3/">Amazon S3</a>. It is fast, cheap and maintenance free. </p>
 
 <p>I hope this new, streamlined version of my site will encourage me to post more. I guess we'll see.</p>
-   </div>
-   
-   <div class="post-divide">&diams; &diams; &diams;</div>
-            
-  
-  <div class="date">
-    <span class="day">07</span> 
-    <span class="month">Sep</span> 
-    <span class="year">2010</span>
-  </div>
-   
-   <div class="post">
-     <h3><a href="/2010/09/07/programming-fonts" rel="bookmark" title="Programming Fonts">Programming Fonts</a></h3>
-     
-     <p>I recently read a <a href="http://news.ycombinator.com/item?id=1648994">thread</a> on <a href="http://news.ycombinator.com/">Hacker News</a> that got me thinking about the font I use when programming. I spend about eight hours a day looking at text in Textmate, but I've never really thought about the font. I didn't even know what font I was using. So I decided to do some research.</p>
-
-<p>Apparently I was using Monaco 12pt.</p>
-
-<img class="shadow" src="/images/posts/monaco12pt.png" alt="monaco example"/>
-
-<p>As you can see it is a little largish, but it never really bothered me. I began to search for other fonts to try. The first resource I found was Jeff Atwood's <a href="http://www.codinghorror.com/blog/2004/12/progamming-fonts.html">Programming Fonts</a> post. I saw nothing that made me want to switch even temporarily. Next I looked at <a href="http://hivelogic.com/articles/top-10-programming-fonts">Top 10 Programming Fonts</a>. I decided I might as well try out a couple of these fonts, even if just for a few minutes. I downloaded <a href="http://www.dafont.com/monofur.font">Monofur</a>, <a href="http://www.levien.com/type/myfonts/inconsolata.html">Inconsolata</a>, and <a href="http://damieng.com/blog/2008/05/26/envy-code-r-preview-7-coding-font-released">Envy Code R</a>. Envy Code R wasn't mentioned in the list, but it was brought up in the comments and in the Hacker News thread above. </p>
-
-<p>There seems to be no 'best' font. Font preference seems to vary immensely from person to person. I had a hard time deciding if I actually have a preference. After a couple of days of font switching I finally decided on Inconsolata 12pt. I really don't know why. That makes it impossible for me to actually suggest a font to someone else, but I do recommend trying out some different fonts and seeing if one of them makes your time staring at text a little more pleasant. </p>
-
-<p>Here is what my screen looks like now:</p>
-
-<img class="shadow" src="/images/posts/inconsolata12pt.png" alt="inconsolata example"/>
-
-<p>One final note on anti aliasing: It seems that I like it (at least with Inconsolata and Monaco), some people do not. As with font choice I suggest trying it out and seeing for yourself.</p>
    </div>
    
    <div class="post-divide">&diams; &diams; &diams;</div>

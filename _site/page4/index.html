@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 
-<title>Heath Anderson's Blog - From Chattanooga, TN</title>
+<title>Heath Anderson's Blog - Posting Stuff From Chattanooga, TN</title>
 
 <link rel="image_src" href="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
 <meta property="og:image" content="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
@@ -56,6 +56,35 @@
 
   <div class="container main">
                 
+  
+  <div class="date">
+    <span class="day">07</span> 
+    <span class="month">Sep</span> 
+    <span class="year">2010</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2010/09/07/programming-fonts" rel="bookmark" title="Programming Fonts">Programming Fonts</a></h3>
+     
+     <p>I recently read a <a href="http://news.ycombinator.com/item?id=1648994">thread</a> on <a href="http://news.ycombinator.com/">Hacker News</a> that got me thinking about the font I use when programming. I spend about eight hours a day looking at text in Textmate, but I've never really thought about the font. I didn't even know what font I was using. So I decided to do some research.</p>
+
+<p>Apparently I was using Monaco 12pt.</p>
+
+<img class="shadow" src="/images/posts/monaco12pt.png" alt="monaco example"/>
+
+<p>As you can see it is a little largish, but it never really bothered me. I began to search for other fonts to try. The first resource I found was Jeff Atwood's <a href="http://www.codinghorror.com/blog/2004/12/progamming-fonts.html">Programming Fonts</a> post. I saw nothing that made me want to switch even temporarily. Next I looked at <a href="http://hivelogic.com/articles/top-10-programming-fonts">Top 10 Programming Fonts</a>. I decided I might as well try out a couple of these fonts, even if just for a few minutes. I downloaded <a href="http://www.dafont.com/monofur.font">Monofur</a>, <a href="http://www.levien.com/type/myfonts/inconsolata.html">Inconsolata</a>, and <a href="http://damieng.com/blog/2008/05/26/envy-code-r-preview-7-coding-font-released">Envy Code R</a>. Envy Code R wasn't mentioned in the list, but it was brought up in the comments and in the Hacker News thread above. </p>
+
+<p>There seems to be no 'best' font. Font preference seems to vary immensely from person to person. I had a hard time deciding if I actually have a preference. After a couple of days of font switching I finally decided on Inconsolata 12pt. I really don't know why. That makes it impossible for me to actually suggest a font to someone else, but I do recommend trying out some different fonts and seeing if one of them makes your time staring at text a little more pleasant. </p>
+
+<p>Here is what my screen looks like now:</p>
+
+<img class="shadow" src="/images/posts/inconsolata12pt.png" alt="inconsolata example"/>
+
+<p>One final note on anti aliasing: It seems that I like it (at least with Inconsolata and Monaco), some people do not. As with font choice I suggest trying it out and seeing for yourself.</p>
+   </div>
+   
+   <div class="post-divide">&diams; &diams; &diams;</div>
+            
   
   <div class="date">
     <span class="day">06</span> 
@@ -253,85 +282,6 @@ from ruby_string_encryption.rb:37@</p>
    </div>
    
    <div class="post-divide">&diams; &diams; &diams;</div>
-            
-  
-  <div class="date">
-    <span class="day">22</span> 
-    <span class="month">Sep</span> 
-    <span class="year">2009</span>
-  </div>
-   
-   <div class="post">
-     <h3><a href="/2009/09/22/ruby-on-rails-plugin-data_migration" rel="bookmark" title="Ruby on Rails Plugin: data_migration">Ruby on Rails Plugin: data_migration</a></h3>
-     
-     <p>data_migration allows you to separate data you need to load from your normal database migrations in a minimal way. While developing the new version of our flagship site, <a href="http://www.knetwit.com">Knetwit</a>, we decided we needed to separate our data migrations (initial settings and the like) from our structural migrations. We decided the easiest way to do this was to modify the existing Rails migration to allow for a new data migration. So we did.</p>
-
-<h3>Install Plugin</h3>
-
-<div class="highlight"><pre><code class="ruby"> 
-  <span class="n">script</span><span class="o">/</span><span class="n">plugin</span> <span class="n">install</span> <span class="n">git</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">handerson</span><span class="o">/</span><span class="n">data_migration</span><span class="o">.</span><span class="n">git</span>
-</code></pre>
-</div>
-
-
-<h3>Generate Migration</h3>
-
-<div class="highlight"><pre><code class="ruby"> 
-  <span class="n">script</span><span class="o">/</span><span class="n">generate</span> <span class="n">data_migration</span> <span class="no">BlockedDomains</span> 
-</code></pre>
-</div>
-
-
-<div class="highlight"><pre><code class="ruby">  <span class="n">exists</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span>
-  <span class="n">create</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="mi">20090915161242</span><span class="n">_settings</span><span class="o">.</span><span class="n">rb</span><span class="o">[</span><span class="sr">/sourcecode]</span>
-</code></pre>
-</div>
-
-
-<p>db/data/20090915161242_settings.rb:</p>
-
-<div class="highlight"><pre><code class="ruby"> 
-  <span class="k">class</span> <span class="nc">BlockedDomains</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
-    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">up</span>
-    <span class="k">end</span>
-  <span class="k">end</span>
-</code></pre>
-</div>
-
-
-<p>Add your data:</p>
-
-<div class="highlight"><pre><code class="ruby"> 
-  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">up</span>
-    <span class="no">BlockedEmailDomain</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s2">&quot;mailinator.com&quot;</span><span class="p">)</span>
-    <span class="no">BlockedEmailDomain</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s2">&quot;spamherelots.com&quot;</span><span class="p">)</span>
-    <span class="no">BlockedEmailDomain</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s2">&quot;disposeamail.com&quot;</span><span class="p">)</span>
-  <span class="k">end</span>
-</code></pre>
-</div>
-
-
-<h3>Run Migration</h3>
-
-<div class="highlight"><pre><code class="ruby">  <span class="n">rake</span> <span class="n">db</span><span class="ss">:data:migrate</span>
-</code></pre>
-</div>
-
-
-<div class="highlight"><pre><code class="ruby"> 
-  <span class="o">==</span>  <span class="no">BlockedDomains</span><span class="p">:</span> <span class="n">migrating</span> <span class="o">===========================================================</span>
-  <span class="o">==</span>  <span class="no">BlockedDomains</span><span class="p">:</span> <span class="n">migrated</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mo">0020</span><span class="n">s</span><span class="p">)</span> <span class="o">==================================================</span>
-</code></pre>
-</div>
-
-
-<p>db:data:migrate adds the data migration version number to the 'schema_migrations' table so it will not be ran again.</p>
-
-<p>Code at Github:<br/>
-<a href="http://github.com/handerson/data_migration">http://github.com/handerson/data_migration</a></p>
-   </div>
-   
-   <div class="post-divide">&diams; &diams; &diams;</div>
 
 		
 <div id="pagination"> 
@@ -340,7 +290,7 @@ from ruby_string_encryption.rb:37@</p>
 	
 	
 	
-	<span class="disabled_pagination">Next</span>
+	<a href="/page5">Next</a>
 	
 </div>
 		

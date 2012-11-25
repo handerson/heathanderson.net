@@ -1,5 +1,7 @@
+@import "base";
+
 .post {
-  clear: both;
+  @include clearfix;
 
   h1 {
     @include text-shadow(none);

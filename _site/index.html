@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 
-<title>Heath Anderson's Blog - From Chattanooga, TN</title>
+<title>Heath Anderson's Blog - Posting Stuff From Chattanooga, TN</title>
 
 <link rel="image_src" href="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
 <meta property="og:image" content="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
@@ -56,6 +56,43 @@
 
   <div class="container main">
                 
+  
+  <div class="date">
+    <span class="day">25</span> 
+    <span class="month">Nov</span> 
+    <span class="year">2012</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2012/11/25/the-elevation-dock-lightning-adapter" rel="bookmark" title="The Elevation Dock Lightning Adapter">The Elevation Dock Lightning Adapter</a></h3>
+     
+     <p><img src="/images/posts/lightning-adapter.jpg" alt="Elevation Dock Lightning Adapter" class="shadow" />Earlier this year I received my <a href="http://www.elevationlab.com/products/elevationdock-for-iphone4">Elevation Dock</a> after funding the Kickstarter. I loved it. It was the absolutely the best docking solution available. Due to its low friction connector and heft it was even easier to use than just a cable. I could drop in to charge, then grab and go. No hassles. </p>
+
+<p>Getting the iPhone 5 kind of ruined that arrangement for me. I've been stuck charging with a plain cable (awful, I know). At least with the Lightning cable I could plug it in without having to study it to make sure I'm inserting it correctly.</p>
+
+<p>Thankfully Elevation Lab has released a <a href="http://www.elevationlab.com/products/lightning-adapter">Lightning adapter</a>. I ordered one as soon as they were available. It arrived earlier this week. </p>
+
+<p><img src="/images/posts/lightning-adapter-installed.jpg" alt="Elevation Dock Lightning Adapter Installed" class="shadow right" />Installing the adapter was easy enough. Luckily I had an extra Lightning cable to use with it. The adapter looks nice, and works well enough. The main problem is that Apple's Lightning connector produces too much friction to undock the phone with one hand. I now have to hold down the dock to get my phone. </p>
+
+<p>
+According to Elevation Lab:
+  <blockquote>
+    The lightning connector, like all of Apple's 30pin connectors, are higher friction than our custom 30pin connectors shipped with your docks. But with the ElevationDock's weight, just some pressure from your pinky and you can remove your phone without the base moving.
+  </blockquote>
+</p>
+
+<p> I had this information before ordering the adapter. In theory I could still remove the phone with one hand--all I would need to do is press down with my pinky on the dock and get the phone with my other digits. In practice I have not been able to make that work. It is a two handed affair to undock my phone. So goes one of the best features of the original Elevation Dock</p>
+
+<p>I still like the dock. The iPhone 5 version just isn't as useful as the 4/4S one. The Lightning adapter is well made, and I don't think they could have done a better job. It is my understanding that it is currently impossible for 3rd parties to create their own versions of Apple's Lightning connector. This means that Elevation Lab has made the best possible product given the current limitations.</p>
+
+<p>The Elevation Dock is still the best dock you can buy for the iPhone.</p>
+
+
+
+   </div>
+   
+   <div class="post-divide">&diams; &diams; &diams;</div>
+            
   
   <div class="date">
     <span class="day">08</span> 
@@ -293,123 +330,6 @@ lib/monkey_patch_sql2005_limit.rb
 <p>I received this candy from <a href="http://www.candyjapan.com/">CandyJapan.com</a>--a neat little service that will send you some weird Japanese candy twice a month for $24. I don't know how long I'll keep my subscription, but I think I'll get at least a few months of entertainment out it</p> 
 
 <iframe width="560" height="315" src="http://www.youtube.com/embed/m0BF4cNGLA0?wmode=opaque" frameborder="0" allowfullscreen></iframe>
-
-
-   </div>
-   
-   <div class="post-divide">&diams; &diams; &diams;</div>
-            
-  
-  <div class="date">
-    <span class="day">27</span> 
-    <span class="month">Aug</span> 
-    <span class="year">2011</span>
-  </div>
-   
-   <div class="post">
-     <h3><a href="/2011/08/27/s-jquery-plugins" rel="bookmark" title="Some Simple jQuery Plugins">Some Simple jQuery Plugins</a></h3>
-     
-     <p>Below are some really simple jQuery plugins that I've thrown together over the past couple of years that I've found useful.</p>
-  
-<p>Need to scroll to element with animation? Here you go:</p>
-
-<div class="highlight"><pre><code class="javascript">  <span class="c1">// scroll to animation</span>
-  <span class="c1">// example usage: $(&#39;.scroll_to_here&#39;).scrollTo();</span>
-
-  <span class="nx">jQuery</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">scrollTo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">speed</span><span class="p">)</span> <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="nx">speed</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="p">){</span>
-      <span class="nx">speed</span> <span class="o">=</span> <span class="s1">&#39;slow&#39;</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;html,body&#39;</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span><span class="nx">scrollTop</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">offset</span><span class="p">().</span><span class="nx">top</span><span class="p">},</span><span class="nx">speed</span><span class="p">);</span>
-  <span class="p">};</span>
-</code></pre>
-</div>
-
-
-<p>Ajax polling is pretty easy with jQuery, but it is nice to have reusable function so you don't repeat yourself. The plugin below is based on another <a href="http://www.nickriggs.com/posts/simple-ajax-polling-plugin-for-jquery/">simple ajax polling plugin</a> that scales the amount of time between requests. This plugin uses a simple interval with a maximum number of attempts. </p>
-
-<div class="highlight"><pre><code class="javascript">  <span class="c1">//Simple AJAX Polling jQuery Plugin</span>
-  <span class="c1">// example usage:</span>
-  <span class="cm">/* $.ajaxPoll({</span>
-<span class="cm">          url: &quot;/path&quot;,</span>
-<span class="cm">          type: &quot;GET&quot;,</span>
-<span class="cm">          interval: 250,</span>
-<span class="cm">          maxAttempts: 25,</span>
-<span class="cm">          successCondition: function(result) {</span>
-<span class="cm">              return result != &quot;processing&quot;; </span>
-<span class="cm">          },</span>
-<span class="cm">          success: function(data) {</span>
-<span class="cm">              $(&#39;#container&#39;).replaceWith(data);</span>
-<span class="cm">          }</span>
-<span class="cm">      });</span>
-<span class="cm">  */</span>
-
-  <span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajaxPoll</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">user_options</span><span class="p">){</span>
-
-    <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
-      <span class="nx">interval</span><span class="o">:</span> <span class="mi">30000</span><span class="p">,</span>
-      <span class="nx">maxAttempts</span><span class="o">:</span> <span class="mi">15</span>
-    <span class="p">}</span>
-  
-    <span class="nx">jQuery</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">user_options</span><span class="p">);</span>
-  
-    <span class="kd">var</span> <span class="nx">attempts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-
-    <span class="nx">options</span><span class="p">.</span><span class="nx">success</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
-
-      <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">successCondition</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span> <span class="p">{</span>
-          <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">successCallback</span><span class="p">){</span>
-            <span class="nx">options</span><span class="p">.</span><span class="nx">successCallback</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">);</span>
-          <span class="p">}</span>          
-          <span class="k">return</span><span class="p">;</span>
-      <span class="p">}</span>
-    
-      <span class="nx">attempts</span><span class="o">++</span><span class="p">;</span>
-
-      <span class="k">if</span> <span class="p">(</span><span class="nx">attempts</span> <span class="o">&gt;</span> <span class="nx">options</span><span class="p">.</span><span class="nx">maxAttempts</span><span class="p">)</span> <span class="p">{</span>
-          <span class="k">return</span><span class="p">;</span>
-      <span class="p">}</span>
-    
-      <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">},</span> <span class="nx">options</span><span class="p">.</span><span class="nx">interval</span><span class="p">);</span>
-    <span class="p">};</span>
-
-    <span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
-  <span class="p">}</span>
-</code></pre>
-</div>
-
-
-<p>The HTML5 placeholder attribute is awesome, but some browsers (IE and ... maybe just IE?) do not support it. Here is a jQuery plugin that solves that problem by clearing and restoring a field's placeholder value in browsers that don't handle that silliness for you.</p>
-
-<div class="highlight"><pre><code class="javascript">  <span class="c1">// clears and restores a field&#39;s default value</span>
-  <span class="c1">// example usage (js): $(&#39;input.has_default&#39;).hasDefaultValue();</span>
-  <span class="c1">// example usage (html): &lt;input class=&quot;has_default&quot; placeholder=&quot;This is displayed by default&quot; type=&quot;text&quot;/&gt;</span>
-
-  <span class="nx">jQuery</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">hasDefaultValue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="kd">function</span> <span class="nx">supports_input_placeholder</span><span class="p">()</span> <span class="p">{</span>
-      <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">);</span>
-      <span class="k">return</span> <span class="s1">&#39;placeholder&#39;</span> <span class="k">in</span> <span class="nx">i</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">supports_input_placeholder</span><span class="p">()){</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
-        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="p">){</span>
-          <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;placeholder&quot;</span><span class="p">)</span>
-        <span class="p">}</span>
-      <span class="p">});</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">focus</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
-        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;placeholder&quot;</span><span class="p">)){</span>
-          <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
-        <span class="p">}</span>
-      <span class="p">})</span>
-      <span class="k">this</span><span class="p">.</span><span class="nx">blur</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
-        <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;placeholder&quot;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="p">){</span>
-          <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;placeholder&quot;</span><span class="p">);</span>
-        <span class="p">}</span> 
-      <span class="p">})</span>
-    <span class="p">}</span>
-  <span class="p">};</span>
-</code></pre>
-</div>
 
 
    </div>

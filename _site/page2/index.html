@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 
-<title>Heath Anderson's Blog - From Chattanooga, TN</title>
+<title>Heath Anderson's Blog - Posting Stuff From Chattanooga, TN</title>
 
 <link rel="image_src" href="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
 <meta property="og:image" content="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
@@ -56,6 +56,123 @@
 
   <div class="container main">
                 
+  
+  <div class="date">
+    <span class="day">27</span> 
+    <span class="month">Aug</span> 
+    <span class="year">2011</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2011/08/27/s-jquery-plugins" rel="bookmark" title="Some Simple jQuery Plugins">Some Simple jQuery Plugins</a></h3>
+     
+     <p>Below are some really simple jQuery plugins that I've thrown together over the past couple of years that I've found useful.</p>
+  
+<p>Need to scroll to element with animation? Here you go:</p>
+
+<div class="highlight"><pre><code class="javascript">  <span class="c1">// scroll to animation</span>
+  <span class="c1">// example usage: $(&#39;.scroll_to_here&#39;).scrollTo();</span>
+
+  <span class="nx">jQuery</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">scrollTo</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">speed</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="nx">speed</span> <span class="o">===</span> <span class="kc">undefined</span> <span class="p">){</span>
+      <span class="nx">speed</span> <span class="o">=</span> <span class="s1">&#39;slow&#39;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="nx">$</span><span class="p">(</span><span class="s1">&#39;html,body&#39;</span><span class="p">).</span><span class="nx">animate</span><span class="p">({</span><span class="nx">scrollTop</span><span class="o">:</span> <span class="k">this</span><span class="p">.</span><span class="nx">offset</span><span class="p">().</span><span class="nx">top</span><span class="p">},</span><span class="nx">speed</span><span class="p">);</span>
+  <span class="p">};</span>
+</code></pre>
+</div>
+
+
+<p>Ajax polling is pretty easy with jQuery, but it is nice to have reusable function so you don't repeat yourself. The plugin below is based on another <a href="http://www.nickriggs.com/posts/simple-ajax-polling-plugin-for-jquery/">simple ajax polling plugin</a> that scales the amount of time between requests. This plugin uses a simple interval with a maximum number of attempts. </p>
+
+<div class="highlight"><pre><code class="javascript">  <span class="c1">//Simple AJAX Polling jQuery Plugin</span>
+  <span class="c1">// example usage:</span>
+  <span class="cm">/* $.ajaxPoll({</span>
+<span class="cm">          url: &quot;/path&quot;,</span>
+<span class="cm">          type: &quot;GET&quot;,</span>
+<span class="cm">          interval: 250,</span>
+<span class="cm">          maxAttempts: 25,</span>
+<span class="cm">          successCondition: function(result) {</span>
+<span class="cm">              return result != &quot;processing&quot;; </span>
+<span class="cm">          },</span>
+<span class="cm">          success: function(data) {</span>
+<span class="cm">              $(&#39;#container&#39;).replaceWith(data);</span>
+<span class="cm">          }</span>
+<span class="cm">      });</span>
+<span class="cm">  */</span>
+
+  <span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajaxPoll</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">user_options</span><span class="p">){</span>
+
+    <span class="kd">var</span> <span class="nx">options</span> <span class="o">=</span> <span class="p">{</span>
+      <span class="nx">interval</span><span class="o">:</span> <span class="mi">30000</span><span class="p">,</span>
+      <span class="nx">maxAttempts</span><span class="o">:</span> <span class="mi">15</span>
+    <span class="p">}</span>
+  
+    <span class="nx">jQuery</span><span class="p">.</span><span class="nx">extend</span><span class="p">(</span><span class="nx">options</span><span class="p">,</span> <span class="nx">user_options</span><span class="p">);</span>
+  
+    <span class="kd">var</span> <span class="nx">attempts</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+
+    <span class="nx">options</span><span class="p">.</span><span class="nx">success</span> <span class="o">=</span> <span class="kd">function</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">)</span> <span class="p">{</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">successCondition</span><span class="p">(</span><span class="nx">data</span><span class="p">))</span> <span class="p">{</span>
+          <span class="k">if</span> <span class="p">(</span><span class="nx">options</span><span class="p">.</span><span class="nx">successCallback</span><span class="p">){</span>
+            <span class="nx">options</span><span class="p">.</span><span class="nx">successCallback</span><span class="p">(</span><span class="nx">data</span><span class="p">,</span> <span class="nx">status</span><span class="p">);</span>
+          <span class="p">}</span>          
+          <span class="k">return</span><span class="p">;</span>
+      <span class="p">}</span>
+    
+      <span class="nx">attempts</span><span class="o">++</span><span class="p">;</span>
+
+      <span class="k">if</span> <span class="p">(</span><span class="nx">attempts</span> <span class="o">&gt;</span> <span class="nx">options</span><span class="p">.</span><span class="nx">maxAttempts</span><span class="p">)</span> <span class="p">{</span>
+          <span class="k">return</span><span class="p">;</span>
+      <span class="p">}</span>
+    
+      <span class="nx">setTimeout</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span> <span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">options</span><span class="p">)</span> <span class="p">},</span> <span class="nx">options</span><span class="p">.</span><span class="nx">interval</span><span class="p">);</span>
+    <span class="p">};</span>
+
+    <span class="nx">jQuery</span><span class="p">.</span><span class="nx">ajax</span><span class="p">(</span><span class="nx">options</span><span class="p">);</span>
+  <span class="p">}</span>
+</code></pre>
+</div>
+
+
+<p>The HTML5 placeholder attribute is awesome, but some browsers (IE and ... maybe just IE?) do not support it. Here is a jQuery plugin that solves that problem by clearing and restoring a field's placeholder value in browsers that don't handle that silliness for you.</p>
+
+<div class="highlight"><pre><code class="javascript">  <span class="c1">// clears and restores a field&#39;s default value</span>
+  <span class="c1">// example usage (js): $(&#39;input.has_default&#39;).hasDefaultValue();</span>
+  <span class="c1">// example usage (html): &lt;input class=&quot;has_default&quot; placeholder=&quot;This is displayed by default&quot; type=&quot;text&quot;/&gt;</span>
+
+  <span class="nx">jQuery</span><span class="p">.</span><span class="nx">fn</span><span class="p">.</span><span class="nx">hasDefaultValue</span> <span class="o">=</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">function</span> <span class="nx">supports_input_placeholder</span><span class="p">()</span> <span class="p">{</span>
+      <span class="kd">var</span> <span class="nx">i</span> <span class="o">=</span> <span class="nb">document</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="s1">&#39;input&#39;</span><span class="p">);</span>
+      <span class="k">return</span> <span class="s1">&#39;placeholder&#39;</span> <span class="k">in</span> <span class="nx">i</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">if</span><span class="p">(</span><span class="o">!</span><span class="nx">supports_input_placeholder</span><span class="p">()){</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">each</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="p">){</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;placeholder&quot;</span><span class="p">)</span>
+        <span class="p">}</span>
+      <span class="p">});</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">focus</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;placeholder&quot;</span><span class="p">)){</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+        <span class="p">}</span>
+      <span class="p">})</span>
+      <span class="k">this</span><span class="p">.</span><span class="nx">blur</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">){</span>
+        <span class="k">if</span><span class="p">(</span><span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;placeholder&quot;</span><span class="p">)</span> <span class="o">&amp;&amp;</span> <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">===</span> <span class="s2">&quot;&quot;</span><span class="p">){</span>
+          <span class="k">this</span><span class="p">.</span><span class="nx">value</span> <span class="o">=</span> <span class="nx">$</span><span class="p">(</span><span class="k">this</span><span class="p">).</span><span class="nx">attr</span><span class="p">(</span><span class="s2">&quot;placeholder&quot;</span><span class="p">);</span>
+        <span class="p">}</span> 
+      <span class="p">})</span>
+    <span class="p">}</span>
+  <span class="p">};</span>
+</code></pre>
+</div>
+
+
+   </div>
+   
+   <div class="post-divide">&diams; &diams; &diams;</div>
+            
   
   <div class="date">
     <span class="day">27</span> 
@@ -156,48 +273,6 @@
 
 
 <p>Now that the above is in my <a href="https://github.com/handerson/heathanderson.net/blob/master/rakefile.rb">rakefile</a>, I'm just a <code>rake new_post['This is Awesome']</code> away from starting a new post.
-   </div>
-   
-   <div class="post-divide">&diams; &diams; &diams;</div>
-            
-  
-  <div class="date">
-    <span class="day">14</span> 
-    <span class="month">Aug</span> 
-    <span class="year">2011</span>
-  </div>
-   
-   <div class="post">
-     <h3><a href="/2011/08/14/0-deploying-jekyll" rel="bookmark" title="Deploying a Jekyll Site to Amazon S3">Deploying a Jekyll Site to Amazon S3</a></h3>
-     
-     <p>Before moving my blog to Amazon S3 I wanted to make sure that I could deploy updates easily. I came across several ways to do it. The easiest method I found was in a <a href="http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/">blog post</a> by <a href="http://blog.hendrikvolkmer.de/about/">Hendrik Volkmer</a>. It uses a command line tool called <code>s3cmd</code> run through a rake task. <a href="http://s3tools.org/s3cmd">s3cmd</a> can be installed using <a href="http://mxcl.github.com/homebrew/">Homebrew</a> on Mac OS X. </p>
-  
-<div class="highlight"><pre><code class="bash"> brew install s3cmd
-</code></pre>
-</div>
-
-
-<p>I updated the rake task to use S3's reduced <a href="https://aws.amazon.com/about-aws/whats-new/2010/05/19/announcing-amazon-s3-reduced-redundancy-storage/">redundancy storage</a> and set an <a href="https://developer.yahoo.com/performance/rules.html#expires">Expires header</a> for my images by using s3cmd's <code>--reduced-redundancy</code>, <code>--exclude</code>, and <code>--add-header</code> options. You can find out about other <code>s3smd</code> options on the <a href="http://s3tools.org/s3cmd-sync">s3tools website</a>.</p>
-
-<div class="highlight"><pre><code class="ruby">  <span class="c1"># based on http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/</span>
-  <span class="n">task</span> <span class="ss">:default</span> <span class="o">=&gt;</span> <span class="ss">:deploy</span>
-
-  <span class="n">desc</span> <span class="s2">&quot;Deploy to S3&quot;</span>
-  <span class="n">task</span> <span class="ss">:deploy</span> <span class="k">do</span>
-    <span class="n">sh</span> <span class="s2">&quot;jekyll&quot;</span>
-    <span class="n">sh</span> <span class="s2">&quot;s3cmd sync --reduced-redundancy --exclude &#39;images/*&#39; _site/* s3://www.heathanderson.net&quot;</span>
-    <span class="n">sh</span> <span class="s2">&quot;s3cmd sync --reduced-redundancy --add-header &#39;Expires: Thu, 6 Feb 2020 00:00:00 GMT&#39; _site/images/* s3://www.heathanderson.net/images/&quot;</span>
-  <span class="k">end</span>
-</code></pre>
-</div>
-
-
-<p>After placing the above in a <a href="https://github.com/handerson/heathanderson.net/blob/master/rakefile.rb">rakefile</a> all I have to do is run the following to publish a new post or deploy any other changes:</p>
-
-<div class="highlight"><pre><code class="bash"> rake deploy
-</code></pre>
-</div>
-
    </div>
    
    <div class="post-divide">&diams; &diams; &diams;</div>
