@@ -72,8 +72,12 @@ a img { border: none; }
 
 .post-divide{
   text-align: center;
-  margin: 50px 0px;
+  margin: 25px 0px;
   color: $light-accent;
+
+  img{
+    height: 10px;
+  }
 }
 
 blockquote{
