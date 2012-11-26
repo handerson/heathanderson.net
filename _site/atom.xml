@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom">
+<feed xmlns="http://www.w3.org/2005/Atom" >
  
- <title>Heath's Blog of Stuff</title>
+ <title>Heath Anderson's Blog</title>
  <link href="http://www.heathanderson.net/atom.xml" rel="self"/>
  <link href="http://www.heathanderson.net"/>
- <updated>2012-11-25T19:00:33-05:00</updated>
+ <updated>2012-11-25T19:19:41-05:00</updated>
  <id>http://www.heathanderson.net</id>
  <author>
    <name>Heath Anderson</name>
  </author>
 
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>The Elevation Dock Lightning Adapter</title>
    <link href="http://www.heathanderson.net/2012/11/25/the-elevation-dock-lightning-adapter"/>
    <updated>2012-11-25T00:00:00-05:00</updated>
@@ -41,7 +41,7 @@ According to Elevation Lab:
 </content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>A New Look</title>
    <link href="http://www.heathanderson.net/2012/11/25/a-new-look"/>
    <updated>2012-11-25T00:00:00-05:00</updated>
@@ -75,7 +75,7 @@ Eventually I decided that it really didn't make sense to pay for fonts on a blog
 </content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Adding a Splash Screen For An Android PhoneGap App</title>
    <link href="http://www.heathanderson.net/2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app"/>
    <updated>2012-03-08T00:00:00-05:00</updated>
@@ -149,7 +149,7 @@ After finding those helpful posts my next question was:
 </content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Using will_paginate and activerecord-sqlserver-adapter with SQL Server</title>
    <link href="http://www.heathanderson.net/2011/10/01/using-will_paginate-with-sql-server"/>
    <updated>2011-10-01T00:00:00-04:00</updated>
@@ -224,7 +224,7 @@ lib/monkey_patch_sql2005_limit.rb
 </content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>My Favorite Mac OS X Apps For Web Development</title>
    <link href="http://www.heathanderson.net/2011/09/26/my-favorite-mac-os-x-apps-for-web-development"/>
    <updated>2011-09-26T00:00:00-04:00</updated>
@@ -276,7 +276,7 @@ lib/monkey_patch_sql2005_limit.rb
 </content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Candy Japan</title>
    <link href="http://www.heathanderson.net/2011/09/12/candy-japan"/>
    <updated>2011-09-12T00:00:00-04:00</updated>
@@ -290,7 +290,7 @@ lib/monkey_patch_sql2005_limit.rb
 </content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Some Simple jQuery Plugins</title>
    <link href="http://www.heathanderson.net/2011/08/27/s-jquery-plugins"/>
    <updated>2011-08-27T00:00:00-04:00</updated>
@@ -400,7 +400,7 @@ lib/monkey_patch_sql2005_limit.rb
 </content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Roku 2</title>
    <link href="http://www.heathanderson.net/2011/08/27/roku-2"/>
    <updated>2011-08-27T00:00:00-04:00</updated>
@@ -417,7 +417,7 @@ lib/monkey_patch_sql2005_limit.rb
 </content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Minimalist Business Card</title>
    <link href="http://www.heathanderson.net/2011/08/22/minimalist-business-card"/>
    <updated>2011-08-22T00:00:00-04:00</updated>
@@ -429,7 +429,7 @@ lib/monkey_patch_sql2005_limit.rb
 &lt;p&gt;I kind of like it. I ordered twenty from &lt;a href=&quot;http://www.zazzle.com/&quot;&gt;Zazzle&lt;/a&gt; for $7 just to see what they look like printed on actual paper.&lt;/p&gt;</content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Bastion</title>
    <link href="http://www.heathanderson.net/2011/08/21/bastion"/>
    <updated>2011-08-21T00:00:00-04:00</updated>
@@ -444,7 +444,7 @@ lib/monkey_patch_sql2005_limit.rb
 &lt;object style=&quot;height: 366px; width: 640px&quot;&gt;&lt;param name=&quot;movie&quot; value=&quot;http://www.youtube.com/v/TptJHeWngJs?version=3&quot;&gt;&lt;param name=&quot;allowFullScreen&quot; value=&quot;true&quot;&gt;&lt;param name=&quot;allowScriptAccess&quot; value=&quot;always&quot;&gt;&lt;embed src=&quot;http://www.youtube.com/v/TptJHeWngJs?version=3&quot; type=&quot;application/x-shockwave-flash&quot; allowfullscreen=&quot;true&quot; wmode=&quot;opaque&quot;  allowScriptAccess=&quot;always&quot; width=&quot;600&quot; height=&quot;366&quot;&gt;&lt;/object&gt;</content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Automating New Post Creation in Jekyll</title>
    <link href="http://www.heathanderson.net/2011/08/14/1-automating-new-post-creation-in-jekyll"/>
    <updated>2011-08-14T00:00:00-04:00</updated>
@@ -476,7 +476,7 @@ lib/monkey_patch_sql2005_limit.rb
 &lt;p&gt;Now that the above is in my &lt;a href=&quot;https://github.com/handerson/heathanderson.net/blob/master/rakefile.rb&quot;&gt;rakefile&lt;/a&gt;, I'm just a &lt;code&gt;rake new_post['This is Awesome']&lt;/code&gt; away from starting a new post.</content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Deploying a Jekyll Site to Amazon S3</title>
    <link href="http://www.heathanderson.net/2011/08/14/0-deploying-jekyll"/>
    <updated>2011-08-14T00:00:00-04:00</updated>
@@ -511,7 +511,7 @@ lib/monkey_patch_sql2005_limit.rb
 </content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Why Amazon S3?</title>
    <link href="http://www.heathanderson.net/2011/08/13/why-amazon-s3"/>
    <updated>2011-08-13T00:00:00-04:00</updated>
@@ -524,7 +524,7 @@ lib/monkey_patch_sql2005_limit.rb
 &lt;p&gt;I also no longer have to worry about server security and server uptime. Those are two pretty big pluses.&lt;/p&gt;</content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Using Amazon S3 for Hosting</title>
    <link href="http://www.heathanderson.net/2011/08/13/using-amazon-s3-for-hosting"/>
    <updated>2011-08-13T00:00:00-04:00</updated>
@@ -571,7 +571,7 @@ lib/monkey_patch_sql2005_limit.rb
 &lt;p&gt;The only problem that I had was when I initially named my bucket 'blogofheath'. I followed all the steps listed above, but when trying to visit the site from &lt;a href=&quot;http://www.heathanderson.net&quot;&gt;www.heathanderson.net&lt;/a&gt; I kept getting an error. Apparently Amazon was to to serve a bucket named 'www.heathanderson.net' and since that bucket didn't exist things were not working. So I created a new bucket (renaming buckets isn't allowed), named it the same as my domain, and went through the same steps. Then it worked. Any ideas?&lt;/p&gt;</content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Simple Search</title>
    <link href="http://www.heathanderson.net/2011/08/10/adding-search"/>
    <updated>2011-08-10T00:00:00-04:00</updated>
@@ -621,7 +621,7 @@ lib/monkey_patch_sql2005_limit.rb
 </content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Another Blog Redesign</title>
    <link href="http://www.heathanderson.net/2011/08/05/another-blog-redesign"/>
    <updated>2011-08-05T00:00:00-04:00</updated>
@@ -633,7 +633,7 @@ lib/monkey_patch_sql2005_limit.rb
 &lt;p&gt;I hope this new, streamlined version of my site will encourage me to post more. I guess we'll see.&lt;/p&gt;</content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Programming Fonts</title>
    <link href="http://www.heathanderson.net/2010/09/07/programming-fonts"/>
    <updated>2010-09-07T00:00:00-04:00</updated>
@@ -655,7 +655,7 @@ lib/monkey_patch_sql2005_limit.rb
 &lt;p&gt;One final note on anti aliasing: It seems that I like it (at least with Inconsolata and Monaco), some people do not. As with font choice I suggest trying it out and seeing for yourself.&lt;/p&gt;</content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Welcome to the new blog</title>
    <link href="http://www.heathanderson.net/2010/09/06/welcome-to-the-new-blog"/>
    <updated>2010-09-06T00:00:00-04:00</updated>
@@ -680,7 +680,7 @@ lib/monkey_patch_sql2005_limit.rb
 &lt;p&gt;I'm hosting this on &lt;a href=&quot;http://linode.com&quot;&gt;Linode&lt;/a&gt;. Server side is the usual--Apache. I'm deploying using git's post receive hook. It is pretty sweet.&lt;/p&gt;</content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Ruby on Rails Plugin: string_encryption</title>
    <link href="http://www.heathanderson.net/2009/11/23/ruby-on-rails-plugin-string_encryption"/>
    <updated>2009-11-23T00:00:00-05:00</updated>
@@ -728,7 +728,7 @@ lib/monkey_patch_sql2005_limit.rb
 &lt;a href=&quot;http://github.com/handerson/string_encryption&quot;&gt;http://github.com/handerson/string_encryption&lt;/a&gt;&lt;/p&gt;</content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Initialization Vector Length in MRI Ruby versus JRuby</title>
    <link href="http://www.heathanderson.net/2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby"/>
    <updated>2009-09-27T00:00:00-04:00</updated>
@@ -762,7 +762,7 @@ from ruby_string_encryption.rb:37@&lt;/p&gt;
 &lt;p&gt;If you are looking for what size an initialization vector should be check out my post on &lt;a href=&quot;http://www.heathanderson.net/2009/09/25/ruby-string-encryption/&quot;&gt;encrypting a string with Ruby&lt;/a&gt;.&lt;/p&gt;</content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Ruby String Encryption</title>
    <link href="http://www.heathanderson.net/2009/09/25/ruby-string-encryption"/>
    <updated>2009-09-25T00:00:00-04:00</updated>
@@ -825,7 +825,7 @@ from ruby_string_encryption.rb:37@&lt;/p&gt;
 &lt;p&gt;If you are using Rails or have access to ActiveSupport &lt;a href=&quot;http://api.rubyonrails.org/classes/ActiveSupport/SecureRandom.html&quot;&gt;ActiveSupport::SecureRandom&lt;/a&gt; is a great way to generate your key and IV. Also be sure to check out &lt;a href=&quot;http://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html&quot;&gt;ActiveSupport::MessageEncryptor&lt;/a&gt; and my &lt;a href=&quot;http://github.com/handerson/string_encryption&quot;&gt;string_encryption&lt;/a&gt; plugin. I'll probably do a writeup on the string_encryption plugin sometime next week.&lt;/p&gt;</content>
  </entry>
  
- <entry>
+ <entry xml:base="http://www.heathanderson.net/">
    <title>Ruby on Rails Plugin: data_migration</title>
    <link href="http://www.heathanderson.net/2009/09/22/ruby-on-rails-plugin-data_migration"/>
    <updated>2009-09-22T00:00:00-04:00</updated>
