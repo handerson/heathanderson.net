@@ -1,5 +1,8 @@
 <!doctype html>
-<html lang="en" class="no-js">
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
 <head>
 	<meta charset="UTF-8">
 
@@ -28,6 +31,12 @@
 
 <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/css/iphone.css" type="text/css" />
 
+<!--[if lt IE 9]>
+<script src="/js/html5shiv.js"></script>
+<![endif]-->
+
+
+
 </head>
 <body>
 
@@ -54,8 +63,13 @@
 	</header>
 
   <div class="container main">
+<!--[if lt IE 9]>
+    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+<![endif]-->
+
     <h1>About</h1>
 <!-- Facebook Badge START --><a href="https://www.facebook.com/heathanderson" target="_TOP" title="Heath Anderson" class="fbBadge"><img src="https://badge.facebook.com/badge/156802635.1.1116055767.png" style="border: 0px;" alt="Facebook Badge"/></a><!-- Facebook Badge END -->
+
 <p>My name is Heath Anderson. I live in Chattanooga, Tennessee; and work at <a href="http://www.blacksnowmedia.com">Blacksnow Media</a>. We build  websites and mobile apps.</p>
 
 <p>This site's HTML and CSS was created using <a href="http://www.sublimetext.com/2">Sublime Text 2</a> as my editor of choice. Jekyll generates static HTML when I write a new post or update the site. The site is then uploaded to and <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">hosted</a> on Amazon S3.</p>
@@ -73,8 +87,10 @@
     <li><a href="http://www.w3.org/html/logo/">HTML5</a></li>
     <li><a href="http://www.w3.org/TR/CSS/">CSS3</a></li>
     <li><a href="http://www.w3.org/2005/Atom">Atom</a></li>
+    <li><a href="http://code.google.com/p/html5shiv/">html5shiv</a><li>
     <li><a href="http://ethanschoonover.com/solarized">Solarized</a> <a href="https://gist.github.com/1125708">Pygments CSS</a></li>
     <li><a href="http://icondock.com/free/mono-social-icons">Mono Social Media Icons</a> from <a href="http://icondock.com">IconDock</a></li>
+    <li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a><li>
   </ul>
 </p>
   </div>
