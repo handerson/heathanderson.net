@@ -57,6 +57,147 @@
                 
   
   <div class="date">
+    <span class="day">01</span> 
+    <span class="month">Oct</span> 
+    <span class="year">2011</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2011/10/01/using-will_paginate-with-sql-server" rel="bookmark" title="Using will_paginate and activerecord-sqlserver-adapter with SQL Server">Using will_paginate and activerecord-sqlserver-adapter with SQL Server</a></h3>
+     
+     <p>Having Rails and Microsoft SQL Server communicate is much easier than it once was thanks to projects like <a href="https://github.com/rails-sqlserver/tiny_tds">TinyTDS</a>, but sometimes things still don't work exactly right. <a href="http://blacksnowmedia.com/">We</a> ran into an issue where pagination simply would not work. Below is what we came up with after some research.</p>
+
+<p>This solution was based on the following:</p>
+<ul>
+  <li><a href="">http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005</a>
+  <li><a href="http://www.sqlservercentral.com/articles/T-SQL/66030/">http://www.sqlservercentral.com/articles/T-SQL/66030/</a>
+  <li><a href="http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591">http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591</a>
+  <li><a href="https://gist.github.com/335683">https://gist.github.com/335683</a>
+</ul>
+
+<p>This patch was tested on an app using Rails 2.3.x and SQL Server Adapter 2.3.15.</p>
+
+config/environment.rb
+<div class="highlight"><pre><code class="ruby">  <span class="nb">require</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="no">RAILS_ROOT</span><span class="si">}</span><span class="s2">/lib/monkey_patch_sql2005_limit.rb&quot;</span>
+</code></pre>
+</div>
+
+
+lib/monkey_patch_sql2005_limit.rb
+<div class="highlight"><pre><code class="ruby">  <span class="c1"># monkey-patching SQLServerAdapter to support SQL Server 2005-style pagination</span>
+  <span class="c1"># based on http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005</span>
+  <span class="c1"># - http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005</span>
+  <span class="c1"># - http://www.sqlservercentral.com/articles/T-SQL/66030/</span>
+  <span class="c1"># - http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591</span>
+  <span class="c1"># - https://gist.github.com/335683</span>
+
+  <span class="c1"># produces paginated sql ( if set to 2 results per page) that looks like this:</span>
+  <span class="c1">#</span>
+  <span class="c1"># WITH cols AS ( </span>
+  <span class="c1">#   SELECT ROW_NUMBER() OVER(ORDER BY training_types.id) as seq, </span>
+  <span class="c1">#     * FROM [training_types] </span>
+  <span class="c1"># ) </span>
+  <span class="c1"># SELECT * FROM cols WHERE seq BETWEEN 1 AND 2 ORDER BY seq;</span>
+
+  <span class="k">module</span> <span class="nn">ActiveRecord</span>
+
+    <span class="k">module</span> <span class="nn">ConnectionAdapters</span>
+      <span class="k">class</span> <span class="nc">SQLServerAdapter</span>  <span class="o">&lt;</span> <span class="no">AbstractAdapter</span>
+        <span class="k">def</span> <span class="nf">add_limit_offset!</span><span class="p">(</span><span class="n">sql</span><span class="p">,</span> <span class="n">options</span><span class="p">)</span>
+          <span class="k">if</span> <span class="n">options</span><span class="o">[</span><span class="ss">:limit</span><span class="o">].</span><span class="n">blank?</span>
+          
+            <span class="k">super</span>
+          
+          <span class="k">else</span>
+            <span class="n">options</span><span class="o">[</span><span class="ss">:offset</span><span class="o">]</span> <span class="o">||=</span> <span class="mi">0</span>
+          
+            <span class="n">options</span><span class="o">[</span><span class="ss">:limit</span><span class="o">]</span> <span class="o">||=</span> <span class="mi">1000</span>
+
+            <span class="n">table</span> <span class="o">=</span> <span class="n">sql</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sr">/FROM\s+\[(\w+)/i</span><span class="p">)</span><span class="o">[</span><span class="mi">1</span><span class="o">]</span>
+            <span class="n">options</span><span class="o">[</span><span class="ss">:order</span><span class="o">]</span> <span class="o">||=</span> <span class="s2">&quot;</span><span class="si">#{</span><span class="n">table</span><span class="si">}</span><span class="s2">.id&quot;</span>
+            
+            <span class="n">sql</span><span class="o">.</span><span class="n">sub!</span><span class="p">(</span><span class="sr">/ORDER BY.*$/i</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+          
+            <span class="n">sql</span><span class="o">.</span><span class="n">sub!</span><span class="p">(</span><span class="sr">/SELECT/i</span><span class="p">,</span> <span class="s2">&quot;WITH cols AS ( SELECT ROW_NUMBER() OVER(ORDER BY </span><span class="si">#{</span><span class="n">options</span><span class="o">[</span><span class="ss">:order</span><span class="o">]</span><span class="si">}</span><span class="s2">) as seq, &quot;</span><span class="p">)</span>
+         
+            <span class="n">sql</span> <span class="o">&lt;&lt;</span> <span class="s2">&quot;) SELECT * FROM cols WHERE seq BETWEEN </span><span class="si">#{</span><span class="n">options</span><span class="o">[</span><span class="ss">:offset</span><span class="o">]+</span><span class="mi">1</span><span class="si">}</span><span class="s2"> AND </span><span class="si">#{</span><span class="n">options</span><span class="o">[</span><span class="ss">:offset</span><span class="o">]+</span><span class="n">options</span><span class="o">[</span><span class="ss">:limit</span><span class="o">]</span><span class="si">}</span><span class="s2"> ORDER BY seq&quot;</span>
+      
+            <span class="n">sql</span>
+          <span class="k">end</span>
+       
+        <span class="k">end</span>
+        
+      <span class="k">end</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+</code></pre>
+</div>
+
+   </div>
+   
+   <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
+            
+  
+  <div class="date">
+    <span class="day">26</span> 
+    <span class="month">Sep</span> 
+    <span class="year">2011</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2011/09/26/my-favorite-mac-os-x-apps-for-web-development" rel="bookmark" title="My Favorite Mac OS X Apps For Web Development">My Favorite Mac OS X Apps For Web Development</a></h3>
+     
+     <h4>Text Editors</h4>
+
+<h5><a href="http://www.sublimetext.com/2">Sublime Text 2</a> (currently free; will be $59)</h5> 
+
+<p>I've been using this as my main text editor (replacing TextMate). It uses TextMate bundles and themes. Sublime runs on Mac OS X, Linux and Windows. Also checkout the Vintage mode if Vim intrigues you</p>
+
+
+<h5><a href="http://itunes.apple.com/us/app/tincta/id448340648?mt=12">Tincta</a> (free)</h5> 
+<p>A really simple code editor with syntax highlighting.</p>
+
+
+
+<h4>Graphics/Design</h4>
+
+<h5><a href="http://itunes.apple.com/us/app/pixelmator/id407963104?mt=12">Pixelmator</a> ($29.99)</h5> 
+<p>I love this app. Does almost everything that Photoshop does. It actually will open Photoshop files and does a pretty good (but not perfect) job with them.</p>
+
+
+<h5><a href="http://fructivity.com/">Color Picker Pro</a> (free)</h5> 
+<p>A simple, intuitive app that makes sampling any color on your screen super easy.</p> 
+
+<h5><a href="http://seashore.sourceforge.net/The_Seashore_Project/About.html">SeaShore</a> (free)</h5> 
+<p>It is literally a prettied-up, simplified version of GIMP for Mac OS X.</p>
+
+
+<h4>Utilities</h4>
+
+<h5><a href="http://mac.github.com/">GitHub for Mac</a> (free)</h5>
+<p>A very nice looking Git client.</p>
+
+<h5><a href="http://itunes.apple.com/us/app/liya/id455484422?mt=12">Liya</a> (free) </h5>
+<p>A simple GUI for MySQL, SQLite, and PostgreSQL</p>
+
+
+<h5><a href="http://itunes.apple.com/us/app/alfred/id405843582?mt=12">Alfed</a> (free)</h5>
+<p>This is basically a better Spotlight. I have it mapped to Command-Space instead of Spotlight.</p>
+
+
+<h5><a href="http://itunes.apple.com/us/app/pandabar-pandora-radio-player/id459351174?mt=12">PandaBar</a> ($4.99)</h5>
+<p>An awesome Pandora player.</p>
+
+
+<h5><a href="http://itunes.apple.com/us/app/divvy/id413857545?mt=12">Divvy</a> ($13.99)</h5>
+<p>Manage your windows. Definitely set some global shortcuts. Mine are: &#8997;-&#8984;-f (fullscreen), &#8997;-&#8984;-&#8592; (left half of the screen), &#8997;-&#8984;-&#8594; (right half of the screen), &#8997;-&#8984;-&#8593; (top half of the screen), &#8997;-&#8984;-&#8595; (bottom half of the screen)</p>
+
+   </div>
+   
+   <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
+            
+  
+  <div class="date">
     <span class="day">12</span> 
     <span class="month">Sep</span> 
     <span class="year">2011</span>
@@ -213,47 +354,6 @@
 
 
 
-   </div>
-   
-   <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
-            
-  
-  <div class="date">
-    <span class="day">22</span> 
-    <span class="month">Aug</span> 
-    <span class="year">2011</span>
-  </div>
-   
-   <div class="post">
-     <h3><a href="/2011/08/22/minimalist-business-card" rel="bookmark" title="Minimalist Business Card">Minimalist Business Card</a></h3>
-     
-     <p><img class="shadow" src="/images/posts/borismus_business_card.png" alt="Boris Smus' Business Card" /> I came across the <a href="http://smus.com/minimal-business-card-design">business card</a> to the left via <a href="http://boingboing.net/2011/08/22/ultraminimalist-business-card.html">Boing Boing</a>. Even though the original post is over one year old, it inspired me to try to design a simple business card (although I suppose it is more of a calling card). Graphic design is one of my weaker skills so I like to practice when I can. My take on the concept is below: </p>
-
-<img src="/images/posts/card.png" class="shadow" alt="My Business Card" />
-
-<p>I kind of like it. I ordered twenty from <a href="http://www.zazzle.com/">Zazzle</a> for $7 just to see what they look like printed on actual paper.</p>
-   </div>
-   
-   <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
-            
-  
-  <div class="date">
-    <span class="day">21</span> 
-    <span class="month">Aug</span> 
-    <span class="year">2011</span>
-  </div>
-   
-   <div class="post">
-     <h3><a href="/2011/08/21/bastion" rel="bookmark" title="Bastion">Bastion</a></h3>
-     
-     <p><img class="shadow" src="/images/posts/bastion/bastion_1.jpg" alt="Bastion Screenshot"/>I've been playing <a href="http://supergiantgames.com/">Bastion</a> for the Xbox 360. I love this game. The art is great, the dynamic narration is unlike anything I've ever seen in a game before, and the music is amazing. The game narrates the main character's actions while you play--a feature that would certainly be annoying if poorly executed. Luckily here it is wonderfully done. The narrator simultaneously injects both humor and a sense of weight to the story. The music is great and evocative. I even <a href="http://supergiantgames.bandcamp.com/">bought</a> the soundtrack.</p>
-
-<img class="shadow" src="/images/posts/bastion/bastion_2.jpg" alt="Bastion Screenshot"/>
-
-<p>And on top of all that the game is really fun. Every weapon featured in the game is fun, looks cool and is useful. I'm starting my second play through and I'm looking forward to experimenting with some of the weapons that I only briefly used on my first try.</p>
-
-<p>Bastion is one of the best games I've played this year. If you have a 360 <a href="http://marketplace.xbox.com/en-US/Product/Bastion/66acd000-77fe-1000-9115-d80258410b66">download</a> the Bastion demo and give it a try. </p>
-<object style="height: 366px; width: 640px"><param name="movie" value="http://www.youtube.com/v/TptJHeWngJs?version=3"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="http://www.youtube.com/v/TptJHeWngJs?version=3" type="application/x-shockwave-flash" allowfullscreen="true" wmode="opaque"  allowScriptAccess="always" width="600" height="366"></object>
    </div>
    
    <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>

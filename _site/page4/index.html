@@ -57,6 +57,117 @@
                 
   
   <div class="date">
+    <span class="day">13</span> 
+    <span class="month">Aug</span> 
+    <span class="year">2011</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2011/08/13/using-amazon-s3-for-hosting" rel="bookmark" title="Using Amazon S3 for Hosting">Using Amazon S3 for Hosting</a></h3>
+     
+     <p>Earlier this year Amazon S3 was <a href="https://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/">updated</a> to more easily support hosting static websites. The full <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a> is online, but I'll give a quick overview of how it works here.</p>
+
+<img class="shadow" src="/images/posts/create_bucket.png" alt="Create a bucket"/>
+
+<p>The first step was to create a bucket. The only way I could get the DNS CNAME record (more on that in a minute) for my domain to actually point to the correct bucket was to name the bucket the same as the domain. I didn't see this mentioned anywhere in the documentation so perhaps I was doing something incorrectly.</p>
+
+<img class="shadow" src="/images/posts/website_tab.png" alt="Website Tab"/>
+
+<p>The new 'Website' tab what makes hosting a site possibility. All that needs to be done here is click the 'Enable' checkbox and tell S3 what the site's index document (usually index.html) and error document (usually 404.html) are. Also note the endpoint url--it is needed when setting up the DNS.</p>
+
+<img class="shadow" src="/images/posts/edit_policy.png" alt="Edit Edit"/>
+
+<p>Another thing that needed to be done is setting the policy so that others can actually view the site. This is found on the properties menu in the S3 management console for your website's bucket and go to the permissions tab. The 'Edit buck policy' button brings up a text area where I pasted the following (found in the <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a>):</p>
+
+<div class="highlight"><pre><code class="js">  <span class="p">{</span>
+    <span class="s2">&quot;Version&quot;</span><span class="o">:</span> <span class="s2">&quot;2008-10-17&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Id&quot;</span><span class="o">:</span> <span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;Statement&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="p">{</span>
+        <span class="s2">&quot;Sid&quot;</span><span class="o">:</span> <span class="s2">&quot;PublicReadGetObject&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Effect&quot;</span><span class="o">:</span> <span class="s2">&quot;Allow&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Principal&quot;</span><span class="o">:</span> <span class="p">{</span>
+          <span class="s2">&quot;AWS&quot;</span><span class="o">:</span> <span class="s2">&quot;*&quot;</span>
+        <span class="p">},</span>
+        <span class="s2">&quot;Action&quot;</span><span class="o">:</span> <span class="s2">&quot;s3:GetObject&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;Resource&quot;</span><span class="o">:</span> <span class="s2">&quot;arn:aws:s3:::www.heathanderson.net/*&quot;</span>
+      <span class="p">}</span>
+    <span class="p">]</span>
+  <span class="p">}</span>
+</code></pre>
+</div>
+
+
+<p>After copying my site to the buck and testing the endpoint URL in my browser, I was ready to set up my domain to point to my new host.</p>
+
+<img class="shadow" src="/images/posts/dns.png" alt="Edit DNS"/>
+
+<p>Setting up the DNS was easy. All it takes is setting the root domain to forward to the www subdomain, and setting up a CNAME alias for the www subdomain to the endpoint from the 'Website' tab of the Amazon S3 management console.</p>
+
+<p>The only problem that I had was when I initially named my bucket 'blogofheath'. I followed all the steps listed above, but when trying to visit the site from <a href="http://www.heathanderson.net">www.heathanderson.net</a> I kept getting an error. Apparently Amazon was to to serve a bucket named 'www.heathanderson.net' and since that bucket didn't exist things were not working. So I created a new bucket (renaming buckets isn't allowed), named it the same as my domain, and went through the same steps. Then it worked. Any ideas?</p>
+   </div>
+   
+   <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
+            
+  
+  <div class="date">
+    <span class="day">10</span> 
+    <span class="month">Aug</span> 
+    <span class="year">2011</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2011/08/10/adding-search" rel="bookmark" title="Simple Search">Simple Search</a></h3>
+     
+     <p>I often come across interesting ideas and tools that I have no current use for but seem like they may be useful someday, so I bookmark them and hope I will recall them when needed. That process is what led to the current implementation of site search located at the bottom of each page on this blog.</p>
+
+<p>At some point I came across an <a href="http://googlewebmastercentral.blogspot.com/2008/08/make-your-404-pages-more-useful.html">article</a> on the the Google Webmaster Central Blog about <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=136085">enhancing</a> a site's 404 page. I thought it was a pretty cool idea, and I'm <a href="/404.html">using</a> it on this site. The required code is very short:</p>
+
+<div class="highlight"><pre><code class="html"> <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+	<span class="kd">var</span> <span class="nx">GOOG_FIXURL_LANG</span> <span class="o">=</span> <span class="s1">&#39;en&#39;</span><span class="p">;</span>
+	<span class="kd">var</span> <span class="nx">GOOG_FIXURL_SITE</span> <span class="o">=</span> <span class="s1">&#39;http://www.example.com&#39;</span>
+ <span class="nt">&lt;/script&gt;</span>
+ <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span>
+	<span class="na">src=</span><span class="s">&quot;http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js&quot;</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;/script&gt;</span>
+</code></pre>
+</div>
+
+
+<p>The most interesting thing about it is that it adds a search form. It doesn't actually submit a form. It simply changes the current page's location to "http://www.google.com/search?q=site:www.heathanderson.net" (with the text from the text box appended) using JavaScript. This limits the Google search to (in this case) pages from my site. It is a really simple concept that I would like to think I would of eventually thought of (but probably wouldn't have). </p>
+
+<p>When I needed a search for this site I decided to try this technique. So here it is, a simple search script:
+
+<div class="highlight"><pre><code class="html"> <span class="nt">&lt;script </span><span class="na">type=</span><span class="s">&quot;text/javascript&quot;</span><span class="nt">&gt;</span>
+	<span class="kd">function</span> <span class="nx">simpleSearch</span><span class="p">(</span><span class="nx">form</span><span class="p">)</span> <span class="p">{</span>
+		<span class="kd">var</span> <span class="nx">q</span> <span class="o">=</span> <span class="nb">window</span><span class="p">.</span><span class="nb">encodeURIComponent</span><span class="p">(</span><span class="nx">form</span><span class="p">[</span><span class="s2">&quot;q&quot;</span><span class="p">].</span><span class="nx">value</span><span class="p">);</span>
+		<span class="kd">var</span> <span class="nx">url</span> <span class="o">=</span> <span class="s2">&quot;http://www.google.com/search?q=site:www.heathanderson.net &quot;</span><span class="p">;</span>
+		<span class="nx">url</span> <span class="o">=</span> <span class="nx">url</span> <span class="o">+</span> <span class="nx">q</span><span class="p">;</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span> <span class="o">=</span> <span class="nx">url</span><span class="p">;</span>
+		<span class="k">return</span> <span class="kc">false</span><span class="p">;</span>
+	<span class="p">}</span>
+
+ <span class="nt">&lt;/script&gt;</span>
+ 
+ <span class="nt">&lt;noscript&gt;</span>
+  You can search this site using <span class="nt">&lt;a</span> <span class="na">href=</span><span class="s">&quot;http://www.google.com/search?q=site:www.heathanderson.net&quot;</span><span class="nt">&gt;</span>Google<span class="nt">&lt;/a&gt;</span>.
+ <span class="nt">&lt;/noscript&gt;</span>
+ 
+ <span class="nt">&lt;form</span> <span class="na">onsubmit=</span><span class="s">&quot;return simpleSearch(this)&quot;</span> <span class="na">method=</span><span class="s">&quot;get&quot;</span> <span class="na">id=</span><span class="s">&quot;searchForm&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;text&quot;</span> <span class="na">size=</span><span class="s">&quot;40&quot;</span> <span class="na">name=</span><span class="s">&quot;q&quot;</span> <span class="na">placeholder=</span><span class="s">&quot;Search this site...&quot;</span><span class="nt">&gt;</span>
+    <span class="nt">&lt;input</span> <span class="na">type=</span><span class="s">&quot;submit&quot;</span> <span class="na">value=</span><span class="s">&quot;Search&quot;</span><span class="nt">&gt;</span>
+ <span class="nt">&lt;/form&gt;</span>
+</code></pre>
+</div>
+
+
+<p>I could have created the form element in JavaScript and appended it to the page, but that seemed more complicated than necessary. I also could have used an event handler instead of the inline onsubmit attribute, but again I point to the complexity. This way avoids most cross-browser pitfalls, and has the advantage of simplicity. I also added a link to Google inside a noscript tag for people that have JavaScript disabled.</p>
+
+   </div>
+   
+   <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
+            
+  
+  <div class="date">
     <span class="day">05</span> 
     <span class="month">Aug</span> 
     <span class="year">2011</span>
@@ -131,102 +242,6 @@
 </ul>
 
 <p>I'm hosting this on <a href="http://linode.com">Linode</a>. Server side is the usual--Apache. I'm deploying using git's post receive hook. It is pretty sweet.</p>
-   </div>
-   
-   <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
-            
-  
-  <div class="date">
-    <span class="day">23</span> 
-    <span class="month">Nov</span> 
-    <span class="year">2009</span>
-  </div>
-   
-   <div class="post">
-     <h3><a href="/2009/11/23/ruby-on-rails-plugin-string_encryption" rel="bookmark" title="Ruby on Rails Plugin: string_encryption">Ruby on Rails Plugin: string_encryption</a></h3>
-     
-     <p>This is a very simple Ruby on Rails plugin that allows easy encryption of strings. For the sake of simplicity there no customization. The only cipher used is 'des-ede3-cbc' (Triple DES using Cipher Block Chaining) . See my <a href="http://blogofheath.com/2009/09/25/ruby-string-encryption/">post </a> on encrypting/decrypting a string with Ruby for more information. First install the plugin:</p>
-
-<div class="highlight"><pre><code class="ruby"> <span class="n">script</span><span class="o">/</span><span class="n">plugin</span> <span class="n">install</span> <span class="n">git</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">handerson</span><span class="o">/</span><span class="n">string_encryption</span><span class="o">.</span><span class="n">git</span>
-</code></pre>
-</div>
-
-
-<p>Next we need to add an encryption key as the constant @ENV['STRING_ENCRYPTION_KEY']@. To do this just run</p>
-
-<div class="highlight"><pre><code class="ruby">  <span class="n">script</span><span class="o">/</span><span class="n">generate</span> <span class="n">encryption_key</span>
-</code></pre>
-</div>
-
-
-<p>or you could set </p>
-
-<div class="highlight"><pre><code class="ruby">  <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;STRING_ENCRYPTION_KEY&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;somekey&quot;</span>
-</code></pre>
-</div>
-
-
-<p>where "somekey" is your key in environment.rb.</p>
-  
-<p>Now encryption/decryption is easy.</p>
-
-<h3>Encryption:</h3>
-
-<div class="highlight"><pre><code class="ruby">  <span class="s2">&quot;Test&quot;</span><span class="o">.</span><span class="n">encrypt</span>  <span class="c1">#=&gt; &quot;NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A&quot;</span>
-</code></pre>
-</div>
-
-
-<h3>Decryption:</h3>
-
-<div class="highlight"><pre><code class="ruby">  <span class="s2">&quot;NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A&quot;</span><span class="o">.</span><span class="n">decrypt</span>  <span class="c1">#=&gt; &quot;Test&quot;</span>
-</code></pre>
-</div>
-
-
-<p>Code at Github:<br/>
-<a href="http://github.com/handerson/string_encryption">http://github.com/handerson/string_encryption</a></p>
-   </div>
-   
-   <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
-            
-  
-  <div class="date">
-    <span class="day">27</span> 
-    <span class="month">Sep</span> 
-    <span class="year">2009</span>
-  </div>
-   
-   <div class="post">
-     <h3><a href="/2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby" rel="bookmark" title="Initialization Vector Length in MRI Ruby versus JRuby">Initialization Vector Length in MRI Ruby versus JRuby</a></h3>
-     
-     <p>When using OpenSSL encryption in standard Ruby, the length of an initialization vector (IV) can apparently be as large as you want it to be as long as it is at least the minimum size. This is odd. This can also cause trouble when switching over to JRuby. JRuby appear to be much pickier about IV length.</p>
-
-<p>This works in MRI but not in JRuby:</p>
-
-<div class="highlight"><pre><code class="ruby">  <span class="n">unencrypted_data</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
-
-  <span class="n">des</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Cipher</span><span class="o">::</span><span class="no">Cipher</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;des-ede3-cbc&quot;</span><span class="p">)</span>
-  <span class="n">des</span><span class="o">.</span><span class="n">encrypt</span>
-  <span class="n">des</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;0123456789abcdef01234567890&#39;</span>
-
-  <span class="n">des</span><span class="o">.</span><span class="n">iv</span> <span class="o">=</span> <span class="s2">&quot;ed87acdcca419954edccb736f7dc77a74f5ac8dfe3861c3d5f77248e21592131a5423d63ff91f07956ce1aa386f8359931b5&quot;</span> <span class="c1"># 100 characters</span>
-  <span class="n">encrypted_data</span> <span class="o">=</span> <span class="n">des</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">unencrypted_data</span><span class="p">)</span> <span class="o">+</span> <span class="n">des</span><span class="o">.</span><span class="n">final</span>
-
-  <span class="nb">puts</span> <span class="n">encrypted_data</span>
-</code></pre>
-</div>
-
-
-<p>JRuby gives you this very helpful message:<br/>
-@ruby_string_encryption.rb:27:in `encrypt': No message available (OpenSSL::Cipher::CipherError)<br/>
-from ruby_string_encryption.rb:37@</p>
-
-<p>Change the IV to 8 characters and everything works fine.</p>
-
-<p><em>Update 10/14/2009</em> The code that I originally posted was incorrect. I have updated it. Also I opened a <a href="http://jira.codehaus.org/browse/JRUBY-4012">ticket </a>for this issue. </p>
-
-<p>If you are looking for what size an initialization vector should be check out my post on <a href="http://www.heathanderson.net/2009/09/25/ruby-string-encryption/">encrypting a string with Ruby</a>.</p>
    </div>
    
    <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>

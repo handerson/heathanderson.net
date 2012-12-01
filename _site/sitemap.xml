@@ -4,11 +4,25 @@
   <!--  Homepage -->
   <url>
     <loc>http://www.heathanderson.net/</loc>
-    <lastmod>2012-11-25</lastmod>
+    <lastmod>2012-12-01</lastmod>
     <changefreq>daily</changefreq>
 		<priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>http://www.heathanderson.net/2012/12/01/hidden-radio-bluetooth-speaker/</loc>
+    
+    <lastmod>2012-12-01</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.heathanderson.net/2012/12/01/do-i-really-need-an-iphone-dock/</loc>
+    
+    <lastmod>2012-12-01</lastmod>
+    
+  </url>
   
   <url>
     <loc>http://www.heathanderson.net/2012/11/25/the-elevation-dock-lightning-adapter/</loc>
@@ -169,7 +183,7 @@
   <url>
     <loc>http://www.heathanderson.net/404.html</loc>
     
-    <lastmod>2012-11-25</lastmod>
+    <lastmod>2012-12-01</lastmod>
     
     
     
@@ -178,7 +192,7 @@
   <url>
     <loc>http://www.heathanderson.net/about.html</loc>
     
-    <lastmod>2012-11-25</lastmod>
+    <lastmod>2012-12-01</lastmod>
     
     
     
@@ -187,7 +201,7 @@
   <url>
     <loc>http://www.heathanderson.net/index.html</loc>
     
-    <lastmod>2012-11-25</lastmod>
+    <lastmod>2012-12-01</lastmod>
     
     
     
@@ -196,7 +210,7 @@
   <url>
     <loc>http://www.heathanderson.net/privacy.html</loc>
     
-    <lastmod>2012-11-25</lastmod>
+    <lastmod>2012-12-01</lastmod>
     
     
     
@@ -205,7 +219,7 @@
   <url>
     <loc>http://www.heathanderson.net/page2/index.html</loc>
     
-    <lastmod>2012-11-25</lastmod>
+    <lastmod>2012-12-01</lastmod>
     
     
     
@@ -214,7 +228,7 @@
   <url>
     <loc>http://www.heathanderson.net/page3/index.html</loc>
     
-    <lastmod>2012-11-25</lastmod>
+    <lastmod>2012-12-01</lastmod>
     
     
     
@@ -223,7 +237,7 @@
   <url>
     <loc>http://www.heathanderson.net/page4/index.html</loc>
     
-    <lastmod>2012-11-25</lastmod>
+    <lastmod>2012-12-01</lastmod>
     
     
     
@@ -232,7 +246,7 @@
   <url>
     <loc>http://www.heathanderson.net/page5/index.html</loc>
     
-    <lastmod>2012-11-25</lastmod>
+    <lastmod>2012-12-01</lastmod>
     
     
     

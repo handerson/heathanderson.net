@@ -57,6 +57,102 @@
                 
   
   <div class="date">
+    <span class="day">23</span> 
+    <span class="month">Nov</span> 
+    <span class="year">2009</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2009/11/23/ruby-on-rails-plugin-string_encryption" rel="bookmark" title="Ruby on Rails Plugin: string_encryption">Ruby on Rails Plugin: string_encryption</a></h3>
+     
+     <p>This is a very simple Ruby on Rails plugin that allows easy encryption of strings. For the sake of simplicity there no customization. The only cipher used is 'des-ede3-cbc' (Triple DES using Cipher Block Chaining) . See my <a href="http://blogofheath.com/2009/09/25/ruby-string-encryption/">post </a> on encrypting/decrypting a string with Ruby for more information. First install the plugin:</p>
+
+<div class="highlight"><pre><code class="ruby"> <span class="n">script</span><span class="o">/</span><span class="n">plugin</span> <span class="n">install</span> <span class="n">git</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">handerson</span><span class="o">/</span><span class="n">string_encryption</span><span class="o">.</span><span class="n">git</span>
+</code></pre>
+</div>
+
+
+<p>Next we need to add an encryption key as the constant @ENV['STRING_ENCRYPTION_KEY']@. To do this just run</p>
+
+<div class="highlight"><pre><code class="ruby">  <span class="n">script</span><span class="o">/</span><span class="n">generate</span> <span class="n">encryption_key</span>
+</code></pre>
+</div>
+
+
+<p>or you could set </p>
+
+<div class="highlight"><pre><code class="ruby">  <span class="no">ENV</span><span class="o">[</span><span class="s1">&#39;STRING_ENCRYPTION_KEY&#39;</span><span class="o">]</span> <span class="o">=</span> <span class="s2">&quot;somekey&quot;</span>
+</code></pre>
+</div>
+
+
+<p>where "somekey" is your key in environment.rb.</p>
+  
+<p>Now encryption/decryption is easy.</p>
+
+<h3>Encryption:</h3>
+
+<div class="highlight"><pre><code class="ruby">  <span class="s2">&quot;Test&quot;</span><span class="o">.</span><span class="n">encrypt</span>  <span class="c1">#=&gt; &quot;NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A&quot;</span>
+</code></pre>
+</div>
+
+
+<h3>Decryption:</h3>
+
+<div class="highlight"><pre><code class="ruby">  <span class="s2">&quot;NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A&quot;</span><span class="o">.</span><span class="n">decrypt</span>  <span class="c1">#=&gt; &quot;Test&quot;</span>
+</code></pre>
+</div>
+
+
+<p>Code at Github:<br/>
+<a href="http://github.com/handerson/string_encryption">http://github.com/handerson/string_encryption</a></p>
+   </div>
+   
+   <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
+            
+  
+  <div class="date">
+    <span class="day">27</span> 
+    <span class="month">Sep</span> 
+    <span class="year">2009</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby" rel="bookmark" title="Initialization Vector Length in MRI Ruby versus JRuby">Initialization Vector Length in MRI Ruby versus JRuby</a></h3>
+     
+     <p>When using OpenSSL encryption in standard Ruby, the length of an initialization vector (IV) can apparently be as large as you want it to be as long as it is at least the minimum size. This is odd. This can also cause trouble when switching over to JRuby. JRuby appear to be much pickier about IV length.</p>
+
+<p>This works in MRI but not in JRuby:</p>
+
+<div class="highlight"><pre><code class="ruby">  <span class="n">unencrypted_data</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
+
+  <span class="n">des</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Cipher</span><span class="o">::</span><span class="no">Cipher</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;des-ede3-cbc&quot;</span><span class="p">)</span>
+  <span class="n">des</span><span class="o">.</span><span class="n">encrypt</span>
+  <span class="n">des</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;0123456789abcdef01234567890&#39;</span>
+
+  <span class="n">des</span><span class="o">.</span><span class="n">iv</span> <span class="o">=</span> <span class="s2">&quot;ed87acdcca419954edccb736f7dc77a74f5ac8dfe3861c3d5f77248e21592131a5423d63ff91f07956ce1aa386f8359931b5&quot;</span> <span class="c1"># 100 characters</span>
+  <span class="n">encrypted_data</span> <span class="o">=</span> <span class="n">des</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">unencrypted_data</span><span class="p">)</span> <span class="o">+</span> <span class="n">des</span><span class="o">.</span><span class="n">final</span>
+
+  <span class="nb">puts</span> <span class="n">encrypted_data</span>
+</code></pre>
+</div>
+
+
+<p>JRuby gives you this very helpful message:<br/>
+@ruby_string_encryption.rb:27:in `encrypt': No message available (OpenSSL::Cipher::CipherError)<br/>
+from ruby_string_encryption.rb:37@</p>
+
+<p>Change the IV to 8 characters and everything works fine.</p>
+
+<p><em>Update 10/14/2009</em> The code that I originally posted was incorrect. I have updated it. Also I opened a <a href="http://jira.codehaus.org/browse/JRUBY-4012">ticket </a>for this issue. </p>
+
+<p>If you are looking for what size an initialization vector should be check out my post on <a href="http://www.heathanderson.net/2009/09/25/ruby-string-encryption/">encrypting a string with Ruby</a>.</p>
+   </div>
+   
+   <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
+            
+  
+  <div class="date">
     <span class="day">25</span> 
     <span class="month">Sep</span> 
     <span class="year">2009</span>
