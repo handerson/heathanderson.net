@@ -5,7 +5,7 @@ task :default => :deploy
 
 desc "Deploy to S3"
 task :deploy do
-  sh "jekyll"
+  sh "jekyll build"
   sh "s3cmd sync --reduced-redundancy --exclude 'images/*' _site/* s3://www.heathanderson.net"
   sh "s3cmd sync --reduced-redundancy --add-header 'Expires: Thu, 6 Feb 2020 00:00:00 GMT' _site/images/* s3://www.heathanderson.net/images/"
 end

@@ -1,7 +1,5 @@
 safe:        false
-auto:        false
-server:      false
-server_port: 4000
+port: 4000
 
 source:      .
 destination: ./_site
@@ -11,11 +9,12 @@ paginate: 5
 
 domain: www.heathanderson.net
 
-exclude: rakefile.rb
+exclude: 
+  - rakefile.rb
 future:      true
 lsi:         false
 pygments:    true
-markdown:    maruku
+markdown:    redcarpet
 permalink: /:year/:month/:day/:title
 
 maruku:
@@ -24,6 +23,9 @@ maruku:
   png_engine: blahtex
   png_dir:    images/latex
   png_url:    /images/latex
+
+redcarpet:
+  extensions: ["no_intra_emphasis"]
 
 rdiscount:
   extensions: []

@@ -82,35 +82,27 @@
 <h3>Install Plugin</h3>
 
 <div class="highlight"><pre><code class="ruby"> 
-  <span class="n">script</span><span class="o">/</span><span class="n">plugin</span> <span class="n">install</span> <span class="n">git</span><span class="ss">:/</span><span class="o">/</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">handerson</span><span class="o">/</span><span class="n">data_migration</span><span class="o">.</span><span class="n">git</span>
-</code></pre>
-</div>
-
+  <span class="n">script</span><span class="o">/</span><span class="n">plugin</span> <span class="n">install</span> <span class="ss">git</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">handerson</span><span class="o">/</span><span class="n">data_migration</span><span class="o">.</span><span class="n">git</span>
+</code></pre></div>
 
 <h3>Generate Migration</h3>
 
 <div class="highlight"><pre><code class="ruby"> 
   <span class="n">script</span><span class="o">/</span><span class="n">generate</span> <span class="n">data_migration</span> <span class="no">BlockedDomains</span> 
-</code></pre>
-</div>
-
+</code></pre></div>
 
 <div class="highlight"><pre><code class="ruby">  <span class="n">exists</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span>
   <span class="n">create</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="mi">20090915161242</span><span class="n">_settings</span><span class="o">.</span><span class="n">rb</span><span class="o">[</span><span class="sr">/sourcecode]</span>
-</code></pre>
-</div>
-
+</code></pre></div>
 
 <p>db/data/20090915161242_settings.rb:</p>
 
 <div class="highlight"><pre><code class="ruby"> 
-  <span class="k">class</span> <span class="nc">BlockedDomains</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="no">ActiveRecord</span><span class="o">::</span><span class="no">Migration</span>
+  <span class="k">class</span> <span class="nc">BlockedDomains</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
     <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">up</span>
     <span class="k">end</span>
   <span class="k">end</span>
-</code></pre>
-</div>
-
+</code></pre></div>
 
 <p>Add your data:</p>
 
@@ -120,23 +112,17 @@
     <span class="no">BlockedEmailDomain</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s2">&quot;spamherelots.com&quot;</span><span class="p">)</span>
     <span class="no">BlockedEmailDomain</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s2">&quot;disposeamail.com&quot;</span><span class="p">)</span>
   <span class="k">end</span>
-</code></pre>
-</div>
-
+</code></pre></div>
 
 <h3>Run Migration</h3>
 
-<div class="highlight"><pre><code class="ruby">  <span class="n">rake</span> <span class="n">db</span><span class="ss">:data:migrate</span>
-</code></pre>
-</div>
-
+<div class="highlight"><pre><code class="ruby">  <span class="n">rake</span> <span class="ss">db</span><span class="p">:</span><span class="ss">data</span><span class="p">:</span><span class="n">migrate</span>
+</code></pre></div>
 
 <div class="highlight"><pre><code class="ruby"> 
-  <span class="o">==</span>  <span class="no">BlockedDomains</span><span class="p">:</span> <span class="n">migrating</span> <span class="o">===========================================================</span>
-  <span class="o">==</span>  <span class="no">BlockedDomains</span><span class="p">:</span> <span class="n">migrated</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mo">0020</span><span class="n">s</span><span class="p">)</span> <span class="o">==================================================</span>
-</code></pre>
-</div>
-
+  <span class="o">==</span>  <span class="ss">BlockedDomains</span><span class="p">:</span> <span class="n">migrating</span> <span class="o">===========================================================</span>
+  <span class="o">==</span>  <span class="ss">BlockedDomains</span><span class="p">:</span> <span class="n">migrated</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mo">0020</span><span class="n">s</span><span class="p">)</span> <span class="o">==================================================</span>
+</code></pre></div>
 
 <p>db:data:migrate adds the data migration version number to the 'schema_migrations' table so it will not be ran again.</p>
 

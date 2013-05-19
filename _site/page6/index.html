@@ -6,7 +6,7 @@
 <head>
 	<meta charset="UTF-8">
 
-<title></title>
+<title>Heath Anderson's Blog - Posting Stuff From Chattanooga, TN</title>
 
 <link rel="image_src" href="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
 <meta property="og:image" content="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
@@ -67,270 +67,86 @@
     <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
 <![endif]-->
 
-    <div id="content">
-	<div class="post">
-		<h1 class="post-title">2012</h1>
-		<p class="lead">Posts from the year 2012</p>
+                
+  
+  <div class="date">
+    <span class="day">22</span> 
+    <span class="month">Sep</span> 
+    <span class="year">2009</span>
+  </div>
+   
+   <div class="post">
+     <h3><a href="/2009/09/22/ruby-on-rails-plugin-data_migration" rel="bookmark" title="Ruby on Rails Plugin: data_migration">Ruby on Rails Plugin: data_migration</a></h3>
+     
+     <p>data_migration allows you to separate data you need to load from your normal database migrations in a minimal way. While developing the new version of our flagship site, <a href="http://www.knetwit.com">Knetwit</a>, we decided we needed to separate our data migrations (initial settings and the like) from our structural migrations. We decided the easiest way to do this was to modify the existing Rails migration to allow for a new data migration. So we did.</p>
+
+<h3>Install Plugin</h3>
+
+<div class="highlight"><pre><code class="ruby"> 
+  <span class="n">script</span><span class="o">/</span><span class="n">plugin</span> <span class="n">install</span> <span class="ss">git</span><span class="p">:</span><span class="sr">//</span><span class="n">github</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">handerson</span><span class="o">/</span><span class="n">data_migration</span><span class="o">.</span><span class="n">git</span>
+</code></pre></div>
+
+<h3>Generate Migration</h3>
+
+<div class="highlight"><pre><code class="ruby"> 
+  <span class="n">script</span><span class="o">/</span><span class="n">generate</span> <span class="n">data_migration</span> <span class="no">BlockedDomains</span> 
+</code></pre></div>
+
+<div class="highlight"><pre><code class="ruby">  <span class="n">exists</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span>
+  <span class="n">create</span>  <span class="n">db</span><span class="o">/</span><span class="n">data</span><span class="o">/</span><span class="mi">20090915161242</span><span class="n">_settings</span><span class="o">.</span><span class="n">rb</span><span class="o">[</span><span class="sr">/sourcecode]</span>
+</code></pre></div>
+
+<p>db/data/20090915161242_settings.rb:</p>
+
+<div class="highlight"><pre><code class="ruby"> 
+  <span class="k">class</span> <span class="nc">BlockedDomains</span> <span class="o">&amp;</span><span class="n">lt</span><span class="p">;</span> <span class="ss">ActiveRecord</span><span class="p">:</span><span class="ss">:Migration</span>
+    <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">up</span>
+    <span class="k">end</span>
+  <span class="k">end</span>
+</code></pre></div>
+
+<p>Add your data:</p>
+
+<div class="highlight"><pre><code class="ruby"> 
+  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">up</span>
+    <span class="no">BlockedEmailDomain</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s2">&quot;mailinator.com&quot;</span><span class="p">)</span>
+    <span class="no">BlockedEmailDomain</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s2">&quot;spamherelots.com&quot;</span><span class="p">)</span>
+    <span class="no">BlockedEmailDomain</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="ss">:domain</span> <span class="o">=&gt;</span> <span class="s2">&quot;disposeamail.com&quot;</span><span class="p">)</span>
+  <span class="k">end</span>
+</code></pre></div>
+
+<h3>Run Migration</h3>
+
+<div class="highlight"><pre><code class="ruby">  <span class="n">rake</span> <span class="ss">db</span><span class="p">:</span><span class="ss">data</span><span class="p">:</span><span class="n">migrate</span>
+</code></pre></div>
+
+<div class="highlight"><pre><code class="ruby"> 
+  <span class="o">==</span>  <span class="ss">BlockedDomains</span><span class="p">:</span> <span class="n">migrating</span> <span class="o">===========================================================</span>
+  <span class="o">==</span>  <span class="ss">BlockedDomains</span><span class="p">:</span> <span class="n">migrated</span> <span class="p">(</span><span class="mi">0</span><span class="o">.</span><span class="mo">0020</span><span class="n">s</span><span class="p">)</span> <span class="o">==================================================</span>
+</code></pre></div>
+
+<p>db:data:migrate adds the data migration version number to the 'schema_migrations' table so it will not be ran again.</p>
+
+<p>Code at Github:<br/>
+<a href="http://github.com/handerson/data_migration">http://github.com/handerson/data_migration</a></p>
+   </div>
+   
+   <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
+
 		
-			
-				<h3>December</h3>
+<div id="pagination"> 
 				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-						
-							<div>
-								<strong>04</strong>
-								<a href='/2012/12/04/skepticon-5-videos'>Skepticon 5 Videos</a>
-							</div>
-						
-					
-				
-					
-				
-					
-				
-					
-						
-							<div>
-								<strong>01</strong>
-								<a href='/2012/12/01/do-i-really-need-an-iphone-dock'>Do I Really Need An iPhone Dock?</a>
-							</div>
-						
-							<div>
-								<strong>01</strong>
-								<a href='/2012/12/01/hidden-radio-bluetooth-speaker'>Hidden Radio Bluetooth Speaker</a>
-							</div>
-						
-					
-				
-			
+	<a href="/page5">Prev</a>
+	
+	
+	
+	<span class="disabled_pagination">Next</span>
+	
+</div>
 		
-			
-				<h3>November</h3>
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-						
-							<div>
-								<strong>25</strong>
-								<a href='/2012/11/25/a-new-look'>A New Look</a>
-							</div>
-						
-							<div>
-								<strong>25</strong>
-								<a href='/2012/11/25/the-elevation-dock-lightning-adapter'>The Elevation Dock Lightning Adapter</a>
-							</div>
-						
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-		
-			
-				<h3>March</h3>
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-						
-							<div>
-								<strong>08</strong>
-								<a href='/2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app'>Adding a Splash Screen For An Android PhoneGap App</a>
-							</div>
-						
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-					
-				
-			
-		
-			
-		
-			
-		
-	</div>
-</div><!-- end: #content-->
+
+
+
   </div>
 
 	<footer>

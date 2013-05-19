@@ -4,11 +4,25 @@
   <!--  Homepage -->
   <url>
     <loc>http://www.heathanderson.net/</loc>
-    <lastmod>2012-12-01</lastmod>
+    <lastmod>2013-05-19</lastmod>
     <changefreq>daily</changefreq>
 		<priority>1.0</priority>
   </url>
 
+  
+  <url>
+    <loc>http://www.heathanderson.net/2013/05/18/vigil-app/</loc>
+    
+    <lastmod>2013-05-18</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://www.heathanderson.net/2012/12/04/skepticon-5-videos/</loc>
+    
+    <lastmod>2012-12-04</lastmod>
+    
+  </url>
   
   <url>
     <loc>http://www.heathanderson.net/2012/12/01/hidden-radio-bluetooth-speaker/</loc>
@@ -183,7 +197,7 @@
   <url>
     <loc>http://www.heathanderson.net/404.html</loc>
     
-    <lastmod>2012-12-01</lastmod>
+    <lastmod>2013-05-19</lastmod>
     
     
     
@@ -192,7 +206,7 @@
   <url>
     <loc>http://www.heathanderson.net/about.html</loc>
     
-    <lastmod>2012-12-01</lastmod>
+    <lastmod>2013-05-19</lastmod>
     
     
     
@@ -201,7 +215,7 @@
   <url>
     <loc>http://www.heathanderson.net/index.html</loc>
     
-    <lastmod>2012-12-01</lastmod>
+    <lastmod>2013-05-19</lastmod>
     
     
     
@@ -210,7 +224,7 @@
   <url>
     <loc>http://www.heathanderson.net/privacy.html</loc>
     
-    <lastmod>2012-12-01</lastmod>
+    <lastmod>2013-05-19</lastmod>
     
     
     
@@ -219,7 +233,7 @@
   <url>
     <loc>http://www.heathanderson.net/page2/index.html</loc>
     
-    <lastmod>2012-12-01</lastmod>
+    <lastmod>2013-05-19</lastmod>
     
     
     
@@ -228,7 +242,7 @@
   <url>
     <loc>http://www.heathanderson.net/page3/index.html</loc>
     
-    <lastmod>2012-12-01</lastmod>
+    <lastmod>2013-05-19</lastmod>
     
     
     
@@ -237,7 +251,7 @@
   <url>
     <loc>http://www.heathanderson.net/page4/index.html</loc>
     
-    <lastmod>2012-12-01</lastmod>
+    <lastmod>2013-05-19</lastmod>
     
     
     
@@ -246,7 +260,16 @@
   <url>
     <loc>http://www.heathanderson.net/page5/index.html</loc>
     
-    <lastmod>2012-12-01</lastmod>
+    <lastmod>2013-05-19</lastmod>
+    
+    
+    
+  </url>
+  
+  <url>
+    <loc>http://www.heathanderson.net/page6/index.html</loc>
+    
+    <lastmod>2013-05-19</lastmod>
     
     
     

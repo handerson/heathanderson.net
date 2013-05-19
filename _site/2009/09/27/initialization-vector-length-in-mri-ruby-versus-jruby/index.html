@@ -83,7 +83,7 @@
 
 <div class="highlight"><pre><code class="ruby">  <span class="n">unencrypted_data</span> <span class="o">=</span> <span class="s2">&quot;test&quot;</span>
 
-  <span class="n">des</span> <span class="o">=</span> <span class="no">OpenSSL</span><span class="o">::</span><span class="no">Cipher</span><span class="o">::</span><span class="no">Cipher</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;des-ede3-cbc&quot;</span><span class="p">)</span>
+  <span class="n">des</span> <span class="o">=</span> <span class="ss">OpenSSL</span><span class="p">:</span><span class="ss">:Cipher</span><span class="o">::</span><span class="no">Cipher</span><span class="o">.</span><span class="n">new</span><span class="p">(</span><span class="s2">&quot;des-ede3-cbc&quot;</span><span class="p">)</span>
   <span class="n">des</span><span class="o">.</span><span class="n">encrypt</span>
   <span class="n">des</span><span class="o">.</span><span class="n">key</span> <span class="o">=</span> <span class="s1">&#39;0123456789abcdef01234567890&#39;</span>
 
@@ -91,9 +91,7 @@
   <span class="n">encrypted_data</span> <span class="o">=</span> <span class="n">des</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">unencrypted_data</span><span class="p">)</span> <span class="o">+</span> <span class="n">des</span><span class="o">.</span><span class="n">final</span>
 
   <span class="nb">puts</span> <span class="n">encrypted_data</span>
-</code></pre>
-</div>
-
+</code></pre></div>
 
 <p>JRuby gives you this very helpful message:<br/>
 @ruby_string_encryption.rb:27:in `encrypt': No message available (OpenSSL::Cipher::CipherError)<br/>
