@@ -25,7 +25,7 @@ maruku:
   png_url:    /images/latex
 
 redcarpet:
-  extensions: ["no_intra_emphasis"]
+  extensions: ["no_intra_emphasis", "tables", "fenced_code_blocks", "autolink"]
 
 rdiscount:
   extensions: []
