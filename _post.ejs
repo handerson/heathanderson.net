@@ -1,0 +1,6 @@
+<h1 title="<%= public.posts._data[path].title %>"><%= public.posts._data[path].title %></h1> 
+<time datetime="<%= public.posts._data[path].date %>"><%= new Date(public.posts._data[path].date).toLocaleDateString('en-us', { weekday:"long", year:"numeric", month:"short", day:"numeric", timeZone: "UTC"})  %></time> 
+<article>
+    <%- yield %>
+</article>
+<%- partial("_includes/pagination", {"path": path}) %>

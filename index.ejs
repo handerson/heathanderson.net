@@ -1,0 +1,25 @@
+<% var count = 0; %>
+<% var limit = 3; %>
+
+<% for(var slug in public.posts._data){ %>
+  <article></article>
+  <h3><a href="/<%= slug %>" rel="bookmark" title="<%= public.posts._data[slug].title %>"><%= public.posts._data[slug].title %></a></h3>
+  <%- partial(slug+"/index") %>
+  <% count++ %>
+  <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
+  </article>
+  <% if(count >= limit){ break; }; %>
+<% }; %>
+
+
+<% var posts = Object.keys(public.posts._data);%>
+
+<div id="pagination"> 
+	<span class="disabled_pagination">Prev</span>
+	
+	<% if(count >= posts.length){ %>
+	<span class="disabled_pagination">Next</span>
+	<% } else { %>
+	<a href="<%=posts[count]%>">Next</a>
+	<% } %>
+</div>
