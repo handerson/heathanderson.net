@@ -10,10 +10,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		instance_uri: 'https://social.heathanderson.net',
 		user_id: 'AItO2XfZz5i0ADfxWC',
 		profile_name: 'heath',
-		toots_limit: 5,
+		toots_limit: 4,
 		hide_reblog: true,
 		hide_replies: false,		
-		btn_see_more: 'More on Federated Social Media'
+		btn_see_more: 'More on <i class="icon icon-hihi" title="ActivityPub Compatible Social Media (Mastodon, Pleroma, etc.)"></i>'
 	});
 });
 
