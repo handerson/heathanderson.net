@@ -1,19 +1,24 @@
-<meta charset="UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title><%= title %></title>
+<% if(public.posts._data[path]) { %>
+<meta property="og:title" content="<%- public.posts._data[path].title %>">
+<title><%- public.posts._data[path].title %></title>
+<meta property="og:type" content="article">
+<% } else { %>
+<meta property="og:title" content="<%- title %>">
+<title><%- title %></title>
+<% } %>
 
-<link rel="image_src" href="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
-<meta property="og:image" content="http://www.gravatar.com/avatar/81f0b3e0c5da01fbeb0ca3743662f070?s=100"/>
+<link rel="manifest" href="site.webmanifest">
+<link rel="apple-touch-icon" href="icon.png">
 
-<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
+<link rel="stylesheet" href="/stylesheets/prism.css" />
+<link rel="stylesheet" href="/stylesheets/main.css">
 
-<meta name="author" content="Heath Anderson">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<link rel="shortcut icon" href="/favicon.ico">
-
-<link rel="stylesheet" type="text/css" media="all" href="/stylesheets/main.css">
+<meta name="theme-color" content="#fafafa">
 
 <link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
 <link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
@@ -22,13 +27,3 @@
 <link rel="openid.delegate"  href="http://www.flickr.com/photos/heathanderson" />
 
 <link rel="alternate" type="application/rss+xml" title="Heath Anderson's Blog Feed" href="http://www.heathanderson.net/atom.xml">
-
-<link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="/stylesheets/iphone.css" type="text/css" />
-
-<link href="stylesheets/prism.css" rel="stylesheet" />
-
-<!--[if lt IE 9]>
-<script src="/js/html5shiv.js"></script>
-<![endif]-->
-
-

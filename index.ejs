@@ -1,25 +1,41 @@
 <% var count = 0; %>
 <% var limit = 3; %>
+<div id="layout" class="pure-g">
+  <div class="content pure-u-1">
+    <div>
+        <div class="posts">
+          <h1 class="content-subhead">Most Recent</h1>
+          <% for(var slug in public.posts._data){ %>
+                <section class="post">
+                  <header class="post-header">
+                      <h2 class="post-title"><a href="/<%= slug %>" rel="bookmark" title="<%= public.posts._data[slug].title %>"><%= public.posts._data[slug].title %></a></h2>
 
-<% for(var slug in public.posts._data){ %>
-  <article></article>
-  <h3><a href="/<%= slug %>" rel="bookmark" title="<%= public.posts._data[slug].title %>"><%= public.posts._data[slug].title %></a></h3>
-  <%- partial(slug+"/index") %>
-  <% count++ %>
-  <div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
-  </article>
-  <% if(count >= limit){ break; }; %>
-<% }; %>
+                      <p class="post-meta">
+                        <%-partial("_includes/date", {"date": public.posts._data[slug].date})%>
+                      </p>
+                  </header>
+
+                  <div class="post-description">
+                    <%- partial(slug+"/index") %>
+                    <% count++ %>
+                  </div>
+              </section>
+              <% if(count >= limit){ break; }; %>
+            <% }; %>
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <% var posts = Object.keys(public.posts._data);%>
 
-<div id="pagination"> 
-	<span class="disabled_pagination">Prev</span>
+<div class="pagination"> 
+	<span class="pure-button pure-button-disabled">Prev</span>
 	
 	<% if(count >= posts.length){ %>
-	<span class="disabled_pagination">Next</span>
+	<span class="pure-button pure-button-disabled">Next</span>
 	<% } else { %>
-	<a href="<%=posts[count]%>">Next</a>
+  <a class="pure-button pure-button-primary" href="<%=posts[count]%>">Next</a>
 	<% } %>
 </div>

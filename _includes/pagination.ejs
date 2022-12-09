@@ -1,18 +1,18 @@
 <% var posts = Object.keys(public.posts._data);%>
 <% var pos; %>
 
-<div id="pagination"> 
+<div class="pagination"> 
     <% pos = posts.indexOf(path); %>
     <% if(posts[0] != path) { %>
         <% pos = posts.indexOf(path); %>
-        <a href="/<%=posts[pos-1]%>">Prev</a>
+        <a class="pure-button pure-button-primary" href="/<%=posts[pos-1]%>">Prev</a>
     <% } else { %>
-        <span class="disabled_pagination">Prev</span>
+        <span class="pure-button pure-button-disabled">Prev</span>
     <% } %>
 	
 	<% if(posts[posts.length-1] != path){ %>
-        <a href="/<%=posts[pos+1]%>">Next</a>
+        <a class="pure-button pure-button-primary" href="/<%=posts[pos+1]%>">Next</a>
 	<% } else { %>
-        <span class="disabled_pagination">Next</span>
+        <span class="pure-button pure-button-disabled">Next</span>
 	<% } %>
 </div>

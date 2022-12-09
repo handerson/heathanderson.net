@@ -1,47 +1,34 @@
-<div id="footer" class="small">
-  <form onsubmit="return simpleSearch(this)" method="get" id="searchForm" style="display:none">
-    <input type="search" name="q" placeholder="Search this site..." > 
-    <!--[if IE ]>
-    <input type="submit" value="Search">
-    <![endif]-->
-  </form>
-  <noscript>
-    <div>
-  	You can search this site using <a href="http://www.google.com/search?q=site:www.heathanderson.net">Google</a>.
+<div class="footer">
+      <div class="pure-menu pure-menu-horizontal">
+      <ul>
+          <li class="pure-menu-item"><a href="/privacy.html">Privacy</a></li>
+          <li class="pure-menu-item"><a href="/about.html">About</a></li>
+          <li class="pure-menu-item"><div><a href="/atom.xml">RSS</a></li>
+          <li class="pure-menu-item"><a href="https://social.heathanderson.net">Social</a></li>
+      </ul>
+
+    </div>
+    <div class="pure-menu pure-menu-horizontal">
+      <ul>
+          <li class="pure-menu-item"> <div><a href="http://www.w3.org/html/logo/"><img src="/images/html5-badge.png" alt="HTML5 Badge" class="badge"/></a></div></li>
+      </ul>
+
+    </div>
+    <div class="pure-menu pure-menu-horizontal">
+      <ul>
+          <li class="pure-menu-item">  <a title="Analytics" href="https://umami.is/">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 428 389.11"><g data-name="Layer 2"><g data-name="Layer 4"><circle cx="214.15" cy="181" r="171" fill="#fff" stroke="#000" stroke-miterlimit="10" stroke-width="20"></circle><path d="M413 134.11H15.29a15 15 0 00-15 15v15.3C.12 168 0 171.52 0 175.11c0 118.19 95.81 214 214 214 116.4 0 211.1-92.94 213.93-208.67 0-.44.07-.88.07-1.33v-30a15 15 0 00-15-15z"></path></g></g></svg>
+          </a></li>
+      </ul>
+
+    </div>
+    <div class="pure-menu pure-menu-horizontal">
+      <ul>
+        <li class="pure-menu-item">Copyright &copy; Heath Anderson</li>
+    </ul>
+      
   </div>
-  </noscript>
-
-<script type="text/javascript">
-function simpleSearch(form) {
-  var q = window.encodeURIComponent(form["q"].value);
-  var url = "http://www.google.com/search?q=site:www.heathanderson.net ";
-  url = url + q;
-  window.location = url;
-  return false;
-}
-
-document.getElementById('searchForm').style.display = "block";
-</script>
-
-<div>Subscribe to the <a href="/atom.xml">Atom feed</a> or <a href="http://www.twitter.com/heathanderson">follow me on twitter</a></div>
-
-<div>Copyright &copy; <a href="http://www.heathanderson.net/about.html">Heath Anderson</a> | <a href="/privacy.html">Privacy</a> | <a href="/about.html">About this site</a></div>
-
-<div><a href="http://www.w3.org/html/logo/"><img src="/images/html5-badge-bw.png" alt="HTML5 Badge" class="badge"/></a></div>
-
-<div>
-  <a title="Analytics" href="https://umami.is/">
-    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 428 389.11"><g data-name="Layer 2"><g data-name="Layer 4"><circle cx="214.15" cy="181" r="171" fill="#fff" stroke="#000" stroke-miterlimit="10" stroke-width="20"></circle><path d="M413 134.11H15.29a15 15 0 00-15 15v15.3C.12 168 0 171.52 0 175.11c0 118.19 95.81 214 214 214 116.4 0 211.1-92.94 213.93-208.67 0-.44.07-.88.07-1.33v-30a15 15 0 00-15-15z"></path></g></g></svg>
-  </a>
-</div>
-
 </div>
 
 <script src="/js/prism.js"></script>
 
-<!-- Prompt IE 6 users to install Chrome Frame. Idea from http://html5boilerplate.com.
-       chromium.org/developers/how-tos/chrome-frame-getting-started -->
-  <!--[if lt IE 7 ]>
-    <script defer src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.3/CFInstall.min.js"></script>
-    <script defer>window.attachEvent('onload',function(){CFInstall.check({mode:'overlay'})})</script>
-  <![endif]-->

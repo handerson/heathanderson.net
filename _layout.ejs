@@ -1,28 +1,25 @@
+<% var path = current.path; %>
+<% path.pop(); %>
+<% path = path.join("/"); %>
 <!doctype html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+<html class="no-js" lang="en">
 <head>
-    <%- partial("_includes/common_head") %>
+    <%- partial("_includes/common_head", {"path": path}) %>
 </head>
 <body>
 
-  <header>
-    <div class="container">
+
+    <div class="header">
         <%- partial("_includes/header") %>
     </div>
-  </header>
-  <% var path = current.path; %>
-  <% path.pop(); %>
-  <% path = path.join("/"); %>
-  <div class="container main">
-    <% if(public.posts._data[path]) { %>
-      <%- partial("/_post", {"path": path}) %>
-    <% } else { %>
-        <%- yield %>
-    <% } %>
-  </div>
+
+
+  
+  <% if(public.posts._data[path]) { %>
+    <%- partial("/_post", {"path": path}) %>
+  <% } else { %>
+      <%- yield %>
+  <% } %>
 
 	<footer>
       <div class="container">
