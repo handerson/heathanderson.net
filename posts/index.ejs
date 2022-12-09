@@ -1,10 +1,18 @@
+<div class="pure-g">
+  <div class="content pure-u-1">
+    <div class="posts">
+      <% for(var slug in public.posts._data){ %>
+        <div class="post">
+          <a href="/<%= slug %>" rel="bookmark" title="<%= public.posts._data[slug].title %>"><%= public.posts._data[slug].title %></a>
 
+          <div class="post-meta">
+            <%-partial("../_includes/date", {"date": public.posts._data[slug].date})%>
+          </div>
+        </div>
+      <% }; %>
+    </div>
+  </div>
+</div>
 
-<div class="post-divide"><img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/> <img src="/images/post-divider.png"/></div>
-
-<% for(var slug in public.posts._data){ %>
-  <h3><a href="/<%= slug %>" rel="bookmark" title="<%= public.posts._data[slug].title %>"><%= public.posts._data[slug].title %></a></h3>
-  <%= "../"+ slug + "/index" %>
-<% }; %>
 
 

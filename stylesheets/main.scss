@@ -228,6 +228,7 @@ img.badge {
 
 .pagination{
  text-align: center;
+ margin-bottom: 2rem;
 }
 blockquote {
   margin-top: 10px;
@@ -259,4 +260,12 @@ blockquote.twitter-tweet {
 }
 .pure-menu a{
   text-decoration: none;
+}
+.mt-container, .photostream-container, .posts-container {
+  margin: 0 auto;
+  max-width: 30rem;
+  padding: 2rem;
+}
+.photostream-container{
+  text-align: center;
 }

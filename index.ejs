@@ -1,39 +1,41 @@
-<% var count = 0; %>
-<% var limit = 3; %>
-<div id="layout" class="pure-g">
-  <div class="content pure-u-1">
-      <div class="posts">
-        <h1 class="content-subhead">Most Recent</h1>
-        <% for(var slug in public.posts._data){ %>
-              <section class="post">
-                <header class="post-header">
-                    <h2 class="post-title"><a href="/<%= slug %>" rel="bookmark" title="<%= public.posts._data[slug].title %>"><%= public.posts._data[slug].title %></a></h2>
-
-                    <p class="post-meta">
-                      <%-partial("_includes/date", {"date": public.posts._data[slug].date})%>
-                    </p>
-                </header>
-
-                <div class="post-description">
-                  <%- partial(slug+"/index") %>
-                  <% count++ %>
-                </div>
-            </section>
-            <% if(count >= limit){ break; }; %>
-          <% }; %>
+<div class="pure-g frontpage">
+  <div class="pure-u-lg-1-3 pure-u-md-1-2">
+    <div class="mt-container">
+      <h2 class="content-subhead">Micro Blog</h2>
+      <div id="mt-timeline" class="mt-timeline">
+        <div id="mt-body" class="mt-body">
+          <div class="loading-spinner"></div>
+        </div>
       </div>
+    </div>
+  </div>
+  <div class="pure-u-lg-1-3 pure-u-md-1-2">
+    <div class="posts-container">
+      <% var count = 0; %>
+      <% var limit = 10; %>
+      <h2 class="content-subhead">Most Recent Blog Posts</h2>
+      <% for(var slug in public.posts._data){ %>
+        <div class="post">
+          <a href="/<%= slug %>" rel="bookmark" title="<%= public.posts._data[slug].title %>"><%= public.posts._data[slug].title %></a>
+
+          <div class="post-meta">
+            <%-partial("_includes/date", {"date": public.posts._data[slug].date})%>
+          </div>
+        </div>
+        <% count++ %>
+        <% if(count >= limit){ break; }; %>
+      <% }; %>
+    </div>
+    <div class="pagination"> 
+      <a class="pure-button pure-button-primary" href="/posts">View All</a>
+    </div>
+  </div>
+  <div class="pure-u-lg-1-3 photostream-container">
+    <a data-flickr-embed="true" data-header="true" data-footer="true" href="https://www.flickr.com/photos/25375072@N06" title=""><img src="https://live.staticflickr.com/7303/10301199376_f74923dd22_w.jpg" width="375" height="500" alt=""></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
   </div>
 </div>
 
 
-<% var posts = Object.keys(public.posts._data);%>
 
-<div class="pagination"> 
-	<span class="pure-button pure-button-disabled">Prev</span>
-	
-	<% if(count >= posts.length){ %>
-	<span class="pure-button pure-button-disabled">Next</span>
-	<% } else { %>
-  <a class="pure-button pure-button-primary" href="<%=posts[count]%>">Next</a>
-	<% } %>
-</div>
+<script src='/js/mastodon-timeline.js'>
+</script>
