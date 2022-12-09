@@ -3,6 +3,5 @@
 The only feature I wish Vigil included is access to more historical data; currently only the previous hour's response time data is viewable. It would be nice to be able to see a detailed history, maybe even with an option to export the the data. They are apparently developing some kind of "more detailed history view" for a future version:
 
 <blockquote class="twitter-tweet" data-conversation="none"><p>@<a href="https://twitter.com/iain">iain</a> It is not possible in the client currently, but we are working on adding more detailed history views for the next major release.</p>&mdash; Vigil App (@vigilapp) <a href="https://twitter.com/vigilapp/status/323763427564744704">April 15, 2013</a></blockquote>
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
 
 The thing that first caught my eye about the service was the price: $9.99 for a year of monitoring an "unlimited" number of websites. That is _extremely_ affordable. For comparison, the cheapest plan at [Pingdom](https://www.pingdom.com/signup/) monitors up to 10 sites for $9.95 / **month**. It was a no-brainer to try out, and I'm extrememly glad that I did. 

@@ -2,21 +2,21 @@
 
 <p>This is a very simple Ruby on Rails plugin that allows easy encryption of strings. For the sake of simplicity there no customization. The only cipher used is 'des-ede3-cbc' (Triple DES using Cipher Block Chaining) . See my <a href="http://blogofheath.com/2009/09/25/ruby-string-encryption/">post </a> on encrypting/decrypting a string with Ruby for more information. First install the plugin:</p>
 
-{% highlight ruby %}
+<pre><code class="language-ruby">
  script/plugin install git://github.com/handerson/string_encryption.git
-{% endhighlight %}
+</code></pre>
 
 <p>Next we need to add an encryption key as the constant @ENV['STRING_ENCRYPTION_KEY']@. To do this just run</p>
 
-{% highlight ruby %}
+<pre><code class="language-ruby">
   script/generate encryption_key
-{% endhighlight %}
+</code></pre>
 
 <p>or you could set </p>
 
-{% highlight ruby %}
+<pre><code class="language-ruby">
   ENV['STRING_ENCRYPTION_KEY'] = "somekey"
-{% endhighlight %}
+</code></pre>
 
 <p>where "somekey" is your key in environment.rb.</p>
   
@@ -24,15 +24,15 @@
 
 <h3>Encryption:</h3>
 
-{% highlight ruby %}
+<pre><code class="language-ruby">
   "Test".encrypt  #=> "NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A"
-{% endhighlight %}
+</code></pre>
 
 <h3>Decryption:</h3>
 
-{% highlight ruby %}
+<pre><code class="language-ruby">
   "NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A".decrypt  #=> "Test"
-{% endhighlight %}
+</code></pre>
 
 <p>Code at Github:<br/>
 <a href="http://github.com/handerson/string_encryption">http://github.com/handerson/string_encryption</a></p>

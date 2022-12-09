@@ -1,13 +1,13 @@
 
 <p>Before moving my blog to Amazon S3 I wanted to make sure that I could deploy updates easily. I came across several ways to do it. The easiest method I found was in a <a href="http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/">blog post</a> by <a href="http://blog.hendrikvolkmer.de/about/">Hendrik Volkmer</a>. It uses a command line tool called <code>s3cmd</code> run through a rake task. <a href="http://s3tools.org/s3cmd">s3cmd</a> can be installed using <a href="http://mxcl.github.com/homebrew/">Homebrew</a> on Mac OS X. </p>
   
-{% highlight bash %}
+<pre><code class="language-bash">
  brew install s3cmd
-{% endhighlight %}
+</code></pre>
 
 <p>I updated the rake task to use S3's reduced <a href="https://aws.amazon.com/about-aws/whats-new/2010/05/19/announcing-amazon-s3-reduced-redundancy-storage/">redundancy storage</a> and set an <a href="https://developer.yahoo.com/performance/rules.html#expires">Expires header</a> for my images by using s3cmd's <code>--reduced-redundancy</code>, <code>--exclude</code>, and <code>--add-header</code> options. You can find out about other <code>s3smd</code> options on the <a href="http://s3tools.org/s3cmd-sync">s3tools website</a>.</p>
 
-{% highlight ruby %}
+<pre><code class="language-ruby">
   # based on http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/
   task :default => :deploy
 
@@ -17,10 +17,10 @@
     sh "s3cmd sync --reduced-redundancy --exclude 'images/*' _site/* s3://www.heathanderson.net"
     sh "s3cmd sync --reduced-redundancy --add-header 'Expires: Thu, 6 Feb 2020 00:00:00 GMT' _site/images/* s3://www.heathanderson.net/images/"
   end
-{% endhighlight %}
+</code></pre>
 
 <p>After placing the above in a <a href="https://github.com/handerson/heathanderson.net/blob/master/rakefile.rb">rakefile</a> all I have to do is run the following to publish a new post or deploy any other changes:</p>
 
-{% highlight bash %}
+<pre><code class="language-bash">
  rake deploy
-{% endhighlight %}
+</code></pre>

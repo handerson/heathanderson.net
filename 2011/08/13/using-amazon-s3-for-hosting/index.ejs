@@ -14,7 +14,7 @@
 
 <p>Another thing that needed to be done is setting the policy so that others can actually view the site. This is found on the properties menu in the S3 management console for your website's bucket and go to the permissions tab. The 'Edit buck policy' button brings up a text area where I pasted the following (found in the <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a>):</p>
 
-{% highlight js %}
+<pre><code class="language-javascript">
   {
     "Version": "2008-10-17",
     "Id": "",
@@ -30,7 +30,7 @@
       }
     ]
   }
-{% endhighlight %}
+</code></pre>
 
 <p>After copying my site to the buck and testing the endpoint URL in my browser, I was ready to set up my domain to point to my new host.</p>
 

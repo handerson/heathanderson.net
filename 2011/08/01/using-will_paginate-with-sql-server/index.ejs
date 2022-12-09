@@ -12,12 +12,12 @@
 <p>This patch was tested on an app using Rails 2.3.x and SQL Server Adapter 2.3.15.</p>
 
 config/environment.rb
-{% highlight ruby %}
+<pre><code class="language-ruby">
   require "#{RAILS_ROOT}/lib/monkey_patch_sql2005_limit.rb"
-{% endhighlight %}
+</code></pre>
 
 lib/monkey_patch_sql2005_limit.rb
-{% highlight ruby %}
+<pre><code class="language-ruby">
   # monkey-patching SQLServerAdapter to support SQL Server 2005-style pagination
   # based on http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005
   # - http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005
@@ -64,4 +64,4 @@ lib/monkey_patch_sql2005_limit.rb
       end
     end
   end
-{% endhighlight %}
+</code></pre>

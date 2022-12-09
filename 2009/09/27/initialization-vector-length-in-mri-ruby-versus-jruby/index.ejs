@@ -4,7 +4,7 @@
 
 <p>This works in MRI but not in JRuby:</p>
 
-{% highlight ruby %}
+<pre><code class="language-ruby">
   unencrypted_data = "test"
 
   des = OpenSSL::Cipher::Cipher.new("des-ede3-cbc")
@@ -15,7 +15,7 @@
   encrypted_data = des.update(unencrypted_data) + des.final
 
   puts encrypted_data
-{% endhighlight %}
+</code></pre>
 
 <p>JRuby gives you this very helpful message:<br/>
 @ruby_string_encryption.rb:27:in `encrypt': No message available (OpenSSL::Cipher::CipherError)<br/>

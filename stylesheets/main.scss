@@ -1,3 +1,12 @@
+@font-face {
+  font-family: "inconsolatamedium";
+  src: url(/fonts/inconsolata-webfont.eot) format('embedded-opentype'), url(/fonts/inconsolata-webfont.woff) format('woff'), url(/fonts/inconsolata-webfont.ttf) format('truetype'), url(/fonts/inconsolata-webfont.svg) format('svg')
+}
+
+@font-face {
+  font-family: "inconsolatamedium";
+  src: url(/fonts/inconsolata-webfont.eot) format('embedded-opentype'), url(/fonts/inconsolata-webfont.woff) format('woff'), url(/fonts/inconsolata-webfont.ttf) format('truetype'), url(/fonts/inconsolata-webfont.svg) format('svg')
+}
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -8,8 +17,8 @@ body{
 }
 
 a {
-  text-decoration: none;
-  color: #1fbbe7;
+  text-decoration: underline;
+  color: #4a5c65;
 }
 a:hover,
 a:focus {
@@ -20,11 +29,25 @@ a.pure-menu-heading:focus,
 a.pure-menu-heading:hover .subhead,
 a.pure-menu-heading:focus .subhead{
   text-decoration: none;
-  color: #000;
+  color:#eee;
+  background-color: #2A3439;
 }
-.icon a:hover svg path, .icon a:focus svg path{
-  fill:#000;
+
+.icon a:hover svg , .icon a:focus svg {
+  margin-top: 1px;
+  filter: drop-shadow(1px 1px 1px rgb(255 255 255 / 0.2));
 }
+
+h1, h2, h3, h4, h5 {
+  font-family: Verdana, Geneva, sans-serif;
+  text-shadow: 1px 1px 1px #2A3439;
+  text-decoration: none;
+}
+
+h1 a, h2 a, h3 a{
+  text-decoration: none;
+}
+
 
 h3 {
   font-weight: 100;
@@ -46,7 +69,10 @@ h3 {
 }
 
 .pure-menu-heading{
-  color:#fff
+  font-family: 'inconsolatamedium';
+  color:#fff;
+  text-shadow: 1px 1px 2px #000;
+  text-transform: none;
 }
 
 .nav-list {
@@ -69,18 +95,18 @@ h3 {
 }
 .nav-item a:hover,
 .nav-item a:focus {
-  border: 2px solid #1fbbe7;
+  border: 2px solid #4a5c65;
   text-decoration: none;
 }
 
 .content-subhead {
-  text-transform: uppercase;
   color: #aaa;
   border-bottom: 1px solid #eee;
   padding: 0.4em 0;
   font-size: 80%;
   font-weight: 500;
   letter-spacing: 0.1em;
+  text-shadow: none;
 }
 
 .content {
@@ -105,7 +131,7 @@ img.shadow {
 }
 .post-title {
   font-size: 2em;
-  color: #222;
+  color: #7f8588;
   margin-bottom: 0.2em;
 }
 .post-avatar {
@@ -149,7 +175,7 @@ img.shadow {
 
 @media (min-width: 48em) {
   .content {
-      padding: 2em 3em 0;
+      padding: 2em 5em 0;
       margin: 0 4em;
   }
 
@@ -170,6 +196,9 @@ img.badge {
   height: 1.2em;
   margin: 0 0.5em;
 }
+.icon svg {
+  filter: drop-shadow(1px 2px 2px rgb(255 255 255 / 0.2));
+}
 .icon svg path{
   fill:#fff;
 }
@@ -181,7 +210,7 @@ img.badge {
   text-align: left;
 }
 .home-menu {
-  background: #1fbbe7;
+  background: #2A3439;
 }
 .home-menu ul {
   float: right;
@@ -196,9 +225,38 @@ img.badge {
   
   text-transform: none;
 }
-active>.pure-menu-link, .pure-menu-link:focus, .pure-menu-link:hover {
-  background-color: #1fbbe7;
-}
+
 .pagination{
  text-align: center;
+}
+blockquote {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 50px;
+  padding-left: 15px;
+  border-left: 3px solid #4a5c65;
+}
+blockquote.twitter-tweet {
+  position: relative;
+  display: inline-block;
+  font-family: "Helvetica Neue", Roboto, "Segoe UI", Calibri, sans-serif;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 16px;
+  border-color: rgb(29, 155, 240);
+  background-color: rgba(29, 155, 240, 0.2);
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 1px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+  margin: 10px 5px;
+  padding: 0 16px 16px 16px;
+  max-width: 468px;
+}
+.pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
+  background-color: #4a5c65;
+  color:#fff
+}
+.pure-menu a{
+  text-decoration: none;
 }
