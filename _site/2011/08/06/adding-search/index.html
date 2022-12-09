@@ -7,8 +7,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta property="og:title" content="Ruby on Rails Plugin: string_encryption">
-<title>Ruby on Rails Plugin: string_encryption</title>
+<meta property="og:title" content="Simple Search">
+<title>Simple Search</title>
 <meta property="og:type" content="article">
 
 <link rel="manifest" href="site.webmanifest">
@@ -46,36 +46,43 @@ My name is Heath Anderson.
 <div class="content pure-u-1">
 <section class="post">
 <header class="post-header">
-<h1 class="post-title" title="Ruby on Rails Plugin: string_encryption">Ruby on Rails Plugin: string_encryption</h1>
+<h1 class="post-title" title="Simple Search">Simple Search</h1>
 <p class="post-meta">
-<time datetime="2009-11-23">Monday, Nov 23, 2009</time>
+<time datetime="2011-08-06">Saturday, Aug 6, 2011</time>
 </p>
 </header>
 <div class="post-description">
-<p>This is a very simple Ruby on Rails plugin that allows easy encryption of strings. For the sake of simplicity there no customization. The only cipher used is 'des-ede3-cbc' (Triple DES using Cipher Block Chaining) . See my <a href="http://blogofheath.com/2009/09/25/ruby-string-encryption/">post </a> on encrypting/decrypting a string with Ruby for more information. First install the plugin:</p>
-<pre><code class="language-ruby">
-script/plugin install git://github.com/handerson/string_encryption.git
+<p>I often come across interesting ideas and tools that I have no current use for but seem like they may be useful someday, so I bookmark them and hope I will recall them when needed. That process is what led to the current implementation of site search located at the bottom of each page on this blog.</p>
+<p>At some point I came across an <a href="http://googlewebmastercentral.blogspot.com/2008/08/make-your-404-pages-more-useful.html">article</a> on the the Google Webmaster Central Blog about <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=136085">enhancing</a> a site's 404 page. I thought it was a pretty cool idea, and I'm <a href="/404.html">using</a> it on this site. The required code is very short:</p>
+<pre><code class="language-javascript">
+&lt;script type="text/javascript">
+var GOOG_FIXURL_LANG = 'en';
+var GOOG_FIXURL_SITE = 'http://www.example.com'
+&lt;/script>
+&lt;script type="text/javascript"
+src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js">
+&lt;/script>
 </code></pre>
-<p>Next we need to add an encryption key as the constant @ENV['STRING_ENCRYPTION_KEY']@. To do this just run</p>
-<pre><code class="language-ruby">
-script/generate encryption_key
+<p>The most interesting thing about it is that it adds a search form. It doesn't actually submit a form. It simply changes the current page's location to "http://www.google.com/search?q=site:www.heathanderson.net" (with the text from the text box appended) using JavaScript. This limits the Google search to (in this case) pages from my site. It is a really simple concept that I would like to think I would of eventually thought of (but probably wouldn't have). </p>
+<p>When I needed a search for this site I decided to try this technique. So here it is, a simple search script:
+<pre><code class="language-html">
+&lt;script type="text/javascript">
+function simpleSearch(form) {
+var q = window.encodeURIComponent(form["q"].value);
+var url = "http://www.google.com/search?q=site:www.heathanderson.net ";
+url = url + q;window.location = url;
+return false;
+}
+&lt;/script>
+&lt;noscript>
+You can search this site using <a href="http://www.google.com/search?q=site:www.heathanderson.net">Google</a>.
+&lt;/noscript>
+&lt;form onsubmit="return simpleSearch(this)" method="get" id="searchForm">
+&lt;input type="text" size="40" name="q" placeholder="Search this site...">
+&lt;input type="submit" value="Search">
+&lt;/form>
 </code></pre>
-<p>or you could set </p>
-<pre><code class="language-ruby">
-ENV['STRING_ENCRYPTION_KEY'] = "somekey"
-</code></pre>
-<p>where "somekey" is your key in environment.rb.</p>
-<p>Now encryption/decryption is easy.</p>
-<h3>Encryption:</h3>
-<pre><code class="language-ruby">
-"Test".encrypt  #=> "NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A"
-</code></pre>
-<h3>Decryption:</h3>
-<pre><code class="language-ruby">
-"NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A".decrypt  #=> "Test"
-</code></pre>
-<p>Code at Github:<br/>
-<a href="http://github.com/handerson/string_encryption">http://github.com/handerson/string_encryption</a></p>
+<p>I could have created the form element in JavaScript and appended it to the page, but that seemed more complicated than necessary. I also could have used an event handler instead of the inline onsubmit attribute, but again I point to the complexity. This way avoids most cross-browser pitfalls, and has the advantage of simplicity. I also added a link to Google inside a noscript tag for people that have JavaScript disabled.</p>
 </div>
 </section>
 </div>
@@ -87,10 +94,10 @@ ENV['STRING_ENCRYPTION_KEY'] = "somekey"
 
 
 
-<a class="pure-button pure-button-primary" href="/2010/09/06/welcome-to-the-new-blog">Prev</a>
+<a class="pure-button pure-button-primary" href="/2011/08/13/using-amazon-s3-for-hosting">Prev</a>
 
 
-<a class="pure-button pure-button-primary" href="/2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby">Next</a>
+<a class="pure-button pure-button-primary" href="/2011/08/05/another-blog-redesign">Next</a>
 
 </div>
 

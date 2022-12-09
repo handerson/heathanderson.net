@@ -7,8 +7,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta property="og:title" content="Ruby on Rails Plugin: string_encryption">
-<title>Ruby on Rails Plugin: string_encryption</title>
+<meta property="og:title" content="A New Look">
+<title>A New Look</title>
 <meta property="og:type" content="article">
 
 <link rel="manifest" href="site.webmanifest">
@@ -46,36 +46,28 @@ My name is Heath Anderson.
 <div class="content pure-u-1">
 <section class="post">
 <header class="post-header">
-<h1 class="post-title" title="Ruby on Rails Plugin: string_encryption">Ruby on Rails Plugin: string_encryption</h1>
+<h1 class="post-title" title="A New Look">A New Look</h1>
 <p class="post-meta">
-<time datetime="2009-11-23">Monday, Nov 23, 2009</time>
+<time datetime="2012-11-25">Sunday, Nov 25, 2012</time>
 </p>
 </header>
 <div class="post-description">
-<p>This is a very simple Ruby on Rails plugin that allows easy encryption of strings. For the sake of simplicity there no customization. The only cipher used is 'des-ede3-cbc' (Triple DES using Cipher Block Chaining) . See my <a href="http://blogofheath.com/2009/09/25/ruby-string-encryption/">post </a> on encrypting/decrypting a string with Ruby for more information. First install the plugin:</p>
-<pre><code class="language-ruby">
-script/plugin install git://github.com/handerson/string_encryption.git
-</code></pre>
-<p>Next we need to add an encryption key as the constant @ENV['STRING_ENCRYPTION_KEY']@. To do this just run</p>
-<pre><code class="language-ruby">
-script/generate encryption_key
-</code></pre>
-<p>or you could set </p>
-<pre><code class="language-ruby">
-ENV['STRING_ENCRYPTION_KEY'] = "somekey"
-</code></pre>
-<p>where "somekey" is your key in environment.rb.</p>
-<p>Now encryption/decryption is easy.</p>
-<h3>Encryption:</h3>
-<pre><code class="language-ruby">
-"Test".encrypt  #=> "NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A"
-</code></pre>
-<h3>Decryption:</h3>
-<pre><code class="language-ruby">
-"NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A".decrypt  #=> "Test"
-</code></pre>
-<p>Code at Github:<br/>
-<a href="http://github.com/handerson/string_encryption">http://github.com/handerson/string_encryption</a></p>
+<p><img src="/images/posts/old-site.jpg" alt="Old Blog Design Closeup" class="shadow" />I've finally updated my blog again. I've thrown away most of the old style and code. I needed a new look. Apparently a year ago I was a bit obsessed with <a href="http://daringfireball.net/">low contrast</a> and <a href="http://webdesignandsuch.com/apple-linen-texture-effect-web-design-trend-download-tutorial/">textures</a>. These design concepts can work wonderfully. On my site they did not. I needed a new inspiration. One was not forthcoming.</p>
+<p>About a month ago I started watching <a href="http://www.usanetwork.com/series/whitecollar/">White Collar</a>. I really liked the <a href="http://fr.wikipedia.org/wiki/Fichier:White_Collar_2009_logo.svg">logo</a>. It stuck with me. Last Friday I had a day off, so I decided to see if I was indeed "inspired". I suppose I was close enough. I am much happier with the current site design than the old one.</p>
+<p><img src="/images/posts/site-design.png" alt="Blog Design Closeup" class="shadow right" />The rest of this paragraph may sound pretentious, and I apologize for that; however, I hope it gives some insight into the new design. The basic design language is that of a blue background overlain with a white sheet of material. The header and footer are on peeking out of the background. The blue headings and the date boxes are carved out of the white foreground to reveal the blue underneath. The white lettering in the header, footer, and date boxes are meant to be leftovers from white foreground material. The black text and images in the body of the page are sitting on top of the white foreground. </p>
+<p>I also can't help but try out some new (to me) technologies, especially if they might be useful in my day job. I've used a bit of <a href="http://sass-lang.com/">Sass</a> in the context of <a href="http://www.rubyinside.com/rails-3-1-adopts-coffeescript-jquery-sass-and-controversy-4669.html">Rails</a> before, but I was interested in learning more about it. And this <a href="http://compass-style.org/">Compass</a> thing I kept hearing about sounded really useful.</p>
+<p>It turns out that I really like Sass and Compass. Together they give a front-end developer many wondrous tools. It would be hard to go back to not using variables and mixins. I also found <a href="http://susy.oddbird.net/">Susy</a>, a responsive grid framework, to be very useful. </a></p>
+<p>Integrating Jekyll and Sass was not as easy as I had hoped. I at first tried the <a href="https://github.com/noct/jekyll-sass">jeklyy-sass</a> gem. I could not get it work after about half an hour of futzing with it. I assume this failing was on my part, not that of the gem. I think decided to do something a bit more simple. I followed the <a href="http://martinciu.com/2011/06/blogging-like-a-hacker-using-jekyll-compass-and-foreman.html">advice</a> of another blog and just used the Jekyll and Compass command separately with <a href="http://ddollar.github.com/foreman/">foreman</a> gluing them together.</p>
+<p>I also took the opportunity to research fonts/typefaces to use. All really knew was that I wanted a strong sans serif font for the headings and a nice readable serif font for the body text. I did find two fonts that I really liked:
+<ul>
+<li><a href="http://fontdeck.com/font/groteskurw/regular">Grotesk URW</a></li>
+<li><a href="http://fontdeck.com/font/skolar/regular">Skolar</a></li>
+</ul>
+Eventually I decided that it really didn't make sense to pay for fonts on a blog that no one actually reads. So I decided to look up what fonts are <a href="http://www.ampsoft.net/webdesign-l/WindowsMacFonts.html">installed by default</a> and pick the my favorites (as it were). I landed on Verdana for the headings and Georgia for the body.
+</p>
+<p>I did wind up using one custom font: <a href="http://levien.com/type/myfonts/inconsolata.html">Inconsolata</a>. I use this font in my text editor, so I decided to make the code snippets on my site use it. I found Font Squirrel's <a href="http://www.fontsquirrel.com/fontface/generator">@font-face generator</a> very useful</p>
+<p> I couldn't figure out how to display each post's date until I stumbled across this post about <a href="http://snook.ca/archives/html_and_css/css-text-rotation">CSS text rotation</a>. I also had to <a href="http://www.alistapart.com/articles/understanding-css3-transitions/">brush up on CSS3 transitions</a> to create the header. Making text look indented (or a letterpress effect) with CSS is surprisingly difficult. I found this <a href="https://gist.github.com/1609945">gist</a> incredibly useful.</p>
+<p>I'm still not done. There are still some bugs especially on mobile devices. I will continue to refine and fix. Hopefully this version lasts longer than a year.</p>
 </div>
 </section>
 </div>
@@ -87,10 +79,10 @@ ENV['STRING_ENCRYPTION_KEY'] = "somekey"
 
 
 
-<a class="pure-button pure-button-primary" href="/2010/09/06/welcome-to-the-new-blog">Prev</a>
+<a class="pure-button pure-button-primary" href="/2012/11/24/the-elevation-dock-lightning-adapter">Prev</a>
 
 
-<a class="pure-button pure-button-primary" href="/2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby">Next</a>
+<a class="pure-button pure-button-primary" href="/2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app">Next</a>
 
 </div>
 

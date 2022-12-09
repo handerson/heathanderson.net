@@ -7,9 +7,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta property="og:title" content="Ruby on Rails Plugin: string_encryption">
-<title>Ruby on Rails Plugin: string_encryption</title>
-<meta property="og:type" content="article">
+<meta property="og:title" content="Heath Anderson's Blog">
+<title>Heath Anderson's Blog</title>
 
 <link rel="manifest" href="site.webmanifest">
 <link rel="apple-touch-icon" href="icon.png">
@@ -42,57 +41,11 @@ My name is Heath Anderson.
 </div>
 </div>
 
-<div id="layout" class="pure-g">
-<div class="content pure-u-1">
-<section class="post">
-<header class="post-header">
-<h1 class="post-title" title="Ruby on Rails Plugin: string_encryption">Ruby on Rails Plugin: string_encryption</h1>
-<p class="post-meta">
-<time datetime="2009-11-23">Monday, Nov 23, 2009</time>
-</p>
-</header>
-<div class="post-description">
-<p>This is a very simple Ruby on Rails plugin that allows easy encryption of strings. For the sake of simplicity there no customization. The only cipher used is 'des-ede3-cbc' (Triple DES using Cipher Block Chaining) . See my <a href="http://blogofheath.com/2009/09/25/ruby-string-encryption/">post </a> on encrypting/decrypting a string with Ruby for more information. First install the plugin:</p>
-<pre><code class="language-ruby">
-script/plugin install git://github.com/handerson/string_encryption.git
-</code></pre>
-<p>Next we need to add an encryption key as the constant @ENV['STRING_ENCRYPTION_KEY']@. To do this just run</p>
-<pre><code class="language-ruby">
-script/generate encryption_key
-</code></pre>
-<p>or you could set </p>
-<pre><code class="language-ruby">
-ENV['STRING_ENCRYPTION_KEY'] = "somekey"
-</code></pre>
-<p>where "somekey" is your key in environment.rb.</p>
-<p>Now encryption/decryption is easy.</p>
-<h3>Encryption:</h3>
-<pre><code class="language-ruby">
-"Test".encrypt  #=> "NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A"
-</code></pre>
-<h3>Decryption:</h3>
-<pre><code class="language-ruby">
-"NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A".decrypt  #=> "Test"
-</code></pre>
-<p>Code at Github:<br/>
-<a href="http://github.com/handerson/string_encryption">http://github.com/handerson/string_encryption</a></p>
-</div>
-</section>
-</div>
-</div>
-</div>
-
-
-<div class="pagination">
-
-
-
-<a class="pure-button pure-button-primary" href="/2010/09/06/welcome-to-the-new-blog">Prev</a>
-
-
-<a class="pure-button pure-button-primary" href="/2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby">Next</a>
-
-</div>
+<p>I just found out that the <a href="http://www.youtube.com/playlist?list=PLDyZC8lflYBvkxmJGFeAihtz-OoDqVMy7">videos</a> for <a href="http://www.skepticon.org/">Skepticon 5</a> are online. I've embeded some of my favorites below.</p>
+<h5>The Natural History of the European Werewolf, Deborah Hyde Skepticon 5</h5>
+<p><iframe width="356" height="200" src="http://www.youtube-nocookie.com/embed/KYp9wBrv9lI" frameborder="0" allowfullscreen></iframe></p>
+<h5>Miracles and Historical Method, Richard Carrier Skepticon 5</h5>
+<p><iframe width="356" height="200" src="http://www.youtube-nocookie.com/embed/QaENP1R-lbY" frameborder="0" allowfullscreen></iframe></p>
 
 <footer>
 <div class="container">

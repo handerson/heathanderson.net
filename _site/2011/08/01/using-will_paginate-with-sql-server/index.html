@@ -7,8 +7,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta property="og:title" content="Ruby on Rails Plugin: string_encryption">
-<title>Ruby on Rails Plugin: string_encryption</title>
+<meta property="og:title" content="Using will_paginate and activerecord-sqlserver-adapter with SQL Server">
+<title>Using will_paginate and activerecord-sqlserver-adapter with SQL Server</title>
 <meta property="og:type" content="article">
 
 <link rel="manifest" href="site.webmanifest">
@@ -46,36 +46,61 @@ My name is Heath Anderson.
 <div class="content pure-u-1">
 <section class="post">
 <header class="post-header">
-<h1 class="post-title" title="Ruby on Rails Plugin: string_encryption">Ruby on Rails Plugin: string_encryption</h1>
+<h1 class="post-title" title="Using will_paginate and activerecord-sqlserver-adapter with SQL Server">Using will_paginate and activerecord-sqlserver-adapter with SQL Server</h1>
 <p class="post-meta">
-<time datetime="2009-11-23">Monday, Nov 23, 2009</time>
+<time datetime="2011-08-01">Monday, Aug 1, 2011</time>
 </p>
 </header>
 <div class="post-description">
-<p>This is a very simple Ruby on Rails plugin that allows easy encryption of strings. For the sake of simplicity there no customization. The only cipher used is 'des-ede3-cbc' (Triple DES using Cipher Block Chaining) . See my <a href="http://blogofheath.com/2009/09/25/ruby-string-encryption/">post </a> on encrypting/decrypting a string with Ruby for more information. First install the plugin:</p>
+<p>Having Rails and Microsoft SQL Server communicate is much easier than it once was thanks to projects like <a href="https://github.com/rails-sqlserver/tiny_tds">TinyTDS</a>, but sometimes things still don't work exactly right. <a href="http://blacksnowmedia.com/">We</a> ran into an issue where pagination simply would not work. Below is what we came up with after some research.</p>
+<p>This solution was based on the following:</p>
+<ul>
+<li><a href="">http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005</a>
+<li><a href="http://www.sqlservercentral.com/articles/T-SQL/66030/">http://www.sqlservercentral.com/articles/T-SQL/66030/</a>
+<li><a href="http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591">http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591</a>
+<li><a href="https://gist.github.com/335683">https://gist.github.com/335683</a>
+</ul>
+<p>This patch was tested on an app using Rails 2.3.x and SQL Server Adapter 2.3.15.</p>
+config/environment.rb
 <pre><code class="language-ruby">
-script/plugin install git://github.com/handerson/string_encryption.git
+require "#{RAILS_ROOT}/lib/monkey_patch_sql2005_limit.rb"
 </code></pre>
-<p>Next we need to add an encryption key as the constant @ENV['STRING_ENCRYPTION_KEY']@. To do this just run</p>
+lib/monkey_patch_sql2005_limit.rb
 <pre><code class="language-ruby">
-script/generate encryption_key
+# monkey-patching SQLServerAdapter to support SQL Server 2005-style pagination
+# based on http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005
+# - http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005
+# - http://www.sqlservercentral.com/articles/T-SQL/66030/
+# - http://stackoverflow.com/questions/4871523/sql-server-2008-r2-pagination/4871591#4871591
+# - https://gist.github.com/335683
+# produces paginated sql ( if set to 2 results per page) that looks like this:
+#
+# WITH cols AS (
+#   SELECT ROW_NUMBER() OVER(ORDER BY training_types.id) as seq,
+#     * FROM [training_types]
+# )
+# SELECT * FROM cols WHERE seq BETWEEN 1 AND 2 ORDER BY seq;
+module ActiveRecord
+module ConnectionAdapters
+class SQLServerAdapter  < AbstractAdapter
+def add_limit_offset!(sql, options)
+if options[:limit].blank?
+super
+else
+options[:offset] ||= 0
+options[:limit] ||= 1000
+table = sql.match(/FROM\s+\[(\w+)/i)[1]
+options[:order] ||= "#{table}.id"
+sql.sub!(/ORDER BY.*$/i, '')
+sql.sub!(/SELECT/i, "WITH cols AS ( SELECT ROW_NUMBER() OVER(ORDER BY #{options[:order]}) as seq, ")
+sql << ") SELECT * FROM cols WHERE seq BETWEEN #{options[:offset]+1} AND #{options[:offset]+options[:limit]} ORDER BY seq"
+sql
+end
+end
+end
+end
+end
 </code></pre>
-<p>or you could set </p>
-<pre><code class="language-ruby">
-ENV['STRING_ENCRYPTION_KEY'] = "somekey"
-</code></pre>
-<p>where "somekey" is your key in environment.rb.</p>
-<p>Now encryption/decryption is easy.</p>
-<h3>Encryption:</h3>
-<pre><code class="language-ruby">
-"Test".encrypt  #=> "NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A"
-</code></pre>
-<h3>Decryption:</h3>
-<pre><code class="language-ruby">
-"NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A".decrypt  #=> "Test"
-</code></pre>
-<p>Code at Github:<br/>
-<a href="http://github.com/handerson/string_encryption">http://github.com/handerson/string_encryption</a></p>
 </div>
 </section>
 </div>
@@ -87,10 +112,10 @@ ENV['STRING_ENCRYPTION_KEY'] = "somekey"
 
 
 
-<a class="pure-button pure-button-primary" href="/2010/09/06/welcome-to-the-new-blog">Prev</a>
+<a class="pure-button pure-button-primary" href="/2011/08/05/another-blog-redesign">Prev</a>
 
 
-<a class="pure-button pure-button-primary" href="/2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby">Next</a>
+<a class="pure-button pure-button-primary" href="/2010/09/06/welcome-to-the-new-blog">Next</a>
 
 </div>
 
