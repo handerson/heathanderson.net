@@ -1,18 +1,26 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title><%- title %></title>
-    <link><%- url %></link>
-    <atom:link href="<%- url %>rss.xml" rel="self" type="application/rss+xml" />
-    <% for(slug in public.posts._data) { %>
-    <% var post = public.posts._data[slug] %>
-      <item>
-        <title><%- post.title %></title>
-        <description><![CDATA[<%- partial(slug+"/index") %>>]]></description>
-        <pubDate><%- new Date(post.date).toUTCString() %></pubDate>
-        <link><%- url %><%- slug %></link>
-        <guid isPermaLink="true"><%- url %><%- slug %></guid>
-      </item>
-    <% } %>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title><%- title %></title>
+  <link><%- url %></link>
+  <link rel="alternate" type="text/html" href="<%- url %>" />
+  <link rel="self" type="application/atom+xml" href="<%- url %>rss.xml" />
+  <id>tag:heathanderson.net,2022-12-09:223457</id>
+  <updated><%- new Date().toUTCString() %></updated>
+
+  <% for(slug in public.posts._data) { %>
+  <% var post = public.posts._data[slug] %>
+  <entry>
+    <title><%- post.title %></title>
+    <link rel="alternate" type="text/html" href="<%- url %><%- slug %>" />
+    <id><%- url %><%- slug %></id>
+
+    <published><%- new Date(post.date).toUTCString() %></published>
+
+    <author>
+        <name>Heath Anderson</name>
+        <uri><%- url %></uri>
+    </author>
+    <content type="html" xml:lang="en" xml:base="<%- url %>"><![CDATA[<%- partial(slug+"/index") %>]]></content>
+  </entry>
+  <% } %>
+</feed>
