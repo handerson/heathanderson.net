@@ -1,57 +1,78 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
 <title>Heath Anderson's Blog</title>
 <link>https://www.heathanderson.net/</link>
-<atom:link href="https://www.heathanderson.net/rss.xml" rel="self" type="application/rss+xml" />
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/" />
+<link rel="self" type="application/atom+xml" href="https://www.heathanderson.net/rss.xml" />
+<id>tag:heathanderson.net,2022-12-09:223457</id>
+<updated>Fri, 09 Dec 2022 23:23:12 GMT</updated>
 
 
-<item>
+<entry>
 <title>Vigil App</title>
-<description><![CDATA[<p><img src="/images/posts/vigil-app.jpeg" alt="Vigil App Screen" class="shadow" /> <a href="http://vigil-app.com">Vigil</a> is an easy-to-use, inexpensive website monitoring app for iOS. I&#39;ve been using Vigil for the past few months to monitor 16 sites. It has notified me of two separate issues during that time: a bandwidth overage for a Wordpress site and a (user managed) SSL certificate expiration. About a month ago I did receive a couple of  notifications in error, but the <a href="https://twitter.com/vigilapp">Vigil twitter account</a> did a good job of communicating the problems they were having. That is the only issue I&#39;ve encountered with the service, and it was a minor one.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2013/05/18/vigil-app" />
+<id>https://www.heathanderson.net/2013/05/18/vigil-app</id>
+<published>Sat, 18 May 2013 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p><img src="/images/posts/vigil-app.jpeg" alt="Vigil App Screen" class="shadow" /> <a href="http://vigil-app.com">Vigil</a> is an easy-to-use, inexpensive website monitoring app for iOS. I&#39;ve been using Vigil for the past few months to monitor 16 sites. It has notified me of two separate issues during that time: a bandwidth overage for a Wordpress site and a (user managed) SSL certificate expiration. About a month ago I did receive a couple of  notifications in error, but the <a href="https://twitter.com/vigilapp">Vigil twitter account</a> did a good job of communicating the problems they were having. That is the only issue I&#39;ve encountered with the service, and it was a minor one.</p>
 <p>The only feature I wish Vigil included is access to more historical data; currently only the previous hour&#39;s response time data is viewable. It would be nice to be able to see a detailed history, maybe even with an option to export the the data. They are apparently developing some kind of &quot;more detailed history view&quot; for a future version:</p>
 <blockquote class="twitter-tweet" data-conversation="none"><p>@<a href="https://twitter.com/iain">iain</a> It is not possible in the client currently, but we are working on adding more detailed history views for the next major release.</p>&mdash; Vigil App (@vigilapp) <a href="https://twitter.com/vigilapp/status/323763427564744704">April 15, 2013</a></blockquote>
 
 <p>The thing that first caught my eye about the service was the price: $9.99 for a year of monitoring an &quot;unlimited&quot; number of websites. That is <em>extremely</em> affordable. For comparison, the cheapest plan at <a href="https://www.pingdom.com/signup/">Pingdom</a> monitors up to 10 sites for $9.95 / <strong>month</strong>. It was a no-brainer to try out, and I&#39;m extrememly glad that I did. </p>
->]]></description>
-<pubDate>Sat, 18 May 2013 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2013/05/18/vigil-app</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2013/05/18/vigil-app</guid>
-</item>
+]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Hidden Radio Bluetooth Speaker</title>
-<description><![CDATA[<p>I didn&#8217;t get off to a great start with the Hidden Radio Bluetooth speaker. I was impatient so I tried to use it just a few minutes after plugging the speaker for its initial charge. My phone started randomly disconnecting from the speaker. This problem went away after letting the speaker charge for a couple of hours. </p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2012/12/01/hidden-radio-bluetooth-speaker" />
+<id>https://www.heathanderson.net/2012/12/01/hidden-radio-bluetooth-speaker</id>
+<published>Sat, 01 Dec 2012 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>I didn&#8217;t get off to a great start with the Hidden Radio Bluetooth speaker. I was impatient so I tried to use it just a few minutes after plugging the speaker for its initial charge. My phone started randomly disconnecting from the speaker. This problem went away after letting the speaker charge for a couple of hours. </p>
 <p>Another problem I ran into was with the twist to control mechanism. The Hidden Radio is turned on by twisting the top part of the speaker. This also increases the volume. The problem was with the base. It wouldn&#8217;t easily stay in place while turning its top. I was having to push down and turn. This didn&#8217;t work very well. </p>
 <p>I eventually found that cleaning the grippy material on the base with some water completely fixed the issue. Hopefully this isn&#8217;t something that has to be done too often. </p>
 <p>I have the silver colored one. I don&#8217;t really care for the plastic-aping-metal look. It looks fine, but I think I would go with black if I had the chance. </p>
 <p>I am mostly using the speaker to listen to podcasts, and I have no complaints with regards to audio quality or volume. It seems roughly comparable to other speakers of it&#8217;s size. </p>
 <p>The location of the micro USB port is annoying. It is on the bottom of the speaker at an odd angle. I find it difficult to both insert and remove the USB cable. This port charges the speaker. The Hidden Radio has a built in battery and is meant to be portable. I would be more likely to use it this way if the charging cable port was more accessible. </p>
 <p>The brightness of the the always-on (when plugged in) indicator light is another annoyance. I do have some <a href="https://www.thinkgeek.com/product/eeb6/">light blocker stickers</a> that help the situation. I wish the light would go off or dim significantly once the speaker is charged and turned off.</p>
-<p>Although I do like the simplictiy of its design, I don&#8217;t think I would pay $119 (the Kickstarter price) for it again. I would probably go cheaper with <a href="http://amzn.com/B0083UU1OO">GOgroove BlueSYNC OR3</a>, or more expensive and look at the <a href="http://amzn.com/B004E10KI8">Jawbone JAMBOX</a>. The retail price for the Hidden Radio is $149. </p>>]]></description>
-<pubDate>Sat, 01 Dec 2012 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2012/12/01/hidden-radio-bluetooth-speaker</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2012/12/01/hidden-radio-bluetooth-speaker</guid>
-</item>
+<p>Although I do like the simplictiy of its design, I don&#8217;t think I would pay $119 (the Kickstarter price) for it again. I would probably go cheaper with <a href="http://amzn.com/B0083UU1OO">GOgroove BlueSYNC OR3</a>, or more expensive and look at the <a href="http://amzn.com/B004E10KI8">Jawbone JAMBOX</a>. The retail price for the Hidden Radio is $149. </p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Do I Really Need An iPhone Dock?</title>
-<description><![CDATA[<p>Probably not. But I&#8217;m still using it. </p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2012/12/01/do-i-really-need-an-iphone-dock" />
+<id>https://www.heathanderson.net/2012/12/01/do-i-really-need-an-iphone-dock</id>
+<published>Sat, 01 Dec 2012 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>Probably not. But I&#8217;m still using it. </p>
 <p>I&#8217;ve used the Elevation Dock with Lightning Adapter for a couple of weeks now. Using the dock for another week really hasn&#8217;t done much to improve my opinion of the gadget. </p>
 <p>It is easier to put the phone in the dock than to directly plug in the lightning cable. On the other hand it is much easier to disconnect the cable than to undock the phone. I&#8217;m not sure how to weigh these two facts against each other. At best it is a wash. </p>
 <p>Right now I&#8217;m mostly continuing to use the dock because I like the way it looks. I suppose I will continue to use the Elevation Dock until I either find something better or get frustrated enough with the undocking procedure to decide to go dock-less. </p>
-<p>Or I may actually try some kind of adhesive to attach the dock to my night stand. That seems like a really bad idea, right? </p>>]]></description>
-<pubDate>Sat, 01 Dec 2012 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2012/12/01/do-i-really-need-an-iphone-dock</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2012/12/01/do-i-really-need-an-iphone-dock</guid>
-</item>
+<p>Or I may actually try some kind of adhesive to attach the dock to my night stand. That seems like a really bad idea, right? </p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>The Elevation Dock Lightning Adapter</title>
-<description><![CDATA[<p><img src="/images/posts/lightning-adapter.jpg" alt="Elevation Dock Lightning Adapter" class="shadow" />Earlier this year I received my <a href="http://www.elevationlab.com/products/elevationdock-for-iphone4">Elevation Dock</a> after funding the Kickstarter. I loved it. It was the absolutely the best docking solution available. Due to its low friction connector and heft it was even easier to use than just a cable. I could drop in my phone to charge, then grab it and go. No hassles. </p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2012/11/24/the-elevation-dock-lightning-adapter" />
+<id>https://www.heathanderson.net/2012/11/24/the-elevation-dock-lightning-adapter</id>
+<published>Sun, 25 Nov 2012 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p><img src="/images/posts/lightning-adapter.jpg" alt="Elevation Dock Lightning Adapter" class="shadow" />Earlier this year I received my <a href="http://www.elevationlab.com/products/elevationdock-for-iphone4">Elevation Dock</a> after funding the Kickstarter. I loved it. It was the absolutely the best docking solution available. Due to its low friction connector and heft it was even easier to use than just a cable. I could drop in my phone to charge, then grab it and go. No hassles. </p>
 <p>Getting the iPhone 5 kind of ruined that arrangement for me. I've been stuck charging with a plain cable (awful, I know). At least with the Lightning cable I could plug it in without having to study it to make sure I'm inserting it correctly.</p>
 <p>Thankfully Elevation Lab has released a <a href="http://www.elevationlab.com/products/lightning-adapter">Lightning adapter</a>. I ordered one as soon as they were available. It arrived earlier this week. </p>
 <p><img src="/images/posts/lightning-adapter-installed.jpg" alt="Elevation Dock Lightning Adapter Installed" class="shadow right" />Installing the adapter was easy enough. Luckily I had an extra Lightning cable to use with it. The adapter looks nice, and works well enough. The main problem is that Apple's Lightning connector produces too much friction to undock the phone with one hand. I now have to hold down the dock to get my phone. </p>
@@ -63,16 +84,20 @@ The lightning connector, like all of Apple's 30pin connectors, are higher fricti
 </p>
 <p> I had this information before ordering the adapter. In theory I could still remove the phone with one hand--all I would need to do is press down with my pinky on the dock and get the phone with my other digits. In practice I have not been able to make that work. It is a two handed affair to undock my phone. So goes one of the best features of the original Elevation Dock</p>
 <p>I still like the dock. The iPhone 5 version just isn't as useful as the 4/4S one. The Lightning adapter is well made, and I don't think they could have done a better job. It is my understanding that it is currently impossible for 3rd parties to create their own versions of Apple's Lightning connector. This means that Elevation Lab has made the best possible product given the current limitations.</p>
-<p>The Elevation Dock is still the best iPhone dock I have found.</p>>]]></description>
-<pubDate>Sun, 25 Nov 2012 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2012/11/24/the-elevation-dock-lightning-adapter</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2012/11/24/the-elevation-dock-lightning-adapter</guid>
-</item>
+<p>The Elevation Dock is still the best iPhone dock I have found.</p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>A New Look</title>
-<description><![CDATA[<p><img src="/images/posts/old-site.jpg" alt="Old Blog Design Closeup" class="shadow" />I've finally updated my blog again. I've thrown away most of the old style and code. I needed a new look. Apparently a year ago I was a bit obsessed with <a href="http://daringfireball.net/">low contrast</a> and <a href="http://webdesignandsuch.com/apple-linen-texture-effect-web-design-trend-download-tutorial/">textures</a>. These design concepts can work wonderfully. On my site they did not. I needed a new inspiration. One was not forthcoming.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2012/11/24/a-new-look" />
+<id>https://www.heathanderson.net/2012/11/24/a-new-look</id>
+<published>Sun, 25 Nov 2012 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p><img src="/images/posts/old-site.jpg" alt="Old Blog Design Closeup" class="shadow" />I've finally updated my blog again. I've thrown away most of the old style and code. I needed a new look. Apparently a year ago I was a bit obsessed with <a href="http://daringfireball.net/">low contrast</a> and <a href="http://webdesignandsuch.com/apple-linen-texture-effect-web-design-trend-download-tutorial/">textures</a>. These design concepts can work wonderfully. On my site they did not. I needed a new inspiration. One was not forthcoming.</p>
 <p>About a month ago I started watching <a href="http://www.usanetwork.com/series/whitecollar/">White Collar</a>. I really liked the <a href="http://fr.wikipedia.org/wiki/Fichier:White_Collar_2009_logo.svg">logo</a>. It stuck with me. Last Friday I had a day off, so I decided to see if I was indeed "inspired". I suppose I was close enough. I am much happier with the current site design than the old one.</p>
 <p><img src="/images/posts/site-design.png" alt="Blog Design Closeup" class="shadow right" />The rest of this paragraph may sound pretentious, and I apologize for that; however, I hope it gives some insight into the new design. The basic design language is that of a blue background overlain with a white sheet of material. The header and footer are on peeking out of the background. The blue headings and the date boxes are carved out of the white foreground to reveal the blue underneath. The white lettering in the header, footer, and date boxes are meant to be leftovers from white foreground material. The black text and images in the body of the page are sitting on top of the white foreground. </p>
 <p>I also can't help but try out some new (to me) technologies, especially if they might be useful in my day job. I've used a bit of <a href="http://sass-lang.com/">Sass</a> in the context of <a href="http://www.rubyinside.com/rails-3-1-adopts-coffeescript-jquery-sass-and-controversy-4669.html">Rails</a> before, but I was interested in learning more about it. And this <a href="http://compass-style.org/">Compass</a> thing I kept hearing about sounded really useful.</p>
@@ -87,16 +112,20 @@ Eventually I decided that it really didn't make sense to pay for fonts on a blog
 </p>
 <p>I did wind up using one custom font: <a href="http://levien.com/type/myfonts/inconsolata.html">Inconsolata</a>. I use this font in my text editor, so I decided to make the code snippets on my site use it. I found Font Squirrel's <a href="http://www.fontsquirrel.com/fontface/generator">@font-face generator</a> very useful</p>
 <p> I couldn't figure out how to display each post's date until I stumbled across this post about <a href="http://snook.ca/archives/html_and_css/css-text-rotation">CSS text rotation</a>. I also had to <a href="http://www.alistapart.com/articles/understanding-css3-transitions/">brush up on CSS3 transitions</a> to create the header. Making text look indented (or a letterpress effect) with CSS is surprisingly difficult. I found this <a href="https://gist.github.com/1609945">gist</a> incredibly useful.</p>
-<p>I'm still not done. There are still some bugs especially on mobile devices. I will continue to refine and fix. Hopefully this version lasts longer than a year.</p>>]]></description>
-<pubDate>Sun, 25 Nov 2012 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2012/11/24/a-new-look</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2012/11/24/a-new-look</guid>
-</item>
+<p>I'm still not done. There are still some bugs especially on mobile devices. I will continue to refine and fix. Hopefully this version lasts longer than a year.</p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Adding a Splash Screen For An Android PhoneGap App</title>
-<description><![CDATA[<p>The fact that you can add a splash screen to your PhoneGap app on the Android platform is surprisingly hard to come across. After some searching I did find some answers. </p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app" />
+<id>https://www.heathanderson.net/2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app</id>
+<published>Thu, 08 Mar 2012 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>The fact that you can add a splash screen to your PhoneGap app on the Android platform is surprisingly hard to come across. After some searching I did find some answers. </p>
 <ul>
 <li><a href="http://html5help.wordpress.com/2011/10/18/creating-splash-screen-start-up-screen-for-android-app-using-phonegap-jqtouch/">Adding the splash screen</a> - <a href="http://html5help.wordpress.com/">HTML5 Help</a> Blog
 <li><a href="https://groups.google.com/d/msg/phonegap/lu3p_QO3Nqg/xentHyA8Pz8J">Adding a delay so in case you want force your users to wait before they use your app</a> - Google Groups
@@ -151,16 +180,20 @@ super.setIntegerProperty("splashscreen", R.drawable.splash);
 super.loadUrl("file:///android_asset/www/index.html", 3000);
 }
 }
-</code></pre>>]]></description>
-<pubDate>Thu, 08 Mar 2012 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app</guid>
-</item>
+</code></pre>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>My Favorite Mac OS X Apps For Web Development</title>
-<description><![CDATA[<h4>Text Editors</h4>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2011/09/26/my-favorite-mac-os-x-apps-for-web-development" />
+<id>https://www.heathanderson.net/2011/09/26/my-favorite-mac-os-x-apps-for-web-development</id>
+<published>Mon, 26 Sep 2011 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<h4>Text Editors</h4>
 <h5><a href="http://www.sublimetext.com/2">Sublime Text 2</a> (currently free; will be $59)</h5>
 <p>I've been using this as my main text editor (replacing TextMate). It uses TextMate bundles and themes. Sublime runs on Mac OS X, Linux and Windows. Also checkout the Vintage mode if Vim intrigues you</p>
 <h5><a href="http://itunes.apple.com/us/app/tincta/id448340648?mt=12">Tincta</a> (free)</h5>
@@ -182,27 +215,35 @@ super.loadUrl("file:///android_asset/www/index.html", 3000);
 <h5><a href="http://itunes.apple.com/us/app/pandabar-pandora-radio-player/id459351174?mt=12">PandaBar</a> ($4.99)</h5>
 <p>An awesome Pandora player.</p>
 <h5><a href="http://itunes.apple.com/us/app/divvy/id413857545?mt=12">Divvy</a> ($13.99)</h5>
-<p>Manage your windows. Definitely set some global shortcuts. Mine are: &#8997;-&#8984;-f (fullscreen), &#8997;-&#8984;-&#8592; (left half of the screen), &#8997;-&#8984;-&#8594; (right half of the screen), &#8997;-&#8984;-&#8593; (top half of the screen), &#8997;-&#8984;-&#8595; (bottom half of the screen)</p>>]]></description>
-<pubDate>Mon, 26 Sep 2011 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2011/09/26/my-favorite-mac-os-x-apps-for-web-development</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2011/09/26/my-favorite-mac-os-x-apps-for-web-development</guid>
-</item>
+<p>Manage your windows. Definitely set some global shortcuts. Mine are: &#8997;-&#8984;-f (fullscreen), &#8997;-&#8984;-&#8592; (left half of the screen), &#8997;-&#8984;-&#8594; (right half of the screen), &#8997;-&#8984;-&#8593; (top half of the screen), &#8997;-&#8984;-&#8595; (bottom half of the screen)</p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Candy Japan</title>
-<description><![CDATA[<p>I just ate some weird Japanese candy called takoyaki-ya san. It is supposed to mimic the look of "octopus balls" (a Japanese dish that is decidedly not candy like). The candy, unlike the food on which it is based, is peach/strawberry flavored. Takoyaki-ya san embodies two concepts that seem a bit odd to me: candy that looks like real (non-candy) food and candy that you have to assemble yourself. Overall it was pretty ok. The texture was strange, but the flavor was fine.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2011/09/26/candy-japan" />
+<id>https://www.heathanderson.net/2011/09/26/candy-japan</id>
+<published>Mon, 12 Sep 2011 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>I just ate some weird Japanese candy called takoyaki-ya san. It is supposed to mimic the look of "octopus balls" (a Japanese dish that is decidedly not candy like). The candy, unlike the food on which it is based, is peach/strawberry flavored. Takoyaki-ya san embodies two concepts that seem a bit odd to me: candy that looks like real (non-candy) food and candy that you have to assemble yourself. Overall it was pretty ok. The texture was strange, but the flavor was fine.</p>
 <p>I received this candy from <a href="http://www.candyjapan.com/">CandyJapan.com</a>--a neat little service that will send you some weird Japanese candy twice a month for $24. I don't know how long I'll keep my subscription, but I think I'll get at least a few months of entertainment out it</p>
-<iframe width="560" height="315" src="http://www.youtube.com/embed/m0BF4cNGLA0?wmode=opaque" frameborder="0" allowfullscreen></iframe>>]]></description>
-<pubDate>Mon, 12 Sep 2011 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2011/09/26/candy-japan</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2011/09/26/candy-japan</guid>
-</item>
+<iframe width="560" height="315" src="http://www.youtube.com/embed/m0BF4cNGLA0?wmode=opaque" frameborder="0" allowfullscreen></iframe>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Some Simple jQuery Plugins</title>
-<description><![CDATA[<p>Below are some really simple jQuery plugins that I've thrown together over the past couple of years that I've found useful.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2011/08/27/s-jquery-plugins" />
+<id>https://www.heathanderson.net/2011/08/27/s-jquery-plugins</id>
+<published>Sat, 27 Aug 2011 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>Below are some really simple jQuery plugins that I've thrown together over the past couple of years that I've found useful.</p>
 <p>Need to scroll to element with animation? Here you go:</p>
 <pre><code class="language-javascript">
 // scroll to animation
@@ -282,52 +323,68 @@ this.value = $(this).attr("placeholder");
 })
 }
 };
-</code></pre>>]]></description>
-<pubDate>Sat, 27 Aug 2011 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2011/08/27/s-jquery-plugins</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2011/08/27/s-jquery-plugins</guid>
-</item>
+</code></pre>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Roku 2</title>
-<description><![CDATA[<p><img src="/images/posts/roku_box.jpg" alt="Roku 2 Box" class="shadow" />One month ago I got a <a href="http://www.roku.com/">Roku 2</a>. This was my fourth Roku. I bought a first generation Roku in June 2009 and I loved it. I eventually bought one for every TV in my house. My third box was the second generation Roku 1. It was much smaller than the first gen, had a better remote, and also had a cool little fabric tag on it. The Roku 2 follows in the second gen Roku 1's footsteps by being even smaller, having an even better remote, and still having the little purple tag.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2011/08/27/roku-2" />
+<id>https://www.heathanderson.net/2011/08/27/roku-2</id>
+<published>Sat, 27 Aug 2011 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p><img src="/images/posts/roku_box.jpg" alt="Roku 2 Box" class="shadow" />One month ago I got a <a href="http://www.roku.com/">Roku 2</a>. This was my fourth Roku. I bought a first generation Roku in June 2009 and I loved it. I eventually bought one for every TV in my house. My third box was the second generation Roku 1. It was much smaller than the first gen, had a better remote, and also had a cool little fabric tag on it. The Roku 2 follows in the second gen Roku 1's footsteps by being even smaller, having an even better remote, and still having the little purple tag.</p>
 <p>A new feature of the Roku 2 is the ability to play games. The only game that I've tried is the included Angry Birds. It's a good version of the game, and the motion controls are surprisingly good. But, for me, gaming on the Roku is just a nice secondary feature. I think I'll stick to either my Xbox, Playstation or Wii for the majority of game playing.</p>
 <img src="/images/posts/roku_in_box.jpg" alt="The Roku 2 is small" class="shadow" />
-<p>The best thing about the Roku is the number of 'channels' available.  There is one for <a href="http://www.netflix.com">Netflix</a>, <a href="http://www.amazon.com/Instant-Video/b/ref=sa_menu_aiv_vid0?ie=UTF8&node=2858778011">Amazon Instant Video</a>, <a href="http://www.hulu.com">Hulu</a>, and <a href="http://www.roku.com/roku-channel-store">many more</a>. The first generation boxes seem to have some trouble with channels like Hulu that sport a flashy interface. The Roku 2 doesn't have this problem. This is definitely the best Roku yet.</p>>]]></description>
-<pubDate>Sat, 27 Aug 2011 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2011/08/27/roku-2</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2011/08/27/roku-2</guid>
-</item>
+<p>The best thing about the Roku is the number of 'channels' available.  There is one for <a href="http://www.netflix.com">Netflix</a>, <a href="http://www.amazon.com/Instant-Video/b/ref=sa_menu_aiv_vid0?ie=UTF8&node=2858778011">Amazon Instant Video</a>, <a href="http://www.hulu.com">Hulu</a>, and <a href="http://www.roku.com/roku-channel-store">many more</a>. The first generation boxes seem to have some trouble with channels like Hulu that sport a flashy interface. The Roku 2 doesn't have this problem. This is definitely the best Roku yet.</p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Minimalist Business Card</title>
-<description><![CDATA[<p><img class="shadow" src="/images/posts/borismus_business_card.png" alt="Boris Smus' Business Card" /> I came across the <a href="http://smus.com/minimal-business-card-design">business card</a> to the left via <a href="http://boingboing.net/2011/08/22/ultraminimalist-business-card.html">Boing Boing</a>. Even though the original post is over one year old, it inspired me to try to design a simple business card (although I suppose it is more of a calling card). Graphic design is one of my weaker skills so I like to practice when I can. My take on the concept is below: </p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2011/08/22/minimalist-business-card" />
+<id>https://www.heathanderson.net/2011/08/22/minimalist-business-card</id>
+<published>Mon, 22 Aug 2011 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p><img class="shadow" src="/images/posts/borismus_business_card.png" alt="Boris Smus' Business Card" /> I came across the <a href="http://smus.com/minimal-business-card-design">business card</a> to the left via <a href="http://boingboing.net/2011/08/22/ultraminimalist-business-card.html">Boing Boing</a>. Even though the original post is over one year old, it inspired me to try to design a simple business card (although I suppose it is more of a calling card). Graphic design is one of my weaker skills so I like to practice when I can. My take on the concept is below: </p>
 <img src="/images/posts/card.png" class="shadow" alt="My Business Card" />
-<p>I kind of like it. I ordered twenty from <a href="http://www.zazzle.com/">Zazzle</a> for $7 just to see what they look like printed on actual paper.</p>>]]></description>
-<pubDate>Mon, 22 Aug 2011 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2011/08/22/minimalist-business-card</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2011/08/22/minimalist-business-card</guid>
-</item>
+<p>I kind of like it. I ordered twenty from <a href="http://www.zazzle.com/">Zazzle</a> for $7 just to see what they look like printed on actual paper.</p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Bastion</title>
-<description><![CDATA[<p><img class="shadow" src="/images/posts/bastion/bastion_1.jpg" alt="Bastion Screenshot"/>I've been playing <a href="http://supergiantgames.com/">Bastion</a> for the Xbox 360. I love this game. The art is great, the dynamic narration is unlike anything I've ever seen in a game before, and the music is amazing. The game narrates the main character's actions while you play--a feature that would certainly be annoying if poorly executed. Luckily here it is wonderfully done. The narrator simultaneously injects both humor and a sense of weight to the story. The music is great and evocative. I even <a href="http://supergiantgames.bandcamp.com/">bought</a> the soundtrack.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2011/08/21/bastion" />
+<id>https://www.heathanderson.net/2011/08/21/bastion</id>
+<published>Sun, 21 Aug 2011 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p><img class="shadow" src="/images/posts/bastion/bastion_1.jpg" alt="Bastion Screenshot"/>I've been playing <a href="http://supergiantgames.com/">Bastion</a> for the Xbox 360. I love this game. The art is great, the dynamic narration is unlike anything I've ever seen in a game before, and the music is amazing. The game narrates the main character's actions while you play--a feature that would certainly be annoying if poorly executed. Luckily here it is wonderfully done. The narrator simultaneously injects both humor and a sense of weight to the story. The music is great and evocative. I even <a href="http://supergiantgames.bandcamp.com/">bought</a> the soundtrack.</p>
 <img class="shadow" src="/images/posts/bastion/bastion_2.jpg" alt="Bastion Screenshot"/>
 <p>And on top of all that the game is really fun. Every weapon featured in the game is fun, looks cool and is useful. I'm starting my second play through and I'm looking forward to experimenting with some of the weapons that I only briefly used on my first try.</p>
 <p>Bastion is one of the best games I've played this year. If you have a 360 <a href="http://marketplace.xbox.com/en-US/Product/Bastion/66acd000-77fe-1000-9115-d80258410b66">download</a> the Bastion demo and give it a try. </p>
-<object style="height: 366px; width: 640px"><param name="movie" value="http://www.youtube.com/v/TptJHeWngJs?version=3"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="http://www.youtube.com/v/TptJHeWngJs?version=3" type="application/x-shockwave-flash" allowfullscreen="true" wmode="opaque"  allowScriptAccess="always" width="600" height="366"></object>>]]></description>
-<pubDate>Sun, 21 Aug 2011 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2011/08/21/bastion</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2011/08/21/bastion</guid>
-</item>
+<object style="height: 366px; width: 640px"><param name="movie" value="http://www.youtube.com/v/TptJHeWngJs?version=3"><param name="allowFullScreen" value="true"><param name="allowScriptAccess" value="always"><embed src="http://www.youtube.com/v/TptJHeWngJs?version=3" type="application/x-shockwave-flash" allowfullscreen="true" wmode="opaque"  allowScriptAccess="always" width="600" height="366"></object>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Automating New Post Creation in Jekyll</title>
-<description><![CDATA[<p>After automating deployment, my next goal was to automate creating a new post. After looking around a bit I decided to slightly modify the rake task used by <a href="https://github.com/imathis/octopress">Octopress</a>, a Jekyll based blogging framework. </p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2011/08/14/1-automating-new-post-creation-in-jekyll" />
+<id>https://www.heathanderson.net/2011/08/14/1-automating-new-post-creation-in-jekyll</id>
+<published>Sun, 14 Aug 2011 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>After automating deployment, my next goal was to automate creating a new post. After looking around a bit I decided to slightly modify the rake task used by <a href="https://github.com/imathis/octopress">Octopress</a>, a Jekyll based blogging framework. </p>
 <pre><code class="language-ruby">
 # adapted from https://github.com/imathis/octopress/blob/master/Rakefile
 # usage rake new_post['My New Post'] or rake new_post (defaults to "My New Post")
@@ -348,16 +405,20 @@ post.puts "---"
 end
 end
 </code></pre>
-<p>Now that the above is in my <a href="https://github.com/handerson/heathanderson.net/blob/master/rakefile.rb">rakefile</a>, I'm just a <code>rake new_post['This is Awesome']</code> away from starting a new post.>]]></description>
-<pubDate>Sun, 14 Aug 2011 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2011/08/14/1-automating-new-post-creation-in-jekyll</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2011/08/14/1-automating-new-post-creation-in-jekyll</guid>
-</item>
+<p>Now that the above is in my <a href="https://github.com/handerson/heathanderson.net/blob/master/rakefile.rb">rakefile</a>, I'm just a <code>rake new_post['This is Awesome']</code> away from starting a new post.]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Deploying a Jekyll Site to Amazon S3</title>
-<description><![CDATA[<p>Before moving my blog to Amazon S3 I wanted to make sure that I could deploy updates easily. I came across several ways to do it. The easiest method I found was in a <a href="http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/">blog post</a> by <a href="http://blog.hendrikvolkmer.de/about/">Hendrik Volkmer</a>. It uses a command line tool called <code>s3cmd</code> run through a rake task. <a href="http://s3tools.org/s3cmd">s3cmd</a> can be installed using <a href="http://mxcl.github.com/homebrew/">Homebrew</a> on Mac OS X. </p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2011/08/14/0-deploying-jekyll" />
+<id>https://www.heathanderson.net/2011/08/14/0-deploying-jekyll</id>
+<published>Sun, 14 Aug 2011 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>Before moving my blog to Amazon S3 I wanted to make sure that I could deploy updates easily. I came across several ways to do it. The easiest method I found was in a <a href="http://blog.hendrikvolkmer.de/2011/02/25/moving-from-wordpress-on-a-vps-to-jekyll-and-amazon-s3/">blog post</a> by <a href="http://blog.hendrikvolkmer.de/about/">Hendrik Volkmer</a>. It uses a command line tool called <code>s3cmd</code> run through a rake task. <a href="http://s3tools.org/s3cmd">s3cmd</a> can be installed using <a href="http://mxcl.github.com/homebrew/">Homebrew</a> on Mac OS X. </p>
 <pre><code class="language-bash">
 brew install s3cmd
 </code></pre>
@@ -375,28 +436,36 @@ end
 <p>After placing the above in a <a href="https://github.com/handerson/heathanderson.net/blob/master/rakefile.rb">rakefile</a> all I have to do is run the following to publish a new post or deploy any other changes:</p>
 <pre><code class="language-bash">
 rake deploy
-</code></pre>>]]></description>
-<pubDate>Sun, 14 Aug 2011 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2011/08/14/0-deploying-jekyll</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2011/08/14/0-deploying-jekyll</guid>
-</item>
+</code></pre>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Why Amazon S3?</title>
-<description><![CDATA[<p>The main reason for switching to S3 as a host for this site was cost. This blog gets almost no traffic so I anticipate my monthly S3 bill to be less than $1 USD. That is pretty cheap. I was previously using a VPS from <a href="http://www.linode.com">Linode</a>. It was $19.99 a month. I love Linode, and next time I need a VPS I will go with them. But it was overkill for this blog. I was simply serving static HTML from Apache.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2011/08/13/why-amazon-s3" />
+<id>https://www.heathanderson.net/2011/08/13/why-amazon-s3</id>
+<published>Fri, 08 Nov 2013 06:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>The main reason for switching to S3 as a host for this site was cost. This blog gets almost no traffic so I anticipate my monthly S3 bill to be less than $1 USD. That is pretty cheap. I was previously using a VPS from <a href="http://www.linode.com">Linode</a>. It was $19.99 a month. I love Linode, and next time I need a VPS I will go with them. But it was overkill for this blog. I was simply serving static HTML from Apache.</p>
 <img class="shadow" src="/images/posts/s3calc.png" alt="Simple Monthly Calculator"/>
 <p>Using Amazon's <a href="http://calculator.s3.amazonaws.com/calc5.html">Simple Monthly Calculator</a> I estimate that even if this site gets a couple orders of magnitude more popular, I'll still be paying less than $4.00 a month.</p>
-<p>I also no longer have to worry about server security and server uptime. Those are two pretty big pluses.</p>>]]></description>
-<pubDate>Fri, 08 Nov 2013 06:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2011/08/13/why-amazon-s3</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2011/08/13/why-amazon-s3</guid>
-</item>
+<p>I also no longer have to worry about server security and server uptime. Those are two pretty big pluses.</p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Using Amazon S3 for Hosting</title>
-<description><![CDATA[<p>Earlier this year Amazon S3 was <a href="https://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/">updated</a> to more easily support hosting static websites. The full <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a> is online, but I'll give a quick overview of how it works here.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2011/08/13/using-amazon-s3-for-hosting" />
+<id>https://www.heathanderson.net/2011/08/13/using-amazon-s3-for-hosting</id>
+<published>Sat, 13 Aug 2011 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>Earlier this year Amazon S3 was <a href="https://aws.amazon.com/about-aws/whats-new/2011/02/17/Amazon-S3-Website-Features/">updated</a> to more easily support hosting static websites. The full <a href="http://docs.amazonwebservices.com/AmazonS3/latest/dev/index.html?WebsiteHosting.html">documentation</a> is online, but I'll give a quick overview of how it works here.</p>
 <img class="shadow" src="/images/posts/create_bucket.png" alt="Create a bucket"/>
 <p>The first step was to create a bucket. The only way I could get the DNS CNAME record (more on that in a minute) for my domain to actually point to the correct bucket was to name the bucket the same as the domain. I didn't see this mentioned anywhere in the documentation so perhaps I was doing something incorrectly.</p>
 <img class="shadow" src="/images/posts/website_tab.png" alt="Website Tab"/>
@@ -423,16 +492,20 @@ rake deploy
 <p>After copying my site to the buck and testing the endpoint URL in my browser, I was ready to set up my domain to point to my new host.</p>
 <img class="shadow" src="/images/posts/dns.png" alt="Edit DNS"/>
 <p>Setting up the DNS was easy. All it takes is setting the root domain to forward to the www subdomain, and setting up a CNAME alias for the www subdomain to the endpoint from the 'Website' tab of the Amazon S3 management console.</p>
-<p>The only problem that I had was when I initially named my bucket 'blogofheath'. I followed all the steps listed above, but when trying to visit the site from <a href="http://www.heathanderson.net">www.heathanderson.net</a> I kept getting an error. Apparently Amazon was to to serve a bucket named 'www.heathanderson.net' and since that bucket didn't exist things were not working. So I created a new bucket (renaming buckets isn't allowed), named it the same as my domain, and went through the same steps. Then it worked. Any ideas?</p>>]]></description>
-<pubDate>Sat, 13 Aug 2011 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2011/08/13/using-amazon-s3-for-hosting</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2011/08/13/using-amazon-s3-for-hosting</guid>
-</item>
+<p>The only problem that I had was when I initially named my bucket 'blogofheath'. I followed all the steps listed above, but when trying to visit the site from <a href="http://www.heathanderson.net">www.heathanderson.net</a> I kept getting an error. Apparently Amazon was to to serve a bucket named 'www.heathanderson.net' and since that bucket didn't exist things were not working. So I created a new bucket (renaming buckets isn't allowed), named it the same as my domain, and went through the same steps. Then it worked. Any ideas?</p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Simple Search</title>
-<description><![CDATA[<p>I often come across interesting ideas and tools that I have no current use for but seem like they may be useful someday, so I bookmark them and hope I will recall them when needed. That process is what led to the current implementation of site search located at the bottom of each page on this blog.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2011/08/06/adding-search" />
+<id>https://www.heathanderson.net/2011/08/06/adding-search</id>
+<published>Sat, 06 Aug 2011 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>I often come across interesting ideas and tools that I have no current use for but seem like they may be useful someday, so I bookmark them and hope I will recall them when needed. That process is what led to the current implementation of site search located at the bottom of each page on this blog.</p>
 <p>At some point I came across an <a href="http://googlewebmastercentral.blogspot.com/2008/08/make-your-404-pages-more-useful.html">article</a> on the the Google Webmaster Central Blog about <a href="http://www.google.com/support/webmasters/bin/answer.py?answer=136085">enhancing</a> a site's 404 page. I thought it was a pretty cool idea, and I'm <a href="/404.html">using</a> it on this site. The required code is very short:</p>
 <pre><code class="language-javascript">
 &lt;script type="text/javascript">
@@ -462,27 +535,35 @@ You can search this site using <a href="http://www.google.com/search?q=site:www.
 &lt;input type="submit" value="Search">
 &lt;/form>
 </code></pre>
-<p>I could have created the form element in JavaScript and appended it to the page, but that seemed more complicated than necessary. I also could have used an event handler instead of the inline onsubmit attribute, but again I point to the complexity. This way avoids most cross-browser pitfalls, and has the advantage of simplicity. I also added a link to Google inside a noscript tag for people that have JavaScript disabled.</p>>]]></description>
-<pubDate>Sat, 06 Aug 2011 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2011/08/06/adding-search</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2011/08/06/adding-search</guid>
-</item>
+<p>I could have created the form element in JavaScript and appended it to the page, but that seemed more complicated than necessary. I also could have used an event handler instead of the inline onsubmit attribute, but again I point to the complexity. This way avoids most cross-browser pitfalls, and has the advantage of simplicity. I also added a link to Google inside a noscript tag for people that have JavaScript disabled.</p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Another Blog Redesign</title>
-<description><![CDATA[<p><img class="shadow" alt="HTML5 banner" src="http://www.heathanderson.net/images/posts/HTML5_sticker.png" />I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now <a href="http://www.w3.org/html/logo/">HTML5</a>--no more XHTML.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2011/08/05/another-blog-redesign" />
+<id>https://www.heathanderson.net/2011/08/05/another-blog-redesign</id>
+<published>Fri, 05 Aug 2011 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p><img class="shadow" alt="HTML5 banner" src="http://www.heathanderson.net/images/posts/HTML5_sticker.png" />I've decided to change the design of the this blog once again. I've radically simplified the site. The side bar is gone. The comment section is gone. Pretty much all the JavaScript is gone (the exception being the search box at the bottom of each page). The site is now <a href="http://www.w3.org/html/logo/">HTML5</a>--no more XHTML.</p>
 <p>I am still using <a href="http://jekyllrb.com/">Jekyll</a> to generate the HTML files of the site. I love the simplicity of it. I'm hosting the site on <a href="http://aws.amazon.com/s3/">Amazon S3</a>. It is fast, cheap and maintenance free. </p>
-<p>I hope this new, streamlined version of my site will encourage me to post more. I guess we'll see.</p>>]]></description>
-<pubDate>Fri, 05 Aug 2011 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2011/08/05/another-blog-redesign</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2011/08/05/another-blog-redesign</guid>
-</item>
+<p>I hope this new, streamlined version of my site will encourage me to post more. I guess we'll see.</p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Using will_paginate and activerecord-sqlserver-adapter with SQL Server</title>
-<description><![CDATA[<p>Having Rails and Microsoft SQL Server communicate is much easier than it once was thanks to projects like <a href="https://github.com/rails-sqlserver/tiny_tds">TinyTDS</a>, but sometimes things still don't work exactly right. <a href="http://blacksnowmedia.com/">We</a> ran into an issue where pagination simply would not work. Below is what we came up with after some research.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2011/08/01/using-will_paginate-with-sql-server" />
+<id>https://www.heathanderson.net/2011/08/01/using-will_paginate-with-sql-server</id>
+<published>Mon, 01 Aug 2011 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>Having Rails and Microsoft SQL Server communicate is much easier than it once was thanks to projects like <a href="https://github.com/rails-sqlserver/tiny_tds">TinyTDS</a>, but sometimes things still don't work exactly right. <a href="http://blacksnowmedia.com/">We</a> ran into an issue where pagination simply would not work. Below is what we came up with after some research.</p>
 <p>This solution was based on the following:</p>
 <ul>
 <li><a href="">http://alexle.net/archives/tag/mislav-will_paginate-sqlserver-2005</a>
@@ -530,16 +611,20 @@ end
 end
 end
 end
-</code></pre>>]]></description>
-<pubDate>Mon, 01 Aug 2011 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2011/08/01/using-will_paginate-with-sql-server</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2011/08/01/using-will_paginate-with-sql-server</guid>
-</item>
+</code></pre>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Welcome to the new blog</title>
-<description><![CDATA[<p>I've finally had time to move my personal blog off of Wordpress.com. Now it is just static HTML generated by <a href="http://github.com/mojombo/jekyll">Jekyll</a>. The new address is <a href="http://www.heathanderson.net">http://www.heathanderson.net</a>; http://www.blogofheath.com will redirect there.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2010/09/06/welcome-to-the-new-blog" />
+<id>https://www.heathanderson.net/2010/09/06/welcome-to-the-new-blog</id>
+<published>Mon, 06 Sep 2010 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>I've finally had time to move my personal blog off of Wordpress.com. Now it is just static HTML generated by <a href="http://github.com/mojombo/jekyll">Jekyll</a>. The new address is <a href="http://www.heathanderson.net">http://www.heathanderson.net</a>; http://www.blogofheath.com will redirect there.</p>
 <p>I hope to posting *something* at least once a month. I know that doesn't sound like a lot, but I've had a blog for about a year and only have four previous posts. That is kind of pathetic. I'm planning on posting more than just code related stuff, so-- if programming doesn't interest you --maybe all hope of you reading future posts isn't lost.</p>
 <p>What am I using to generate this site? Here is the list:</p>
 <ul>
@@ -552,16 +637,20 @@ end
 <li><a href="http://themeforest.net/item/clean-blog/49983">Clean Blog</a> theme
 <li><a href="http://www.flickr.com/badge.gne">Flickr Badge Generator</a>
 </ul>
-<p>I'm hosting this on <a href="http://linode.com">Linode</a>. Server side is the usual--Apache. I'm deploying using git's post receive hook. It is pretty sweet.</p>>]]></description>
-<pubDate>Mon, 06 Sep 2010 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2010/09/06/welcome-to-the-new-blog</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2010/09/06/welcome-to-the-new-blog</guid>
-</item>
+<p>I'm hosting this on <a href="http://linode.com">Linode</a>. Server side is the usual--Apache. I'm deploying using git's post receive hook. It is pretty sweet.</p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Ruby on Rails Plugin: string_encryption</title>
-<description><![CDATA[<p>This is a very simple Ruby on Rails plugin that allows easy encryption of strings. For the sake of simplicity there no customization. The only cipher used is 'des-ede3-cbc' (Triple DES using Cipher Block Chaining) . See my <a href="http://blogofheath.com/2009/09/25/ruby-string-encryption/">post </a> on encrypting/decrypting a string with Ruby for more information. First install the plugin:</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2009/11/23/ruby-on-rails-plugin-string_encryption" />
+<id>https://www.heathanderson.net/2009/11/23/ruby-on-rails-plugin-string_encryption</id>
+<published>Mon, 23 Nov 2009 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>This is a very simple Ruby on Rails plugin that allows easy encryption of strings. For the sake of simplicity there no customization. The only cipher used is 'des-ede3-cbc' (Triple DES using Cipher Block Chaining) . See my <a href="http://blogofheath.com/2009/09/25/ruby-string-encryption/">post </a> on encrypting/decrypting a string with Ruby for more information. First install the plugin:</p>
 <pre><code class="language-ruby">
 script/plugin install git://github.com/handerson/string_encryption.git
 </code></pre>
@@ -584,16 +673,20 @@ ENV['STRING_ENCRYPTION_KEY'] = "somekey"
 "NDFkZTc5NDEyNTg1MzdiZPzBrxZz5aoN%0A".decrypt  #=> "Test"
 </code></pre>
 <p>Code at Github:<br/>
-<a href="http://github.com/handerson/string_encryption">http://github.com/handerson/string_encryption</a></p>>]]></description>
-<pubDate>Mon, 23 Nov 2009 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2009/11/23/ruby-on-rails-plugin-string_encryption</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2009/11/23/ruby-on-rails-plugin-string_encryption</guid>
-</item>
+<a href="http://github.com/handerson/string_encryption">http://github.com/handerson/string_encryption</a></p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Initialization Vector Length in MRI Ruby versus JRuby</title>
-<description><![CDATA[<p>When using OpenSSL encryption in standard Ruby, the length of an initialization vector (IV) can apparently be as large as you want it to be as long as it is at least the minimum size. This is odd. This can also cause trouble when switching over to JRuby. JRuby appear to be much pickier about IV length.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby" />
+<id>https://www.heathanderson.net/2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby</id>
+<published>Sun, 27 Sep 2009 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>When using OpenSSL encryption in standard Ruby, the length of an initialization vector (IV) can apparently be as large as you want it to be as long as it is at least the minimum size. This is odd. This can also cause trouble when switching over to JRuby. JRuby appear to be much pickier about IV length.</p>
 <p>This works in MRI but not in JRuby:</p>
 <pre><code class="language-ruby">
 unencrypted_data = "test"
@@ -609,16 +702,20 @@ puts encrypted_data
 from ruby_string_encryption.rb:37@</p>
 <p>Change the IV to 8 characters and everything works fine.</p>
 <p><em>Update 10/14/2009</em> The code that I originally posted was incorrect. I have updated it. Also I opened a <a href="http://jira.codehaus.org/browse/JRUBY-4012">ticket </a>for this issue. </p>
-<p>If you are looking for what size an initialization vector should be check out my post on <a href="http://www.heathanderson.net/2009/09/25/ruby-string-encryption/">encrypting a string with Ruby</a>.</p>>]]></description>
-<pubDate>Sun, 27 Sep 2009 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby</guid>
-</item>
+<p>If you are looking for what size an initialization vector should be check out my post on <a href="http://www.heathanderson.net/2009/09/25/ruby-string-encryption/">encrypting a string with Ruby</a>.</p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Ruby String Encryption</title>
-<description><![CDATA[<p>Encrypting a string is fairly easy in Ruby. All you need to do is @require 'openssl'@. For this example I am using the 'des-ede3-cbc' (<a href="http://en.wikipedia.org/wiki/Triple_des">Triple DES</a> using <a href="http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation">Cipher Block Chaining</a>) cipher. Most--if not all--of the ciphers listed on <a href="http://www.openssl.org/docs/apps/enc.html">OpenSSL.org</a> as supported ciphers should work as well. </p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2009/09/25/ruby-string-encryption" />
+<id>https://www.heathanderson.net/2009/09/25/ruby-string-encryption</id>
+<published>Fri, 25 Sep 2009 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>Encrypting a string is fairly easy in Ruby. All you need to do is @require 'openssl'@. For this example I am using the 'des-ede3-cbc' (<a href="http://en.wikipedia.org/wiki/Triple_des">Triple DES</a> using <a href="http://en.wikipedia.org/wiki/Block_cipher_modes_of_operation">Cipher Block Chaining</a>) cipher. Most--if not all--of the ciphers listed on <a href="http://www.openssl.org/docs/apps/enc.html">OpenSSL.org</a> as supported ciphers should work as well. </p>
 <p>Triple DES requires a 24-byte key, with Ruby this means a string with 24 characters. We are also required to provide an <a href="http://en.wikipedia.org/wiki/Initialization_vector">initialization vector</a> (IV). The IV is usually the same size as the block size of the cipher you are using (so says Wikipedia, so say we all). In our case this means an IV of 64-bits, or 8-bytes, or an 8 character Ruby String. If we randomize our IV and include it with our encrypted string then we can ensure that our encrypted data never looks the same even when we encrypt the same string multiple times.</p>
 <pre><code class="language-ruby">
 require 'openssl'
@@ -653,16 +750,20 @@ des.iv =  encrypted_data.slice!(0,8) #This gives us our iv back and removes it f
 decrypted = des.update(encrypted_data) + des.final
 puts decrypted
 </code></pre>
-<p>If you are using Rails or have access to ActiveSupport <a href="http://api.rubyonrails.org/classes/ActiveSupport/SecureRandom.html">ActiveSupport::SecureRandom</a> is a great way to generate your key and IV. Also be sure to check out <a href="http://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html">ActiveSupport::MessageEncryptor</a> and my <a href="http://github.com/handerson/string_encryption">string_encryption</a> plugin. I'll probably do a writeup on the string_encryption plugin sometime next week.</p>>]]></description>
-<pubDate>Fri, 25 Sep 2009 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2009/09/25/ruby-string-encryption</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2009/09/25/ruby-string-encryption</guid>
-</item>
+<p>If you are using Rails or have access to ActiveSupport <a href="http://api.rubyonrails.org/classes/ActiveSupport/SecureRandom.html">ActiveSupport::SecureRandom</a> is a great way to generate your key and IV. Also be sure to check out <a href="http://api.rubyonrails.org/classes/ActiveSupport/MessageEncryptor.html">ActiveSupport::MessageEncryptor</a> and my <a href="http://github.com/handerson/string_encryption">string_encryption</a> plugin. I'll probably do a writeup on the string_encryption plugin sometime next week.</p>]]></content>
+</entry>
 
 
-<item>
+<entry>
 <title>Ruby on Rails Plugin: data_migration</title>
-<description><![CDATA[<p>data_migration allows you to separate data you need to load from your normal database migrations in a minimal way. While developing the new version of our flagship site, <a href="http://www.knetwit.com">Knetwit</a>, we decided we needed to separate our data migrations (initial settings and the like) from our structural migrations. We decided the easiest way to do this was to modify the existing Rails migration to allow for a new data migration. So we did.</p>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2009/09/22/ruby-on-rails-plugin-data_migration" />
+<id>https://www.heathanderson.net/2009/09/22/ruby-on-rails-plugin-data_migration</id>
+<published>Tue, 22 Sep 2009 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>data_migration allows you to separate data you need to load from your normal database migrations in a minimal way. While developing the new version of our flagship site, <a href="http://www.knetwit.com">Knetwit</a>, we decided we needed to separate our data migrations (initial settings and the like) from our structural migrations. We decided the easiest way to do this was to modify the existing Rails migration to allow for a new data migration. So we did.</p>
 <h3>Install Plugin</h3>
 <pre><code class="language-ruby">
 script/plugin install git://github.com/handerson/data_migration.git
@@ -700,11 +801,7 @@ rake db:data:migrate
 </code></pre>
 <p>db:data:migrate adds the data migration version number to the 'schema_migrations' table so it will not be ran again.</p>
 <p>Code at Github:<br/>
-<a href="http://github.com/handerson/data_migration">http://github.com/handerson/data_migration</a></p>>]]></description>
-<pubDate>Tue, 22 Sep 2009 00:00:00 GMT</pubDate>
-<link>https://www.heathanderson.net/2009/09/22/ruby-on-rails-plugin-data_migration</link>
-<guid isPermaLink="true">https://www.heathanderson.net/2009/09/22/ruby-on-rails-plugin-data_migration</guid>
-</item>
+<a href="http://github.com/handerson/data_migration">http://github.com/handerson/data_migration</a></p>]]></content>
+</entry>
 
-</channel>
-</rss>
+</feed>
