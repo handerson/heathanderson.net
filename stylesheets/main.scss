@@ -263,9 +263,32 @@ blockquote.twitter-tweet {
 }
 .mt-container, .photostream-container, .posts-container {
   margin: 0 auto;
-  max-width: 30rem;
-  padding: 2rem;
+}
+.mt-container, .posts-container{
+  padding: 2rem 1rem;
 }
 .photostream-container{
   text-align: center;
+  padding: 2rem 0;
+}
+
+i.icon-hihi {
+
+}
+i.icon{
+  display:inline-block;
+  text-decoration:none;
+  width:1em;
+  height:1em;
+ }
+i.icon-hihi:before{
+  content: '';
+  background:url('/images/hihi.png');
+  background-size:cover;
+  position:absolute;
+  width:1.8em;
+  height:1.8em;
+
+  margin-top:-0.3em;
+  margin-left:-0.5em;
 }
