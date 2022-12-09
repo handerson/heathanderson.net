@@ -3,15 +3,15 @@
   <channel>
     <title><%- title %></title>
     <link><%- url %></link>
-    <atom:link href="<%- url %>/rss.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="<%- url %>rss.xml" rel="self" type="application/rss+xml" />
     <% for(slug in public.posts._data) { %>
     <% var post = public.posts._data[slug] %>
       <item>
         <title><%- post.title %></title>
-        <description><![CDATA[<%- partial(slug) %>]]></description>
-        <pubDate><%- Date(post.date) %></pubDate>
-        <link><%- url %>/posts/<%- post %></link>
-        <guid isPermaLink="true"><%- url %>/posts/<%- post %></guid>
+        <description><![CDATA[<%- partial(slug+"/index") %>>]]></description>
+        <pubDate><%- new Date(post.date).toUTCString() %></pubDate>
+        <link><%- url %><%- slug %></link>
+        <guid isPermaLink="true"><%- url %><%- slug %></guid>
       </item>
     <% } %>
   </channel>

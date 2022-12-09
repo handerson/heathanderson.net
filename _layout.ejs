@@ -9,12 +9,9 @@
 </head>
 <body>
 
-
-    <div class="header">
-        <%- partial("_includes/header") %>
-    </div>
-
-
+  <div class="header">
+      <%- partial("_includes/header") %>
+  </div>
   
   <% if(public.posts._data[path]) { %>
     <%- partial("/_post", {"path": path}) %>
