@@ -1,28 +1,63 @@
----
-layout: plain
----
-<div class="content clearfix">
+<!doctype html>
+<html lang="en">
 
-  <h1>Page not found</h1>
-  <div class="small">That'd be a <a href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404</a> error</div>
+<head>
+  <meta charset="utf-8">
+  <title>Page Not Found</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+    * {
+      line-height: 1.2;
+      margin: 0;
+    }
 
-  <div role="main">
-  <p>Sorry, but the page you&#8217;re looking for doesn&#8217;t not exist.</p>
-  <p>It looks like this was either the result of:</p>
+    html {
+      color: #888;
+      display: table;
+      font-family: sans-serif;
+      height: 100%;
+      text-align: center;
+      width: 100%;
+    }
 
-  <ul>
-  <li>A mis-typed address</li>
-  <li>An out-of-date link</li>
-  </ul>
- 
-  </div>
-  
-  <script type="text/javascript">
-  var GOOG_FIXURL_LANG = 'en';
-  var GOOG_FIXURL_SITE = 'http://www.heathanderson.net'
-</script>
-<script type="text/javascript"
-  src="http://linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js">
-</script>
+    body {
+      display: table-cell;
+      vertical-align: middle;
+      margin: 2em auto;
+    }
 
-</div>
+    h1 {
+      color: #555;
+      font-size: 2em;
+      font-weight: 400;
+    }
+
+    p {
+      margin: 0 auto;
+      width: 280px;
+    }
+
+    @media only screen and (max-width: 280px) {
+
+      body,
+      p {
+        width: 95%;
+      }
+
+      h1 {
+        font-size: 1.5em;
+        margin: 0 0 0.3em;
+      }
+
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Page Not Found</h1>
+  <p>Sorry, but the page you were trying to view does not exist.</p>
+  <p>Back to <a href="/">Home</a></p>
+</body>
+
+</html>
+<!-- IE needs 512+ bytes: https://docs.microsoft.com/archive/blogs/ieinternals/friendly-http-error-pages -->

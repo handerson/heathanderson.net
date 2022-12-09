@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title><%- title %></title>
+    <link><%- url %></link>
+    <atom:link href="<%- url %>/rss.xml" rel="self" type="application/rss+xml" />
+    <% for(slug in public.posts._data) { %>
+    <% var post = public.posts._data[slug] %>
+      <item>
+        <title><%- post.title %></title>
+        <description><![CDATA[<%- partial(slug) %>]]></description>
+        <pubDate><%- Date(post.date) %></pubDate>
+        <link><%- url %>/posts/<%- post %></link>
+        <guid isPermaLink="true"><%- url %>/posts/<%- post %></guid>
+      </item>
+    <% } %>
+  </channel>
+</rss>

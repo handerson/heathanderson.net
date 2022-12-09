@@ -1,0 +1,29 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<% if(public.posts._data[path]) { %>
+<meta property="og:title" content="<%- public.posts._data[path].title %>">
+<title><%- public.posts._data[path].title %></title>
+<meta property="og:type" content="article">
+<% } else { %>
+<meta property="og:title" content="<%- title %>">
+<title><%- title %></title>
+<% } %>
+
+<link rel="manifest" href="site.webmanifest">
+<link rel="apple-touch-icon" href="icon.png">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css" integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/grids-responsive-min.css" />
+<link rel="stylesheet" href="/stylesheets/prism.css" />
+<link rel="stylesheet" href="/stylesheets/main.css">
+
+<meta name="theme-color" content="#fafafa">
+
+<link rel="openid2.provider" href="https://open.login.yahooapis.com/openid/op/auth" />
+<link rel="openid.server"    href="https://open.login.yahooapis.com/openid/op/auth" />
+
+<link rel="openid2.local_id" href="http://www.flickr.com/photos/heathanderson" />
+<link rel="openid.delegate"  href="http://www.flickr.com/photos/heathanderson" />
+
+<link rel="alternate" type="application/rss+xml" title="Heath Anderson's Blog Feed" href="http://www.heathanderson.net/rss.xml">

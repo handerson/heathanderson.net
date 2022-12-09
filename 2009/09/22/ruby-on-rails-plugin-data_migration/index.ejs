@@ -1,0 +1,54 @@
+
+<p>data_migration allows you to separate data you need to load from your normal database migrations in a minimal way. While developing the new version of our flagship site, <a href="http://www.knetwit.com">Knetwit</a>, we decided we needed to separate our data migrations (initial settings and the like) from our structural migrations. We decided the easiest way to do this was to modify the existing Rails migration to allow for a new data migration. So we did.</p>
+
+<h3>Install Plugin</h3>
+
+<pre><code class="language-ruby"> 
+  script/plugin install git://github.com/handerson/data_migration.git
+</code></pre>
+
+<h3>Generate Migration</h3>
+
+<pre><code class="language-ruby"> 
+  script/generate data_migration BlockedDomains 
+</code></pre>
+
+<pre><code class="language-ruby">
+  exists  db/data
+  create  db/data/20090915161242_settings.rb[/sourcecode]
+</code></pre>
+
+<p>db/data/20090915161242_settings.rb:</p>
+
+<pre><code class="language-ruby">
+  class BlockedDomains &lt; ActiveRecord::Migration
+    def self.up
+    end
+  end
+</code></pre>
+
+<p>Add your data:</p>
+
+<pre><code class="language-ruby">
+  def self.up
+    BlockedEmailDomain.create(:domain => "mailinator.com")
+    BlockedEmailDomain.create(:domain => "spamherelots.com")
+    BlockedEmailDomain.create(:domain => "disposeamail.com")
+  end
+</code></pre>
+
+<h3>Run Migration</h3>
+
+<pre><code class="language-ruby">
+  rake db:data:migrate
+</code></pre>
+
+<pre><code class="language-ruby"> 
+  ==  BlockedDomains: migrating ===========================================================
+  ==  BlockedDomains: migrated (0.0020s) ==================================================
+</code></pre>
+
+<p>db:data:migrate adds the data migration version number to the 'schema_migrations' table so it will not be ran again.</p>
+
+<p>Code at Github:<br/>
+<a href="http://github.com/handerson/data_migration">http://github.com/handerson/data_migration</a></p>
