@@ -72,16 +72,14 @@ h3 {
 .pure-menu-heading{
   font-family: 'inconsolatamedium';
   color:#fff;
-  text-shadow: 1px 1px 1px #000,-1px 0px 0 #00BAE8;
+  text-shadow: 1px 1px 1px #000;
   text-transform: none;
   box-shadow: 1px 1px 1px black, 5px 5px #00BAE8, 2px 1px 5px black;
-  // box-shadow: 10px 10px 5px lightblue inset;
 }
 
 .pure-menu-heading .subhead {
   color: #eee;
   border-bottom: 1px groove #00BAE8;
-  // box-shadow: 0px 1px 0px #000, 0px 1px 0px #a30000;
   padding: 0.4em 0;
   font-size: 80%;
   font-weight: 500;
@@ -175,12 +173,17 @@ img.shadow {
   text-shadow: 0 1px 1px #333;
 }
 
+footer{
+  background-color: #BDEDF9;
+  box-shadow: 0 2px 5px black inset;
+}
+
 .footer {
   padding: 1em 0;
   font-size: 80%;
 }
 .footer a {
-  color: #ccc;
+  color: black;
   padding: 0 1em;
 }
 .footer .pure-menu a:hover,
@@ -269,9 +272,19 @@ blockquote.twitter-tweet {
   padding: 0 16px 16px 16px;
   max-width: 468px;
 }
+
+.pure-button{
+  border-radius: 5px;
+}
 .pure-button-primary, .pure-button-selected, a.pure-button-primary, a.pure-button-selected {
   background-color: #4a5c65;
   color:#fff
+}
+
+.pure-button-outline, .pure-button-selected, a.pure-button-outline, a.pure-button-selected {
+  border: 0.1em solid #4a5c65;
+  background: none;
+  color:#4a5c65
 }
 .pure-menu a{
   text-decoration: none;
