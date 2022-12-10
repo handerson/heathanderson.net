@@ -5,14 +5,14 @@
     <% pos = posts.indexOf(path); %>
     <% if(posts[0] != path) { %>
         <% pos = posts.indexOf(path); %>
-        <a class="pure-button pure-button-primary" href="/<%=posts[pos-1]%>">Prev</a>
+        <a class="pure-button pure-button-primary" href="/<%=posts[pos-1]%>">Newer</a>
     <% } else { %>
-        <span class="pure-button pure-button-disabled">Prev</span>
+        <span class="pure-button pure-button-disabled">Newer</span>
     <% } %>
 	
 	<% if(posts[posts.length-1] != path){ %>
-        <a class="pure-button pure-button-primary" href="/<%=posts[pos+1]%>">Next</a>
+        <a class="pure-button pure-button-primary" href="/<%=posts[pos+1]%>">Older</a>
 	<% } else { %>
-        <span class="pure-button pure-button-disabled">Next</span>
+        <span class="pure-button pure-button-disabled">Older</span>
 	<% } %>
 </div>

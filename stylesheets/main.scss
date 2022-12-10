@@ -129,9 +129,26 @@ h3 {
 .post {
   padding-bottom: 2em;
 }
+.post .post-columns .post-content{
+  padding: 0 1em;
+  text-align: center;
+}
+.post .post-columns img{
+  max-width: 100%;
+  margin: 1em auto 0;
+  float: none;
+}
+
+.post .post-columns .caption{
+  text-align: center;
+  display: block;
+  clear: both;
+  padding: 0 1em 1em;
+}
+
 .post p img {
   float: left;
-  margin: 0.5em 1em 1em 0;
+  margin: 1em;
   padding: 0;
   max-width: 300px;
 }
@@ -316,4 +333,19 @@ i.icon-hihi:before{
 
   margin-top:-0.3em;
   margin-left:-0.5em;
+}
+
+.caption{
+  display: block;
+  clear: both;
+  padding: 0.4em 0;
+  font-size: 80%;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: none;
+}
+
+.center{
+
+  text-align: center;
 }
