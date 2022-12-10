@@ -5,7 +5,67 @@
 <link rel="alternate" type="text/html" href="https://www.heathanderson.net/" />
 <link rel="self" type="application/atom+xml" href="https://www.heathanderson.net/rss.xml" />
 <id>tag:heathanderson.net,2022-12-09:223457</id>
-<updated>Sat, 10 Dec 2022 00:11:18 GMT</updated>
+<updated>Sat, 10 Dec 2022 02:58:14 GMT</updated>
+
+
+<entry>
+<title>Website Redesign</title>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2022/website-updated" />
+<id>https://www.heathanderson.net/2022/website-updated</id>
+<published>Fri, 09 Dec 2022 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>This redesign was more about using a consistent set of technologies between the sites I maintain than anything else. Here's a list of projects and technologies that are being used in some way for this site:
+<ul>
+<li><a href="http://www.w3.org/html/logo/">HTML5</a></li>
+<li><a href="http://www.w3.org/TR/CSS/">CSS3</a></li>
+<li><a href="http://www.w3.org/2005/Atom">Atom</a></li>
+<li><a href="http://html5boilerplate.com/">HTML5 Boilerplate</a></li>
+<li><a href="https://purecss.io/">Pure.css</a></li>
+<li><a href="https://fontawesome.com/">Font Awesome</a></li>
+<li><a href="https://gitlab.com/idotj/mastodon-embed-feed-timeline">Mastodon timeline feed</a></li>
+<li><a href="https://github.com/handerson/harp-blog-example">handerson/harp-blog-example</a></li>
+<li>Hosted by <a href="https://www.digitalocean.com/">Digital Ocean</a></li>
+</ul>
+</p>
+<div class="pure-g post-columns">
+<div class="pure-u-md-1-2">
+<div class="post-content">
+<img src="/images/posts/old-site.jpg" alt="Screen capture showing the header of the original site" class="shadow" />
+<span class="caption">The first redesign in 2011.</span></div>
+</div>
+<div class="pure-u-md-1-2">
+<div class="post-content">
+<img src="/images/posts/site-design.png" alt="Screen capture showing the header of the previous design" class="shadow" />
+<span class="caption">The November 2012 redesign.</span></div>
+</div>
+<div class="pure-u-md-1 ">
+<div class="post-content">
+<img src="/images/posts/new-design-2022.png" alt="Screen capture showing this site's new design" class="shadow" />
+<span class="caption">December 2022 redesign. I guess 10 years is a long time, huh.</span></div>
+</div>
+</div>]]></content>
+</entry>
+
+
+<entry>
+<title>Creating A Simple Blog with Harp</title>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2022/simple-blog-with-harp" />
+<id>https://www.heathanderson.net/2022/simple-blog-with-harp</id>
+<published>Thu, 08 Dec 2022 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<blockquote>Harp serves Jade, Markdown, EJS, CoffeeScript, Sass, LESS and Stylus as HTML, CSS & JavaScript—no configuration necessary. <a href="https://harpjs.com/">- harpjs.com</a></blockquote>
+
+<p><img src="/images/posts/harp-blog-header.png" alt="Screen capture showing the header of the example blog" class="shadow" /> <a href="https://harpjs.com/">Harp</a> is a straight-forward and easy to use static site generator and server. It isn&#39;t updated very often, but it still gets the job done very well for simple sites. I recently decided to use it for some simple brochure-type sites I maintain to replace compass. When it came time to update this site, I decided to replace jekyll with harp to keep maintenance simple. The lack of any built-in blogging functionality became a minor pain point. So I made a simple test project:  <a href="https://github.com/handerson/harp-blog-example">handerson/harp-blog-example</a> with basic pagination, rss feed, and syntax highlighting. You can see a demo here: <a href="https://handerson.github.io/harp-blog-example/">https://handerson.github.io/harp-blog-example/</a>.</p>
+<p><img src="/images/posts/harp-blog-footer.png" alt="Screen capture showing the footer of the example blog" class="shadow right"> The pagination is very simple. The site index shows the 3 newest posts with prev/next buttons at the bottom of the page. Beyond that there isn&#39;t so much pagination as there are previous and next buttons at the bottom of each blog post. It works for what I need, but may not be enough for all use cases. The posts/index page shows a list of all posts.</p>
+<p>There is <a href="https://prismjs.com/">prism</a> for syntax highlighting, and <a href="https://picocss.com">pico.css</a> for styling. </p>
+]]></content>
+</entry>
 
 
 <entry>
