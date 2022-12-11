@@ -1,5 +1,8 @@
 {
     "rss.xml": {
         "layout": false
+    },
+    "sitemap.xml": {
+        "layout": false
     }
 }
