@@ -7,11 +7,7 @@
   font-family: "inconsolatamedium";
   src: url(/fonts/inconsolata-webfont.eot) format('embedded-opentype'), url(/fonts/inconsolata-webfont.woff) format('woff'), url(/fonts/inconsolata-webfont.ttf) format('truetype'), url(/fonts/inconsolata-webfont.svg) format('svg')
 }
-* {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
+
 body{
   font-size: 1.2em;
 }
@@ -25,10 +21,6 @@ a:focus {
   text-decoration: underline;
 }
 
-// .pure-menu-heading,
-// .pure-menu-link {
-//  padding:.5em 1em
-// }
 a.pure-menu-heading:hover,
 a.pure-menu-heading:focus {
   margin: 0.1em 0 0 0.1em;
@@ -427,7 +419,7 @@ i.icon-hihi:before{
       transition: all 0.1s ease;
       filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, .8));
     }
-    .icon svg path{
-      // fill:#000;
+    .mt-container, .posts-container, .photostream-container {
+      width: fit-content;
     }
 }
