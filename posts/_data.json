@@ -10,16 +10,19 @@
       "description": "A Simple Blog with basic pagination, rss feed, and syntax highlighting."
     },
     "2013/05/18/vigil-app": {
-      "title": "Vigil App",
-      "date": "2013-05-18"
+      "title": "Vigil App Review",
+      "date": "2013-05-18",
+      "description": "Vigil is an easy-to-use, inexpensive website monitoring app for iOS."
     },
     "2012/12/01/hidden-radio-bluetooth-speaker": {
       "title": "Hidden Radio Bluetooth Speaker",
-      "date": "2012-12-01"
+      "date": "2012-12-01",
+      "description": "Looks nice, but isn't work the price."
     },
     "2012/12/01/do-i-really-need-an-iphone-dock": {
       "title": "Do I Really Need An iPhone Dock?",
-      "date": "2012-12-01"
+      "date": "2012-12-01",
+      "description": "Maybe, but probably not."
     },
     "2012/11/24/the-elevation-dock-lightning-adapter": {
       "title": "The Elevation Dock Lightning Adapter",

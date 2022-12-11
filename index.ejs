@@ -12,7 +12,7 @@
   <div class="pure-u-lg-1-3 pure-u-md-1-2">
     <div class="posts-container">
       <% var count = 0; %>
-      <% var limit = 10; %>
+      <% var limit = 6; %>
       <h2 class="content-subhead">Most Recent Blog Posts</h2>
       <% for(var slug in public.posts._data){ %>
         <div class="post">
@@ -20,6 +20,9 @@
 
           <div class="post-meta">
             <%-partial("_includes/date", {"date": public.posts._data[slug].date})%>
+          </div>
+          <div class="post-description">
+            <%= public.posts._data[slug].description %>
           </div>
         </div>
         <% count++ %>

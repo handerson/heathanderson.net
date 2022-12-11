@@ -190,10 +190,14 @@ img.shadow {
   float: right;
   margin-left: 1em;
 }
-.post-description {
+.post-description, .toot-text{
   font-family: Georgia, "Cambria", serif;
   color: #444;
-  line-height: 1.8em;
+  line-height: 1.6em;
+}
+.posts-container .post-description {
+  font-size: 90%;
+  line-height: 1.3em;
 }
 .post-meta {
   color: #999;
