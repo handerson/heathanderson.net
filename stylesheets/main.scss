@@ -233,20 +233,14 @@ footer{
   background: none;
 }
 
-@media (min-width: 48em) {
-  .content {
-      padding: 2em 5em 0;
-      margin: 0 4em;
-  }
-
-  .header {
-      text-align: right;
-  }
-
-  .footer {
-      text-align: center;
-  }
+.header {
+    text-align: right;
 }
+
+.footer {
+    text-align: center;
+}
+
 img.badge {
   width: 50%;
 }
@@ -427,3 +421,13 @@ i.icon-hihi:before{
   padding:.5em 1.5em;
   box-sizing:border-box
  }
+
+ @media (max-width: 48em) {
+    .icon svg {
+      transition: all 0.1s ease;
+      filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, .8));
+    }
+    .icon svg path{
+      // fill:#000;
+    }
+}
