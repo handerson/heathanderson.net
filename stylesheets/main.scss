@@ -24,6 +24,26 @@ a:hover,
 a:focus {
   text-decoration: underline;
 }
+
+// .pure-menu-heading,
+// .pure-menu-link {
+//  padding:.5em 1em
+// }
+a.pure-menu-heading:hover,
+a.pure-menu-heading:focus {
+  margin: 0.1em 0 0 0.1em;
+  padding: 0.8em 1em 0.1em;
+  text-transform: none;
+  box-shadow: 0 0 0 black, 0 0 0 black inset;
+}
+
+a.pure-menu-heading:hover .subhead,
+a.pure-menu-heading:focus .subhead{
+
+  border-bottom: 1px solid rgba(0 0 0 / 0);
+  padding: 0.4em 0;
+}
+
 a.pure-menu-heading:hover,
 a.pure-menu-heading:focus,
 a.pure-menu-heading:hover .subhead,
@@ -34,8 +54,8 @@ a.pure-menu-heading:focus .subhead{
 }
 
 .icon a:hover svg , .icon a:focus svg {
-  margin-top: 1px;
-  filter: drop-shadow(1px 1px 1px rgb(255 255 255 / 0.2));
+  margin-top: 0.1em;
+  filter: drop-shadow(-1px -1px 0 rgba(0 0 0 / 0.8));
 }
 
 h1, h2, h3, h4, h5 {
@@ -70,11 +90,12 @@ h3 {
 }
 
 .pure-menu-heading{
+  transition: all 0.2s ease;
   font-family: 'inconsolatamedium';
   color:#fff;
   text-shadow: 1px 1px 1px #000;
   text-transform: none;
-  box-shadow: 1px 1px 1px black, 5px 5px #00BAE8, 2px 1px 5px black;
+  box-shadow: 1px 1px 1px black, 3px 3px #00BAE8, 2px 1px 3px black;
 }
 
 .pure-menu-heading .subhead {
@@ -191,7 +212,7 @@ img.shadow {
 }
 
 footer{
-  background-color: #BDEDF9;
+  background-color: rgba(0, 186, 232, .5);
   box-shadow: 0 2px 5px black inset;
 }
 
@@ -232,7 +253,8 @@ img.badge {
   margin: 0 0.5em;
 }
 .icon svg {
-  filter: drop-shadow(1px 2px 2px rgb(255 255 255 / 0.2));
+  transition: all 0.1s ease;
+  filter: drop-shadow(2px 2px 0 rgba(0, 186, 232, .8));
 }
 .icon svg path{
   fill:#fff;
@@ -349,3 +371,55 @@ i.icon-hihi:before{
 
   text-align: center;
 }
+.user-profile {
+  -ms-flex:2;
+  flex:2;
+  -ms-flex-preferred-size:500px;
+  flex-basis:500px;
+ }
+ .user-profile p{
+  text-align: center;
+ }
+ .user-profile .user-profile-fields {
+  margin:1em 0em;
+  padding: 1em 0em;
+  border-top: 1px solid var(--border,#2a3439);
+  border-bottom: 1px solid var(--border,#2a3439);
+ }
+ .user-profile .user-profile-fields .subhead{
+  color: #2a3439;
+  border-bottom: none;
+  padding: 0.4em 0;
+  font-size: 70%;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  
+  text-transform: none;
+ }
+ .user-profile .user-profile-fields .user-profile-field {
+  display:-ms-flexbox;
+  display:flex;
+  margin:0;
+ }
+ .user-profile .user-profile-fields .user-profile-field .user-profile-field-name {
+  -ms-flex:0 1 30%;
+  flex:0 1 30%;
+  font-weight:500;
+  text-align:right;
+  min-width:120px;
+  border-right:1px solid var(--border,#2a3439)
+ }
+ .user-profile .user-profile-fields .user-profile-field .user-profile-field-value {
+  -ms-flex:1 1 70%;
+  flex:1 1 70%;
+  margin:0 0 0 .25em
+ }
+ .user-profile .user-profile-fields .user-profile-field .user-profile-field-name,
+ .user-profile .user-profile-fields .user-profile-field .user-profile-field-value {
+  line-height:18px;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+  overflow:hidden;
+  padding:.5em 1.5em;
+  box-sizing:border-box
+ }
