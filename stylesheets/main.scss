@@ -419,7 +419,8 @@ i.icon-hihi:before{
       transition: all 0.1s ease;
       filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, .8));
     }
-    .mt-container, .posts-container, .photostream-container {
-      width: fit-content;
+    .home-menu ul {
+      width: 100%;
+      text-align: right;
     }
 }
