@@ -5,7 +5,33 @@
 <link rel="alternate" type="text/html" href="https://www.heathanderson.net/" />
 <link rel="self" type="application/atom+xml" href="https://www.heathanderson.net/rss.xml" />
 <id>tag:heathanderson.net,2022-12-09:223457</id>
-<updated>Tue, 13 Dec 2022 18:01:48 GMT</updated>
+<updated>Wed, 14 Dec 2022 02:11:28 GMT</updated>
+
+
+<entry>
+<title>Updating Static Assets for Your Pleroma Instance</title>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2022/updating-pleroma-static-assets" />
+<id>https://www.heathanderson.net/2022/updating-pleroma-static-assets</id>
+<published>Tue, 13 Dec 2022 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p>What files can you override? As far as I know anything in the <a href="https://git.pleroma.social/pleroma/pleroma/-/tree/develop/priv/static">develop/priv/static/</a> directly can be overwritten by placing a file with the same name in the <code>/var/lib/pleroma/static/</code> directory on your server. So if you need to change your favicon, terms of service, or robots.txt that&#39;s where you&#39;ll need place your updated files.</p>
+<p>Notable files you may want to replace:</p>
+<ul>
+<li><a href="https://git.pleroma.social/pleroma/pleroma/-/blob/develop/priv/static/instance/panel.html">static/instance/panel.html</a></li>
+<li><a href="https://git.pleroma.social/pleroma/pleroma/-/blob/develop/priv/static/favicon.png">static/favicon.png</a></li>
+<li><a href="https://git.pleroma.social/pleroma/pleroma/-/blob/develop/priv/static/robots.txt">static/robots.txt</a></li>
+<li><a href="https://git.pleroma.social/pleroma/pleroma/-/blob/develop/priv/static/static/terms-of-service.html">static/static/terms-of-service.html</a></li>
+<li><a href="https://git.pleroma.social/pleroma/pleroma/-/blob/develop/priv/static/index.html">static/index.html</a> (be careful with this one)</li>
+</ul>
+<h2>index.html notes</h2><p>File to create: </p>
+<p><code>/var/lib/pleroma/static/index.html</code></p>
+<p>If you need to embed something like Google Analytics or <a href="https://umami.is/">umami</a> analytics you can copy the existing <a href="https://git.pleroma.social/pleroma/pleroma/-/blob/develop/priv/static/index.html">static/index.html</a> and add whatever script or html you want. It is very possible you&#39;ll need to redo this whenever you update Pleroma. </p>
+<p>If you are adding resource from another domain you may need to either set up a proxy or change the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">content security policy</a> for your server. Pleroma will set a content security policy that will block loading from other domains if <a href="https://docs.pleroma.social/backend/configuration/hardening/#http_security">http security</a> is set to true. </p>
+]]></content>
+</entry>
 
 
 <entry>

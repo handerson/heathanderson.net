@@ -51,7 +51,7 @@ MastodonApi.prototype.getToots = function () {
 	let mapi = this;
 
 	// Get request
-	fetch(this.INSTANCE_URI + '/api/v1/accounts/' + this.USER_ID + '/statuses?limit=' + this.TOOTS_LIMIT, {
+	fetch(this.INSTANCE_URI + '/api/v1/accounts/' + this.USER_ID + '/statuses?exclude_reblogs=' + this.HIDE_REBLOG + '&limit=' + this.TOOTS_LIMIT, {
 		method: 'get',
 	})
 		.then(response => response.json())

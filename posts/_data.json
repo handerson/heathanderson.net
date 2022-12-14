@@ -1,111 +1,116 @@
 {
-    "2022/website-updated": {
-      "title": "Website Redesign",
-      "date": "2022-12-09",
-      "description": "This redesign was more about using a consistent set of technologies between the sites I maintain than anything else."
-    },
-    "2022/simple-blog-with-harp": {
-      "title": "Creating A Simple Blog with Harp",
-      "date": "2022-12-08",
-      "description": "A Simple Blog with basic pagination, rss feed, and syntax highlighting."
-    },
-    "2013/05/18/vigil-app": {
-      "title": "Vigil App Review",
-      "date": "2013-05-18",
-      "description": "Vigil is an easy-to-use, inexpensive website monitoring app for iOS."
-    },
-    "2012/12/01/hidden-radio-bluetooth-speaker": {
-      "title": "Hidden Radio Bluetooth Speaker",
-      "date": "2012-12-01",
-      "description": "Looks nice, but isn't work the price."
-    },
-    "2012/12/01/do-i-really-need-an-iphone-dock": {
-      "title": "Do I Really Need An iPhone Dock?",
-      "date": "2012-12-01",
-      "description": "Maybe, but probably not."
-    },
-    "2012/11/24/the-elevation-dock-lightning-adapter": {
-      "title": "The Elevation Dock Lightning Adapter",
-      "date": "2012-11-25"
-    },
-    "2012/11/24/a-new-look": {
-      "title": "A New Look",
-      "date": "2012-11-25"
-    },
-    "2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app": {
-      "title": "Adding a Splash Screen For An Android PhoneGap App",
-      "date": "2012-03-08"
-    },
-    "2011/09/26/my-favorite-mac-os-x-apps-for-web-development": {
-      "title": "My Favorite Mac OS X Apps For Web Development",
-      "date": "2011-09-26"
-    },
-    "2011/09/26/candy-japan": {
-      "title": "Candy Japan",
-      "date": "2011-09-12"
-    },
-    "2011/08/27/s-jquery-plugins": {
-      "title": "Some Simple jQuery Plugins",
-      "date": "2011-08-27"
-    },
-    "2011/08/27/roku-2": {
-      "title": "Roku 2",
-      "date": "2011-08-27"
-    },
-    "2011/08/22/minimalist-business-card": {
-      "title": "Minimalist Business Card",
-      "date": "2011-08-22"
-    },
-    "2011/08/21/bastion": {
-      "title": "Bastion",
-      "date": "2011-08-21"
-    },
-    "2011/08/14/1-automating-new-post-creation-in-jekyll": {
-      "title": "Automating New Post Creation in Jekyll",
-      "date": "2011-08-14"
-    },
-    "2011/08/14/0-deploying-jekyll": {
-      "title": "Deploying a Jekyll Site to Amazon S3",
-      "date": "2011-08-14"
-    },
-    "2011/08/13/why-amazon-s3": {
-      "title": "Why Amazon S3?",
-      "date": "2011-08-13"
-    },
-    "2011/08/13/using-amazon-s3-for-hosting": {
-      "title": "Using Amazon S3 for Hosting",
-      "date": "2011-08-13"
-    },
-    "2011/08/06/adding-search": {
-      "title": "Simple Search",
-      "date": "2011-08-06"
-    },
-    "2011/08/05/another-blog-redesign": {
-      "title": "Another Blog Redesign",
-      "date": "2011-08-05"
-    },
-    "2011/08/01/using-will_paginate-with-sql-server": {
-      "title": "Using will_paginate and activerecord-sqlserver-adapter with SQL Server",
-      "date": "2011-08-01"
-    },
-    "2010/09/06/welcome-to-the-new-blog": {
-      "title": "Welcome to the new blog",
-      "date": "2010-09-06"
-    },
-    "2009/11/23/ruby-on-rails-plugin-string_encryption": {
-      "title": "Ruby on Rails Plugin: string_encryption",
-      "date": "2009-11-23"
-    },
-    "2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby": {
-      "title": "Initialization Vector Length in MRI Ruby versus JRuby",
-      "date": "2009-09-27"
-    },
-    "2009/09/25/ruby-string-encryption": {
-      "title": "Ruby String Encryption",
-      "date": "2009-09-25"
-    },
-    "2009/09/22/ruby-on-rails-plugin-data_migration": {
-      "title": "Ruby on Rails Plugin: data_migration",
-      "date": "2009-09-22"
-    }
+  "2022/updating-pleroma-static-assets": {
+    "title": "Updating Static Assets for Your Pleroma Instance",
+    "date": "2022-12-13",
+    "description": "How to change the favicon, terms of service, or robots.txt for a self-hosted Pleroma instance."
+  },
+  "2022/website-updated": {
+    "title": "Website Redesign",
+    "date": "2022-12-09",
+    "description": "This redesign was more about using a consistent set of technologies between the sites I maintain than anything else."
+  },
+  "2022/simple-blog-with-harp": {
+    "title": "Creating A Simple Blog with Harp",
+    "date": "2022-12-08",
+    "description": "A Simple Blog with basic pagination, rss feed, and syntax highlighting."
+  },
+  "2013/05/18/vigil-app": {
+    "title": "Vigil App Review",
+    "date": "2013-05-18",
+    "description": "Vigil is an easy-to-use, inexpensive website monitoring app for iOS."
+  },
+  "2012/12/01/hidden-radio-bluetooth-speaker": {
+    "title": "Hidden Radio Bluetooth Speaker",
+    "date": "2012-12-01",
+    "description": "Looks nice, but isn't work the price."
+  },
+  "2012/12/01/do-i-really-need-an-iphone-dock": {
+    "title": "Do I Really Need An iPhone Dock?",
+    "date": "2012-12-01",
+    "description": "Maybe, but probably not."
+  },
+  "2012/11/24/the-elevation-dock-lightning-adapter": {
+    "title": "The Elevation Dock Lightning Adapter",
+    "date": "2012-11-25"
+  },
+  "2012/11/24/a-new-look": {
+    "title": "A New Look",
+    "date": "2012-11-25"
+  },
+  "2012/03/08/adding-a-splash-screen-for-an-android-phonegap-app": {
+    "title": "Adding a Splash Screen For An Android PhoneGap App",
+    "date": "2012-03-08"
+  },
+  "2011/09/26/my-favorite-mac-os-x-apps-for-web-development": {
+    "title": "My Favorite Mac OS X Apps For Web Development",
+    "date": "2011-09-26"
+  },
+  "2011/09/26/candy-japan": {
+    "title": "Candy Japan",
+    "date": "2011-09-12"
+  },
+  "2011/08/27/s-jquery-plugins": {
+    "title": "Some Simple jQuery Plugins",
+    "date": "2011-08-27"
+  },
+  "2011/08/27/roku-2": {
+    "title": "Roku 2",
+    "date": "2011-08-27"
+  },
+  "2011/08/22/minimalist-business-card": {
+    "title": "Minimalist Business Card",
+    "date": "2011-08-22"
+  },
+  "2011/08/21/bastion": {
+    "title": "Bastion",
+    "date": "2011-08-21"
+  },
+  "2011/08/14/1-automating-new-post-creation-in-jekyll": {
+    "title": "Automating New Post Creation in Jekyll",
+    "date": "2011-08-14"
+  },
+  "2011/08/14/0-deploying-jekyll": {
+    "title": "Deploying a Jekyll Site to Amazon S3",
+    "date": "2011-08-14"
+  },
+  "2011/08/13/why-amazon-s3": {
+    "title": "Why Amazon S3?",
+    "date": "2011-08-13"
+  },
+  "2011/08/13/using-amazon-s3-for-hosting": {
+    "title": "Using Amazon S3 for Hosting",
+    "date": "2011-08-13"
+  },
+  "2011/08/06/adding-search": {
+    "title": "Simple Search",
+    "date": "2011-08-06"
+  },
+  "2011/08/05/another-blog-redesign": {
+    "title": "Another Blog Redesign",
+    "date": "2011-08-05"
+  },
+  "2011/08/01/using-will_paginate-with-sql-server": {
+    "title": "Using will_paginate and activerecord-sqlserver-adapter with SQL Server",
+    "date": "2011-08-01"
+  },
+  "2010/09/06/welcome-to-the-new-blog": {
+    "title": "Welcome to the new blog",
+    "date": "2010-09-06"
+  },
+  "2009/11/23/ruby-on-rails-plugin-string_encryption": {
+    "title": "Ruby on Rails Plugin: string_encryption",
+    "date": "2009-11-23"
+  },
+  "2009/09/27/initialization-vector-length-in-mri-ruby-versus-jruby": {
+    "title": "Initialization Vector Length in MRI Ruby versus JRuby",
+    "date": "2009-09-27"
+  },
+  "2009/09/25/ruby-string-encryption": {
+    "title": "Ruby String Encryption",
+    "date": "2009-09-25"
+  },
+  "2009/09/22/ruby-on-rails-plugin-data_migration": {
+    "title": "Ruby on Rails Plugin: data_migration",
+    "date": "2009-09-22"
   }
+}
