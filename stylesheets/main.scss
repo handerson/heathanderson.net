@@ -416,12 +416,7 @@ i.icon-hihi:before{
  }
 
  @media (max-width: 48em) {
-    .icon svg {
-      transition: all 0.1s ease;
-      filter: drop-shadow(1px 1px 1px rgba(0, 0, 0, .8));
-    }
-    .home-menu ul {
-      width: 100%;
-      text-align: right;
+  .home-menu.pure-menu-horizontal .pure-menu-list {
+      display: none;
     }
 }
