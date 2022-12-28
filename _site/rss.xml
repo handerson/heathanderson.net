@@ -5,7 +5,46 @@
 <link rel="alternate" type="text/html" href="https://www.heathanderson.net/" />
 <link rel="self" type="application/atom+xml" href="https://www.heathanderson.net/rss.xml" />
 <id>tag:heathanderson.net,2022-12-09:223457</id>
-<updated>Mon, 19 Dec 2022 22:01:46 GMT</updated>
+<updated>Wed, 28 Dec 2022 01:45:59 GMT</updated>
+
+
+<entry>
+<title>phpYoutubeDLWebUI</title>
+<link rel="alternate" type="text/html" href="https://www.heathanderson.net/2022/phpYoutubeDLWebUI" />
+<id>https://www.heathanderson.net/2022/phpYoutubeDLWebUI</id>
+<published>Tue, 27 Dec 2022 00:00:00 GMT</published>
+<author>
+<name>Heath Anderson</name>
+<uri>https://www.heathanderson.net/</uri>
+</author>
+<content type="html" xml:lang="en" xml:base="https://www.heathanderson.net/"><![CDATA[<p><a href="https://github.com/handerson/phpYoutubeDLWebUI">phpYoutubeDLWebUI</a>, a fork of <a href="https://github.com/martinloren/Youtube-dl-WebUI-QNAP">Youtube-dl-WebUI-QNAP</a>, is a small web interface for youtube-dl. It is designed to be used on a QNAP NAS, but should work anywhere <a href="https://github.com/rg3/youtube-dl">youtube-dl</a>, <a href="https://ffmpeg.org/">FFmpeg</a>, and <a href="https://www.php.net/">PHP</a> can run; however, I would cation against running it outside of your local network. You can download or fork from <a href="https://github.com/handerson/phpYoutubeDLWebUI">GitHub</a>.</p>
+<img src="/images/posts/darkcompare.png" alt="screen capture of the web app running" class="shadow center" /> 
+
+<h2>Features</h2><ul>
+<li>Options can be set in the web ui:<ul>
+<li>download folder location</li>
+<li>progress log folder location</li>
+<li>require authenication / set password</li>
+<li>youtube-dl options:<ul>
+<li><code>--format</code></li>
+<li><code>--output</code></li>
+<li><code>--proxy</code></li>
+<li><code>--merge-output-format</code></li>
+<li><code>--ffmpeg-location</code></li>
+<li><code>--add-metadata</code></li>
+<li><code>--write-info-json</code></li>
+<li><code>--write-thumbnail</code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Download runs in background</li>
+<li>Videos can be deleted</li>
+<li>Videos can be downloaded from the server</li>
+<li>Dark mode based on <code>prefers-color-scheme</code> media query</li>
+</ul>
+]]></content>
+</entry>
 
 
 <entry>

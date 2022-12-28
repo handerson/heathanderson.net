@@ -7,9 +7,9 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<meta property="og:title" content="Updating Static Assets for Your Pleroma Instance">
-<title>Updating Static Assets for Your Pleroma Instance</title>
-<meta property="og:description" content="How to change the favicon, terms of service, or robots.txt for a self-hosted Pleroma instance.">
+<meta property="og:title" content="phpYoutubeDLWebUI">
+<title>phpYoutubeDLWebUI</title>
+<meta property="og:description" content="A small web interface for youtube-dl">
 <meta property="og:type" content="article">
 
 <meta property="og:image" content="https://www.heathanderson.net/favicon.png">
@@ -47,25 +47,38 @@ My name is Heath Anderson.
 <div class="content pure-u-1">
 <section class="post">
 <header class="post-header">
-<h1 class="post-title" title="Updating Static Assets for Your Pleroma Instance">Updating Static Assets for Your Pleroma Instance</h1>
+<h1 class="post-title" title="phpYoutubeDLWebUI">phpYoutubeDLWebUI</h1>
 <p class="post-meta">
-<time datetime="2022-12-13">Tuesday, Dec 13, 2022</time>
+<time datetime="2022-12-27">Tuesday, Dec 27, 2022</time>
 </p>
 </header>
 <div class="post-description">
-<p>What files can you override? As far as I know anything in the <a href="https://git.pleroma.social/pleroma/pleroma/-/tree/develop/priv/static">develop/priv/static/</a> directly can be overwritten by placing a file with the same name in the <code>/var/lib/pleroma/static/</code> directory on your server. So if you need to change your favicon, terms of service, or robots.txt that&#39;s where you&#39;ll need place your updated files.</p>
-<p>Notable files you may want to replace:</p>
-<ul>
-<li><a href="https://git.pleroma.social/pleroma/pleroma/-/blob/develop/priv/static/instance/panel.html">static/instance/panel.html</a></li>
-<li><a href="https://git.pleroma.social/pleroma/pleroma/-/blob/develop/priv/static/favicon.png">static/favicon.png</a></li>
-<li><a href="https://git.pleroma.social/pleroma/pleroma/-/blob/develop/priv/static/robots.txt">static/robots.txt</a></li>
-<li><a href="https://git.pleroma.social/pleroma/pleroma/-/blob/develop/priv/static/static/terms-of-service.html">static/static/terms-of-service.html</a></li>
-<li><a href="https://git.pleroma.social/pleroma/pleroma/-/blob/develop/priv/static/index.html">static/index.html</a> (be careful with this one)</li>
+<p><a href="https://github.com/handerson/phpYoutubeDLWebUI">phpYoutubeDLWebUI</a>, a fork of <a href="https://github.com/martinloren/Youtube-dl-WebUI-QNAP">Youtube-dl-WebUI-QNAP</a>, is a small web interface for youtube-dl. It is designed to be used on a QNAP NAS, but should work anywhere <a href="https://github.com/rg3/youtube-dl">youtube-dl</a>, <a href="https://ffmpeg.org/">FFmpeg</a>, and <a href="https://www.php.net/">PHP</a> can run; however, I would cation against running it outside of your local network. You can download or fork from <a href="https://github.com/handerson/phpYoutubeDLWebUI">GitHub</a>.</p>
+<img src="/images/posts/darkcompare.png" alt="screen capture of the web app running" class="shadow center" /> 
+
+<h2>Features</h2><ul>
+<li>Options can be set in the web ui:<ul>
+<li>download folder location</li>
+<li>progress log folder location</li>
+<li>require authenication / set password</li>
+<li>youtube-dl options:<ul>
+<li><code>--format</code></li>
+<li><code>--output</code></li>
+<li><code>--proxy</code></li>
+<li><code>--merge-output-format</code></li>
+<li><code>--ffmpeg-location</code></li>
+<li><code>--add-metadata</code></li>
+<li><code>--write-info-json</code></li>
+<li><code>--write-thumbnail</code></li>
 </ul>
-<h2>index.html notes</h2><p>File to create: </p>
-<p><code>/var/lib/pleroma/static/index.html</code></p>
-<p>If you need to embed something like Google Analytics or <a href="https://umami.is/">umami</a> analytics you can copy the existing <a href="https://git.pleroma.social/pleroma/pleroma/-/blob/develop/priv/static/index.html">static/index.html</a> and add whatever script or html you want. It is very possible you&#39;ll need to redo this whenever you update Pleroma. </p>
-<p>If you are adding resource from another domain you may need to either set up a proxy or change the <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP">content security policy</a> for your server. Pleroma will set a content security policy that will block loading from other domains if <a href="https://docs.pleroma.social/backend/configuration/hardening/#http_security">http security</a> is set to true. </p>
+</li>
+</ul>
+</li>
+<li>Download runs in background</li>
+<li>Videos can be deleted</li>
+<li>Videos can be downloaded from the server</li>
+<li>Dark mode based on <code>prefers-color-scheme</code> media query</li>
+</ul>
 
 </div>
 </section>
@@ -77,11 +90,10 @@ My name is Heath Anderson.
 <div class="pagination">
 
 
+<span class="pure-button pure-button-disabled">Newer</span>
 
-<a class="pure-button pure-button-primary" href="/2022/phpYoutubeDLWebUI">Newer</a>
 
-
-<a class="pure-button pure-button-primary" href="/2022/website-updated">Older</a>
+<a class="pure-button pure-button-primary" href="/2022/updating-pleroma-static-assets">Older</a>
 
 </div>
 <footer>
